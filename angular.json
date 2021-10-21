@@ -1,27 +1,36 @@
 {
   "version": 1,
   "projects": {
-    "landing-page": {
+    "portfolio": {
       "projectType": "application",
-      "root": "apps/landing-page",
-      "sourceRoot": "apps/landing-page/src",
-      "prefix": "landing-page",
+      "root": "apps/portfolio",
+      "sourceRoot": "apps/portfolio/src",
+      "prefix": "portfolio",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/landing-page",
-            "index": "apps/landing-page/src/index.html",
-            "main": "apps/landing-page/src/main.ts",
-            "polyfills": "apps/landing-page/src/polyfills.ts",
-            "tsConfig": "apps/landing-page/tsconfig.app.json",
+            "outputPath": "dist/apps/portfolio",
+            "index": "apps/portfolio/src/index.html",
+            "main": "apps/portfolio/src/main.ts",
+            "polyfills": "apps/portfolio/src/polyfills.ts",
+            "tsConfig": "apps/portfolio/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/landing-page/src/favicon.ico",
-              "apps/landing-page/src/assets"
+              "apps/portfolio/src/favicon.ico",
+              "apps/portfolio/src/assets"
             ],
-            "styles": ["apps/landing-page/src/styles.scss"],
+            "styles": [
+              "apps/portfolio/src/styles.scss",
+              {
+                "bundleName": "bootstrap-dark",
+                "input": "apps/portfolio/themes/bootstrap-dark.scss",
+                "inject": false
+              },
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -40,8 +49,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/landing-page/src/environments/environment.ts",
-                  "with": "apps/landing-page/src/environments/environment.prod.ts"
+                  "replace": "apps/portfolio/src/environments/environment.ts",
+                  "with": "apps/portfolio/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -61,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "landing-page:build:production"
+              "browserTarget": "portfolio:build:production"
             },
             "development": {
-              "browserTarget": "landing-page:build:development"
+              "browserTarget": "portfolio:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,23 +81,23 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "landing-page:build"
+            "browserTarget": "portfolio:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/landing-page/src/**/*.ts",
-              "apps/landing-page/src/**/*.html"
+              "apps/portfolio/src/**/*.ts",
+              "apps/portfolio/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/landing-page"],
+          "outputs": ["coverage/apps/portfolio"],
           "options": {
-            "jestConfig": "apps/landing-page/jest.config.js",
+            "jestConfig": "apps/portfolio/jest.config.js",
             "passWithNoTests": true
           }
         }

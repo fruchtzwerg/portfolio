@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'landing-page',
+  displayName: 'portfolio',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/landing-page',
+  coverageDirectory: '../../coverage/apps/portfolio',
   transform: {
     '^.+\\.(ts|js|html)$': 'jest-preset-angular',
   },

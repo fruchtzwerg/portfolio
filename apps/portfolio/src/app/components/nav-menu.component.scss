@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  min-width: 8rem;
+}
+
+ol {
+  margin: 0;
+  padding: 1rem;
+  border-left: 0.25rem solid var(--bluegray-700);
+  background-color: var(--surface-b);
+
+  li {
+    list-style-type: none;
+    margin: 0.33rem 0;
+
+    a {
+      text-decoration: none;
+      transition: color 500ms, font-size 500ms;
+
+      $color-inactive: var(--text-color-secondary);
+
+      &:link {
+        color: $color-inactive;
+      }
+      &:visited {
+        color: $color-inactive;
+      }
+
+      &.active {
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: var(--text-color);
+      }
+    }
+  }
+}

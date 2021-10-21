@@ -1,5 +1,5 @@
 {
-  "npmScope": "landing-page",
+  "npmScope": "portfolio",
   "affected": {
     "defaultBase": "main"
   },
@@ -46,5 +46,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "landing-page"
+  "defaultProject": "portfolio"
 }

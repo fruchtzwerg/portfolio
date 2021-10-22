@@ -1,0 +1,33 @@
+:host {
+  display: grid;
+  grid-template-areas: 'avatar text';
+  grid-template-columns: auto 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 2rem;
+}
+
+img {
+  $size: 8rem;
+
+  width: $size;
+  height: $size;
+
+  border-radius: 50%;
+}
+
+.avatar {
+  grid-area: 'avatar';
+}
+
+.text {
+  grid-area: 'text';
+
+  .caption {
+    font-weight: 700;
+  }
+
+  .sudoku {
+    font-size: 0.75em;
+  }
+}

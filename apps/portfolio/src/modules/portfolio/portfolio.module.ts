@@ -7,4 +7,4 @@ import { PortfolioSection } from './portfolio.section';
   imports: [CommonModule],
   exports: [PortfolioSection],
 })
-export class ProjectsModule {}
+export class PortfolioModule {}

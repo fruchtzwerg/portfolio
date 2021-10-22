@@ -1,0 +1,12 @@
+<p-card *ngFor="let skill of skills" [style]="{ height: '100%' }">
+  <div class="content">
+    <!-- Icon -->
+    <svg-icon class="icon" [key]="skill.icon" x></svg-icon>
+
+    <!-- Title -->
+    <span class="title">{{ skill.title }}</span>
+
+    <!-- Text -->
+    <p class="description">{{ skill.description }}</p>
+  </div>
+</p-card>

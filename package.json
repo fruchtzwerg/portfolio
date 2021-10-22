@@ -9,6 +9,16 @@
     "build": "nx build",
     "test": "nx test"
   },
+  "svgGenerator": {
+    "outputPath": "libs/icons/src",
+    "prefix": "app",
+    "srcPath": "libs/icons/assets",
+    "svgoConfig": {
+      "plugins": [
+        "removeDimensions"
+      ]
+    }
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^12.2.0",
@@ -19,6 +29,7 @@
     "@angular/platform-browser": "^12.2.0",
     "@angular/platform-browser-dynamic": "^12.2.0",
     "@angular/router": "^12.2.0",
+    "@ngneat/svg-icon": "^3.2.0",
     "@nrwl/angular": "13.0.1",
     "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
@@ -34,6 +45,7 @@
     "@angular/cli": "~12.2.0",
     "@angular/compiler-cli": "^12.2.0",
     "@angular/language-service": "^12.2.0",
+    "@ngneat/svg-generator": "^3.2.1",
     "@nrwl/cli": "13.0.1",
     "@nrwl/cypress": "13.0.1",
     "@nrwl/eslint-plugin-nx": "13.0.1",

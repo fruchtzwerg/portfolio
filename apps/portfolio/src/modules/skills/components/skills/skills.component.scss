@@ -1,0 +1,35 @@
+:host {
+  display: grid;
+  grid-template-areas:
+    'icon title'
+    'icon description';
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.content {
+  display: grid;
+  grid-template-areas: 'icon title' 'icon description';
+  gap: 1rem 2rem;
+}
+
+.icon {
+  $size: 5rem;
+
+  grid-area: icon;
+  width: $size;
+  height: $size;
+}
+
+.title {
+  grid-area: title;
+  align-self: flex-end;
+  font-size: 1.25rem;
+}
+
+.description {
+  grid-area: description;
+  align-self: flex-start;
+  font-size: 0.75rem;
+  margin: 0;
+}

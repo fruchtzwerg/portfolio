@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
-import { SECTIONS } from './constants/sections.const';
+import { Section } from './models/section.model';
+import { Sections } from './providers/sections.provider';
 
 @Component({
   selector: 'portfolio-root',
@@ -9,9 +10,10 @@ import { SECTIONS } from './constants/sections.const';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  public sections = SECTIONS;
-
-  constructor(primengConfig: PrimeNGConfig) {
+  constructor(
+    @Inject(Sections) public sections: Section[],
+    primengConfig: PrimeNGConfig
+  ) {
     primengConfig.ripple = true;
   }
 }

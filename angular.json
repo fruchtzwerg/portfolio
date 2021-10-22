@@ -103,6 +103,27 @@
         }
       },
       "tags": []
+    },
+    "icons": {
+      "root": "libs/icons",
+      "sourceRoot": "libs/icons/src",
+      "projectType": "library",
+      "architect": {
+        "extract": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "svg-generator"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/icons/**/*.ts"]
+          }
+        }
+      },
+      "tags": []
     }
   }
 }

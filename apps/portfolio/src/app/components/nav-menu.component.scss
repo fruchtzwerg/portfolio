@@ -7,7 +7,8 @@ ol {
   margin: 0;
   padding: 1rem;
   border-left: 0.25rem solid var(--bluegray-700);
-  background-color: var(--surface-b);
+  background-color: var(--surface-c);
+  backdrop-filter: blur(1rem);
 
   li {
     list-style-type: none;

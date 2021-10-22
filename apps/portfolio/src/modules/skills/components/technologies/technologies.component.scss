@@ -1,0 +1,54 @@
+$angular: #dd0031;
+$react: #61dafb;
+$vue: #41b883;
+$svelte: #ff3e00;
+$nest: #e0234e;
+$docker: #007bff;
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.content {
+  display: grid;
+  grid-template-rows: auto auto 100px auto;
+  gap: 1.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+.icon {
+  $size: 4rem;
+
+  justify-self: center;
+  width: $size;
+  height: $size;
+}
+
+.title {
+  &.angular {
+    text-decoration: underline $angular;
+  }
+  &.react {
+    text-decoration: underline $react;
+  }
+  &.vue {
+    text-decoration: underline $vue;
+  }
+  &.svelte {
+    text-decoration: underline $svelte;
+  }
+  &.nest {
+    text-decoration: underline $nest;
+  }
+  &.docker {
+    text-decoration: underline $docker;
+  }
+}
+
+.description {
+  margin: 0;
+}

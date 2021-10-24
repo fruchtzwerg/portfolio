@@ -13,6 +13,7 @@ import { SECTIONS_PROVIDER } from './providers/sections.provider';
 import { skillsIcons } from '@icons/skills';
 import { brandsIcons } from '@icons/brands';
 import { bioIcons } from '@icons/bio';
+import { ScrollSpyModule } from '@utils/scroll-spy/scroll-spy.module';
 
 @NgModule({
   declarations: [AppComponent, NavMenuComponent, ComponentHostDirective],
@@ -20,6 +21,7 @@ import { bioIcons } from '@icons/bio';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ScrollSpyModule,
     SvgIconsModule.forRoot({
       icons: [
         appBulbIcon,

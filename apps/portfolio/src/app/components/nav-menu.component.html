@@ -1,10 +1,8 @@
 <ol>
   <li *ngFor="let section of sections">
     <a
-      routerLink="."
-      [fragment]="section.name"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="routerLinkActiveOptions"
+      [href]="'#' + section.name"
+      [class.active]="(activeSection$ | async) === section.name"
       >{{ section.name }}</a
     >
   </li>

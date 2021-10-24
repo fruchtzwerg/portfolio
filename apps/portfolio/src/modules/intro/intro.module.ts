@@ -6,6 +6,6 @@ import { AvatarModule } from 'primeng/avatar';
 @NgModule({
   declarations: [IntroSection],
   imports: [CommonModule, AvatarModule],
-  exports: [IntroSection, AvatarModule],
+  exports: [IntroSection],
 })
 export class IntroModule {}

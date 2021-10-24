@@ -22,7 +22,7 @@ export const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { anchorScrolling: 'enabled' }),
+    RouterModule.forRoot(routes),
     BioModule,
     ContactModule,
     IntroModule,

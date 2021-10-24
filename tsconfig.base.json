@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@icons/*": ["libs/icons/src/*"]
+      "@icons/*": ["libs/icons/src/*"],
+      "@utils/*": ["libs/utils/src/lib/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -3,7 +3,7 @@
 </nav>
 
 <main>
-  <section [id]="section.name" *ngFor="let section of sections">
+  <section [portfolioSpyTarget]="section.name" *ngFor="let section of sections">
     <ng-template [lpComponentHost]="section"></ng-template>
   </section>
 </main>

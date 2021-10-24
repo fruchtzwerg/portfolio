@@ -1,3 +1,78 @@
+$marker-size: 4rem;
+$arrow-size: 1rem;
+$arrow-margin: 4rem / 4;
+
 :host {
   display: block;
+  padding: 1rem;
 }
+
+.custom-marker {
+  $size: 4rem;
+
+  display: flex;
+  width: $size;
+  height: $size;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+::ng-deep {
+  .p-timeline-event-content,
+  .p-timeline-event-opposite {
+    line-height: 1;
+  }
+}
+
+$arrow-size: 1rem;
+
+.arrow {
+  margin-top: $arrow-margin;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-top: $arrow-size solid transparent;
+  border-bottom: $arrow-size solid transparent;
+}
+
+.event-container {
+  display: flex;
+}
+
+::ng-deep {
+  .custom-timeline {
+    .p-timeline-event:nth-child(even) .arrow-right {
+      margin-left: -1px;
+      border-left: $arrow-size solid var(--surface-a);
+    }
+    .p-timeline-event:nth-child(odd) .arrow-left {
+      margin-right: -1px;
+      border-right: $arrow-size solid var(--surface-a);
+    }
+  }
+}
+
+// @media screen and (max-width: 960px) {
+//   ::ng-deep {
+//     .customized-timeline {
+//       .p-timeline-event:nth-child(even) {
+//         flex-direction: row !important;
+
+//         .p-timeline-event-content {
+//           text-align: left !important;
+//         }
+//       }
+
+//       .p-timeline-event-opposite {
+//         flex: 0;
+//       }
+
+//       .p-card {
+//         margin-top: 1rem;
+//       }
+//     }
+//   }
+// }

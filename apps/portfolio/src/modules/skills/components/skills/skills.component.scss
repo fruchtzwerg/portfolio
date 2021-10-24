@@ -10,6 +10,7 @@
 .content {
   display: grid;
   grid-template-areas: 'icon title' 'icon description';
+  grid-template-columns: auto 1fr;
   gap: 1rem 2rem;
 }
 
@@ -17,6 +18,7 @@
   $size: 5rem;
 
   grid-area: icon;
+  justify-self: center;
   width: $size;
   height: $size;
 }

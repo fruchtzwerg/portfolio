@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { Achievement } from './models/achievement.model';
+import { Achievements } from './providers/achievements.provider';
 
 @Component({
   selector: 'portfolio-bio-section',
@@ -6,4 +8,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./bio.section.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BioSection {}
+export class BioSection {
+  constructor(@Inject(Achievements) public bio: Achievement[]) {}
+}

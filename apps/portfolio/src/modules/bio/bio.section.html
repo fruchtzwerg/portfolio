@@ -1,1 +1,37 @@
-<p>bio works!</p>
+<p-timeline [value]="bio" align="alternate" styleClass="custom-timeline">
+  <ng-template pTemplate="marker" let-event>
+    <span
+      class="custom-marker p-shadow-2"
+      [style.backgroundColor]="event.color || 'var(--blue-500)'"
+    >
+      <svg-icon [key]="event.icon" fontSize="2.25rem"></svg-icon>
+    </span>
+  </ng-template>
+  <ng-template pTemplate="content" let-event>
+    <div class="event-container">
+      <div class="arrow arrow-left p-shadow-2"></div>
+      <p-card
+        [header]="event.title"
+        [subheader]="(event.date | date:'YYYY') ?? event.date"
+      >
+        <img
+          *ngIf="event.image"
+          [src]="'assets/showcase/images/demo/product/' + event.image"
+          [alt]="event.name"
+          width="200"
+          class="p-shadow-2"
+        />
+        <p>{{event.content}}</p>
+        <a
+          *ngIf="event.link"
+          [href]="event.link"
+          target="_blank"
+          pButton
+          label="Do you want to know more?"
+          class="p-button-text"
+        ></a>
+      </p-card>
+      <div class="arrow arrow-right p-shadow-2"></div>
+    </div>
+  </ng-template>
+</p-timeline>

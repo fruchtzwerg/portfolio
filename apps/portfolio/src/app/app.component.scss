@@ -1,5 +1,7 @@
 :host {
   display: block;
+  margin: auto;
+  max-width: 1024px;
   font-family: sans-serif;
 }
 
@@ -8,4 +10,10 @@ nav {
   bottom: 10vh;
   right: 0;
   z-index: 999;
+}
+
+main {
+  display: grid;
+  padding: 2rem;
+  gap: 2rem;
 }

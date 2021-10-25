@@ -4,7 +4,6 @@ $arrow-margin: 4rem * 0.25;
 
 :host {
   display: block;
-  padding: 1rem;
 }
 
 .custom-marker {
@@ -43,14 +42,24 @@ $arrow-size: 1rem;
 }
 
 ::ng-deep {
-  .custom-timeline {
-    .p-timeline-event:nth-child(even) .arrow-right {
+  .custom-timeline .p-timeline-event {
+    .p-timeline-event {
+      &-content,
+      &-opposite {
+        padding: 0;
+      }
+    }
+
+    &:nth-child(even) .arrow-right {
       margin-left: -1px;
       border-left: $arrow-size solid var(--surface-a);
+      margin-right: 1rem;
     }
-    .p-timeline-event:nth-child(odd) .arrow-left {
+
+    &:nth-child(odd) .arrow-left {
       margin-right: -1px;
       border-right: $arrow-size solid var(--surface-a);
+      margin-left: 1rem;
     }
   }
 }

@@ -3,22 +3,30 @@ import { Skill } from '../models/skill.model';
 export const SKILLS: Skill[] = [
   {
     title: 'Frontend',
-    description: 'I focus primarily on frontend technologies.',
+    description: [
+      'Angular',
+      'React',
+      'Vue',
+      'TypeScript',
+      'Micro Frontends',
+      'Webpack',
+      'PWA',
+    ],
     icon: 'frontend',
   },
   {
     title: 'Architecture',
-    description: 'I am certified and have experience as an Architect.',
+    description: ['Certified'],
     icon: 'architecture',
   },
   {
     title: 'Backend',
-    description: 'I am confident with nodejs and similar technologies.',
+    description: ['Nest', 'Express', 'REST', 'WebSockets', 'JWT'],
     icon: 'backend',
   },
   {
     title: 'DevOps',
-    description: 'I am experienced in GitLab CI and containerization.',
+    description: ['Docker', 'GitLab CI'],
     icon: 'package',
   },
 ];

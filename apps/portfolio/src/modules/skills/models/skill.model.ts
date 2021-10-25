@@ -1,5 +1,5 @@
 export interface Skill {
   title: string;
-  description: string;
+  description: string[];
   icon: string;
 }

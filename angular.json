@@ -39,7 +39,7 @@
             "tsConfig": "apps/portfolio/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/portfolio/src/favicon.ico",
+              "apps/portfolio/src/favicon.png",
               "apps/portfolio/src/assets"
             ],
             "styles": [

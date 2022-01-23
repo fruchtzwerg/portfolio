@@ -1,8 +1,19 @@
+@use '../../styles/media';
+
 :host {
   display: grid;
   grid-template-areas:
-    'avatar text'
+    'avatar about'
+    'text text'
     'contacts contacts';
+
+  @include media.from(tablet) {
+    grid-template-areas:
+      'avatar about'
+      'avatar text'
+      'contacts contacts';
+  }
+
   grid-template-columns: auto 1fr;
   column-gap: 4rem;
   row-gap: 1rem;
@@ -22,16 +33,17 @@ img {
   grid-area: avatar;
 }
 
-.text {
-  grid-area: text;
+.about {
+  grid-area: about;
 
   .caption {
     font-weight: 700;
   }
+}
 
-  .sudoku {
-    font-size: 0.75em;
-  }
+.text {
+  grid-area: text;
+  font-size: 0.75em;
 }
 
 .contacts {

@@ -1,17 +1,32 @@
+@use '../../../../styles/media';
+
 :host {
   display: grid;
-  grid-template-areas:
-    'icon title'
-    'icon description';
-  grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  grid-template-columns: 1fr;
+
+  @include media.from(phone) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .content {
   display: grid;
-  grid-template-areas: 'icon title' 'icon description';
-  grid-template-columns: auto 1fr;
   gap: 1rem 2rem;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'icon'
+    'title'
+    'description';
+  text-align: center;
+
+  @include media.from(tablet) {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'icon title'
+      'icon description';
+    text-align: start;
+  }
 }
 
 .icon {

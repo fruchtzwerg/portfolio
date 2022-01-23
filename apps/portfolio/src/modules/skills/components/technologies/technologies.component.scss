@@ -1,7 +1,16 @@
+@use '../../../../styles/media';
+
 :host {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+
+  @include media.from(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media.from(desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .content {

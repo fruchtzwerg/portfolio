@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { bioIcons } from '@icons/bio';
 import { ACHIEVEMENTS_PROVIDER } from './providers/achievements.provider';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [BioSection],
@@ -15,6 +16,7 @@ import { ACHIEVEMENTS_PROVIDER } from './providers/achievements.provider';
     TimelineModule,
     CardModule,
     ButtonModule,
+    LayoutModule,
     SvgIconsModule.forChild(bioIcons),
   ],
   providers: [ACHIEVEMENTS_PROVIDER],

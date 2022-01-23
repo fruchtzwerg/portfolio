@@ -1,5 +1,12 @@
 @import 'primeng/resources/themes/bootstrap4-dark-blue/theme.css';
 
+:root {
+  --surface-a: #20222c;
+  --surface-b: #16161e;
+  --surfcae-c: #1a1b26;
+  --surface-card: #20222c;
+}
+
 body {
   background-color: var(--surface-b);
   color: var(--text-color);

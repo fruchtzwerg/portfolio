@@ -1,4 +1,8 @@
-<p-timeline [value]="bio" align="alternate" styleClass="custom-timeline">
+<p-timeline
+  [value]="bio"
+  [align]="(largeScreen$ | async) ? 'alternate' : 'left'"
+  styleClass="custom-timeline"
+>
   <ng-template pTemplate="marker" let-event>
     <span
       class="custom-marker p-shadow-2"
@@ -12,7 +16,7 @@
       <div class="arrow arrow-left p-shadow-2"></div>
       <p-card
         [header]="event.title"
-        [subheader]="(event.date | date:'YYYY') ?? event.date"
+        [subheader]="(event.date | date:'YYYY') ?? event.date"
       >
         <img
           *ngIf="event.image"
@@ -21,7 +25,7 @@
           width="200"
           class="p-shadow-2"
         />
-        <p>{{event.content}}</p>
+        <p class="text">{{event.content}}</p>
         <a
           *ngIf="event.link"
           [href]="event.link"
@@ -34,5 +38,6 @@
       </p-card>
       <div class="arrow arrow-right p-shadow-2"></div>
     </div>
+    <div class="spacer"></div>
   </ng-template>
 </p-timeline>

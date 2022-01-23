@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 
-export type Theme = 'bootstrap-dark';
+export type Theme = 'tokyo-night-dark';
 
 @Injectable({
   providedIn: 'root',

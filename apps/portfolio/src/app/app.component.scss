@@ -1,3 +1,5 @@
+@use '../styles/media';
+
 :host {
   display: block;
   font-family: sans-serif;
@@ -15,11 +17,27 @@ main {
   max-width: 1024px;
   margin: auto;
   padding: 2rem;
-  gap: 16rem;
+  gap: 2rem;
+
+  @include media.from(tablet) {
+    gap: 4rem;
+  }
+
+  @include media.from(desktop) {
+    gap: 8rem;
+  }
 }
 
 footer {
-  padding: 2rem;
-  margin-top: 10rem;
   background-color: var(--surface-c);
+  padding: 2rem;
+  margin-top: 2rem;
+
+  @include media.from(phone) {
+    margin-top: 8rem;
+  }
+
+  @include media.from(tablet) {
+    margin-top: 18rem;
+  }
 }

@@ -1,3 +1,5 @@
+@use '../../styles/media';
+
 $marker-size: 4rem;
 $arrow-size: 1rem;
 $arrow-margin: 4rem * 0.25;
@@ -41,47 +43,61 @@ $arrow-size: 1rem;
   display: flex;
 }
 
+.text {
+  margin: 0;
+}
+
+.p-button-text {
+  margin-top: 1rem;
+}
+
+.spacer {
+  margin-top: 2rem;
+}
+
 ::ng-deep {
+  .p-timeline-event-connector {
+    background-color: red;
+    &::after {
+      height: 1rem;
+      background-color: red;
+    }
+  }
+
   .custom-timeline .p-timeline-event {
     .p-timeline-event {
+      &-opposite {
+        @include media.until(tablet) {
+          max-width: 0;
+        }
+      }
+
       &-content,
       &-opposite {
         padding: 0;
       }
     }
 
-    &:nth-child(even) .arrow-right {
-      margin-left: -1px;
-      border-left: $arrow-size solid var(--surface-a);
-      margin-right: 1rem;
+    @include media.until(tablet) {
+      .arrow-left {
+        margin-right: -1px;
+        border-right: $arrow-size solid var(--surface-a);
+        margin-left: 1rem;
+      }
     }
 
-    &:nth-child(odd) .arrow-left {
-      margin-right: -1px;
-      border-right: $arrow-size solid var(--surface-a);
-      margin-left: 1rem;
+    @include media.from(tablet) {
+      &:nth-child(even) .arrow-right {
+        margin-left: -1px;
+        border-left: $arrow-size solid var(--surface-a);
+        margin-right: 1rem;
+      }
+
+      &:nth-child(odd) .arrow-left {
+        margin-right: -1px;
+        border-right: $arrow-size solid var(--surface-a);
+        margin-left: 1rem;
+      }
     }
   }
 }
-
-// @media screen and (max-width: 960px) {
-//   ::ng-deep {
-//     .customized-timeline {
-//       .p-timeline-event:nth-child(even) {
-//         flex-direction: row !important;
-
-//         .p-timeline-event-content {
-//           text-align: left !important;
-//         }
-//       }
-
-//       .p-timeline-event-opposite {
-//         flex: 0;
-//       }
-
-//       .p-card {
-//         margin-top: 1rem;
-//       }
-//     }
-//   }
-// }

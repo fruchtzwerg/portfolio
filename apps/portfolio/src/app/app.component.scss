@@ -1,7 +1,5 @@
 :host {
   display: block;
-  margin: auto;
-  max-width: 1024px;
   font-family: sans-serif;
 }
 
@@ -14,6 +12,14 @@ nav {
 
 main {
   display: grid;
+  max-width: 1024px;
+  margin: auto;
   padding: 2rem;
   gap: 16rem;
+}
+
+footer {
+  padding: 2rem;
+  margin-top: 10rem;
+  background-color: var(--surface-c);
 }

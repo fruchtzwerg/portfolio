@@ -1,8 +1,11 @@
 :host {
   display: grid;
-  grid-template-areas: 'avatar text';
+  grid-template-areas:
+    'avatar text'
+    'contacts contacts';
   grid-template-columns: auto 1fr;
-  gap: 4rem;
+  column-gap: 4rem;
+  row-gap: 1rem;
   align-items: center;
 }
 
@@ -29,4 +32,8 @@ img {
   .sudoku {
     font-size: 0.75em;
   }
+}
+
+.contacts {
+  grid-area: contacts;
 }

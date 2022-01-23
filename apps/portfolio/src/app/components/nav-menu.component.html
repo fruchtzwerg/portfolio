@@ -1,9 +1,11 @@
-<ol>
-  <li *ngFor="let section of sections">
-    <a
-      [href]="'#' + section.name"
-      [class.active]="(activeSection$ | async) === section.name"
-      >{{ section.name }}</a
-    >
-  </li>
-</ol>
+<menu>
+  <ol>
+    <li *ngFor="let section of sections">
+      <a
+        [href]="'#' + section.name"
+        [class.active]="(activeSection$ | async) === section.name"
+        >{{ section.name }}</a
+      >
+    </li>
+  </ol>
+</menu>

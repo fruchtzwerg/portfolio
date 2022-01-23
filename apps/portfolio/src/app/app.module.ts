@@ -10,10 +10,8 @@ import { ComponentHostDirective } from './directives/component-host.directive';
 import { appBulbIcon } from '@icons/bulb';
 import { appBulbOutlineIcon } from '@icons/bulb-outline';
 import { SECTIONS_PROVIDER } from './providers/sections.provider';
-import { skillsIcons } from '@icons/skills';
-import { brandsIcons } from '@icons/brands';
-import { bioIcons } from '@icons/bio';
 import { ScrollSpyModule } from '@utils/scroll-spy/scroll-spy.module';
+import { ContactModule } from '../modules/contact/contact.module';
 
 @NgModule({
   declarations: [AppComponent, NavMenuComponent, ComponentHostDirective],
@@ -21,15 +19,10 @@ import { ScrollSpyModule } from '@utils/scroll-spy/scroll-spy.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ContactModule,
     ScrollSpyModule,
     SvgIconsModule.forRoot({
-      icons: [
-        appBulbIcon,
-        appBulbOutlineIcon,
-        ...skillsIcons,
-        ...brandsIcons,
-        ...bioIcons,
-      ],
+      icons: [appBulbIcon, appBulbOutlineIcon],
       color: 'var(--text-color)',
     }),
   ],

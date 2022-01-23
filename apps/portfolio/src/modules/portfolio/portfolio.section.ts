@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { Partner } from './models/partner.model';
+import { Partners } from './providers/partners.provider';
 
 @Component({
   selector: 'portfolio-portfolio-section',
@@ -6,4 +8,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./portfolio.section.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PortfolioSection {}
+export class PortfolioSection {
+  constructor(@Inject(Partners) public partners: Partner[]) {}
+}

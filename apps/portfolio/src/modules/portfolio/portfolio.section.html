@@ -1,1 +1,10 @@
-<p>portfolio works!</p>
+<a
+  class="customer"
+  [href]="partner.link"
+  target="_blank"
+  *ngFor="let partner of partners"
+>
+  <svg-icon [key]="partner.icon"></svg-icon>
+  <!-- <span class="title">{{partner.name}}</span> -->
+  <span>{{partner.responsibilities.join(', ')}}</span>
+</a>

@@ -1,7 +1,10 @@
 import { appAngularIcon } from './angular';
+import { appBmwIcon } from './bmw';
 import { appDockerIcon } from './docker';
 import { appNestIcon } from './nest';
 import { appReactIcon } from './react';
+import { appSmaIcon } from './sma';
 import { appSvelteIcon } from './svelte';
+import { appVestasIcon } from './vestas';
 import { appVueIcon } from './vue';
-export const brandsIcons = [appAngularIcon, appDockerIcon, appNestIcon, appReactIcon, appSvelteIcon, appVueIcon];
+export const brandsIcons = [appAngularIcon, appBmwIcon, appDockerIcon, appNestIcon, appReactIcon, appSmaIcon, appSvelteIcon, appVestasIcon, appVueIcon];

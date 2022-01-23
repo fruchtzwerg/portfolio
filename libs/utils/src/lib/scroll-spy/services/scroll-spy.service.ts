@@ -8,7 +8,7 @@ import { WindowService } from './windows.service';
   providedIn: 'root',
 })
 export class ScrollSpyService {
-  private stopSpying$ = new Subject();
+  private stopSpying$ = new Subject<void>();
   private activeSpyTarget = new Subject<string>();
   private spyTargets: SpyTarget[] = [];
   private thresholdTop = 0;

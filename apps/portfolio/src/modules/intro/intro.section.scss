@@ -2,35 +2,53 @@
 
 :host {
   display: grid;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    'avatar about'
-    'text text'
-    'contacts contacts';
+    'avatar'
+    'about'
+    'text'
+    'contacts';
 
-  @include media.from(tablet) {
+  @include media.from(phone) {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'avatar about'
+      'text text'
+      'contacts contacts';
+  }
+
+  @include media.from(desktop) {
     grid-template-areas:
       'avatar about'
       'avatar text'
       'contacts contacts';
   }
 
-  grid-template-columns: auto 1fr;
   column-gap: 4rem;
   row-gap: 1rem;
   align-items: center;
 }
 
-img {
-  $size: 8rem;
+picture {
+  display: flex;
+  justify-content: center;
+}
 
-  width: $size;
-  height: $size;
+img {
+  @include media.imageFrom(none, 60%);
+  @include media.imageFrom(phone, 8rem);
+  @include media.imageFrom(tablet, 12rem);
+  @include media.imageFrom(desktop, 16rem);
 
   border-radius: 50%;
 }
 
 .avatar {
   grid-area: avatar;
+}
+
+.intro {
+  font-size: 2rem;
 }
 
 .about {
@@ -43,7 +61,10 @@ img {
 
 .text {
   grid-area: text;
-  font-size: 0.75em;
+  font-size: 0.8em;
+  text-align: justify;
+  font-family: Quicksand;
+  font-weight: 300;
 }
 
 .contacts {

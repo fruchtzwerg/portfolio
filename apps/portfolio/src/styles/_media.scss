@@ -51,3 +51,15 @@ $ultrawide: 1800px;
     }
   }
 }
+
+@mixin imageFrom($breakpoint, $size) {
+  @if $breakpoint == none {
+    width: $size;
+    height: $size;
+  } @else {
+    @include from($breakpoint) {
+      width: $size;
+      height: $size;
+    }
+  }
+}

@@ -23,6 +23,13 @@ export const TECHNOLOGIES: Technology[] = [
     color: '#41b883',
   },
   {
+    title: 'Nest',
+    description: ['Auth', 'TypeORM', 'Electron'],
+    icon: 'nest',
+    experience: 8,
+    color: '#e0234e',
+  },
+  {
     title: 'NX',
     description: [
       'Monorepo',
@@ -36,13 +43,6 @@ export const TECHNOLOGIES: Technology[] = [
     icon: 'nrwl',
     experience: 8,
     color: '#143157',
-  },
-  {
-    title: 'Nest',
-    description: ['Auth', 'TypeORM', 'Electron'],
-    icon: 'nest',
-    experience: 8,
-    color: '#e0234e',
   },
   {
     title: 'Docker',

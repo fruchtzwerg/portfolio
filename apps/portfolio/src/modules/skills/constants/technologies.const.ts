@@ -3,7 +3,7 @@ import { Technology } from '../models/technology.model';
 export const TECHNOLOGIES: Technology[] = [
   {
     title: 'Angular',
-    description: ['Material', 'NX', 'RxJS', 'Jest', 'NgRx'],
+    description: ['Material', 'NX', 'RxJS', 'Jest', 'NgRx', 'NGXS'],
     icon: 'angular',
     experience: 10,
     color: '#dd0031',
@@ -23,11 +23,19 @@ export const TECHNOLOGIES: Technology[] = [
     color: '#41b883',
   },
   {
-    title: 'Svelte',
-    description: ['The Basics'],
-    icon: 'svelte',
-    experience: 3,
-    color: '#ff3e00',
+    title: 'NX',
+    description: [
+      'Monorepo',
+      'Apps',
+      'Libs',
+      'Generators',
+      'Linting',
+      'i18n',
+      'Migration',
+    ],
+    icon: 'nrwl',
+    experience: 8,
+    color: '#143157',
   },
   {
     title: 'Nest',

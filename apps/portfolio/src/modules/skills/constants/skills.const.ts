@@ -8,7 +8,7 @@ export const SKILLS: Skill[] = [
       'React',
       'Vue',
       'TypeScript',
-      'Micro Frontends',
+      'Micro Frontends',
       'Webpack',
       'PWA',
     ],
@@ -16,7 +16,7 @@ export const SKILLS: Skill[] = [
   },
   {
     title: 'Architecture',
-    description: ['Certified'],
+    description: ['iSAQB Certified'],
     icon: 'architecture',
   },
   {

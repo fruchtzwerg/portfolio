@@ -4,10 +4,12 @@
     <svg-icon class="icon" [key]="tech.icon" x></svg-icon>
 
     <!-- Title -->
-    <span class="title" [class]="tech.icon">{{ tech.title }}</span>
+    <span class="title" [style]="{ textDecorationColor: tech.color }">{{
+      tech.title
+    }}</span>
 
     <!-- Text -->
-    <p class="description">{{ tech.description.join(' - ') }}</p>
+    <p class="description">{{ tech.description.join(' - ') }}</p>
 
     <!-- Experience -->
     <div>

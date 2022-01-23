@@ -1,33 +1,7 @@
-:host {
+.container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 
-  background-color: var(--surface-card);
   padding: 4rem 0;
-  margin: 4rem 0;
-}
-
-.customer {
-  display: grid;
-  gap: 1rem;
-  justify-items: center;
-
-  text-decoration: none;
-
-  &:visited,
-  &:active {
-    color: inherit;
-  }
-
-  svg-icon {
-    $size: 10rem;
-
-    width: $size;
-    height: $size;
-  }
-
-  .title {
-    font-size: 3rem;
-  }
 }

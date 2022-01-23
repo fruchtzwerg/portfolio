@@ -43,7 +43,14 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true
+    },
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true
     }
   },
   "defaultProject": "portfolio"

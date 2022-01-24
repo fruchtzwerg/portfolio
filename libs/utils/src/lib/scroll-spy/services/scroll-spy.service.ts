@@ -34,9 +34,7 @@ export class ScrollSpyService {
     thresholdBottom = 0,
   }: SpyOptions = {}) {
     // this is to prevent duplicate listeners
-    if (this.isSpying) {
-      return;
-    }
+    if (this.isSpying) return;
 
     this.isSpying = true;
     this.scrollContainer = scrollContainer;

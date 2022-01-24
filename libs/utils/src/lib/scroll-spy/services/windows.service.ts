@@ -32,9 +32,7 @@ export class WindowService {
   }
 
   getScrollEventForContainer(scrollContainer: ElementRef) {
-    if (!this.isBrowser) {
-      return EMPTY;
-    }
+    if (!this.isBrowser) return EMPTY;
 
     return fromEvent(scrollContainer.nativeElement, 'scroll', {
       passive: true,
@@ -50,9 +48,7 @@ export class WindowService {
   }
 
   get scrollTop() {
-    if (!this.isBrowser) {
-      return 0;
-    }
+    if (!this.isBrowser) return 0;
 
     return Math.max(
       window.pageYOffset,
@@ -62,9 +58,7 @@ export class WindowService {
   }
 
   get viewportHeight() {
-    if (!this.isBrowser) {
-      return 0;
-    }
+    if (!this.isBrowser) return 0;
 
     return Math.max(
       document.documentElement.clientHeight,
@@ -73,25 +67,19 @@ export class WindowService {
   }
 
   getElementHeight(el: ElementRef) {
-    if (!this.isBrowser) {
-      return 0;
-    }
+    if (!this.isBrowser) return 0;
 
     return el.nativeElement.offsetHeight;
   }
 
   getElementOffsetTop(el: ElementRef) {
-    if (!this.isBrowser) {
-      return 0;
-    }
+    if (!this.isBrowser) return 0;
 
     return el.nativeElement.offsetTop;
   }
 
   getElementScrollTop(el: ElementRef) {
-    if (!this.isBrowser) {
-      return 0;
-    }
+    if (!this.isBrowser) return 0;
 
     return el.nativeElement.scrollTop;
   }

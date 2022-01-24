@@ -8,11 +8,9 @@ export class ScrollNavigationService {
   constructor(private router: Router) {}
 
   public async navigate(fragment: string) {
-    const result = await this.router.navigate([], {
+    return await this.router.navigate([], {
       fragment,
       replaceUrl: true,
     });
-
-    return result;
   }
 }

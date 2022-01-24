@@ -5,7 +5,7 @@ import { SkillsSection } from '../../modules/skills/skills.section';
 import { Section } from '../models/section.model';
 
 export const SECTIONS: Section[] = [
-  { name: 'intro', component: IntroSection },
+  { name: 'about', component: IntroSection },
   { name: 'skills', component: SkillsSection },
   { name: 'bio', component: BioSection },
   { name: 'portfolio', component: PortfolioSection },

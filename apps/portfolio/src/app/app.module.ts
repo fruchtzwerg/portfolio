@@ -12,6 +12,7 @@ import { appBulbOutlineIcon } from '@icons/bulb-outline';
 import { SECTIONS_PROVIDER } from './providers/sections.provider';
 import { ScrollSpyModule } from '@utils/scroll-spy/scroll-spy.module';
 import { ContactModule } from '../modules/contact/contact.module';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [AppComponent, NavMenuComponent, ComponentHostDirective],
@@ -25,6 +26,7 @@ import { ContactModule } from '../modules/contact/contact.module';
       icons: [appBulbIcon, appBulbOutlineIcon],
       color: 'var(--text-color)',
     }),
+    ScullyLibModule,
   ],
   providers: [SECTIONS_PROVIDER],
   bootstrap: [AppComponent],

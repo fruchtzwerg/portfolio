@@ -1,0 +1,11 @@
+identifier: k1y6s2q220c8jbt7
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: portfolio
+homeFolder: /Users/ben/git/landing-page
+distFolder: dist/apps/portfolio
+outDir: /Users/ben/git/landing-page/dist/static
+handle404: ''
+allowErrorCollect: false

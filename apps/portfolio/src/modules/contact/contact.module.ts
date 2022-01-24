@@ -5,10 +5,16 @@ import { CONTACTS_PROVIDER } from './providers/contacts.provider';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { contactsIcons } from '@icons/contacts';
 import { ButtonModule } from 'primeng/button';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
   declarations: [ContactSection],
-  imports: [CommonModule, ButtonModule, SvgIconsModule.forChild(contactsIcons)],
+  imports: [
+    CommonModule,
+    ButtonModule,
+    TooltipModule,
+    SvgIconsModule.forChild(contactsIcons),
+  ],
   providers: [CONTACTS_PROVIDER],
   exports: [ContactSection],
 })

@@ -5,7 +5,10 @@
   class="p-button-rounded p-button-text p-button-plain"
   [href]="contact.href"
   target="_blank"
-  [name]="contact.icon"
+  [attr.aria-label]="contact.tooltip"
+  [pTooltip]="contact.tooltip"
+  [tooltipPosition]="tooltipPosition"
+  rel="noopener"
 >
   <svg-icon [key]="contact.icon" [size]="'xxl'"></svg-icon>
 </a>

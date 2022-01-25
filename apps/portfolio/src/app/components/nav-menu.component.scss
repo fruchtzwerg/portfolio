@@ -1,23 +1,28 @@
+@use '../../styles/media';
+
 :host {
   display: block;
   min-width: 8rem;
 }
 
-menu {
-  margin: 0;
-  padding: 0;
-}
-
 ol {
   margin: 0;
   padding: 1rem;
-  border-left: 0.25rem solid var(--bluegray-700);
   background-color: var(--surface-c);
   backdrop-filter: blur(1rem);
 
+  @include media.from(tablet) {
+    border-left: 0.25rem solid var(--bluegray-700);
+  }
+
+  @include media.until(tablet) {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
   li {
     list-style-type: none;
-    margin: 0.33rem 0;
+    margin: 0.5rem 0;
 
     a {
       text-decoration: none;

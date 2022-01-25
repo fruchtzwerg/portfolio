@@ -8,9 +8,18 @@
 
 nav {
   position: fixed;
-  bottom: 10vh;
   right: 0;
+  bottom: 0;
   z-index: 999;
+
+  @include media.until(tablet) {
+    left: 0;
+    height: 4rem;
+  }
+
+  @include media.from(tablet) {
+    bottom: 10vh;
+  }
 }
 
 main {
@@ -37,6 +46,10 @@ footer {
   background-color: var(--surface-c);
   padding: variables.$gap;
   margin-top: variables.$gap;
+
+  @include media.until(tablet) {
+    margin-bottom: 4rem;
+  }
 
   @include media.from(phone) {
     margin-top: variables.$gap-tablet;

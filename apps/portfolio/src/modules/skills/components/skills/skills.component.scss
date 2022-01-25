@@ -1,8 +1,9 @@
 @use '../../../../styles/media';
+@use '../../../../styles/variables';
 
 :host {
   display: grid;
-  gap: 2rem;
+  gap: variables.$gap;
   grid-template-columns: 1fr;
 
   @include media.from(phone) {
@@ -12,7 +13,7 @@
 
 .content {
   display: grid;
-  gap: 1rem 2rem;
+  gap: 0.5 * variables.$gap variables.$gap;
   grid-template-columns: 1fr;
   grid-template-areas:
     'icon'
@@ -42,11 +43,13 @@
   grid-area: title;
   align-self: flex-end;
   font-size: 1.25rem;
+  font-weight: 500;
 }
 
 .description {
   grid-area: description;
   align-self: flex-start;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   margin: 0;
+  font-family: Quicksand;
 }

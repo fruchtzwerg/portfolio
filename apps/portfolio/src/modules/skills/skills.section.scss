@@ -1,4 +1,15 @@
+@use '../../styles/media';
+@use '../../styles/variables';
+
 :host {
   display: grid;
-  gap: 8rem;
+  gap: variables.$gap;
+
+  @include media.from(phone) {
+    gap: variables.$gap-tablet * 0.5;
+  }
+
+  @include media.from(tablet) {
+    gap: variables.$gap-desktop * 0.5;
+  }
 }

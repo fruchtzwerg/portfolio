@@ -1,4 +1,5 @@
 @use '../styles/media';
+@use '../styles/variables';
 
 :host {
   display: block;
@@ -16,28 +17,32 @@ main {
   display: grid;
   max-width: 1024px;
   margin: auto;
-  padding: 2rem;
-  gap: 2rem;
+  padding: variables.$gap;
+  gap: variables.$gap;
+
+  section {
+    padding: variables.$section-padding 0;
+  }
 
   @include media.from(tablet) {
-    gap: 4rem;
+    gap: variables.$gap-tablet - 2 * variables.$section-padding;
   }
 
   @include media.from(desktop) {
-    gap: 8rem;
+    gap: variables.$gap-desktop - 2 * variables.$section-padding;
   }
 }
 
 footer {
   background-color: var(--surface-c);
-  padding: 2rem;
-  margin-top: 2rem;
+  padding: variables.$gap;
+  margin-top: variables.$gap;
 
   @include media.from(phone) {
-    margin-top: 8rem;
+    margin-top: variables.$gap-tablet;
   }
 
   @include media.from(tablet) {
-    margin-top: 18rem;
+    margin-top: variables.$gap-desktop;
   }
 }

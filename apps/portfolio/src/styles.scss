@@ -1,6 +1,7 @@
 @import './styles/typography';
 
 html {
+  --scroll-behavior: smooth;
   scroll-behavior: smooth;
 }
 

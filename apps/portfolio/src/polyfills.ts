@@ -18,6 +18,11 @@
  * BROWSER POLYFILLS
  */
 
+import * as smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
+
+import 'smoothscroll-anchor-polyfill';
+
 /**
  * By default, zone.js will patch all possible macroTask and DomEvents
  * user can disable parts of macroTask/DomEvents patch by setting following flags
@@ -52,7 +57,7 @@ import 'zone.js'; // Included with Angular CLI.
  */
 
 /***************************************************************************************************
-* SCULLY IMPORTS
-*/
+ * SCULLY IMPORTS
+ */
 // tslint:disable-next-line: align
 import 'zone.js/dist/task-tracking';

@@ -17,6 +17,7 @@ export const SKILLS: Skill[] = [
   {
     title: 'Architecture',
     description: ['iSAQB Certified'],
+    hrefs: ['https://www.isaqb.org/certifications/cpsa-certifications/'],
     icon: 'architecture',
   },
   {

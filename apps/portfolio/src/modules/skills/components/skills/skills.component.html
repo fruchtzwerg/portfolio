@@ -7,6 +7,29 @@
     <span class="title">{{ skill.title }}</span>
 
     <!-- Text -->
-    <p class="description">{{ skill.description.join(' - ') }}</p>
+    <p class="description">
+      <!-- with links -->
+      <ng-container *ngIf="skill.hrefs; else simple">
+        <ng-container *ngFor="let item of skill.description; let i = index">
+          <a
+            *ngIf="skill.hrefs[i]; else link"
+            [href]="skill.hrefs[i]"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ item }}
+          </a>
+          <ng-template #link>
+            <span>{{ item }}</span>
+          </ng-template>
+          <span *ngIf="i !== skill.description.length - 1"> - </span>
+        </ng-container>
+      </ng-container>
+
+      <!-- without links -->
+      <ng-template #simple>
+        {{ skill.description.join(' - ') }}
+      </ng-template>
+    </p>
   </div>
 </p-card>

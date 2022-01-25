@@ -30,9 +30,7 @@ ol {
 
       $color-inactive: var(--text-color-secondary);
 
-      &:link {
-        color: $color-inactive;
-      }
+      &:link,
       &:visited {
         color: $color-inactive;
       }

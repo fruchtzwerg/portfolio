@@ -9,6 +9,10 @@ body {
   margin: 0;
 }
 
+a {
+  color: var(--text-color);
+}
+
 .p-card {
   background-color: var(--surface-card);
 }

@@ -10,11 +10,17 @@
     'contacts';
 
   @include media.from(phone) {
-    grid-template-columns: auto 1fr;
+    column-gap: 0;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'avatar about'
       'text text'
       'contacts contacts';
+  }
+
+  @include media.from(tablet) {
+    column-gap: 4rem;
+    grid-template-columns: auto 1fr;
   }
 
   @include media.from(desktop) {

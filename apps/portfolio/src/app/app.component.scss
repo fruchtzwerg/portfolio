@@ -34,7 +34,7 @@ main {
   }
 
   @include media.until(phone) {
-    padding: 0.5rem;
+    padding: 1rem;
   }
 
   @include media.from(tablet) {

@@ -26,7 +26,7 @@ export const SKILLS: Skill[] = [
   },
   {
     title: 'DevOps',
-    description: ['Docker', 'GitLab CI'],
+    description: ['Docker', 'GitLab CI'],
     icon: 'package',
   },
 ];

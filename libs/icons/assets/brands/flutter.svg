@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44">
+  <path
+    d="M37.0631 20.0376H23.7056L12.0195 31.7265l6.6774 6.6773 18.3662-18.3662ZM8.68014 28.3864 2 21.7063 23.7063 0h13.3575L8.68014 28.3864Z"
+    fill="#54C5F8" />
+  <path d="m18.6975 38.4039 5.0087 5.0087h13.3575l-11.6888-11.686-6.6774 6.6773Z" fill="#01579B" />
+  <path d="m18.6975 38.4039 9.906-3.4292-3.2286-3.2481-6.6774 6.6773Z" fill="url(#a)" />
+  <path d="m18.6966 25.0456-6.6776 6.6775 6.6776 6.6776 6.6775-6.6776-6.6775-6.6775Z" fill="#29B6F6" />
+  <path
+    d="M37.0638 20.0376 25.3777 31.7237l11.6861 11.6889H23.7063l-5.0087-5.0087-6.6802-6.6802 11.6889-11.6861h13.3575ZM23.7063 0 2 21.7063l6.68014 6.6801L37.0638 0H23.7063Z"
+    fill="url(#b)" />
+  <defs>
+    <radialGradient id="b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(2.98664 2.95995) scale(53.1128)">
+      <stop stop-color="#fff" stop-opacity=".1" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="a" x1="20.6447" y1="39.6934" x2="25.6192" y2="34.7189" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A237E" stop-opacity=".4" />
+      <stop offset="1" stop-color="#1A237E" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+</svg>

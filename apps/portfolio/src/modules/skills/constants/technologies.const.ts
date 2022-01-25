@@ -1,6 +1,6 @@
 import { Technology } from '../models/technology.model';
 
-export const TECHNOLOGIES: Technology[] = [
+export const TECHNOLOGIES: (Technology | null)[] = [
   {
     title: 'Angular',
     description: ['Material', 'NX', 'RxJS', 'Jest', 'NgRx', 'NGXS'],
@@ -44,6 +44,14 @@ export const TECHNOLOGIES: Technology[] = [
     experience: 8,
     color: '#143157',
   },
+  {
+    title: 'Flutter',
+    description: ['Dart', 'BLoC', 'Android'],
+    icon: 'flutter',
+    experience: 5,
+    color: '#29B6F6',
+  },
+  null,
   {
     title: 'Docker',
     description: ['Multi-Stage', 'Docker', 'Compose', 'Volumes', 'Networks'],

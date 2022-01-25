@@ -1,27 +1,35 @@
-<p-card *ngFor="let tech of technologies" [style]="{ height: '100%' }">
-  <div class="content">
-    <!-- Icon -->
-    <svg-icon class="icon" [key]="tech.icon" x></svg-icon>
+<ng-container
+  *ngFor="let tech of technologies$ | async"
+  [style]="{ height: '100%' }"
+>
+  <p-card *ngIf="tech; else empty">
+    <div class="content">
+      <!-- Icon -->
+      <svg-icon class="icon" [key]="tech.icon" x></svg-icon>
 
-    <!-- Title -->
-    <span class="title" [style]="{ textDecorationColor: tech.color }">{{
-      tech.title
-    }}</span>
+      <!-- Title -->
+      <span class="title" [style]="{ textDecorationColor: tech.color }">{{
+        tech.title
+      }}</span>
 
-    <!-- Text -->
-    <p class="description">{{ tech.description.join(' - ') }}</p>
+      <!-- Text -->
+      <p class="description">{{ tech.description.join(' - ') }}</p>
 
-    <!-- Experience -->
-    <div>
-      <svg-icon
-        *ngFor="let item of [].constructor(tech.experience)"
-        key="bulb"
-        [color]="tech.color"
-      ></svg-icon>
-      <svg-icon
-        *ngFor="let item of [].constructor(10 - tech.experience)"
-        key="bulb-outline"
-      ></svg-icon>
+      <!-- Experience -->
+      <div>
+        <svg-icon
+          *ngFor="let item of [].constructor(tech.experience)"
+          key="bulb"
+          [color]="tech.color"
+        ></svg-icon>
+        <svg-icon
+          *ngFor="let item of [].constructor(10 - tech.experience)"
+          key="bulb-outline"
+        ></svg-icon>
+      </div>
     </div>
-  </div>
-</p-card>
+  </p-card>
+  <ng-template #empty>
+    <div></div>
+  </ng-template>
+</ng-container>

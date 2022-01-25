@@ -33,6 +33,10 @@ main {
     padding: variables.$section-padding 0;
   }
 
+  @include media.until(phone) {
+    padding: 0.5rem;
+  }
+
   @include media.from(tablet) {
     gap: variables.$gap-tablet - 2 * variables.$section-padding;
   }

@@ -3,7 +3,6 @@ export interface Achievement {
   date: Date;
   content: string;
   link?: string;
-  image?: string;
   icon: string;
   color: string;
 }

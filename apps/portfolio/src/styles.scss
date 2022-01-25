@@ -1,3 +1,4 @@
+@use './styles/media';
 @import './styles/typography';
 
 html {
@@ -15,4 +16,10 @@ a {
 
 .p-card {
   background-color: var(--surface-card);
+
+  .p-card-body {
+    @include media.until(phone) {
+      padding: 1rem;
+    }
+  }
 }

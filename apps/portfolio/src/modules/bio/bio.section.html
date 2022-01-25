@@ -3,34 +3,32 @@
   [align]="(largeScreen$ | async) ? 'alternate' : 'left'"
   styleClass="custom-timeline"
 >
+  <!-- Marker -->
   <ng-template pTemplate="marker" let-event>
     <span
       class="custom-marker p-shadow-2"
       [style.backgroundColor]="event.color || 'var(--blue-500)'"
     >
-      <svg-icon [key]="event.icon" fontSize="2.25rem"></svg-icon>
+      <svg-icon class="icon" [key]="event.icon"></svg-icon>
     </span>
   </ng-template>
+
+  <!-- Content -->
   <ng-template pTemplate="content" let-event>
     <div class="event-container">
+      <!-- Arrow -->
       <div class="arrow arrow-left p-shadow-2"></div>
+      <!-- Card -->
       <p-card
         [header]="event.title"
         [subheader]="(event.date | date:'YYYY') ?? event.date"
       >
-        <img
-          *ngIf="event.image"
-          [src]="'assets/showcase/images/demo/product/' + event.image"
-          [alt]="event.name"
-          width="200"
-          class="p-shadow-2"
-        />
         <p class="text">{{event.content}}</p>
         <a
           *ngIf="event.link"
           [href]="event.link"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener"
           pButton
           label="Would you like to know more?"
           class="p-button-text"
@@ -38,6 +36,7 @@
       </p-card>
       <div class="arrow arrow-right p-shadow-2"></div>
     </div>
+    <!-- Spacer -->
     <div class="spacer"></div>
   </ng-template>
 </p-timeline>

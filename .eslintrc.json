@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nrwl/nx", "import"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -13,17 +13,56 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "app",
+                "onlyDependOnLibsWithTags": ["app", "lib"]
+              },
+              {
+                "sourceTag": "lib",
+                "onlyDependOnLibsWithTags": ["lib"]
               }
             ]
+          }
+        ],
+        "import/named": 0,
+        "import/namespace": 2,
+        "import/default": 2,
+        "import/export": 2,
+        "import/order": [
+          "warn",
+          {
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            },
+            "groups": [
+              ["builtin", "external"],
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "@/**",
+                "group": "internal",
+                "position": "before"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": []
           }
         ]
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
+      "parserOptions": {
+        "project": ["tsconfig.base.json"],
+        "createDefaultProgram": true
+      },
+      "plugins": ["rxjs"],
+      "extends": ["plugin:@nrwl/nx/typescript", "plugin:rxjs/recommended"],
       "rules": {}
     },
     {

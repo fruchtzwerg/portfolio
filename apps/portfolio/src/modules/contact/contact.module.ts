@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContactSection } from './contact.section';
-import { CONTACTS_PROVIDER } from './providers/contacts.provider';
-import { SvgIconsModule } from '@ngneat/svg-icon';
+import { NgModule } from '@angular/core';
 import { contactsIcons } from '@icons/contacts';
+import { SvgIconsModule } from '@ngneat/svg-icon';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
+
+import { ContactSection } from './contact.section';
+import { CONTACTS_PROVIDER } from './providers/contacts.provider';
 
 @NgModule({
   declarations: [ContactSection],

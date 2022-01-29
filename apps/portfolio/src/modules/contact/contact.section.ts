@@ -4,8 +4,8 @@ import {
   Inject,
   Input,
 } from '@angular/core';
-import { CONTACTS } from './constants/contacts.const';
 
+import { CONTACTS } from './constants/contacts.const';
 import { Contacts } from './providers/contacts.provider';
 
 type TooltipPosition = 'right' | 'left' | 'top' | 'bottom';

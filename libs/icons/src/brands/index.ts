@@ -9,4 +9,16 @@ import { appSmaIcon } from './sma';
 import { appSvelteIcon } from './svelte';
 import { appVestasIcon } from './vestas';
 import { appVueIcon } from './vue';
-export const brandsIcons = [appAngularIcon, appBmwIcon, appDockerIcon, appFlutterIcon, appNestIcon, appNrwlIcon, appReactIcon, appSmaIcon, appSvelteIcon, appVestasIcon, appVueIcon];
+export const brandsIcons = [
+  appAngularIcon,
+  appBmwIcon,
+  appDockerIcon,
+  appFlutterIcon,
+  appNestIcon,
+  appNrwlIcon,
+  appReactIcon,
+  appSmaIcon,
+  appSvelteIcon,
+  appVestasIcon,
+  appVueIcon,
+];

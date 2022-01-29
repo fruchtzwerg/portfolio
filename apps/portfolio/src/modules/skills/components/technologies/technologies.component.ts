@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { map } from 'rxjs';
+
 import { Technology } from '../../models/technology.model';
 
 @Component({

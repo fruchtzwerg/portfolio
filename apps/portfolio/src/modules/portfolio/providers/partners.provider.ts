@@ -1,4 +1,5 @@
 import { InjectionToken, Provider } from '@angular/core';
+
 import { PARTNERS } from '../constants/partners.const';
 import { Partner } from '../models/partner.model';
 

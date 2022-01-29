@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BioSection } from './bio.section';
-import { TimelineModule } from 'primeng/timeline';
-import { CardModule } from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
-import { SvgIconsModule } from '@ngneat/svg-icon';
-import { bioIcons } from '@icons/bio';
-import { ACHIEVEMENTS_PROVIDER } from './providers/achievements.provider';
 import { LayoutModule } from '@angular/cdk/layout';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { bioIcons } from '@icons/bio';
+import { SvgIconsModule } from '@ngneat/svg-icon';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { TimelineModule } from 'primeng/timeline';
+
+import { BioSection } from './bio.section';
+import { ACHIEVEMENTS_PROVIDER } from './providers/achievements.provider';
 
 @NgModule({
   declarations: [BioSection],

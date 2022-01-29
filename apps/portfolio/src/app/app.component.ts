@@ -4,11 +4,11 @@ import {
   Component,
   Inject,
 } from '@angular/core';
+import { ScrollSpyService } from '@utils/scroll-spy/services/scroll-spy.service';
 import { PrimeNGConfig } from 'primeng/api';
+
 import { Section } from './models/section.model';
 import { Sections } from './providers/sections.provider';
-
-import { ScrollSpyService } from '@utils/scroll-spy/services/scroll-spy.service';
 
 @Component({
   selector: 'portfolio-root',

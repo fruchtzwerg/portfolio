@@ -1,8 +1,9 @@
-import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { map } from 'rxjs';
+
 import { Achievement } from './models/achievement.model';
 import { Achievements } from './providers/achievements.provider';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'portfolio-bio-section',

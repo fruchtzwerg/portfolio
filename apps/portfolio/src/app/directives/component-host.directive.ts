@@ -5,14 +5,15 @@ import {
   OnInit,
   ViewContainerRef,
 } from '@angular/core';
+
 import { Section } from '../models/section.model';
 
 @Directive({
-  selector: '[lpComponentHost]',
+  selector: '[portfolioComponentHost]',
 })
 export class ComponentHostDirective implements OnInit {
   @Input()
-  public lpComponentHost!: Section;
+  public portfolioComponentHost!: Section;
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -22,7 +23,7 @@ export class ComponentHostDirective implements OnInit {
   ngOnInit() {
     const componentFactory =
       this.componentFactoryResolver.resolveComponentFactory(
-        this.lpComponentHost.component
+        this.portfolioComponentHost.component
       );
 
     this.viewContainerRef.clear();

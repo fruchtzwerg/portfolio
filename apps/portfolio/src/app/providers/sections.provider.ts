@@ -1,4 +1,5 @@
 import { InjectionToken, Provider } from '@angular/core';
+
 import { SECTIONS } from '../constants/sections.const';
 import { Section } from '../models/section.model';
 

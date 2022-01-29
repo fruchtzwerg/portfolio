@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
+
 import { Partner } from './models/partner.model';
 import { Partners } from './providers/partners.provider';
 

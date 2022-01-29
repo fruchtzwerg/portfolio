@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
+
 import { Skill } from './models/skill.model';
 import { Technology } from './models/technology.model';
 import { Skills } from './providers/skills.provider';

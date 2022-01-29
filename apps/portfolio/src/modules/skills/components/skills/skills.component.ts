@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+
 import { Skill } from '../../models/skill.model';
 
 @Component({

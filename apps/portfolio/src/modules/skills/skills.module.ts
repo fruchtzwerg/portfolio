@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { brandsIcons } from '@icons/brands';
 import { skillsIcons } from '@icons/skills';
 import { SvgIconsModule } from '@ngneat/svg-icon';
+import { AnimationModule } from '@utils/animation';
 import { CardModule } from 'primeng/card';
 
 import { SkillsComponent } from './components/skills/skills.component';
@@ -18,6 +19,7 @@ import { SkillsSection } from './skills.section';
     CommonModule,
     FormsModule,
     CardModule,
+    AnimationModule,
     SvgIconsModule.forChild([...brandsIcons, ...skillsIcons]),
   ],
   providers: [SKILLS_PROVIDER, TECHNOLOGIES_PROVIDER],

@@ -1,5 +1,5 @@
 <p-timeline
-  [value]="bio"
+  [value]="(achievements$ | async) ?? []"
   [align]="(largeScreen$ | async) ? 'alternate' : 'left'"
   styleClass="custom-timeline"
 >
@@ -8,6 +8,9 @@
     <span
       class="custom-marker p-shadow-2"
       [style.backgroundColor]="event.color || 'var(--blue-500)'"
+      [portfolioAnimate]="'bounce'"
+      [threshold]="1"
+      [duration]="1000"
     >
       <svg-icon class="icon" [key]="event.icon"></svg-icon>
     </span>
@@ -15,7 +18,12 @@
 
   <!-- Content -->
   <ng-template pTemplate="content" let-event>
-    <div class="event-container">
+    <div
+      class="event-container"
+      [portfolioAnimate]="event.animation"
+      [duration]="1000"
+      [threshold]="1"
+    >
       <!-- Arrow -->
       <div class="arrow arrow-left p-shadow-2"></div>
       <!-- Card -->

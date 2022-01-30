@@ -3,9 +3,15 @@
 </nav>
 
 <main>
-  <section [portfolioSpyTarget]="section.name" *ngFor="let section of sections">
-    <ng-template [portfolioComponentHost]="section"></ng-template>
-  </section>
+  <ng-container *ngFor="let section of sections">
+    <section
+      [portfolioSpyTarget]="section.name"
+      [portfolioAnimate]="section.animation"
+      [duration]="section.duration"
+    >
+      <ng-template [portfolioComponentHost]="section"></ng-template>
+    </section>
+  </ng-container>
 </main>
 
 <footer>

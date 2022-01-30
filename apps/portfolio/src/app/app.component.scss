@@ -36,14 +36,6 @@ main {
   @include media.until(phone) {
     padding: 1rem;
   }
-
-  @include media.from(tablet) {
-    gap: variables.$gap-tablet - 2 * variables.$section-padding;
-  }
-
-  @include media.from(desktop) {
-    gap: variables.$gap-desktop - 2 * variables.$section-padding;
-  }
 }
 
 footer {
@@ -53,13 +45,5 @@ footer {
 
   @include media.until(tablet) {
     margin-bottom: 4rem;
-  }
-
-  @include media.from(phone) {
-    margin-top: variables.$gap-tablet;
-  }
-
-  @include media.from(tablet) {
-    margin-top: variables.$gap-desktop;
   }
 }

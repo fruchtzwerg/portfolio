@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { bioIcons } from '@icons/bio';
 import { SvgIconsModule } from '@ngneat/svg-icon';
+import { AnimationModule } from '@utils/animation';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { TimelineModule } from 'primeng/timeline';
@@ -18,6 +19,7 @@ import { ACHIEVEMENTS_PROVIDER } from './providers/achievements.provider';
     CardModule,
     ButtonModule,
     LayoutModule,
+    AnimationModule,
     SvgIconsModule.forChild(bioIcons),
   ],
   providers: [ACHIEVEMENTS_PROVIDER],

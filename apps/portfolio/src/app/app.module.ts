@@ -5,7 +5,8 @@ import { appBulbIcon } from '@icons/bulb';
 import { appBulbOutlineIcon } from '@icons/bulb-outline';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import { ScrollSpyModule } from '@utils/scroll-spy/scroll-spy.module';
+import { AnimationModule } from '@utils/animation';
+import { ScrollSpyModule } from '@utils/scroll-spy';
 
 import { ContactModule } from '../modules/contact/contact.module';
 
@@ -23,6 +24,7 @@ import { SECTIONS_PROVIDER } from './providers/sections.provider';
     AppRoutingModule,
     ContactModule,
     ScrollSpyModule,
+    AnimationModule,
     SvgIconsModule.forRoot({
       icons: [appBulbIcon, appBulbOutlineIcon],
       color: 'var(--text-color)',
@@ -30,6 +32,7 @@ import { SECTIONS_PROVIDER } from './providers/sections.provider';
     ScullyLibModule,
   ],
   providers: [SECTIONS_PROVIDER],
+  exports: [AnimationModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

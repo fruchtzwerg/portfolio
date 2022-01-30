@@ -1,4 +1,5 @@
 @use './styles/media';
+@use './styles/variables' as vars;
 @import './styles/typography';
 
 html {
@@ -8,6 +9,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 a {
@@ -21,5 +23,15 @@ a {
     @include media.until(phone) {
       padding: 1rem;
     }
+  }
+}
+
+section {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+
+  & > * {
+    flex: 1;
   }
 }

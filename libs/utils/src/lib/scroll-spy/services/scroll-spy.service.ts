@@ -1,7 +1,9 @@
 import { ElementRef, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
+
 import { SpyTarget } from '../models/spy-target.model';
+
 import { WindowService } from './windows.service';
 
 @Injectable({

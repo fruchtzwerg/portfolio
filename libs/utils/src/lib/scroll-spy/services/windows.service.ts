@@ -2,6 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { ElementRef, Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { EMPTY, fromEvent, Observable } from 'rxjs';
 import { auditTime } from 'rxjs/operators';
+
 import { RESIZE_TIME_THRESHOLD } from '../tokens/resize-threshold.token';
 import { SCROLL_TIME_THRESHOLD } from '../tokens/scroll-threshold.token';
 

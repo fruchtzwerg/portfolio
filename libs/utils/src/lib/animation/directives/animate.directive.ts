@@ -11,7 +11,6 @@ import {
   switchMap,
   take,
   takeUntil,
-  tap,
 } from 'rxjs';
 
 import { IntersectionService } from '../../scroll-spy';

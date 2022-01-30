@@ -12,8 +12,6 @@ export class ThemeService {
   public applyTheme(theme: Theme) {
     const themeLink = this.document.querySelector<HTMLLinkElement>('#theme');
 
-    console.log(themeLink);
-
     if (themeLink) themeLink.href = theme + '.css';
   }
 }

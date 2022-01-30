@@ -10,7 +10,7 @@
     "test": "nx test",
     "nx:upgrade": "nx migrate latest",
     "nx:migrate": "nx migrate --run-migrations",
-    "icons:extract": "nx extract icons",
+    "icons:extract": "nx extract icons && prettier --write libs/icons/",
     "scully": "yarn build --prod && scully --project portfolio --removeStaticDist",
     "scully:serve": "scully serve",
     "scully:scan": "yarn build && scully --project portfolio --scanRoutes",

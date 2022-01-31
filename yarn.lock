@@ -1797,6 +1797,55 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-3.0.3.tgz#b80093f4edbb5490c49746231513669c8f518acb"
   integrity sha512-fuIOnc81C5iRNevb/XPiM8Khp9bVjreydRQ37rt0C/dY0PAW1DRvEM3WrKX/5rStS5lbgwS0FCgqSndh9tvK5w==
 
+"@material/animation@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@material/animation/-/animation-13.0.0.tgz#42ec7aee6548ba27edb49063c7a7ae431e4ef450"
+  integrity sha512-YR0/u4u56qXDjKYolQ7F+IvlPkaSBhMl/dZv8DK0FbD6PH4ckOPd3bEXNRndXtprsxwknQQP2pttjPImylkl0g==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/base@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@material/base/-/base-13.0.0.tgz#18f7f5ac112bf67e66c1ade6ab543ea9df9d3836"
+  integrity sha512-vFx0JryRfcvUNX3cZ2u32wUMvxzd+c/YW0LFOXNgqCDWlubHcMm0Y6Wz371LhfQo80/NE69u+/4Joo99yKnVeg==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/elevation@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@material/elevation/-/elevation-13.0.0.tgz#ae3eabc20e864240144fdf5c16b09a1e7a52852c"
+  integrity sha512-hzdblgamVRbC0UwKafcvUVDvKzMiOSveDiwGgFk+EAg/tZRdwMlQPyf/9I6Lr8Cw/pNGnEOPhmCDOYPOHimr0w==
+  dependencies:
+    "@material/animation" "^13.0.0"
+    "@material/base" "^13.0.0"
+    "@material/feature-targeting" "^13.0.0"
+    "@material/rtl" "^13.0.0"
+    "@material/theme" "^13.0.0"
+    tslib "^2.1.0"
+
+"@material/feature-targeting@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@material/feature-targeting/-/feature-targeting-13.0.0.tgz#7bc7840b40930b6831101a22882acdd0329591c0"
+  integrity sha512-QJClfeaA4EMyAxKJy9WR0Nx+/VwSZCkhGLUVBG9NhxqYGfl/LtaeaidrNm32vYEoNZAofN92VD2RwQTRwp/dMQ==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/rtl@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@material/rtl/-/rtl-13.0.0.tgz#c8dbdc2b63d122450ff456572d08a9f5639704ab"
+  integrity sha512-nFGy3iQg7k+xLs67eb86mRFVLwa0yi7MusqRK4OM8DXcLO5yoVfUTPKpdSykcbRryp9imVHsxutox2tZawR4og==
+  dependencies:
+    "@material/theme" "^13.0.0"
+    tslib "^2.1.0"
+
+"@material/theme@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@material/theme/-/theme-13.0.0.tgz#dad25ca7c3427d5d35f074343c7f7957cbc1eb8c"
+  integrity sha512-KAe1s0MvvfCGAwJliDVTvgAKuD3ESwhl7F7br4Iam4IPdqME2rWl8NPhKHFfaWqTG7PyCgMMngYEYuA8cLNTsA==
+  dependencies:
+    "@material/feature-targeting" "^13.0.0"
+    tslib "^2.1.0"
+
 "@ngneat/svg-generator@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@ngneat/svg-generator/-/svg-generator-4.0.0.tgz#c1178067ca9d31e40a92da85a91f0474cb0de31b"

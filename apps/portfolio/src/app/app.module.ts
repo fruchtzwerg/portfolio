@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { appAngularTextIcon } from '@icons/brands/angular_text';
 import { appBulbIcon } from '@icons/bulb';
 import { appBulbOutlineIcon } from '@icons/bulb-outline';
 import { SvgIconsModule } from '@ngneat/svg-icon';
@@ -26,7 +27,7 @@ import { SECTIONS_PROVIDER } from './providers/sections.provider';
     ScrollSpyModule,
     AnimationModule,
     SvgIconsModule.forRoot({
-      icons: [appBulbIcon, appBulbOutlineIcon],
+      icons: [appAngularTextIcon],
       color: 'var(--text-color)',
     }),
     ScullyLibModule,

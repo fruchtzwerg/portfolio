@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { brandsIcons } from '@icons/brands';
+import { appBulbIcon } from '@icons/bulb';
+import { appBulbOutlineIcon } from '@icons/bulb-outline';
 import { skillsIcons } from '@icons/skills';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { AnimationModule } from '@utils/animation';
@@ -20,7 +22,12 @@ import { SkillsSection } from './skills.section';
     FormsModule,
     CardModule,
     AnimationModule,
-    SvgIconsModule.forChild([...brandsIcons, ...skillsIcons]),
+    SvgIconsModule.forChild([
+      appBulbIcon,
+      appBulbOutlineIcon,
+      ...brandsIcons,
+      ...skillsIcons,
+    ]),
   ],
   providers: [SKILLS_PROVIDER, TECHNOLOGIES_PROVIDER],
   exports: [SkillsSection],

@@ -1,6 +1,8 @@
+import { Contact } from '../models/contact.model';
+
 const email = 'benjamin@montazer.dev';
 
-export const CONTACTS = [
+export const CONTACTS: Contact[] = [
   {
     icon: 'email',
     text: email,
@@ -17,6 +19,6 @@ export const CONTACTS = [
     icon: 'github',
     text: 'Github',
     href: 'https://github.com/fruchtzwerg/portfolio',
-    tooltip: 'Check out the source of this page',
+    tooltip: 'Check out the source',
   },
-] as const;
+];

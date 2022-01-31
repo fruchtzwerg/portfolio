@@ -24,17 +24,14 @@ nav {
 
 main {
   display: grid;
-  max-width: 1024px;
-  margin: auto;
-  padding: variables.$gap;
   gap: variables.$gap;
 
   section {
-    padding: variables.$section-padding 0;
-  }
+    padding: variables.$section-padding;
 
-  @include media.until(phone) {
-    padding: 1rem;
+    @include media.until(phone) {
+      padding: 1rem;
+    }
   }
 }
 
@@ -45,5 +42,19 @@ footer {
 
   @include media.until(tablet) {
     margin-bottom: 4rem;
+  }
+}
+
+.technologies {
+  margin-top: variables.$gap;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-family: Quicksand;
+  font-weight: 300;
+
+  svg-icon {
+    vertical-align: middle;
+    width: unset;
   }
 }

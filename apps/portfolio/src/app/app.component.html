@@ -3,17 +3,18 @@
 </nav>
 
 <main>
-  <ng-container *ngFor="let section of sections">
-    <section
-      [portfolioSpyTarget]="section.name"
-      [portfolioAnimate]="section.animation"
-      [duration]="section.duration"
-    >
+  <section *ngFor="let section of sections" [portfolioSpyTarget]="section.name">
+    <div [portfolioAnimate]="section.animation" [duration]="section.duration">
       <ng-template [portfolioComponentHost]="section"></ng-template>
-    </section>
-  </ng-container>
+    </div>
+  </section>
 </main>
 
 <footer>
   <portfolio-contact-section> </portfolio-contact-section>
+  <div class="technologies">
+    Built with
+    <svg-icon key="angular-text" fontSize="1.75rem"></svg-icon> and
+    <svg-icon key="vercel" fontSize="1.75rem"></svg-icon>
+  </div>
 </footer>

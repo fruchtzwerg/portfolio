@@ -27,6 +27,7 @@ ol {
     a {
       text-decoration: none;
       transition: color 500ms, font-size 500ms;
+      will-change: color, font-size;
 
       $color-inactive: var(--text-color-secondary);
 

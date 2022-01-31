@@ -1,8 +1,5 @@
-<ng-container
-  *ngFor="let tech of technologies$ | async"
-  [style]="{ height: '100%' }"
->
-  <p-card *ngIf="tech; else empty">
+<ng-container *ngFor="let tech of technologies$ | async">
+  <p-card *ngIf="tech; else empty" [portfolioAnimate]="'fadeIn'">
     <div class="content">
       <!-- Icon -->
       <svg-icon class="icon" [key]="tech.icon" x></svg-icon>

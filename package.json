@@ -59,6 +59,7 @@
     "@angular/cli": "13.2.0",
     "@angular/compiler-cli": "13.2.0",
     "@angular/language-service": "13.2.0",
+    "@material/elevation": "^13.0.0",
     "@ngneat/svg-generator": "^4.0.0",
     "@nrwl/cli": "13.7.1",
     "@nrwl/eslint-plugin-nx": "13.7.1",

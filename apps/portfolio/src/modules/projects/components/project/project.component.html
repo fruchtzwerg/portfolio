@@ -1,0 +1,24 @@
+<a
+  class="card"
+  [href]="project.href"
+  target="_blank"
+  rel="noopener"
+  [portfolioAnimate]="'fadeIn'"
+>
+  <!-- Title -->
+  <div class="title">
+    <svg-icon [key]="project.icon" fontSize="8rem" class="icon"></svg-icon>
+    <h2>{{ project.name }}</h2>
+  </div>
+  <!-- Description -->
+  <p class="desc">{{ project.description }}</p>
+  <!-- Keywords -->
+  <p class="keywords">{{ project.keywords.join(' | ') | titlecase }}</p>
+
+  <!-- Technologies -->
+  <div class="tech" *ngFor="let tech of project.technologies">
+    <svg-icon [key]="tech.icon" fontSize="4rem"></svg-icon>
+    <h3>{{ tech.name }}</h3>
+    <div class="purpose">{{ tech.purpose }}</div>
+  </div>
+</a>

@@ -1,4 +1,8 @@
-<p-card *ngFor="let skill of skills" [style]="{ height: '100%' }">
+<p-card
+  *ngFor="let skill of skills"
+  [style]="{ height: '100%' }"
+  [portfolioAnimate]="'fadeIn'"
+>
   <div class="content">
     <!-- Icon -->
     <svg-icon class="icon" [key]="skill.icon"></svg-icon>

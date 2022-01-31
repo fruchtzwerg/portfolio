@@ -1,5 +1,5 @@
 <a
-  *ngFor="let contact of contacts"
+  *ngFor="let contact of contacts; let i = index"
   pButton
   icon="true"
   class="p-button-rounded p-button-text p-button-plain"
@@ -9,6 +9,8 @@
   [pTooltip]="contact.tooltip"
   [tooltipPosition]="tooltipPosition"
   rel="noopener"
+  [portfolioAnimate]="'bounce'"
+  [delay]="1000 + 250 * i"
 >
   <svg-icon [key]="contact.icon" [size]="'xxl'"></svg-icon>
 </a>

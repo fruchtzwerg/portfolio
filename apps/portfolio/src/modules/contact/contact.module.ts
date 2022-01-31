@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { contactsIcons } from '@icons/contacts';
 import { SvgIconsModule } from '@ngneat/svg-icon';
+import { AnimationModule } from '@utils/animation';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 
@@ -14,6 +15,7 @@ import { CONTACTS_PROVIDER } from './providers/contacts.provider';
     CommonModule,
     ButtonModule,
     TooltipModule,
+    AnimationModule,
     SvgIconsModule.forChild(contactsIcons),
   ],
   providers: [CONTACTS_PROVIDER],

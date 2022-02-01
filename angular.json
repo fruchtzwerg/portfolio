@@ -102,6 +102,11 @@
             },
             "development": {
               "browserTarget": "portfolio:build:development"
+            },
+            "mobile": {
+              "browserTarget": "portfolio:build:development",
+              "host": "0.0.0.0",
+              "disableHostCheck": true
             }
           },
           "defaultConfiguration": "development"

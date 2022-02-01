@@ -1,4 +1,5 @@
 @use '../../styles/media';
+@use '@material/elevation' as el;
 
 :host {
   display: block;
@@ -10,6 +11,12 @@ ol {
   padding: 1rem;
   background-color: var(--surface-c);
   backdrop-filter: blur(1rem);
+  @include el.elevation(2);
+
+  @supports not (backdrop-filter: blur(1rem)) {
+    background-color: #1f1f26;
+    @include el.elevation(4, el.$baseline-color, 0.5);
+  }
 
   @include media.from(tablet) {
     border-left: 0.25rem solid var(--bluegray-700);

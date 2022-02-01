@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { brandsIcons } from '@icons/brands';
 import { appBulbIcon } from '@icons/bulb';
 import { appBulbOutlineIcon } from '@icons/bulb-outline';
+import { appHeartIcon } from '@icons/heart';
 import { skillsIcons } from '@icons/skills';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { AnimationModule } from '@utils/animation';
@@ -25,6 +26,7 @@ import { SkillsSection } from './skills.section';
     SvgIconsModule.forChild([
       appBulbIcon,
       appBulbOutlineIcon,
+      appHeartIcon,
       ...brandsIcons,
       ...skillsIcons,
     ]),

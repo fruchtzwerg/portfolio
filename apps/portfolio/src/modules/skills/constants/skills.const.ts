@@ -13,6 +13,7 @@ export const SKILLS: Skill[] = [
       'PWA',
     ],
     icon: 'frontend',
+    favorite: true,
   },
   {
     title: 'Architecture',

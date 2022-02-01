@@ -53,3 +53,10 @@
   margin: 0;
   font-family: Quicksand;
 }
+
+.favorite {
+  position: absolute;
+  top: -12px;
+  right: -16px;
+  color: var(--pink-500);
+}

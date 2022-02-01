@@ -3,6 +3,13 @@
   [style]="{ height: '100%' }"
   [portfolioAnimate]="'fadeIn'"
 >
+  <svg-icon
+    *ngIf="skill.favorite"
+    key="heart"
+    class="favorite"
+    size="xl"
+  ></svg-icon>
+
   <div class="content">
     <!-- Icon -->
     <svg-icon class="icon" [key]="skill.icon"></svg-icon>

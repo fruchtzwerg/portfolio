@@ -3,4 +3,5 @@ export interface Skill {
   description: string[];
   hrefs?: string[];
   icon: string;
+  favorite?: true;
 }

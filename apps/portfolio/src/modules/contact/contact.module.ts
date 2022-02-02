@@ -6,11 +6,12 @@ import { AnimationModule } from '@utils/animation';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 
+import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
 import { ContactSection } from './contact.section';
 import { CONTACTS_PROVIDER } from './providers/contacts.provider';
 
 @NgModule({
-  declarations: [ContactSection],
+  declarations: [ContactSection, LegalNoticeComponent],
   imports: [
     CommonModule,
     ButtonModule,
@@ -19,6 +20,6 @@ import { CONTACTS_PROVIDER } from './providers/contacts.provider';
     SvgIconsModule.forChild(contactsIcons),
   ],
   providers: [CONTACTS_PROVIDER],
-  exports: [ContactSection],
+  exports: [ContactSection, LegalNoticeComponent],
 })
 export class ContactModule {}

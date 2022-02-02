@@ -1,0 +1,10 @@
+:host {
+  display: block;
+
+  ::content :first-child {
+    margin-top: 0;
+  }
+  ::content :last-child {
+    margin-bottom: 0;
+  }
+}

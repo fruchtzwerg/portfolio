@@ -1,3 +1,4 @@
+@use '@material/elevation' as mat;
 @import 'primeng/resources/themes/bootstrap4-dark-blue/theme.css';
 
 :root {
@@ -12,4 +13,16 @@
 body {
   background-color: var(--surface-b);
   color: var(--text-color);
+}
+
+.p-dialog {
+  overflow: auto;
+  border: none;
+  border-radius: var(--border-radius);
+
+  @include mat.elevation(8);
+
+  .p-dialog-content {
+    background-color: var(--surface-card);
+  }
 }

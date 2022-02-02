@@ -9,30 +9,18 @@
     'text'
     'contacts';
 
-  @include media.from(phone) {
-    column-gap: 0;
-    grid-template-columns: 1fr 1fr;
+  column-gap: 4rem;
+  row-gap: 1rem;
+  align-items: center;
+
+  @include media.from(tablet) {
+    column-gap: 4rem;
+    grid-template-columns: auto 1fr;
     grid-template-areas:
       'avatar about'
       'text text'
       'contacts contacts';
   }
-
-  @include media.from(tablet) {
-    column-gap: 4rem;
-    grid-template-columns: auto 1fr;
-  }
-
-  @include media.from(desktop) {
-    grid-template-areas:
-      'avatar about'
-      'avatar text'
-      'contacts contacts';
-  }
-
-  column-gap: 4rem;
-  row-gap: 1rem;
-  align-items: center;
 }
 
 picture {
@@ -42,9 +30,7 @@ picture {
 
 img {
   @include media.imageFrom(none, 60%);
-  @include media.imageFrom(phone, 8rem);
-  @include media.imageFrom(tablet, 12rem);
-  @include media.imageFrom(desktop, 16rem);
+  @include media.imageFrom(tablet, 16rem);
 
   border-radius: 50%;
 }
@@ -53,24 +39,47 @@ img {
   grid-area: avatar;
 }
 
-.intro {
-  font-size: 2rem;
-}
-
 .about {
   grid-area: about;
 
+  .intro {
+    font-size: 2.5em;
+    text-align: center;
+
+    @include media.from(tablet) {
+      text-align: start;
+      font-size: 3em;
+    }
+
+    @include media.from(desktop) {
+      font-size: 4em;
+    }
+  }
+
   .caption {
+    font-size: 1.2em;
     font-weight: 700;
+
+    @include media.from(tablet) {
+      font-size: 1.3em;
+    }
+
+    @include media.from(desktop) {
+      font-size: 1.5em;
+    }
   }
 }
 
 .text {
   grid-area: text;
-  font-size: 0.8em;
+  font-size: 1em;
   text-align: justify;
   font-family: Quicksand;
   font-weight: 300;
+
+  @include media.from(desktop) {
+    font-size: 1.1em;
+  }
 }
 
 .contacts {

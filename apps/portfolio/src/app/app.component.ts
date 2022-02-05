@@ -38,6 +38,7 @@ export class AppComponent implements AfterViewInit {
     this.dialogService.open(LegalNoticeComponent, {
       header: 'Legal Notice',
       width: '70%',
+      style: { maxWidth: '640px' },
       closeOnEscape: true,
       showHeader: false,
       dismissableMask: true,

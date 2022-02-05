@@ -9,6 +9,7 @@ import '@scullyio/scully-plugin-puppeteer';
 export const config: ScullyConfig = {
   projectRoot: './apps/portfolio/src',
   projectName: 'portfolio',
+  target: 'targets',
   // add spsModulePath when using de Scully Platform Server,
   // spsModulePath: 'apps/portfolio/src/app/app.sps.module.ts'
   outDir: './dist/static',

@@ -3,6 +3,11 @@
 @use './styles/variables' as vars;
 @import './styles/typography';
 
+html,
+body {
+  font-family: var(--font-family);
+}
+
 html {
   --scroll-behavior: smooth;
   scroll-behavior: smooth;

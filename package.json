@@ -37,6 +37,8 @@
     "@angular/platform-browser": "13.2.0",
     "@angular/platform-browser-dynamic": "13.2.0",
     "@angular/router": "13.2.0",
+    "@fontsource/quicksand": "^4.5.2",
+    "@fontsource/roboto": "^4.5.2",
     "@ngneat/svg-icon": "^4.0.2",
     "@nrwl/angular": "13.7.1",
     "@scullyio/ng-lib": "^2.1.0",

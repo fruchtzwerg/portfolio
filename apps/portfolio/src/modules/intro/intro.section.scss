@@ -74,7 +74,7 @@ img {
   grid-area: text;
   font-size: 1em;
   text-align: justify;
-  font-family: Quicksand;
+  font-family: var(--font-family-a);
   font-weight: 300;
 
   @include media.from(desktop) {

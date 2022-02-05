@@ -1548,6 +1548,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/quicksand@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/quicksand/-/quicksand-4.5.2.tgz#4667e60ca48f9686c9bde7d5834b1c50e9eed8b4"
+  integrity sha512-B0ybdfHlvgVcB/lvY4C6+DBl9ut7qGUh65CS89JxVZIoiLyWahCCs+6KO5SmbtaMYOh8XtskmLfNo2l8nxieWw==
+
+"@fontsource/roboto@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.2.tgz#98dd67e579984e255fac4315b496520d890ae989"
+  integrity sha512-KkMqloXIM64EvaVPOqC5Mkms0qdOWvx4nRvQBIMCoG0GGsDa8tFfNwhyowHeR9k09P0LuT5u09d29Y21JhaA6Q==
+
 "@gar/promisify@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"

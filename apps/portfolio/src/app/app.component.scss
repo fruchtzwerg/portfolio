@@ -3,7 +3,6 @@
 
 :host {
   display: block;
-  font-family: sans-serif;
 }
 
 nav {
@@ -52,7 +51,7 @@ footer {
   text-align: center;
   font-size: 1.25rem;
   line-height: 2.25rem;
-  font-family: Quicksand;
+  font-family: var(--font-family-a);
   font-weight: 300;
 
   svg-icon {

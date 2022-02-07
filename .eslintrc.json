@@ -1,7 +1,8 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx", "import"],
+  "plugins": ["@nrwl/nx", "@ngbasics"],
+  "extends": "plugin:@ngbasics/recommended",
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -22,38 +23,7 @@
               }
             ]
           }
-        ],
-        "import/named": 0,
-        "import/namespace": 2,
-        "import/default": 2,
-        "import/export": 2,
-        "import/order": [
-          "warn",
-          {
-            "newlines-between": "always",
-            "alphabetize": {
-              "order": "asc",
-              "caseInsensitive": true
-            },
-            "groups": [
-              ["builtin", "external"],
-              "internal",
-              "parent",
-              "sibling",
-              "index",
-              "object"
-            ],
-            "pathGroups": [
-              {
-                "pattern": "@/**",
-                "group": "internal",
-                "position": "before"
-              }
-            ],
-            "pathGroupsExcludedImportTypes": []
-          }
-        ],
-        "no-console": ["error", { "allow": ["info", "warn", "error"] }]
+        ]
       }
     },
     {

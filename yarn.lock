@@ -1648,6 +1648,14 @@
     "@material/feature-targeting" "^13.0.0"
     tslib "^2.1.0"
 
+"@ngbasics/eslint-plugin@^13.0.3":
+  version "13.0.3"
+  resolved "https://registry.yarnpkg.com/@ngbasics/eslint-plugin/-/eslint-plugin-13.0.3.tgz#206a6c0c7cfc3a961eeb6901cea63a87e50f95c9"
+  integrity sha512-6Zqy8OvjpJqJ13BMAKBmyieT3ixeSMnocyRxfo+TyeUr6WlLbnvucIuNFd1GyQQx4B0b23yCu3C0eeYdN7dfAA==
+  dependencies:
+    eslint-plugin-import "^2.25.4"
+    eslint-plugin-rxjs "^5.0.2"
+
 "@ngneat/svg-generator@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@ngneat/svg-generator/-/svg-generator-4.0.0.tgz#c1178067ca9d31e40a92da85a91f0474cb0de31b"

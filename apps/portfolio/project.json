@@ -1,6 +1,7 @@
 {
+  "name": "portfolio",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/portfolio",
   "sourceRoot": "apps/portfolio/src",
   "prefix": "portfolio",
   "targets": {
@@ -104,9 +105,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/portfolio"],
+      "outputs": ["{workspaceRoot}/coverage/apps/portfolio"],
       "options": {
-        "jestConfig": "apps/portfolio/jest.config.js",
+        "jestConfig": "apps/portfolio/jest.config.ts",
         "passWithNoTests": true
       }
     }

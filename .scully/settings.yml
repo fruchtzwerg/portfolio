@@ -4,8 +4,8 @@ staticPort: 1668
 reloadPort: 2667
 hostName: localhost
 projectName: portfolio
-homeFolder: /Users/ben/git/landing-page
+homeFolder: /Users/ben/git/personal/landing-page
 distFolder: dist/apps/portfolio
-outDir: /Users/ben/git/landing-page/dist/static
+outDir: /Users/ben/git/personal/landing-page/dist/static
 handle404: ''
 allowErrorCollect: false

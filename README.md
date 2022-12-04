@@ -19,3 +19,6 @@ Static side generation
 ### Vercel
 
 CI/CD + Hosting
+
+- Framework Preset: `Scully`
+- Build Command: `yarn scully`

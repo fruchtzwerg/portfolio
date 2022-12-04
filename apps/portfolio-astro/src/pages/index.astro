@@ -1,5 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
+const redirectUrl = '/about';
 ---
 
-<Layout title="Benjamin Montazer" />
+<head>
+  <meta http-equiv="refresh" content={`0; url=${redirectUrl}`} />
+</head>

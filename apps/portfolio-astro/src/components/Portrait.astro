@@ -1,0 +1,55 @@
+---
+import { Picture } from '@astrojs/image/components';
+import IconDownload from '~icons/line-md/download-loop';
+
+import ColorBlend from './ColorBlend.astro';
+import { socials } from '../constants/socials.const';
+---
+
+<script client:load>
+  const downloadCV = () => alert('CV');
+</script>
+
+<div class="grid gap-16 max-w-xl mx-auto mb-16">
+  <!-- Portrait -->
+  <ColorBlend
+    class="grid-in-[avatar] justify-self-center rounded-box -rotate-6 transition duration-500 hover:rotate-0 shadow-md shadow-base-content/30 dark:shadow-base-300 hover:shadow-primary/50 dark:hover:shadow-primary/50 hover:shadow-lg"
+    blendClasses="transition-colors duration-500 bg-base-200 group-hover:bg-base-200/0 "
+  >
+    <Picture
+      src="/avatar.jpeg"
+      alt="Portrait"
+      widths={[250, 400]}
+      sizes="(max-width: 250px) 150px, 400px"
+      aspectRatio="1:1"
+      formats={['avif', 'webp', 'jpeg']}
+      class="my-0 w-52 lg:max-w-xs contrast-[110%] group-hover:contrast-100 transition-transform duration-500 scale-110 group-hover:scale-100"
+    />
+  </ColorBlend>
+
+  <!-- Text -->
+  <div class="grid-in-[hello] flex flex-col">
+    <h1>Hi, I'm Ben.</h1>
+    <p>I am a Node.js developer specializing in Angular and NestJS.</p>
+
+    <!-- CV -->
+    <button onclick="downloadCV()" class="btn btn-sm btn-primary btn-block gap-2 normal-case">
+      <IconDownload />
+      Download CV
+    </button>
+    <!-- </div> -->
+  </div>
+</div>
+
+<style lang="scss">
+  .grid {
+    grid-template-areas:
+      'avatar'
+      'hello';
+
+    @screen sm {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'avatar hello';
+    }
+  }
+</style>

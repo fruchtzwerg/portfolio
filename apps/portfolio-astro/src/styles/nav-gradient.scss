@@ -1,0 +1,11 @@
+.gradient {
+  @apply bg-gradient-to-br from-primary to-accent dark:from-primary dark:to-indigo-500;
+}
+
+.menu-item {
+  @apply btn btn-circle btn-ghost border-none normal-case font-normal w-28 flex justify-center items-center;
+
+  &.active {
+    @apply gradient text-primary-content font-semibold;
+  }
+}

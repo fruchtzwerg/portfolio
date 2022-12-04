@@ -11,7 +11,7 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": ["build", "lint", "test", "e2e", "check"],
         "parallel": 1
       }
     }
@@ -62,5 +62,6 @@
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/.eslintrc.json"
     ]
-  }
+  },
+  "plugins": ["@nxtensions/astro"]
 }

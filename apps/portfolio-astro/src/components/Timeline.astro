@@ -1,0 +1,54 @@
+---
+import type { Timeslot } from '../models/timeslot.model';
+import TimelineSection from './TimelineSection.astro';
+
+interface Props {
+  sections: Timeslot[];
+  class?: string;
+}
+
+const { sections, class: className } = Astro.props;
+---
+
+<ol class:list={[className, 'border-l border-base-content/50']}>
+  {
+    sections.map(section => {
+      const props = section.link?.href
+        ? { href: section.link?.href, target: '_blank', rel: 'noreferrer' }
+        : {};
+
+      return (
+        <li data-date-raw={section.date.getTime()} class="relative">
+          <TimelineSection
+            tag={section.link ? 'a' : 'div'}
+            section={section}
+            class="block"
+            {...props}
+          />
+        </li>
+      );
+    })
+  }
+</ol>
+
+<script client:only>
+  const items = Array.from(document.querySelectorAll('[data-date-raw]'));
+
+  items.forEach(item => {
+    if (!item.dataset.dateRaw) return;
+
+    item.dataset.date = Intl.DateTimeFormat(navigator.languages, {
+      month: 'short',
+      year: 'numeric',
+    }).format(new Date(+item.dataset.dateRaw));
+  });
+</script>
+
+<style lang="scss" is:raw>
+  @screen sm {
+    li::before {
+      content: attr(data-date);
+      @apply absolute -left-[8.5rem] w-28 pt-3 text-base-content/60 text-sm text-end;
+    }
+  }
+</style>

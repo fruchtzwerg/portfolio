@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Timeline from '../components/Timeline.astro';
+import { sections } from '../constants/experience.const';
+---
+
+<Layout title="Experience">
+  <div class="prose mb-8">
+    <h1>Experience</h1>
+  </div>
+
+  <Timeline sections={sections} class="sm:ml-24" />
+</Layout>

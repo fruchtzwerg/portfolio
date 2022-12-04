@@ -1,0 +1,82 @@
+---
+import type { MDXLayoutProps } from 'astro';
+// import Navbar from '../components/navbar/Navbar';
+import Navbar from '../components/Navbar.astro';
+import BottomNav from '../components/BottomNav.astro';
+import Footer from '../components/Footer.astro';
+
+import '../styles/bg-gradient.scss';
+
+interface HTMLProps {
+  title: string;
+  prose?: boolean;
+}
+
+type Props = HTMLProps & Partial<MDXLayoutProps<HTMLProps>>;
+
+const { title, prose, frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="bg-base-300">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Benjamin Montazer | {title ?? frontmatter?.title}</title>
+  </head>
+
+  <body class="flex flex-col min-h-screen m-0 bg-base-300">
+    <!-- backdrop -->
+    <div class="fixed inset-0 z-0 flex justify-center sm:px-8">
+      <div class="flex w-full max-w-5xl bg-gradient ring-1 ring-secondary/20"></div>
+    </div>
+
+    <header class="sticky top-0 z-50 flex justify-center sm:px-8">
+      <Navbar id="navbar" class="w-full max-w-5xl transition-shadow" />
+    </header>
+
+    <main
+      class:list={[
+        { prose: prose ?? frontmatter?.prose },
+        'relative max-w-5xl sm:px-8 mx-auto mt-8',
+      ]}
+    >
+      <div class="lg:px-8 mb-16">
+        <div class="relative px-4 sm:p-8 lg:p-12">
+          <!-- Content -->
+          <slot />
+        </div>
+      </div>
+    </main>
+
+    <div class="z-10 mt-auto flex justify-center sm:px-8">
+      <Footer class="w-full max-w-5xl" />
+    </div>
+
+    <div class="sticky bottom-0 z-10 sm:hidden">
+      <BottomNav />
+    </div>
+  </body>
+</html>
+
+<script client:only>
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('#navbar');
+    const shadow = ['shadow-md', 'shadow-base-300', 'dark:shadow-base-300/50'];
+
+    if (window.scrollY > 0) navbar.classList.add(...shadow);
+    else if (window.scrollY === 0) navbar.classList.remove(...shadow);
+  });
+</script>
+
+<style is:global lang="scss">
+  .prose :where(ul.reset-list) {
+    @apply pl-0 mb-0 list-none;
+
+    & > li {
+      @apply my-0 pl-0;
+    }
+  }
+</style>

@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "markdown-astro",
+  "title": "Astro Markdown Generator",
+  "description": "Generates an Markdown component.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the component",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the component?"
+    },
+    "extension": {
+      "type": "string",
+      "description": "File extension of the component",
+      "alias": "e",
+      "enum": ["md", "mdx"],
+      "default": "md",
+      "x-prompt": {
+        "message": "Which file extension should the component have?",
+        "type": "list",
+        "items": [
+          { "label": "MD", "value": "md" },
+          { "label": "MDX", "value": "mdx" }
+        ]
+      }
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project",
+      "alias": "p",
+      "x-prompt": "What is the name of the project for this component?"
+    },
+    "type": {
+      "type": "string",
+      "description": "Compnent type",
+      "alias": "t",
+      "enum": ["page", "layout", "component"],
+      "default": "page",
+      "x-prompt": {
+        "message": "Which type of component should we create?",
+        "type": "list",
+        "items": [
+          { "label": "Page", "value": "page" },
+          { "label": "Layout", "value": "layout" },
+          { "label": "Component", "value": "component" }
+        ]
+      }
+    },
+    "layout": {
+      "type": "string",
+      "description": "Base layout of the component",
+      "alias": "l"
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the component is placed, relative to the project root",
+      "alias": "d"
+    }
+  },
+  "required": ["name", "extension", "project", "type"]
+}

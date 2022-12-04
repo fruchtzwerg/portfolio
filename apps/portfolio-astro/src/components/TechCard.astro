@@ -1,0 +1,61 @@
+---
+import BulbEmpty from '~icons/line-md/lightbulb';
+import BulbFilled from '~icons/line-md/lightbulb-filled';
+
+import type { Technology } from '../models/technology.model';
+import Hover from './Hover.astro';
+
+interface Props {
+  tech: Technology;
+}
+
+const { tech } = Astro.props;
+---
+
+<Hover
+  tag="a"
+  class="no-underline flex flex-col gap-2 p-4 h-full w-full"
+  hoverClasses="dark:!bg-base-300"
+  href={tech.href}
+  target="_blank"
+  rel="noreferrer"
+>
+  <>
+    <!-- icon -->
+    <div
+      class="flex self-start text-4xl text-black group-hover:text-white dark:text-white overflow-hidden transition-transform group-hover:scale-125"
+    >
+      <template shadowroot="closed">
+        <tech.icon aria-hidden />
+      </template>
+    </div>
+
+    <!-- title -->
+    <h3 class="my-0 group-hover:text-white">
+      {tech.title}
+    </h3>
+
+    <!-- desc -->
+    <p class="flex-1 font-light winter:group-hover:text-base-100/80">{tech.description}</p>
+
+    <!-- tags -->
+    <ul class="flex list-none p-0 my-0">
+      {
+        tech.tags.map(tag => (
+          <li class="badge badge-outline group-hover:badge dark:group-hover:badge-secondary dark:group-hover:!text-secondary-content mr-2">
+            {tag}
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- rating -->
+    <div
+      class="flex winter:group-hover:text-base-100/80"
+      aria-label={`skill level: ${tech.skill} of 10`}
+    >
+      {new Array(tech.skill).fill(null).map(() => <BulbFilled aria-hidden />)}
+      {new Array(10 - tech.skill).fill(null).map(() => <BulbEmpty aria-hidden />)}
+    </div>
+  </>
+</Hover>

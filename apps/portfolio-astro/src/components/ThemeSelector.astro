@@ -1,0 +1,54 @@
+---
+import IconMoon from '~icons/carbon/moon';
+import IconSun from '~icons/carbon/sun';
+
+interface Props {
+  class: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<script is:inline>
+  const mediaDark = matchMedia('(prefers-color-scheme: dark)');
+  const isDark =
+    localStorage.theme === 'arcane' || (!('theme' in localStorage) && mediaDark.matches);
+
+  function setTheme(isDark) {
+    localStorage.theme = document.documentElement.dataset.theme = isDark ? 'arcane' : 'winter';
+  }
+
+  setTheme(isDark);
+</script>
+
+<button
+  id="theme-selector"
+  onclick="toggleTheme()"
+  class:list={[className, 'swap swap-rotate btn btn-ghost btn-circle']}
+>
+  <IconSun class="swap-on fill-current text-lg sm:text-2xl" />
+  <IconMoon class="swap-off fill-current text-lg sm:text-2xl" />
+</button>
+
+<script client:only>
+  const btn = document.querySelector('#theme-selector');
+
+  function setActive(isDark) {
+    const toggle = isDark ? 'add' : 'remove';
+    btn.classList[toggle]('swap-active');
+  }
+
+  function toggleTheme() {
+    const isDark = localStorage.theme === 'arcane';
+
+    setTheme(!isDark);
+    setActive(!isDark);
+  }
+
+  mediaDark.onchange = e => {
+    setTheme(e.matches);
+    setActive(e.matches);
+  };
+
+  setActive(localStorage.getItem('theme'));
+</script>

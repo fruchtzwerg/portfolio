@@ -1,0 +1,74 @@
+---
+import ThemeSelector from './ThemeSelector.astro';
+
+import { navbarItems } from '../constants/navbar.const';
+import { socials } from '../constants/socials.const';
+
+import '../styles/nav-gradient.scss';
+
+interface Props {
+  id: string;
+  class: string;
+}
+
+const { id, class: className } = Astro.props;
+const url = Astro.url;
+
+const matches = (pathname: string) =>
+  url.pathname.toLowerCase().startsWith(`/${pathname}`.toLowerCase());
+---
+
+<nav
+  id={id}
+  class:list={[
+    className,
+    'grid grid-flow-col items-center sm:gap-4 p-2 sm:p-4 w-full backdrop-blur-md',
+  ]}
+>
+  <ThemeSelector class="grid-in-[theme] btn-sm sm:btn-md" />
+
+  <!-- Tabs -->
+  <ul class="grid-in-[tabs] gap-4 place-self-center hidden sm:flex">
+    {
+      navbarItems.map(item => (
+        <li>
+          <a
+            href={`/${item.toLowerCase()}`}
+            class:list={['menu-item h-10', { active: matches(item) }]}
+          >
+            {item}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <!-- Socials -->
+  <ul class="grid-in-[socials] flex gap-2 sm:gap-0 justify-self-end">
+    {
+      socials.map(({ Icon, props }) => (
+        <li>
+          <a
+            {...props}
+            rel="noreferrer"
+            class="btn btn-sm btn-circle btn-ghost text-lg sm:btn sm:btn-md sm:btn-ghost sm:btn-circle sm:!text-2xl"
+          >
+            <Icon />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  .grid {
+    grid-template-areas: 'theme socials';
+    grid-template-columns: auto 1fr;
+
+    @screen sm {
+      grid-template-areas: 'theme tabs socials';
+      grid-template-columns: auto 1fr auto;
+    }
+  }
+</style>

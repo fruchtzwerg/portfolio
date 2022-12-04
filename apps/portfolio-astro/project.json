@@ -1,0 +1,31 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "portfolio-astro",
+  "projectType": "application",
+  "sourceRoot": "apps/portfolio-astro/src",
+  "targets": {
+    "build": {
+      "outputs": ["{workspaceRoot}/dist/apps/portfolio-astro"],
+      "executor": "@nxtensions/astro:build",
+      "options": {}
+    },
+    "serve": {
+      "executor": "@nxtensions/astro:dev",
+      "options": {}
+    },
+    "preview": {
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ],
+      "executor": "@nxtensions/astro:preview",
+      "options": {}
+    },
+    "check": {
+      "executor": "@nxtensions/astro:check"
+    }
+  },
+  "tags": ["app"]
+}

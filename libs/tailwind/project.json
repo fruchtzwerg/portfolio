@@ -1,0 +1,16 @@
+{
+  "name": "tailwind",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/tailwind/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/tailwind/**/*.js"]
+      }
+    }
+  },
+  "tags": ["lib"]
+}

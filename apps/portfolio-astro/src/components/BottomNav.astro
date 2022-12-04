@@ -1,0 +1,29 @@
+---
+import { navbarItems } from '../constants/navbar.const';
+
+import '../styles/nav-gradient.scss';
+
+const url = Astro.url;
+---
+
+<nav>
+  <ul
+    class="flex justify-center gap-2 bg-base-100/20 backdrop-blur-lg border-t border-slate-300 dark:border-secondary/20"
+  >
+    {
+      navbarItems.map(item => (
+        <li class="my-2">
+          <a
+            href={`/${item.toLowerCase()}`}
+            class:list={[
+              'menu-item h-12',
+              { active: url?.pathname.toLowerCase().includes(item.toLowerCase()) },
+            ]}
+          >
+            {item}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

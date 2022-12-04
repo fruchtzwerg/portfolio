@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@icons/*": ["libs/icons/src/*"],
+      "@portfolio/tailwind": ["libs/tailwind/src/index.js"],
       "@utils/*": ["libs/utils/src/lib/*"]
     }
   },

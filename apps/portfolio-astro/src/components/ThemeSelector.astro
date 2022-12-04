@@ -25,6 +25,7 @@ const { class: className } = Astro.props;
   id="theme-selector"
   onclick="toggleTheme()"
   class:list={[className, 'swap swap-rotate btn btn-ghost btn-circle']}
+  aria-label="Switch theme"
 >
   <IconSun class="swap-on fill-current text-lg sm:text-2xl" />
   <IconMoon class="swap-off fill-current text-lg sm:text-2xl" />

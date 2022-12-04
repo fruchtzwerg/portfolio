@@ -12,14 +12,28 @@ export interface Link {
 export const socials: Link[] = [
   {
     Icon: LogoGithub,
-    props: { href: 'https://github.com/fruchtzwerg/portfolio', target: '_blank' },
+
+    props: {
+      href: 'https://github.com/fruchtzwerg/portfolio',
+      target: '_blank',
+      'aria-label': 'Github',
+    },
   },
   {
     Icon: LogoLinkedin,
-    props: { href: 'https://www.linkedin.com/in/montazer-benjamin/', target: '_blank' },
+
+    props: {
+      href: 'https://www.linkedin.com/in/montazer-benjamin/',
+      target: '_blank',
+      'aria-label': 'LinkedIn',
+    },
   },
   {
     Icon: MailIcon,
-    props: { href: 'mailto:benjamin@montazer.dev' },
+
+    props: {
+      href: 'mailto:benjamin@montazer.dev',
+      'aria-label': 'E-Mail',
+    },
   },
 ];

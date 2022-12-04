@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "preinstall": "npx only-allow pnpm",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main && node ./tools/scripts/patch-nx-cli.js",
     "start": "nx serve",
     "mobile": "nx run portfolio:serve --configuration=mobile",
@@ -14,9 +13,9 @@
     "nx:upgrade": "nx migrate latest",
     "nx:migrate": "nx migrate --run-migrations",
     "icons:extract": "nx extract icons && prettier --write libs/icons/",
-    "scully": "pnpm build --prod && scully --project portfolio --removeStaticDist",
+    "scully": "yarn build --prod && scully --project portfolio --removeStaticDist",
     "scully:serve": "scully serve",
-    "scully:scan": "pnpm build && scully --project portfolio --scanRoutes",
+    "scully:scan": "yarn build && scully --project portfolio --scanRoutes",
     "scully:kill": "scully killServer"
   },
   "svgGenerator": {

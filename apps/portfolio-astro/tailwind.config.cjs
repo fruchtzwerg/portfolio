@@ -12,6 +12,12 @@ module.exports = {
   ],
   darkMode: ['class', '[data-theme=arcane]'],
   theme: {
+    supports: {
+      chrome: '-webkit-tap-highlight-color:black',
+      firefox: 'not_(-webkit-text-security:circle)',
+      safari: '(not(-webkit-tap-highlight-color:black))_and_(-webkit-text-security:circle)',
+      'safari-not': '(-webkit-tap-highlight-color:black)_or_(not_(-webkit-text-security:circle))',
+    },
     extend: {
       colors: ({ theme }) => ({
         highlight: {

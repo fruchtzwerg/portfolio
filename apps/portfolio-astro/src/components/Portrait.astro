@@ -13,7 +13,7 @@ import { socials } from '../constants/socials.const';
 <div class="grid gap-16 max-w-xl mx-auto mb-16">
   <!-- Portrait -->
   <ColorBlend
-    class="grid-in-[avatar] justify-self-center rounded-box -rotate-6 transition duration-500 hover:rotate-0 shadow-md shadow-base-content/30 dark:shadow-base-300 hover:shadow-primary/50 dark:hover:shadow-primary/50 hover:shadow-lg"
+    class="bg-clip-text grid-in-[avatar] justify-self-center rounded-box -rotate-6 hover:rotate-0 transition duration-500 shadow-md shadow-base-content/30 dark:shadow-base-300 hover:shadow-primary/50 dark:hover:shadow-primary/50 hover:shadow-lg"
     blendClasses="transition-colors duration-500 bg-base-200 group-hover:bg-base-200/0 "
   >
     <Picture
@@ -23,7 +23,7 @@ import { socials } from '../constants/socials.const';
       sizes="(max-width: 250px) 150px, 400px"
       aspectRatio="1:1"
       formats={['avif', 'webp', 'jpeg']}
-      class="my-0 w-52 lg:max-w-xs contrast-[110%] group-hover:contrast-100 transition-transform duration-500 scale-110 group-hover:scale-100"
+      class="my-0 w-52 lg:max-w-xs contrast-[110%] group-hover:contrast-100 transition-transform duration-500 scale-110 supports-safari-not:group-hover:scale-100"
     />
   </ColorBlend>
 

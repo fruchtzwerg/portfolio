@@ -19,7 +19,7 @@ const {
   class:list={[
     className,
     ...classes,
-    'relative group z-10',
+    'relative group block isolate',
     { 'cursor-default': !['a', 'button'].includes(Tag) },
   ]}
 >
@@ -30,7 +30,7 @@ const {
   <div
     class:list={[
       ...(Array.isArray(hoverClasses) ? hoverClasses : [hoverClasses]),
-      'absolute inset-0 bg-neutral/80 opacity-0 scale-90 -z-10 group-hover:scale-100 group-hover:opacity-100 transition sm:rounded-box',
+      'absolute -top-3 -left-3 w-[calc(100%+1.5rem)] h-[calc(100%+1.5rem)] bg-neutral/80 opacity-0 scale-90 -z-10 group-hover:scale-100 group-hover:opacity-100 transition sm:rounded-box',
     ]}
   >
   </div>

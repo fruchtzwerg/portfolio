@@ -1,0 +1,32 @@
+---
+import ProjectCard from '../../components/ProjectCard.astro';
+import Layout from '../../layouts/Layout.astro';
+import type { Project } from '../../models/project.model';
+
+const getProjects = (projects: Project[]) => projects.sort((a, b) => a.order - b.order);
+
+const projects = getProjects(await Astro.glob<Project>('./*'));
+
+export const title = 'projects';
+export const order = 3;
+---
+
+<Layout title={title} prose>
+  <h1>Projects</h1>
+
+  <p>
+    Books can be great but in order to learn a technology and truly understand it, you need to build
+    something with it. Only then do you encounter all those painfull edge-cases - and learn how to
+    overcome them.
+  </p>
+
+  <ul class="flex flex-col gap-16 mt-16 reset-list">
+    {
+      projects.map(project => (
+        <li>
+          <ProjectCard {...project} />
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

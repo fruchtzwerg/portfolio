@@ -18,7 +18,10 @@ const { sections, class: className } = Astro.props;
         : {};
 
       return (
-        <li data-date-raw={section.date.getTime()} class="relative">
+        <li
+          data-date-raw={section.date.getTime()}
+          class="relative mt-12 sm:hover:mb-36 last:hover:mb-0 transition-[margin] duration-500"
+        >
           <TimelineSection
             tag={section.link ? 'a' : 'div'}
             section={section}

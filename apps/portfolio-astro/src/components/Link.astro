@@ -1,0 +1,21 @@
+---
+import IconLink from '~icons/carbon/link';
+
+interface Props {
+  class?: string;
+  groupHover?: boolean;
+}
+
+const { class: className, groupHover } = Astro.props;
+---
+
+<div
+  class:list={[
+    className,
+    groupHover && 'group-hover:text-primary dark:group-hover:text-accent',
+    'flex gap-2 items-center text-base-content/80',
+  ]}
+>
+  <IconLink />
+  <slot />
+</div>

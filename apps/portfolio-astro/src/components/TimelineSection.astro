@@ -1,7 +1,7 @@
 ---
 import type { Timeslot } from '../models/timeslot.model';
 import Hover from './Hover.astro';
-import IconLink from '~icons/carbon/link';
+import Link from './Link.astro';
 
 type Props<Tag extends Tagname = Tagname> = {
   tag?: Tagname;
@@ -11,23 +11,19 @@ type Props<Tag extends Tagname = Tagname> = {
 const { tag = 'li', class: className, section, ...props } = Astro.props;
 ---
 
-<Hover
-  tag={tag}
-  {...props as any}
-  class:list={[className, 'py-3 pr-3 mb-3 ml-3']}
-  hoverClasses="!bg-base-300"
->
+<Hover tag={tag} {...props as any} class:list={[className, 'm-6']} hoverClasses="!bg-base-300">
   <>
     <!-- Caption -->
     <div class="flex flex-start items-center">
-      <div class="bg-base-content w-2 h-2 rounded-full -ml-[16.5px] mr-6"></div>
+      <!-- Bulletpoint -->
+      <div class="bg-base-content w-2 h-2 rounded-full -ml-[28.5px] mr-6"></div>
       <p class="text-base-content/60 text-sm my-0">{section.caption}</p>
     </div>
 
     <!-- Content -->
-    <div class="mt-0.5 ml-4">
+    <div class="mt-0.5">
       <h4
-        class="text-base-content/80 font-semibold text-xl mb-1.5 mt-0 transition-all group-hover:text-2xl group-hover:text-base-content dark:group-hover:text-white"
+        class="text-base-content/80 font-semibold text-xl leading-8 mb-1.5 mt-0 transition-all group-hover:text-2xl group-hover:text-base-content dark:group-hover:text-white"
       >
         {section.title}
       </h4>
@@ -37,7 +33,7 @@ const { tag = 'li', class: className, section, ...props } = Astro.props;
       <ul class="flex flex-wrap gap-2">
         {
           section.tags.map(item => (
-            <li class="badge badge-outline badge-secondary dark:group-hover:text-base-content/60">
+            <li class="badge badge-outline text-base-content/50 group-hover:text-base-content/80 dark:group-hover:text-base-content/80">
               {item}
             </li>
           ))
@@ -47,9 +43,9 @@ const { tag = 'li', class: className, section, ...props } = Astro.props;
       <!-- Link -->
       {
         section.link && (
-          <div class="flex gap-2 mt-3 items-center group-hover:text-primary dark:group-hover:text-accent text-base-content/80">
-            <IconLink /> {section.link.label}
-          </div>
+          <Link class="mt-3" groupHover>
+            {section.link.label}
+          </Link>
         )
       }
     </div>

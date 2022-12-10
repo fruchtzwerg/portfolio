@@ -1,0 +1,38 @@
+---
+import type { Project } from '../models/project.model';
+import Hover from './Hover.astro';
+import Link from './Link.astro';
+
+interface Props extends Project {
+  class?: string;
+}
+
+const { class: className, title, first, technologies, href } = Astro.props;
+---
+
+<Hover
+  tag="a"
+  href={href}
+  target="_blank"
+  hoverClasses="!bg-base-300"
+  class:list={[className, 'no-underline']}
+>
+  <h2
+    class="transition-all my-0 leading-9 group-hover:text-3xl group-hover:text-base-content dark:group-hover:text-white"
+  >
+    {title}
+  </h2>
+  <p>{first}</p>
+
+  <ul class="reset-list flex gap-2">
+    {
+      technologies.map(tech => (
+        <li class="badge badge-outline !pl-2 text-primary group-hover:text-base-content/80">
+          {tech}
+        </li>
+      ))
+    }
+  </ul>
+
+  <Link groupHover class="mt-3">{href.split('https://')}</Link>
+</Hover>

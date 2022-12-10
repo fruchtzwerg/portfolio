@@ -27,7 +27,11 @@ const { tag = 'li', class: className, section, ...props } = Astro.props;
       >
         {section.title}
       </h4>
-      <p class="text-base-content/60 last:mb-0 mb-3">{section.description}</p>
+      {
+        section.description.map(paragraph => (
+          <p class="text-base-content/60 last:mb-0 mb-3">{paragraph}</p>
+        ))
+      }
 
       <!-- Tags -->
       <ul class="flex flex-wrap gap-2">

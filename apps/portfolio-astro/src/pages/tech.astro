@@ -15,9 +15,12 @@ const sections: Section[] = [
   { title: 'Bundling', technologies: bundlers },
   { title: 'Tools', technologies: tools },
 ];
+
+export const title = 'tech';
+export const order = 1;
 ---
 
-<Layout title="Tech" prose>
+<Layout title={title} prose>
   <h1>Technologies</h1>
 
   <p>
@@ -30,9 +33,10 @@ const sections: Section[] = [
       sections.map(section => (
         <>
           <section>
-            <div class="divider mt-16">
+            <div class="divider mt-16 mb-8">
               <h2 class="m-0">{section.title}</h2>
             </div>
+
             <ul class="reset-list">
               {section.technologies.map(tech => (
                 <li>

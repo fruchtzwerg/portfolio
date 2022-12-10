@@ -19,6 +19,14 @@ module.exports = {
       'safari-not': '(-webkit-tap-highlight-color:black)_or_(not_(-webkit-text-security:circle))',
     },
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      screens: {
+        xxs: '320px',
+        xs: '490px',
+        '3xl': '1800px',
+      },
       colors: ({ theme }) => ({
         highlight: {
           50: '#E9E5FF',
@@ -42,6 +50,20 @@ module.exports = {
     plugin(function ({ addVariant }) {
       addVariant('arcane', '[data-theme=arcane] &');
       addVariant('winter', '[data-theme=winter] &');
+    }),
+    plugin(function ({ addComponents }) {
+      addComponents({
+        '.prose :where(ul.reset-list)': {
+          paddingLeft: 0,
+          marginBottom: 0,
+          listStyleType: 'none',
+        },
+        '.prose :where(ul.reset-list) > li': {
+          paddingLeft: 0,
+          marginTop: 0,
+          marginBottom: 0,
+        },
+      });
     }),
   ],
   daisyui: {

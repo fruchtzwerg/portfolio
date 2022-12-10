@@ -2,9 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Timeline from '../components/Timeline.astro';
 import { sections } from '../constants/experience.const';
+
+export const title = 'experience';
+export const order = 2;
 ---
 
-<Layout title="Experience">
+<Layout title={title}>
   <div class="prose mb-8">
     <h1>Experience</h1>
   </div>

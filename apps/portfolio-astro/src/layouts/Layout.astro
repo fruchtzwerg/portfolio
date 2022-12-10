@@ -14,6 +14,9 @@ interface HTMLProps {
 type Props = HTMLProps & Partial<MDXLayoutProps<HTMLProps>>;
 
 const { title, prose, frontmatter } = Astro.props;
+
+const capitalize = (value: string) =>
+  [value[0].toUpperCase(), value.slice(1).toLocaleLowerCase()].join('');
 ---
 
 <!DOCTYPE html>
@@ -23,7 +26,7 @@ const { title, prose, frontmatter } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>Benjamin Montazer | {title ?? frontmatter?.title}</title>
+    <title>Montazer | {capitalize(title ?? frontmatter?.title)}</title>
   </head>
 
   <body class="flex flex-col min-h-screen m-0 bg-base-300">
@@ -69,13 +72,3 @@ const { title, prose, frontmatter } = Astro.props;
     else if (window.scrollY === 0) navbar.classList.remove(...shadow);
   });
 </script>
-
-<style is:global lang="scss">
-  .prose :where(ul.reset-list) {
-    @apply pl-0 mb-0 list-none;
-
-    & > li {
-      @apply my-0 pl-0;
-    }
-  }
-</style>

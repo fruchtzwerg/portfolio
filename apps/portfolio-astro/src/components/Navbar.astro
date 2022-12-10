@@ -1,10 +1,10 @@
 ---
 import ThemeSelector from './ThemeSelector.astro';
 
-import { navbarItems } from '../constants/navbar.const';
 import { socials } from '../constants/socials.const';
 
-import '../styles/nav-gradient.scss';
+import '../styles/navbar.scss';
+import { getPages } from '../utils/pages.utils';
 
 interface Props {
   id: string;
@@ -13,6 +13,8 @@ interface Props {
 
 const { id, class: className } = Astro.props;
 const url = Astro.url;
+
+const pages = getPages(await Astro.glob('../pages/(*|**/index.*)'));
 
 const matches = (pathname: string) =>
   url.pathname.toLowerCase().startsWith(`/${pathname}`.toLowerCase());
@@ -25,18 +27,19 @@ const matches = (pathname: string) =>
     'grid grid-flow-col items-center sm:gap-4 p-2 sm:p-4 w-full backdrop-blur-md',
   ]}
 >
+  <!-- Themes -->
   <ThemeSelector class="grid-in-[theme] btn-sm sm:btn-md" />
 
   <!-- Tabs -->
   <ul class="grid-in-[tabs] gap-4 place-self-center hidden sm:flex">
     {
-      navbarItems.map(item => (
+      pages.map(page => (
         <li>
           <a
-            href={`/${item.toLowerCase()}`}
-            class:list={['menu-item h-10', { active: matches(item) }]}
+            href={`/${page.title.toLowerCase()}`}
+            class:list={['menu-item h-10', { active: matches(page.title) }]}
           >
-            {item}
+            {page.title}
           </a>
         </li>
       ))
@@ -63,12 +66,50 @@ const matches = (pathname: string) =>
 
 <style lang="scss">
   .grid {
-    grid-template-areas: 'theme socials';
-    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'socials theme'
+      'tabs tabs';
+
+    .grid-in {
+      &-\[socials\] {
+        @apply justify-self-start;
+      }
+      &-\[tabs\] {
+        @apply justify-center w-full;
+      }
+      &-\[theme\] {
+        @apply justify-self-end;
+      }
+    }
 
     @screen sm {
-      grid-template-areas: 'theme tabs socials';
-      grid-template-columns: auto 1fr auto;
+      grid-template-areas:
+        'none socials theme'
+        'tabs tabs tabs';
+      grid-template-columns: 1fr auto 1fr;
+
+      .grid-in {
+        &-\[socials\] {
+          @apply justify-center;
+        }
+      }
+    }
+
+    @screen lg {
+      grid-template-areas: 'socials tabs theme';
+      grid-template-columns: 1fr auto 1fr;
+
+      .grid-in {
+        &-\[tabs\] {
+          @apply justify-center;
+        }
+        &-\[socials\] {
+          @apply justify-self-start;
+        }
+        &-\[theme\] {
+          @apply justify-self-end;
+        }
+      }
     }
   }
 </style>

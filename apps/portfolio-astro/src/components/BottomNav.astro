@@ -1,7 +1,9 @@
 ---
-import { navbarItems } from '../constants/navbar.const';
+import { getPages } from '../utils/pages.utils';
 
-import '../styles/nav-gradient.scss';
+import '../styles/navbar.scss';
+
+const pages = getPages(await Astro.glob('../pages/(*|**/index.*)'));
 
 const url = Astro.url;
 ---
@@ -11,16 +13,16 @@ const url = Astro.url;
     class="flex justify-center gap-2 bg-base-100/20 backdrop-blur-lg border-t border-slate-300 dark:border-secondary/20"
   >
     {
-      navbarItems.map(item => (
+      pages.map(page => (
         <li class="my-2">
           <a
-            href={`/${item.toLowerCase()}`}
+            href={`/${page.title.toLowerCase()}`}
             class:list={[
-              'menu-item h-12',
-              { active: url?.pathname.toLowerCase().includes(item.toLowerCase()) },
+              'menu-item',
+              { active: url?.pathname.toLowerCase().includes(page.title.toLowerCase()) },
             ]}
           >
-            {item}
+            {page.title}
           </a>
         </li>
       ))

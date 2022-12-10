@@ -23,9 +23,9 @@ const { tech } = Astro.props;
   <>
     <!-- icon -->
     <div
-      class="flex self-start text-4xl text-black group-hover:text-white dark:text-white overflow-hidden transition-transform group-hover:scale-125"
+      class="relative flex self-start text-4xl text-black group-hover:text-white dark:text-white transition-transform group-hover:scale-125"
     >
-      <tech.icon aria-hidden />
+      <tech.icon aria-hidden class="z-20" />
     </div>
 
     <!-- title -->

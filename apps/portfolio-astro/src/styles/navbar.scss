@@ -3,7 +3,7 @@
 }
 
 .menu-item {
-  @apply btn btn-circle btn-ghost border-none normal-case font-normal w-28 flex justify-center items-center;
+  @apply btn btn-circle btn-ghost border-none capitalize font-normal text-xs xs:text-sm w-fit px-2 xxs:w-20 xs:w-28 min-h-0 h-10 xs:h-12 flex justify-center items-center transition-all;
 
   &.active {
     @apply gradient text-primary-content font-semibold;

@@ -2,6 +2,7 @@ import { createGlobPatternsForDependencies } from '@nrwl/angular/tailwind';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import plugin from 'tailwindcss/plugin.js';
+import defaultTheme from 'tailwindcss/defaultTheme.js';
 
 import typography from '@tailwindcss/typography';
 import grid from '@savvywombat/tailwindcss-grid-areas';
@@ -20,21 +21,22 @@ export default {
   ],
   darkMode: ['class', '[data-theme=arcane]'],
   theme: {
-    supports: {
-      chrome: '-webkit-tap-highlight-color:black',
-      firefox: 'not_(-webkit-text-security:circle)',
-      safari: '(not(-webkit-tap-highlight-color:black))_and_(-webkit-text-security:circle)',
-      'safari-not': '(-webkit-tap-highlight-color:black)_or_(not_(-webkit-text-security:circle))',
+    screens: {
+      xxs: '320px',
+      xs: '490px',
+      sm: '720px',
+      ...defaultTheme.screens,
+      '3xl': '1800px',
     },
     extend: {
+      supports: {
+        chrome: '-webkit-tap-highlight-color:black',
+        firefox: 'not_(-webkit-text-security:circle)',
+        safari: '(not(-webkit-tap-highlight-color:black))_and_(-webkit-text-security:circle)',
+        'safari-not': '(-webkit-tap-highlight-color:black)_or_(not_(-webkit-text-security:circle))',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      },
-      screens: {
-        xxs: '320px',
-        xs: '490px',
-        sm: '720px',
-        '3xl': '1800px',
       },
       colors: ({ theme }) => ({
         highlight: {

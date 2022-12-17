@@ -28,6 +28,9 @@ export default defineConfig({
 
             iconSet.forEach(name => {
               const svg = iconSet.toSVG(name);
+
+              if (!svg) return;
+
               runSVGO(svg);
               iconSet.fromSVG(name, svg);
             });

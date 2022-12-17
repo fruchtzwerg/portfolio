@@ -5,7 +5,7 @@
     "target": "ESNext",
     "module": "ESNext",
     // Enable node-style module resolution, for things like npm package imports
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     // Enable JSON imports
     "resolveJsonModule": true,
     // Enable stricter transpilation for better output
@@ -22,6 +22,8 @@
     "importsNotUsedAsValues": "error",
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     // Add Vite's client types
     "types": ["astro/client", "@astrojs/image/client", "unplugin-icons/types/astro"]
   }

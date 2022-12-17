@@ -9,15 +9,12 @@
  * Note: this is only an issue when computing the project graph with the Nx Daemon
  * disabled (e.g. in CI environments).
  */
-const { readFileSync, writeFileSync } = require('fs');
+import { readFileSync, writeFileSync } from 'fs';
 
 try {
   const path = 'node_modules/nx/bin/nx.js';
   const nxCliEntryPoint = readFileSync(path, 'utf-8');
-  const updatedContent = nxCliEntryPoint.replace(
-    `require('v8-compile-cache');`,
-    ''
-  );
+  const updatedContent = nxCliEntryPoint.replace(`require('v8-compile-cache');`, '');
   writeFileSync(path, updatedContent);
 
   console.log(

@@ -1,11 +1,19 @@
-const { createGlobPatternsForDependencies } = require('@nxtensions/astro/tailwind');
-const { join } = require('path');
-const plugin = require('tailwindcss/plugin');
+import { createGlobPatternsForDependencies } from '@nrwl/angular/tailwind';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import plugin from 'tailwindcss/plugin.js';
 
-const { ARCANE } = require('../../libs/tailwind/src/lib/themes');
+import typography from '@tailwindcss/typography';
+import grid from '@savvywombat/tailwindcss-grid-areas';
+import daisyui from 'daisyui';
+
+import { ARCANE } from '../../libs/tailwind/src/lib/themes.mjs';
+
+const __filname = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filname);
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     join(__dirname, 'src/**/!(*.stories|*.spec).{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'),
     ...createGlobPatternsForDependencies(__dirname),
@@ -25,6 +33,7 @@ module.exports = {
       screens: {
         xxs: '320px',
         xs: '490px',
+        sm: '720px',
         '3xl': '1800px',
       },
       colors: ({ theme }) => ({
@@ -44,9 +53,9 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
-    require('@savvywombat/tailwindcss-grid-areas'),
-    require('daisyui'),
+    typography,
+    grid,
+    daisyui,
     plugin(function ({ addVariant }) {
       addVariant('arcane', '[data-theme=arcane] &');
       addVariant('winter', '[data-theme=winter] &');

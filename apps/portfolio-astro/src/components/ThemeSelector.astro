@@ -9,6 +9,7 @@ interface Props {
 const { class: className } = Astro.props as Props;
 ---
 
+<!-- Calculate current theme first -->
 <script is:inline>
   const mediaDark = matchMedia('(prefers-color-scheme: dark)');
   const isDark =
@@ -21,8 +22,9 @@ const { class: className } = Astro.props as Props;
   setTheme(isDark);
 </script>
 
+<!-- Init the component -->
 <button
-  id="theme-selector"
+  is="app-theme-selector"
   class:list={[className, 'swap swap-rotate btn btn-ghost btn-circle']}
   aria-label="Switch theme"
 >
@@ -30,32 +32,43 @@ const { class: className } = Astro.props as Props;
   <IconMoon class="swap-off fill-current text-lg sm:text-2xl" />
 </button>
 
+<!-- Set theme immediatly -->
+<script is:inline>
+  // eslint-disable-next-line no-undef
+  if (isDark) document.querySelector('[is=app-theme-selector]')?.classList.add('swap-active');
+</script>
+
+<!-- Register event listeners -->
 <script>
   declare function setTheme(isDark: boolean): void;
   declare const mediaDark: MediaQueryList;
 
-  const btn = document.querySelector<HTMLButtonElement>('#theme-selector');
+  class AppThemeSelector extends HTMLButtonElement {
+    constructor() {
+      super();
 
-  function setActive(isDark: boolean) {
-    const toggle = isDark ? 'add' : 'remove';
-    btn?.classList[toggle]('swap-active');
+      mediaDark.onchange = e => {
+        requestAnimationFrame(() => {
+          setTheme(e.matches);
+          this.setActive(e.matches);
+        });
+      };
+
+      this.addEventListener('click', this.toggleTheme.bind(this));
+    }
+
+    public setActive(isDark: boolean) {
+      const action = isDark ? 'add' : 'remove';
+      this.classList[action]('swap-active');
+    }
+
+    public toggleTheme() {
+      const isDark = localStorage.theme === 'arcane';
+
+      setTheme(!isDark);
+      this.setActive(!isDark);
+    }
   }
 
-  function toggleTheme() {
-    const isDark = localStorage.theme === 'arcane';
-
-    setTheme(!isDark);
-    setActive(!isDark);
-  }
-
-  mediaDark.onchange = e => {
-    setTheme(e.matches);
-    setActive(e.matches);
-  };
-
-  setActive(!!localStorage.getItem('theme'));
-
-  if (!btn) throw new Error('Something went wrong!');
-
-  btn.addEventListener('click', toggleTheme);
+  customElements.define('app-theme-selector', AppThemeSelector, { extends: 'button' });
 </script>

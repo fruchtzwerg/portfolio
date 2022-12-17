@@ -6,7 +6,7 @@ import ColorBlend from './ColorBlend.astro';
 import IconDownload from '~icons/line-md/download-loop';
 ---
 
-<div class="grid gap-16 max-w-xl mx-auto mb-16">
+<app-portrait class="grid gap-16 max-w-xl mx-auto mb-16">
   <!-- Portrait -->
   <ColorBlend
     class="bg-clip-text grid-in-[avatar] justify-self-center rounded-box -rotate-6 hover:rotate-0 transition duration-500 shadow-md shadow-base-content/30 dark:shadow-base-300 hover:shadow-primary/50 dark:hover:shadow-primary/50 hover:shadow-lg"
@@ -34,13 +34,19 @@ import IconDownload from '~icons/line-md/download-loop';
       Download CV
     </button>
   </div>
-</div>
+</app-portrait>
 
 <script>
-  const downloadCVBtn = document.querySelector<HTMLButtonElement>('#download-cv');
-  if (!downloadCVBtn) throw Error('Something went wrong!');
+  class AppPortrait extends HTMLElement {
+    constructor() {
+      super();
 
-  downloadCVBtn.onclick = () => alert('CV');
+      const downloadCVBtn = this.querySelector<HTMLButtonElement>('#download-cv');
+      downloadCVBtn?.addEventListener('click', () => alert('CV'));
+    }
+  }
+
+  customElements.define('app-portrait', AppPortrait);
 </script>
 
 <style lang="scss">

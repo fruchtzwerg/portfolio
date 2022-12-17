@@ -7,6 +7,7 @@ import { importDirectory, runSVGO } from '@iconify/tools';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import compress from 'astro-compress';
 
 import { AstroCompiler } from './unplugin/compilers/astro.mjs';
 
@@ -16,7 +17,15 @@ const iconsDir = join(dirname(__filname), 'icons');
 // https://astro.build/config
 export default defineConfig({
   outDir: '../../dist/apps/portfolio-astro',
-  integrations: [tailwind(), mdx(), image({ serviceEntryPoint: '@astrojs/image/sharp' })],
+  integrations: [
+    tailwind(),
+    mdx(),
+    image({ serviceEntryPoint: '@astrojs/image/sharp' }),
+    tailwind(),
+    sitemap({ canonicalURL: 'https://montazer.dev' }),
+    robotsTxt({ host: true }),
+    compress({ css: false }),
+  ],
   vite: {
     plugins: [
       visualizer(),

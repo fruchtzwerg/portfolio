@@ -23,7 +23,7 @@ export default defineConfig({
   integrations: [
     tailwind(),
     mdx(),
-    image({ serviceEntryPoint: '@astrojs/image/sharp' }),
+    image({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: '.sharp' }),
     sitemap({ canonicalURL: 'https://montazer.dev' }),
     robotsTxt({ host: true }),
     compress({ css: false }),

@@ -21,9 +21,9 @@ export default defineConfig({
   site: 'https://montazer.dev',
   outDir: '../../dist/apps/portfolio-astro',
   integrations: [
+    tailwind(),
     mdx(),
     image({ serviceEntryPoint: '@astrojs/image/sharp' }),
-    tailwind(),
     sitemap({ canonicalURL: 'https://montazer.dev' }),
     robotsTxt({ host: true }),
     compress({ css: false }),

@@ -37,7 +37,7 @@ const matches = (pathname: string) =>
         <li>
           <a
             href={`/${page.title.toLowerCase()}`}
-            class:list={['menu-item h-10', { active: matches(page.title) }]}
+            class:list={['menu-item', { active: matches(page.title) }]}
           >
             {page.title}
           </a>

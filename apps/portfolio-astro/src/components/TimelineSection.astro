@@ -1,5 +1,6 @@
 ---
 import type { Timeslot } from '../models/timeslot.model';
+
 import Hover from './Hover.astro';
 import Link from './Link.astro';
 
@@ -8,7 +9,7 @@ type Props<Tag extends Tagname = Tagname> = {
   section: Timeslot;
 } & astroHTML.JSX.DefinedIntrinsicElements[Tag];
 
-const { tag = 'li', class: className, section, ...props } = Astro.props;
+const { tag = 'li', class: className, section, ...props } = Astro.props as Props;
 ---
 
 <Hover tag={tag} {...props as any} class:list={[className, 'm-6']} hoverClasses="!bg-base-300">

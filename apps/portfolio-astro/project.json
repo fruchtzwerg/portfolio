@@ -25,6 +25,12 @@
     },
     "check": {
       "executor": "@nxtensions/astro:check"
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn eslint apps/portfolio-astro"
+      }
     }
   },
   "tags": ["app"]

@@ -1,12 +1,11 @@
 import { createGlobPatternsForDependencies } from '@nrwl/angular/tailwind';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import plugin from 'tailwindcss/plugin.js';
-import defaultTheme from 'tailwindcss/defaultTheme.js';
-
-import typography from '@tailwindcss/typography';
 import grid from '@savvywombat/tailwindcss-grid-areas';
+import typography from '@tailwindcss/typography';
 import daisyui from 'daisyui';
+import { join, dirname } from 'path';
+import defaultTheme from 'tailwindcss/defaultTheme.js';
+import plugin from 'tailwindcss/plugin.js';
+import { fileURLToPath } from 'url';
 
 import { ARCANE } from '../../libs/tailwind/src/lib/themes.mjs';
 
@@ -38,7 +37,7 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
-      colors: ({ theme }) => ({
+      colors: () => ({
         highlight: {
           50: '#E9E5FF',
           100: '#C1B0FF',

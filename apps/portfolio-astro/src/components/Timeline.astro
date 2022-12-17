@@ -1,5 +1,6 @@
 ---
 import type { Timeslot } from '../models/timeslot.model';
+
 import TimelineSection from './TimelineSection.astro';
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
   class?: string;
 }
 
-const { sections, class: className } = Astro.props;
+const { sections, class: className } = Astro.props as Props;
 ---
 
 <ol class:list={[className, 'border-l border-base-content/50']}>
@@ -34,13 +35,13 @@ const { sections, class: className } = Astro.props;
   }
 </ol>
 
-<script client:only>
-  const items = Array.from(document.querySelectorAll('[data-date-raw]'));
+<script>
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-date-raw]'));
 
   items.forEach(item => {
     if (!item.dataset.dateRaw) return;
 
-    item.dataset.date = Intl.DateTimeFormat(navigator.languages, {
+    item.dataset.date = Intl.DateTimeFormat(navigator.languages as string[], {
       month: 'short',
       year: 'numeric',
     }).format(new Date(+item.dataset.dateRaw));

@@ -1,9 +1,10 @@
 ---
 import type { MDXLayoutProps } from 'astro';
-import Navbar from '../components/Navbar.astro';
+import { SEO } from 'astro-seo';
+
 import BottomNav from '../components/BottomNav.astro';
 import Footer from '../components/Footer.astro';
-import { SEO } from 'astro-seo';
+import Navbar from '../components/Navbar.astro';
 
 import '../styles/bg-gradient.scss';
 
@@ -26,7 +27,7 @@ const {
   frontmatter,
   description = DESCRIPTION,
   canonical = Astro.site?.href,
-} = Astro.props;
+} = Astro.props as Props;
 
 const capitalize = (value: string) =>
   value
@@ -100,13 +101,14 @@ const getTitle = (t = title ?? frontmatter?.title) => `${NAME} | ${capitalize(t)
     <div class="sticky bottom-0 z-10 sm:hidden">
       <BottomNav />
     </div>
-    <script client:only>
+
+    <script>
       window.addEventListener('scroll', () => {
         const navbar = document.querySelector('#navbar');
         const shadow = ['shadow-md', 'shadow-base-300', 'dark:shadow-base-300/50'];
 
-        if (window.scrollY > 0) navbar.classList.add(...shadow);
-        else if (window.scrollY === 0) navbar.classList.remove(...shadow);
+        if (window.scrollY > 0) navbar?.classList.add(...shadow);
+        else if (window.scrollY === 0) navbar?.classList.remove(...shadow);
       });
     </script>
   </body>

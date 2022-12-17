@@ -1,15 +1,15 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import mdx from '@astrojs/mdx';
 import image from '@astrojs/image';
-import Icons from 'unplugin-icons/vite';
-import { importDirectory, runSVGO } from '@iconify/tools';
-import { visualizer } from 'rollup-plugin-visualizer';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import compress from 'astro-compress';
+import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import { importDirectory, runSVGO } from '@iconify/tools';
+import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
+import { defineConfig } from 'astro/config';
+import { join, dirname } from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
+import Icons from 'unplugin-icons/vite';
+import { fileURLToPath } from 'url';
 
 import { AstroCompiler } from './unplugin/compilers/astro.mjs';
 

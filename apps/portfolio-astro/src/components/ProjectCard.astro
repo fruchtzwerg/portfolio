@@ -1,5 +1,6 @@
 ---
 import type { Project } from '../models/project.model';
+
 import Hover from './Hover.astro';
 import Link from './Link.astro';
 
@@ -7,7 +8,7 @@ interface Props extends Project {
   class?: string;
 }
 
-const { class: className, title, first, technologies, href } = Astro.props;
+const { class: className, title, first, technologies, href } = Astro.props as Props;
 ---
 
 <Hover

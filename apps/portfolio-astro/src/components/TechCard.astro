@@ -1,15 +1,16 @@
 ---
+import type { Technology } from '../models/technology.model';
+
+import Hover from './Hover.astro';
+
 import BulbEmpty from '~icons/line-md/lightbulb';
 import BulbFilled from '~icons/line-md/lightbulb-filled';
-
-import type { Technology } from '../models/technology.model';
-import Hover from './Hover.astro';
 
 interface Props {
   tech: Technology;
 }
 
-const { tech } = Astro.props;
+const { tech } = Astro.props as Props;
 ---
 
 <Hover

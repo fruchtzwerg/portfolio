@@ -1,17 +1,17 @@
 ---
+import { socials } from '../constants/socials.const';
+import { getPages } from '../utils/pages.utils';
+
 import ThemeSelector from './ThemeSelector.astro';
 
-import { socials } from '../constants/socials.const';
-
 import '../styles/navbar.scss';
-import { getPages } from '../utils/pages.utils';
 
 interface Props {
   id: string;
   class: string;
 }
 
-const { id, class: className } = Astro.props;
+const { id, class: className } = Astro.props as Props;
 const url = Astro.url;
 
 const pages = getPages(await Astro.glob('../pages/(*|**/index.*)'));

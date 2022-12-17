@@ -1,21 +1,18 @@
 import type { Technology } from '../models/technology.model';
 
-import LogoTailwind from '~icons/logos/tailwindcss-icon';
 import LogoAngular from '~icons/logos/angular-icon';
-import LogoVue from '~icons/logos/vue';
-import LogoAstro from '~icons/portfolio/astro';
-
-import LogoJest from '~icons/logos/jest';
-import LogoPlaywright from '~icons/logos/playwright';
-
-import LogoNx from '~icons/logos/nx';
-import LogoWebpack from '~icons/logos/webpack';
-import LogoVite from '~icons/logos/vitejs';
-import LogoRollup from '~icons/logos/rollupjs';
-
-import LogoGit from '~icons/logos/git-icon';
 import LogoAtlassian from '~icons/logos/atlassian';
+import LogoGit from '~icons/logos/git-icon';
 import LogoGitlab from '~icons/logos/gitlab';
+import LogoJest from '~icons/logos/jest';
+import LogoNx from '~icons/logos/nx';
+import LogoPlaywright from '~icons/logos/playwright';
+import LogoRollup from '~icons/logos/rollupjs';
+import LogoTailwind from '~icons/logos/tailwindcss-icon';
+import LogoVite from '~icons/logos/vitejs';
+import LogoVue from '~icons/logos/vue';
+import LogoWebpack from '~icons/logos/webpack';
+import LogoAstro from '~icons/portfolio/astro';
 import LogoJenkins from '~icons/vscode-icons/file-type-jenkins';
 
 export const frameworks: Technology[] = [

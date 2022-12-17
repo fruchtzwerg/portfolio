@@ -1,13 +1,13 @@
 ---
 import { Picture } from '@astrojs/image/components';
-import IconDownload from '~icons/line-md/download-loop';
 
 import ColorBlend from './ColorBlend.astro';
-import { socials } from '../constants/socials.const';
+
+import IconDownload from '~icons/line-md/download-loop';
 ---
 
-<script client:load>
-  const downloadCV = () => alert('CV');
+<script>
+  export const downloadCV = () => alert('CV');
 </script>
 
 <div class="grid gap-16 max-w-xl mx-auto mb-16">

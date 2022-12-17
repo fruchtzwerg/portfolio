@@ -1,8 +1,8 @@
+import type { Icon } from '../models/icon.model';
+
 import LogoGithub from '~icons/carbon/logo-github';
 import LogoLinkedin from '~icons/carbon/logo-linkedin';
 import MailIcon from '~icons/fluent/mention-24-regular';
-
-import type { Icon } from '../models/icon.model';
 
 export interface Link {
   Icon: Icon;

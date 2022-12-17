@@ -6,7 +6,7 @@ interface Props {
   class: string;
 }
 
-const { class: className } = Astro.props;
+const { class: className } = Astro.props as Props;
 ---
 
 <script is:inline>
@@ -31,15 +31,18 @@ const { class: className } = Astro.props;
   <IconMoon class="swap-off fill-current text-lg sm:text-2xl" />
 </button>
 
-<script client:only>
-  const btn = document.querySelector('#theme-selector');
+<script>
+  declare function setTheme(isDark: boolean): void;
+  declare const mediaDark: MediaQueryList;
 
-  function setActive(isDark) {
+  const btn = document.querySelector<HTMLElement>('#theme-selector');
+
+  function setActive(isDark: boolean) {
     const toggle = isDark ? 'add' : 'remove';
-    btn.classList[toggle]('swap-active');
+    btn?.classList[toggle]('swap-active');
   }
 
-  function toggleTheme() {
+  export function toggleTheme() {
     const isDark = localStorage.theme === 'arcane';
 
     setTheme(!isDark);
@@ -51,5 +54,5 @@ const { class: className } = Astro.props;
     setActive(e.matches);
   };
 
-  setActive(localStorage.getItem('theme'));
+  setActive(!!localStorage.getItem('theme'));
 </script>

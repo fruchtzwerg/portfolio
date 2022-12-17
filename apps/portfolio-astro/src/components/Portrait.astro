@@ -6,10 +6,6 @@ import ColorBlend from './ColorBlend.astro';
 import IconDownload from '~icons/line-md/download-loop';
 ---
 
-<script>
-  export const downloadCV = () => alert('CV');
-</script>
-
 <div class="grid gap-16 max-w-xl mx-auto mb-16">
   <!-- Portrait -->
   <ColorBlend
@@ -33,13 +29,19 @@ import IconDownload from '~icons/line-md/download-loop';
     <p>I am a Node.js developer specializing in Angular and NestJS.</p>
 
     <!-- CV -->
-    <button onclick="downloadCV()" class="btn btn-sm btn-primary btn-block gap-2 normal-case">
+    <button id="download-cv" class="btn btn-sm btn-primary btn-block gap-2 normal-case">
       <IconDownload />
       Download CV
     </button>
-    <!-- </div> -->
   </div>
 </div>
+
+<script>
+  const downloadCVBtn = document.querySelector<HTMLButtonElement>('#download-cv');
+  if (!downloadCVBtn) throw Error('Something went wrong!');
+
+  downloadCVBtn.onclick = () => alert('CV');
+</script>
 
 <style lang="scss">
   .grid {

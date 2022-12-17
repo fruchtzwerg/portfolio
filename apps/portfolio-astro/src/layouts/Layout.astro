@@ -24,10 +24,9 @@ const DESCRIPTION =
 const {
   title = TITLE,
   prose,
-  frontmatter,
   description = DESCRIPTION,
   canonical = Astro.site?.href,
-} = Astro.props as Props;
+} = { ...Astro.props, ...Astro.props.frontmatter } as Props;
 
 const capitalize = (value: string) =>
   value
@@ -35,7 +34,7 @@ const capitalize = (value: string) =>
     .map(part => [part[0].toUpperCase(), part.slice(1).toLocaleLowerCase()].join(''))
     .join(' ');
 
-const getTitle = (t = title ?? frontmatter?.title) => `${NAME} | ${capitalize(t)}`;
+const getTitle = (t = title) => `${NAME} | ${capitalize(t)}`;
 ---
 
 <!DOCTYPE html>
@@ -54,6 +53,9 @@ const getTitle = (t = title ?? frontmatter?.title) => `${NAME} | ${capitalize(t)
           image: `/avatar.png`,
           type: 'profile',
           url: canonical,
+        },
+        image: {
+          alt: 'Headshot of Benjamin Montazer.',
         },
         optional: {
           description: DESCRIPTION_SHORT,
@@ -80,12 +82,7 @@ const getTitle = (t = title ?? frontmatter?.title) => `${NAME} | ${capitalize(t)
       <Navbar id="navbar" class="w-full max-w-5xl transition-shadow" />
     </header>
 
-    <main
-      class:list={[
-        { prose: prose ?? frontmatter?.prose },
-        'relative max-w-5xl sm:px-8 mx-auto mt-8',
-      ]}
-    >
+    <main class:list={[{ prose: prose }, 'relative max-w-5xl sm:px-8 mx-auto mt-8']}>
       <div class="lg:px-8 mb-16">
         <div class="relative px-4 sm:p-8 lg:p-12">
           <!-- Content -->

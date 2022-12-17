@@ -23,7 +23,6 @@ const { class: className } = Astro.props as Props;
 
 <button
   id="theme-selector"
-  onclick="toggleTheme()"
   class:list={[className, 'swap swap-rotate btn btn-ghost btn-circle']}
   aria-label="Switch theme"
 >
@@ -35,14 +34,14 @@ const { class: className } = Astro.props as Props;
   declare function setTheme(isDark: boolean): void;
   declare const mediaDark: MediaQueryList;
 
-  const btn = document.querySelector<HTMLElement>('#theme-selector');
+  const btn = document.querySelector<HTMLButtonElement>('#theme-selector');
 
   function setActive(isDark: boolean) {
     const toggle = isDark ? 'add' : 'remove';
     btn?.classList[toggle]('swap-active');
   }
 
-  export function toggleTheme() {
+  function toggleTheme() {
     const isDark = localStorage.theme === 'arcane';
 
     setTheme(!isDark);
@@ -55,4 +54,8 @@ const { class: className } = Astro.props as Props;
   };
 
   setActive(!!localStorage.getItem('theme'));
+
+  if (!btn) throw new Error('Something went wrong!');
+
+  btn.addEventListener('click', toggleTheme);
 </script>

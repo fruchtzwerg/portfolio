@@ -9,6 +9,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import compress from 'astro-compress';
 import sitemap from '@astrojs/sitemap';
+import robotsTxt from 'astro-robots-txt';
 
 import { AstroCompiler } from './unplugin/compilers/astro.mjs';
 

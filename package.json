@@ -72,15 +72,15 @@
     "@material/elevation": "^13.0.0",
     "@ngbasics/eslint-plugin": "^13.0.5",
     "@ngneat/svg-generator": "^4.0.0",
-    "@nrwl/angular": "15.2.4",
-    "@nrwl/cli": "15.2.4",
-    "@nrwl/devkit": "15.2.4",
-    "@nrwl/eslint-plugin-nx": "15.2.4",
-    "@nrwl/jest": "15.2.4",
-    "@nrwl/linter": "15.2.4",
-    "@nrwl/workspace": "15.2.4",
+    "@nrwl/angular": "15.3.3",
+    "@nrwl/cli": "15.3.3",
+    "@nrwl/devkit": "15.3.3",
+    "@nrwl/eslint-plugin-nx": "15.3.3",
+    "@nrwl/jest": "15.3.3",
+    "@nrwl/linter": "15.3.3",
+    "@nrwl/workspace": "15.3.3",
     "@nxext/solid": "14.0.2",
-    "@nxtensions/astro": "^3.1.0",
+    "@nxtensions/astro": "3.1.0",
     "@savvywombat/tailwindcss-grid-areas": "^3.0.0",
     "@scullyio/init": "^2.1.41",
     "@tailwindcss/typography": "^0.5.8",
@@ -103,7 +103,7 @@
     "jest-environment-jsdom": "28.1.1",
     "jest-preset-angular": "12.2.3",
     "mime": "^3.0.0",
-    "nx": "15.2.4",
+    "nx": "15.3.3",
     "postcss": "^8.4.20",
     "prettier": "2.8.0",
     "prettier-plugin-astro": "^0.7.0",
@@ -118,3 +118,4 @@
     "unplugin-icons": "^0.14.15"
   }
 }
+

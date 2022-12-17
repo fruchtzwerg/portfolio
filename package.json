@@ -92,6 +92,7 @@
     "astro": "^1.7.1",
     "astro-compress": "^1.1.23",
     "astro-robots-txt": "^0.3.10",
+    "astro-seo": "^0.6.0",
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.45.0",
     "eslint": "8.15.0",

@@ -3,6 +3,7 @@ import type { MDXLayoutProps } from 'astro';
 import Navbar from '../components/Navbar.astro';
 import BottomNav from '../components/BottomNav.astro';
 import Footer from '../components/Footer.astro';
+import { SEO } from 'astro-seo';
 
 import '../styles/bg-gradient.scss';
 
@@ -11,12 +12,29 @@ interface HTMLProps {
   prose?: boolean;
 }
 
-type Props = HTMLProps & Partial<MDXLayoutProps<HTMLProps>>;
+type Props = HTMLProps & Partial<MDXLayoutProps<HTMLProps>> & Parameters<typeof SEO>[number];
 
-const { title, prose, frontmatter } = Astro.props;
+const NAME = 'B. Montazer';
+const TITLE = 'Senior Frontend Engineer';
+const DESCRIPTION_SHORT = 'Frontend Excellence with Passion. Engineering & Architecture';
+const DESCRIPTION =
+  'Excellence in frontend software engineering and architecture. Real world experience from Micro Frontends to large-scale applications.';
+
+const {
+  title = TITLE,
+  prose,
+  frontmatter,
+  description = DESCRIPTION,
+  canonical = Astro.site?.href,
+} = Astro.props;
 
 const capitalize = (value: string) =>
-  [value[0].toUpperCase(), value.slice(1).toLocaleLowerCase()].join('');
+  value
+    .split(' ')
+    .map(part => [part[0].toUpperCase(), part.slice(1).toLocaleLowerCase()].join(''))
+    .join(' ');
+
+const getTitle = (t = title ?? frontmatter?.title) => `${NAME} | ${capitalize(t)}`;
 ---
 
 <!DOCTYPE html>
@@ -24,9 +42,31 @@ const capitalize = (value: string) =>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="generator" content={Astro.generator} />
-    <title>B. Montazer | {capitalize(title ?? frontmatter?.title)}</title>
+
+    <SEO
+      title={getTitle()}
+      description={description}
+      canonical={canonical}
+      openGraph={{
+        basic: {
+          title: getTitle(TITLE),
+          image: `/avatar.png`,
+          type: 'profile',
+          url: canonical,
+        },
+        optional: {
+          description: DESCRIPTION_SHORT,
+        },
+      }}
+      extend={{
+        link: [{ rel: 'icon', href: '/favicon.png', type: 'image/png' }],
+        meta: [
+          { name: 'generator', content: Astro.generator },
+          { name: 'profile:first_name', content: 'Benjamin Darius' },
+          { name: 'profile:last_name', content: 'Montazer' },
+        ],
+      }}
+    />
   </head>
 
   <body class="flex flex-col min-h-screen m-0 bg-base-300">
@@ -60,15 +100,14 @@ const capitalize = (value: string) =>
     <div class="sticky bottom-0 z-10 sm:hidden">
       <BottomNav />
     </div>
+    <script client:only>
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('#navbar');
+        const shadow = ['shadow-md', 'shadow-base-300', 'dark:shadow-base-300/50'];
+
+        if (window.scrollY > 0) navbar.classList.add(...shadow);
+        else if (window.scrollY === 0) navbar.classList.remove(...shadow);
+      });
+    </script>
   </body>
 </html>
-
-<script client:only>
-  window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('#navbar');
-    const shadow = ['shadow-md', 'shadow-base-300', 'dark:shadow-base-300/50'];
-
-    if (window.scrollY > 0) navbar.classList.add(...shadow);
-    else if (window.scrollY === 0) navbar.classList.remove(...shadow);
-  });
-</script>

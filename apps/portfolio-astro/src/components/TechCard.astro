@@ -53,7 +53,7 @@ const { tech } = Astro.props;
       aria-label={`skill level: ${tech.skill} of 10`}
     >
       {new Array(tech.skill).fill(null).map(() => <BulbFilled aria-hidden />)}
-      {new Array(10 - tech.skill).fill(null).map(() => <BulbEmpty aria-hidden />)}
+      {new Array(5 - tech.skill).fill(null).map(() => <BulbEmpty aria-hidden />)}
     </div>
   </>
 </Hover>

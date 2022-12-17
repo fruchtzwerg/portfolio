@@ -24,7 +24,7 @@ export const frameworks: Technology[] = [
     icon: LogoAngular,
     description: 'Fully featured web-framework to build complex, scalable, modular web-apps.',
     tags: ['RxJS', 'Material', 'Jest'],
-    skill: 10,
+    skill: 5,
     href: 'https://angular.io/',
   },
   {
@@ -32,7 +32,7 @@ export const frameworks: Technology[] = [
     icon: LogoVue,
     description: 'Lightweight and flexible frontend framework. Excels at data visualization.',
     tags: ['v2', 'v3', 'Pinia', 'Vuex', 'Vite'],
-    skill: 10,
+    skill: 5,
     href: 'https://vuejs.org/',
   },
   {
@@ -41,7 +41,7 @@ export const frameworks: Technology[] = [
     description:
       'Meta-framework to build statically generated or server-side rendered web apps with existing technologies such as Vue, React, SolidJS and more.',
     tags: ['Vue', 'React', 'Solid'],
-    skill: 8,
+    skill: 4,
     href: 'https://astro.build/',
   },
   {
@@ -50,7 +50,7 @@ export const frameworks: Technology[] = [
     description:
       'Class-based CSS framework. Equally useful for quick prototyping as well as building production apps. Makes theming and responsiveness a breaze.',
     tags: ['Daisy UI', 'Themes', 'Plugins'],
-    skill: 9,
+    skill: 4,
     href: 'https://tailwindcss.com/',
   },
 ];
@@ -61,7 +61,7 @@ export const testRunners: Technology[] = [
     icon: LogoJest,
     description: 'Performant test runner for unit and integration testing.',
     tags: ['Angular', 'Vue', 'StencilJS'],
-    skill: 10,
+    skill: 5,
     href: 'https://jestjs.io/',
   },
   {
@@ -69,7 +69,7 @@ export const testRunners: Technology[] = [
     icon: LogoPlaywright,
     description: 'Modern E2E and browser automation framework by Microsoft.',
     tags: ['E2E', 'Visual testing', 'Cross-domain'],
-    skill: 8,
+    skill: 4,
     href: 'https://jestjs.io/',
   },
 ];
@@ -80,7 +80,7 @@ export const bundlers: Technology[] = [
     icon: LogoNx,
     description: 'Technology agnostic tooling to manage monorepos.',
     tags: ['Monorepos', 'Generators', 'Linting'],
-    skill: 9,
+    skill: 5,
     href: 'https://nx.dev/',
   },
   {
@@ -88,7 +88,7 @@ export const bundlers: Technology[] = [
     icon: LogoWebpack,
     description: 'Modular and fully configurable JavaScript bundler.',
     tags: ['Angular', 'Vue', 'Vanilla'],
-    skill: 8,
+    skill: 4,
     href: 'https://webpack.js.org/',
   },
   {
@@ -96,7 +96,7 @@ export const bundlers: Technology[] = [
     icon: LogoVite,
     description: 'Modern JavaScript bundler optimized for performance.',
     tags: ['Vue', 'Astro', 'Iconify'],
-    skill: 8,
+    skill: 4,
     href: 'https://vitejs.dev/',
   },
   {
@@ -104,7 +104,7 @@ export const bundlers: Technology[] = [
     icon: LogoRollup,
     description: 'Zero-configuration JavaScript bundler.',
     tags: ['StencilJS', 'WebComponents'],
-    skill: 8,
+    skill: 4,
     href: 'https://rollupjs.org/guide/en/',
   },
 ];
@@ -115,7 +115,7 @@ export const tools: Technology[] = [
     icon: LogoGit,
     description: 'Distributed version control system.',
     tags: ['Reviews', 'Monorepos', 'Trunkbased', 'Gitflow'],
-    skill: 9,
+    skill: 5,
     href: 'https://git-scm.com/',
   },
   {
@@ -123,7 +123,7 @@ export const tools: Technology[] = [
     icon: LogoAtlassian,
     description: 'Suite of project management, engineering and documentation tools.',
     tags: ['Bitbucket', 'Jira', 'Confluence'],
-    skill: 8,
+    skill: 4,
     href: 'https://www.atlassian.com/',
   },
   {
@@ -131,7 +131,7 @@ export const tools: Technology[] = [
     icon: LogoGitlab,
     description: 'Open source alternative to Github and Bitbucket.',
     tags: ['Gitlab-CI'],
-    skill: 8,
+    skill: 4,
     href: 'https://about.gitlab.com/',
   },
   {
@@ -139,7 +139,7 @@ export const tools: Technology[] = [
     icon: LogoJenkins,
     description: 'Pluggable software automation service.',
     tags: ['Declarative', 'Scripted'],
-    skill: 6,
+    skill: 3,
     href: 'https://www.jenkins.io/',
   },
 ];

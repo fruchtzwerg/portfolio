@@ -1,4 +1,4 @@
-import { createGlobPatternsForDependencies } from '@nrwl/angular/tailwind';
+import { createGlobPatternsForDependencies } from '@nrwl/workspace/src/utilities/generate-globs.js';
 import grid from '@savvywombat/tailwindcss-grid-areas';
 import typography from '@tailwindcss/typography';
 import daisyui from 'daisyui';

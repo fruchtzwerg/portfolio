@@ -1,10 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "icons": "libs/icons",
     "portfolio": "apps/portfolio",
-    "portfolio-astro": "apps/portfolio-astro",
-    "tailwind": "libs/tailwind",
-    "utils": "libs/utils"
+    "tailwind": "libs/tailwind"
   }
 }

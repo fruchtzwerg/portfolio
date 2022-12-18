@@ -1,7 +1,0 @@
-@use '../../styles/media';
-@use '../../styles/variables';
-
-:host {
-  display: grid;
-  gap: variables.$gap;
-}

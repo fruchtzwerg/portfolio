@@ -1,9 +1,0 @@
-<ol>
-  <li *ngFor="let section of sections">
-    <a
-      [href]="'#' + section.name"
-      [class.active]="(activeSection$ | async) === section.name"
-      >{{ section.name | titlecase }}</a
-    >
-  </li>
-</ol>

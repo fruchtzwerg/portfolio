@@ -15,9 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@icons/*": ["libs/icons/src/*"],
-      "@portfolio/tailwind": ["libs/tailwind/src/index.js"],
-      "@utils/*": ["libs/utils/src/lib/*"]
+      "@portfolio/tailwind": ["libs/tailwind/src/index.js"]
     }
   },
   "exclude": ["node_modules", "tmp"]

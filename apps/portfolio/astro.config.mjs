@@ -20,7 +20,7 @@ const iconsDir = join(dirname(__filname), 'icons');
 // https://astro.build/config
 export default defineConfig({
   site: 'https://montazer.dev',
-  outDir: '../../dist/apps/portfolio-astro',
+  outDir: '../../dist/apps/portfolio',
   integrations: [
     tailwind(),
     polyfills('@ungap/custom-elements'),

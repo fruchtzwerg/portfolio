@@ -1,8 +1,8 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx", "@ngbasics"],
-  "extends": "plugin:@ngbasics/recommended",
+  "plugins": ["@nrwl/nx"],
+
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -33,7 +33,7 @@
         "createDefaultProgram": true
       },
       "plugins": ["rxjs"],
-      "extends": ["plugin:@nrwl/nx/typescript", "plugin:rxjs/recommended"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {}
     },
     {

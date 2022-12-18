@@ -448,15 +448,35 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/arvo@^4.5.7":
+  version "4.5.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/arvo/-/arvo-4.5.7.tgz#5a2bfe1bab17ccf4223c5d15a0b4ec895cfc64c5"
+  integrity sha512-Vl0o67kDTzYeArRtnyzA/JNyLBektY5l/SL3lQGsvOLBNktaN46o3B8/OuS7G17dG8RaRSVTdtpBG/RHazIfDA==
+
+"@fontsource/exo@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/exo/-/exo-4.5.10.tgz#18740008bd7123a8beea9fc4d8e2ea298be1c1dc"
+  integrity sha512-3zPblPonL+DLFVW3eiZAIV6WrdGO6YNUgo2O80iKH4tNRncGqneHvz2BZYqvFRARKdNhqOVyjLZmEn7KF8RnDw==
+
+"@fontsource/hind@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/hind/-/hind-4.5.10.tgz#b5ef4a223b2b6ec57ade1050a7d62415422ad777"
+  integrity sha512-O9/9Ts+vqiPTvkRrNJMlnKA672v+iv4LirqALFMPnLsBIXW5ay4sBkLOSifhOkKq+dOg4T7WoA0SIl2RK5Lnew==
+
+"@fontsource/inconsolata@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/inconsolata/-/inconsolata-4.5.9.tgz#d09fb02a1c6d293a42391de55cd895a896052635"
+  integrity sha512-hj+IIYvbmA0pxoIbjQVkPkEq28moTuD0d4c+s3HU58Gossh24NH6ExttgU/ImJGDngxxGKfmbuZeAJhxUQWdyw==
+
+"@fontsource/lato@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.5.10.tgz#1ab3d33282e605886e4a8b4c32b1f230a4cb5ea6"
+  integrity sha512-2hYR6r661Cq9B8zugtu6yxuOKqrVhAgfOSaPSq8XoxbC4ebsl0KOTy/vPoP+9U7JuQVLfrmikirW4a9Z0nDUug==
+
 "@fontsource/quicksand@^4.5.11":
   version "4.5.11"
   resolved "https://registry.yarnpkg.com/@fontsource/quicksand/-/quicksand-4.5.11.tgz#2865b0b2f1e82eaaaf94df881d7b0538ef11b5c7"
   integrity sha512-SdgbixomUPBMjv+QZH72XsyJMY/P/XzEEFl7KCop+lAuBfy1fiqX+RyMheHhdNfR6Uk8MJla0iyb1ngcJXD0gw==
-
-"@fontsource/roboto@^4.5.8":
-  version "4.5.8"
-  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.8.tgz#56347764786079838faf43f0eeda22dd7328437f"
-  integrity sha512-CnD7zLItIzt86q4Sj3kZUiLcBk1dSk81qcqgMGaZe7SQ1P8hFNxhMl5AZthK1zrDM5m74VVhaOpuMGIL4gagaA==
 
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"

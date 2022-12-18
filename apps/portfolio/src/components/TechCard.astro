@@ -38,7 +38,7 @@ const { tech } = Astro.props as Props;
     <p class="flex-1 font-light winter:group-hover:text-base-100/80">{tech.description}</p>
 
     <!-- tags -->
-    <ul class="flex list-none p-0 my-0">
+    <ul class="flex reset-list">
       {
         tech.tags.map(tag => (
           <li class="badge badge-outline group-hover:badge dark:group-hover:badge-secondary dark:group-hover:!text-secondary-content mr-2">
@@ -50,7 +50,7 @@ const { tech } = Astro.props as Props;
 
     <!-- rating -->
     <div
-      class="flex winter:group-hover:text-base-100/80"
+      class="flex winter:group-hover:text-base-100/80 mt-3"
       aria-label={`skill level: ${tech.skill} of 10`}
     >
       {new Array(tech.skill).fill(null).map(() => <BulbFilled aria-hidden />)}

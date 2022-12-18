@@ -18,11 +18,11 @@ const { class: className, title, first, technologies, href } = Astro.props as Pr
   hoverClasses="!bg-base-300"
   class:list={[className, 'no-underline']}
 >
-  <h2
-    class="transition-all my-0 leading-9 group-hover:text-3xl group-hover:text-base-content dark:group-hover:text-white"
+  <h4
+    class="transition-all my-0 group-hover:text-2xl group-hover:text-base-content dark:group-hover:text-white"
   >
     {title}
-  </h2>
+  </h4>
   <p>{first}</p>
 
   <ul class="reset-list flex gap-2">

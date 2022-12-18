@@ -7,12 +7,12 @@ const getProjects = (projects: Project[]) => projects.sort((a, b) => a.order - b
 
 const projects = getProjects(await Astro.glob<Project>('./*'));
 
-export const title = 'projects';
+export const title = 'apps';
 export const order = 3;
 ---
 
 <Layout title={title} prose>
-  <h1>Projects</h1>
+  <h1 class="cursor">_{title}</h1>
 
   <p>
     Books can be great but in order to learn a technology and truly understand it, you need to build

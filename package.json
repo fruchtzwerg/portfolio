@@ -30,8 +30,12 @@
   },
   "private": true,
   "dependencies": {
-    "@fontsource/quicksand": "^4.5.11",
-    "@fontsource/roboto": "^4.5.8"
+    "@fontsource/arvo": "^4.5.7",
+    "@fontsource/exo": "^4.5.10",
+    "@fontsource/hind": "^4.5.10",
+    "@fontsource/inconsolata": "^4.5.9",
+    "@fontsource/lato": "^4.5.10",
+    "@fontsource/quicksand": "^4.5.11"
   },
   "devDependencies": {
     "@astrojs/image": "^0.11.6",

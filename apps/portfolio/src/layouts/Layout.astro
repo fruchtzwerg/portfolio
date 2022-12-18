@@ -1,76 +1,26 @@
 ---
 import type { MDXLayoutProps } from 'astro';
-import { SEO } from 'astro-seo';
+import type SEO from 'astro-seo/src/SEO.astro';
 
 import BottomNav from '../components/BottomNav.astro';
 import Footer from '../components/Footer.astro';
+import Head, { HeadProps } from '../components/Head.astro';
 import Navbar from '../components/Navbar.astro';
 
 import '../styles/bg-gradient.scss';
 
-interface HTMLProps {
-  title: string;
+interface HTMLProps extends HeadProps {
   prose?: boolean;
 }
 
 type Props = HTMLProps & Partial<MDXLayoutProps<HTMLProps>> & Parameters<typeof SEO>[number];
 
-const NAME = 'B. Montazer';
-const TITLE = 'Senior Frontend Engineer';
-const DESCRIPTION_SHORT = 'Frontend Excellence with Passion. Engineering & Architecture';
-const DESCRIPTION =
-  'Excellence in frontend software engineering and architecture. Real world experience from Micro Frontends to large-scale applications.';
-
-const {
-  title = TITLE,
-  prose,
-  description = DESCRIPTION,
-  canonical = Astro.site?.href,
-} = { ...Astro.props, ...Astro.props.frontmatter } as Props;
-
-const capitalize = (value: string) =>
-  value
-    .split(' ')
-    .map(part => [part[0].toUpperCase(), part.slice(1).toLocaleLowerCase()].join(''))
-    .join(' ');
-
-const getTitle = (t = title) => `${NAME} | ${capitalize(t)}`;
+const { prose, ...props } = { ...Astro.props, ...Astro.props.frontmatter } as Props;
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="bg-base-300">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-
-    <SEO
-      title={getTitle()}
-      description={description}
-      canonical={canonical}
-      openGraph={{
-        basic: {
-          title: getTitle(TITLE),
-          image: `/avatar.png`,
-          type: 'profile',
-          url: canonical,
-        },
-        image: {
-          alt: 'Headshot of Benjamin Montazer.',
-        },
-        optional: {
-          description: DESCRIPTION_SHORT,
-        },
-      }}
-      extend={{
-        link: [{ rel: 'icon', href: '/favicon.png', type: 'image/png' }],
-        meta: [
-          { name: 'generator', content: Astro.generator },
-          { name: 'profile:first_name', content: 'Benjamin Darius' },
-          { name: 'profile:last_name', content: 'Montazer' },
-        ],
-      }}
-    />
-  </head>
+  <Head {...props} />
 
   <body class="flex flex-col min-h-screen m-0 bg-base-300">
     <!-- backdrop -->
@@ -108,5 +58,19 @@ const getTitle = (t = title) => `${NAME} | ${capitalize(t)}`;
         else if (window.scrollY === 0) navbar?.classList.remove(...shadow);
       });
     </script>
+
+    <style lang="scss">
+      @keyframes pulse {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
   </body>
 </html>

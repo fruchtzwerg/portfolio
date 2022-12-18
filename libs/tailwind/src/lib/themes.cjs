@@ -1,4 +1,4 @@
-export const ROYAL = {
+module.exports.ROYAL = {
   royal: {
     primary: '#A5E6BA',
     secondary: '#9AC6C5',
@@ -12,7 +12,7 @@ export const ROYAL = {
   },
 };
 
-export const BUBBLEGUM = {
+module.exports.BUBBLEGUM = {
   bubblegum: {
     primary: '#FF6D00',
     secondary: '#ff9e00',
@@ -26,7 +26,7 @@ export const BUBBLEGUM = {
   },
 };
 
-export const ARCANE = {
+module.exports.ARCANE = {
   arcane: {
     primary: '#A58CFF',
     // primary: '#3B3355',
@@ -45,7 +45,7 @@ export const ARCANE = {
   },
 };
 
-export const PASTEL = {
+module.exports.PASTEL = {
   pastel: {
     primary: '#7FDEFF',
     secondary: '#DABFFF',
@@ -59,7 +59,7 @@ export const PASTEL = {
   },
 };
 
-export const RETRO = {
+module.exports.RETRO = {
   retro: {
     primary: '#E71D36',
     secondary: '#2EC4B6',
@@ -73,7 +73,7 @@ export const RETRO = {
   },
 };
 
-export const POLARIS = {
+module.exports.POLARIS = {
   polaris: {
     primary: '#6FFFE9',
     secondary: '#5BC0BE',
@@ -87,7 +87,7 @@ export const POLARIS = {
   },
 };
 
-export const SOLARIS = {
+module.exports.SOLARIS = {
   solaris: {
     primary: '#eb5e28',
     secondary: '#252422',
@@ -101,7 +101,7 @@ export const SOLARIS = {
   },
 };
 
-export const RETRO_NEW = {
+module.exports.RETRO_NEW = {
   'retro-new': {
     primary: '#ff9f1c',
     secondary: '#e71d36',
@@ -115,7 +115,7 @@ export const RETRO_NEW = {
   },
 };
 
-export const MOCCA = {
+module.exports.MOCCA = {
   mocca: {
     primary: '#5e503f',
     secondary: '#c6ac8f',
@@ -129,7 +129,7 @@ export const MOCCA = {
   },
 };
 
-export const FROSTY_NIGHT = {
+module.exports.FROSTY_NIGHT = {
   'frosty-night': {
     primary: '#284b63',
     secondary: '#d9d9d9',
@@ -143,7 +143,7 @@ export const FROSTY_NIGHT = {
   },
 };
 
-export const TUNDRA = {
+module.exports.TUNDRA = {
   tundra: {
     primary: '#6b9080',
     secondary: '#a4c3b2',
@@ -157,7 +157,7 @@ export const TUNDRA = {
   },
 };
 
-export const TAIGA = {
+module.exports.TAIGA = {
   taiga: {
     primary: '#2f3e46',
     secondary: '#354f52',
@@ -171,7 +171,7 @@ export const TAIGA = {
   },
 };
 
-export const TAIGA_DARK = {
+module.exports.TAIGA_DARK = {
   'taiga-dark': {
     primary: '#cad2c5',
     secondary: '#84a98c',
@@ -185,7 +185,7 @@ export const TAIGA_DARK = {
   },
 };
 
-export const WINTER_NIGHT = {
+module.exports.WINTER_NIGHT = {
   'winter-night': {
     primary: '#ee6c4d',
     secondary: '#e0fbfc',
@@ -199,7 +199,7 @@ export const WINTER_NIGHT = {
   },
 };
 
-export const FROZEN = {
+module.exports.FROZEN = {
   frozen: {
     primary: '#134074',
     secondary: '#13315c',
@@ -213,7 +213,7 @@ export const FROZEN = {
   },
 };
 
-export const WINTER_STRAWBERRY = {
+module.exports.WINTER_STRAWBERRY = {
   'winter-strawberry': {
     primary: '#e63946',
     secondary: '#f1faee',
@@ -227,7 +227,7 @@ export const WINTER_STRAWBERRY = {
   },
 };
 
-export const MONOCHROME = {
+module.exports.MONOCHROME = {
   monochrome: {
     primary: '#f8f9fa',
     secondary: '#dee2e6',
@@ -241,7 +241,7 @@ export const MONOCHROME = {
   },
 };
 
-export const SUNSTORM = {
+module.exports.SUNSTORM = {
   sunstorm: {
     primary: '#ffba08',
     secondary: '#e85d04',
@@ -255,7 +255,7 @@ export const SUNSTORM = {
   },
 };
 
-export const FROZEN_LAKE = {
+module.exports.FROZEN_LAKE = {
   'frozen-lake': {
     primary: '#03045e',
     secondary: '#0077b6',
@@ -269,7 +269,7 @@ export const FROZEN_LAKE = {
   },
 };
 
-export const BLUEBERRY = {
+module.exports.BLUEBERRY = {
   blueberry: {
     primary: '#e0aaff',
     secondary: '#7b2cbf',
@@ -283,7 +283,7 @@ export const BLUEBERRY = {
   },
 };
 
-export const STRAWBERRY = {
+module.exports.STRAWBERRY = {
   strawberry: {
     primary: '#89023e',
     secondary: '#ea638c',
@@ -297,7 +297,7 @@ export const STRAWBERRY = {
   },
 };
 
-export const MODD_DARK = {
+module.exports.MODD_DARK = {
   'moss-dark': {
     primary: '#f7f7f2',
     secondary: '#e4e6c3',
@@ -311,7 +311,7 @@ export const MODD_DARK = {
   },
 };
 
-export const MOSS = {
+module.exports.MOSS = {
   moss: {
     primary: '#121113',
     secondary: '#222725',
@@ -325,7 +325,7 @@ export const MOSS = {
   },
 };
 
-export const COLD_FOREST_DARK = {
+module.exports.COLD_FOREST_DARK = {
   'cold-forest-dark': {
     primary: '#cad2c5',
     secondary: '#84a98c',
@@ -339,7 +339,7 @@ export const COLD_FOREST_DARK = {
   },
 };
 
-export const COLD_FOREST = {
+module.exports.COLD_FOREST = {
   'cold-forest': {
     primary: '#2f3e46',
     secondary: '#354f52',
@@ -353,7 +353,7 @@ export const COLD_FOREST = {
   },
 };
 
-export const SUMMER_FOREST_DARK = {
+module.exports.SUMMER_FOREST_DARK = {
   'summer-forest-dark': {
     primary: '#d8f3dc',
     secondary: '#95d5b2',
@@ -367,7 +367,7 @@ export const SUMMER_FOREST_DARK = {
   },
 };
 
-export const SUMMER_FOREST = {
+module.exports.SUMMER_FOREST = {
   'summer-forest': {
     primary: '#081c15',
     secondary: '#2d6a4f',
@@ -381,7 +381,7 @@ export const SUMMER_FOREST = {
   },
 };
 
-export const LICORICE = {
+module.exports.LICORICE = {
   licorice: {
     primary: '#A3C7D6',
     secondary: '#9F73AB',
@@ -395,7 +395,7 @@ export const LICORICE = {
   },
 };
 
-export const RUDOLF = {
+module.exports.RUDOLF = {
   rudolf: {
     primary: '#E05B5B',
     secondary: '#6B778D',
@@ -409,7 +409,7 @@ export const RUDOLF = {
   },
 };
 
-export const CANDY = {
+module.exports.CANDY = {
   candy: {
     primary: '#48E0E4',
     secondary: '#D7FBF6',

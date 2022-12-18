@@ -12,13 +12,18 @@ type Props<Tag extends Tagname = Tagname> = {
 const { tag = 'li', class: className, section, ...props } = Astro.props as Props;
 ---
 
-<Hover tag={tag} {...props as any} class:list={[className, 'm-6']} hoverClasses="!bg-base-300">
+<Hover
+  tag={tag}
+  {...props as any}
+  class:list={[className, 'm-6 prose']}
+  hoverClasses="!bg-base-300"
+>
   <>
     <!-- Caption -->
     <div class="flex flex-start items-center">
       <!-- Bulletpoint -->
       <div class="bg-base-content w-2 h-2 rounded-full -ml-[28.5px] mr-6"></div>
-      <p class="text-base-content/60 text-sm my-0">{section.caption}</p>
+      <small class="text-base-content/60 text-sm my-0">{section.caption}</small>
     </div>
 
     <!-- Content -->
@@ -34,16 +39,18 @@ const { tag = 'li', class: className, section, ...props } = Astro.props as Props
         ))
       }
 
+      <!-- <div class="not-prose"> -->
       <!-- Tags -->
-      <ul class="flex flex-wrap gap-2">
+      <ul class="flex reset-list flex-wrap gap-2">
         {
           section.tags.map(item => (
-            <li class="badge badge-outline text-base-content/50 group-hover:text-base-content/80 dark:group-hover:text-base-content/80">
+            <li class="badge badge-outline pl-2 text-base-content/50 group-hover:text-base-content/80 dark:group-hover:text-base-content/80">
               {item}
             </li>
           ))
         }
       </ul>
+      <!-- </div> -->
 
       <!-- Link -->
       {

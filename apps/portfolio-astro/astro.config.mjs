@@ -12,6 +12,7 @@ import Icons from 'unplugin-icons/vite';
 import { fileURLToPath } from 'url';
 
 import { AstroCompiler } from './unplugin/compilers/astro.mjs';
+import polyfills from './unplugin/polyfills.plugin.mjs';
 
 const __filname = fileURLToPath(import.meta.url);
 const iconsDir = join(dirname(__filname), 'icons');
@@ -22,6 +23,7 @@ export default defineConfig({
   outDir: '../../dist/apps/portfolio-astro',
   integrations: [
     tailwind(),
+    polyfills('@ungap/custom-elements'),
     mdx(),
     image({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: '.sharp' }),
     sitemap({ canonicalURL: 'https://montazer.dev' }),

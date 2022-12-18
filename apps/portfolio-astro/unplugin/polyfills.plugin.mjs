@@ -23,7 +23,7 @@ export default function (...modules) {
           'head-inline',
           modules
             .map(module =>
-              readFileSync(new URL(`../../../node_modules/${module}/index.js`, import.meta.url), {
+              readFileSync(new URL(`../../../node_modules/${module}/es.js`, import.meta.url), {
                 encoding: 'utf-8',
               })
             )

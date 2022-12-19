@@ -20,7 +20,7 @@ const { class: className } = Astro.props as Props;
   </p>
 
   <!-- Contact -->
-  <section class="text-sm font-extralight text-center font-normal">
+  <section class="text-sm font-extralight text-center font-default">
     <div class="text-xs mb-1">Benjamin Montazer | Kirchstraße 27 | 86637 Wertingen</div>
     <a href="tel:+4914156177881" class="link link-hover">+49 (0) 151 56177881</a> |
     <a href="mailto:benjamin@montazer.dev" class="link link-hover">benjamin@montazer.dev</a>
@@ -39,6 +39,6 @@ const { class: className } = Astro.props as Props;
 
 <style lang="scss">
   .legal {
-    @apply text-xs text-base-content/50 text-center font-['Inconsolata'];
+    @apply text-xs text-base-content/50 font-['Inconsolata'] text-justify sm:text-center;
   }
 </style>

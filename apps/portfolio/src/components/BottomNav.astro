@@ -1,8 +1,6 @@
 ---
 import { getPages } from '../utils/pages.utils';
 
-import '../styles/navbar.scss';
-
 const pages = getPages(await Astro.glob('../pages/(*|**/index.*)'));
 
 const url = Astro.url;

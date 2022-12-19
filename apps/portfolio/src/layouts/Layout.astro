@@ -7,8 +7,6 @@ import Footer from '../components/Footer.astro';
 import Head, { HeadProps } from '../components/Head.astro';
 import Navbar from '../components/Navbar.astro';
 
-import '../styles/bg-gradient.scss';
-
 interface HTMLProps extends HeadProps {
   prose?: boolean;
 }
@@ -59,7 +57,7 @@ const { prose, ...props } = { ...Astro.props, ...Astro.props.frontmatter } as Pr
       });
     </script>
 
-    <style lang="scss">
+    <!-- <style lang="scss">
       @keyframes pulse {
         0% {
           opacity: 0;
@@ -71,6 +69,6 @@ const { prose, ...props } = { ...Astro.props, ...Astro.props.frontmatter } as Pr
           opacity: 0;
         }
       }
-    </style>
+    </style> -->
   </body>
 </html>

@@ -26,7 +26,7 @@ module.exports = {
       '3xl': '1800px',
     },
     fontFamily: {
-      normal: defaultTheme.fontFamily.sans,
+      default: defaultTheme.fontFamily.sans,
       sans: ['Hind', ...defaultTheme.fontFamily.sans],
       serif: ['Arvo', ...defaultTheme.fontFamily.serif],
       mono: ['Inconsolata', ...defaultTheme.fontFamily.mono],
@@ -73,7 +73,7 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
-      colors: () => ({
+      colors: {
         highlight: {
           50: '#E9E5FF',
           100: '#C1B0FF',
@@ -86,7 +86,13 @@ module.exports = {
           800: '#59488E',
           900: '#4F417B',
         },
-      }),
+      },
+      keyframes: {
+        'pulse-full': { '50%': { opacity: 0 } },
+      },
+      animation: {
+        'pulse-full': defaultTheme.animation.pulse.replace('pulse', 'pulse-full'),
+      },
     },
   },
   plugins: [
@@ -97,25 +103,35 @@ module.exports = {
       addVariant('arcane', '[data-theme=arcane] &');
       addVariant('winter', '[data-theme=winter] &');
     }),
-    plugin(function ({ theme, addComponents, addUtilities }) {
+    plugin(function ({ addComponents, addUtilities }) {
       addUtilities({
         '.cursor': {
-          display: 'flex',
-          alignItems: 'center',
+          '@apply flex items-center': {},
           '&:after': {
+            '@apply animate-pulse-full': {},
             content: '""',
             width: '1.25rem',
             height: '0.8125em',
             marginLeft: '0.125rem',
             backgroundColor: 'currentColor',
             display: 'inline-block',
-            animation: theme('animation.pulse'),
           },
+        },
+        '.gradient': {
+          '@apply bg-gradient-to-br from-primary to-accent dark:from-primary dark:to-indigo-500':
+            {},
+        },
+        '.bg-gradient': {
+          '@apply bg-gradient-to-b from-base-100/50 to-base-200/30': {},
         },
       });
       addComponents({
         '.menu-item': {
-          fontFamily: 'Arvo',
+          '@apply btn btn-circle btn-ghost border-none capitalize font-normal font-[Arvo] text-xs xs:text-sm w-fit px-2 xxs:w-20 xs:w-28 min-h-0 h-10 xs:h-12 flex justify-center items-center transition-all':
+            {},
+          '&.active': {
+            '@apply gradient text-primary-content font-semibold': {},
+          },
         },
         '.badge': {
           fontFamily: 'Quicksand',

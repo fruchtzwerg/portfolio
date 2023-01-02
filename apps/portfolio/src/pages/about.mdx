@@ -5,6 +5,10 @@ prose: true
 order: 0
 ---
 
+import Background from '../cv/about/background.mdx';
+import Philosophy from '../cv/about/philosophy.mdx';
+import Teamwork from '../cv/about/teamwork.mdx';
+
 import Portrait from '../components/Portrait.astro';
 import Heading2 from '../components/Heading2.astro';
 
@@ -20,47 +24,11 @@ export const components = {
 
 <Portrait />
 
-## <IconBackground class="text-4xl" /> Background
+<Background components={components} />
 
-Like a lot of nerds I started interacting with machines quite early. Got my first computer at five,
-played lots of Monkey Island and helped relatives to setup their computers by the time I was eight.
+<Philosophy components={components} />
 
-In my teenage years the very same relatives kept telling me that computers had no future and I
-should invest my time in more fruitful endeavors. 20 years later I'm at the top of my field - still
-helping with the occasional printer or WiFi issue. The more things change the more they stay the
-same I guess.
-
-The future is going to be very interesting and I love building it.
-
-## <IconPhilosophy class="text-4xl" /> Philosophy
-
-When building apps I like to take a birds-eye view of the requirements and pick my tech-stack
-based on that. I also enjoy trying out new things. That's why I have a broad spectrum of experience
-with a variety of different technologies and the ability to pick up new concepts effortlessly.
-
-I like Astro and Svelte but unfortunately they are the exception. Not everything that shines
-is gold and not every new framework proves useful in the longrun.
-
-There are a few golden gods that I keep going back to, though: Angular for large-scale, Vue for smaller things
-NestJS if I need to touch the backend myself, although this is best avoided - I am **not** a fullstack
-developer. I prefer being the best frontend engineer I can be, rather than a jack of all trades,
-master of none.
-
-I got the opportunity to pass on some of those hard earned lessons at University of
-Applied Sciences Stralsund as a lecturer for the Web Engineering II course.
-
-## <IconTeam class="text-4xl" /> Teamwork
-
-I am easy going but hard working.
-
-Integrating into an established team is never easy but always very valuable. The most important
-thing is to ask for help, when necessary. I never hide my inadequacies: When I don't understand
-something I say so and when I need help I ask for it. On a personal level this shows vulnerability
-and builds trust. On a professional one it helps me grow and maximizes everyone's time-efficiency.
-
-Although I try to be diplomatic, I always give feedback without reservation and demand the same in
-return. Letting issues fester - technical or personal - is no way to build complex systems and
-will only impede progress.
+<Teamwork components={components} />
 
 #### I work from home! Now hold on I know what you're thinking.
 
@@ -79,7 +47,7 @@ to think about a problem in the shower or while walking the dog or working out.
 Everything is negotiable of course but I know myself and I do not accept offers without being
 100% confident, that I can deliver the best quality and highest efficiency.
 
-## <IconBrain class="text-4xl" /> Services
+## <IconBrain /> Services
 
 'Sounds good but how can you help me', you ask?<br />
 Simple: I will deal with all your frontend needs swiftly and expertly.

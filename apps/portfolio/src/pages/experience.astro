@@ -1,6 +1,5 @@
 ---
 import Timeline from '../components/Timeline.astro';
-import { sections } from '../constants/experience.const';
 import Layout from '../layouts/Layout.astro';
 
 export const title = 'experience';
@@ -12,5 +11,5 @@ export const order = 2;
     <h1 class="cursor">_{title}</h1>
   </div>
 
-  <Timeline sections={sections} class="sm:ml-24" />
+  <Timeline class="sm:ml-24" />
 </Layout>

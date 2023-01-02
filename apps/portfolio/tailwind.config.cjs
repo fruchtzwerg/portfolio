@@ -10,6 +10,8 @@ const plugin = require('tailwindcss/plugin.js');
 
 const { ARCANE } = require('../../libs/tailwind/src/lib/themes.cjs');
 
+const themes = require('./tools/tailwind/themes.plugin.cjs');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -87,6 +89,9 @@ module.exports = {
           900: '#4F417B',
         },
       },
+      boxShadow: {
+        even: '0 0 8px rgb(0 0 0 / 0.1), 0 0 6px rgb(0 0 0 / 0.1)',
+      },
       keyframes: {
         'pulse-full': { '50%': { opacity: 0 } },
       },
@@ -99,44 +104,9 @@ module.exports = {
     typography,
     grid,
     daisyui,
-    plugin(function ({ addVariant }) {
-      addVariant('arcane', '[data-theme=arcane] &');
-      addVariant('winter', '[data-theme=winter] &');
-    }),
-    plugin(function ({ addComponents, addUtilities }) {
-      addUtilities({
-        '.cursor': {
-          '@apply flex items-center': {},
-          '&:after': {
-            '@apply animate-pulse-full': {},
-            content: '""',
-            width: '1.25rem',
-            height: '0.8125em',
-            marginLeft: '0.125rem',
-            backgroundColor: 'currentColor',
-            display: 'inline-block',
-          },
-        },
-        '.gradient': {
-          '@apply bg-gradient-to-br from-primary to-accent dark:from-primary dark:to-indigo-500':
-            {},
-        },
-        '.bg-gradient': {
-          '@apply bg-gradient-to-b from-base-100/50 to-base-200/30': {},
-        },
-      });
-      addComponents({
-        '.menu-item': {
-          '@apply btn btn-circle btn-ghost border-none capitalize font-normal font-[Arvo] text-xs xs:text-sm w-fit px-2 xxs:w-20 xs:w-28 min-h-0 h-10 xs:h-12 flex justify-center items-center transition-all':
-            {},
-          '&.active': {
-            '@apply gradient text-primary-content font-semibold': {},
-          },
-        },
-        '.badge': {
-          fontFamily: 'Quicksand',
-        },
-      });
+    themes({ themes: ['arcane', 'winter'] }),
+    plugin(({ addVariant }) => {
+      addVariant('selected', '&.selected');
     }),
   ],
   daisyui: {

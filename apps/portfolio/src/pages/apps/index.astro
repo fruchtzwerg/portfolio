@@ -3,9 +3,9 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import Layout from '../../layouts/Layout.astro';
 import type { Project } from '../../models/project.model';
 
-const getProjects = (projects: Project[]) => projects.sort((a, b) => a.order - b.order);
+const getApps = (projects: Project[]) => projects.sort((a, b) => a.order - b.order);
 
-const projects = getProjects(await Astro.glob<Project>('./*'));
+const apps = getApps(await Astro.glob<Project>('./*'));
 
 export const title = 'apps';
 export const order = 3;
@@ -22,9 +22,9 @@ export const order = 3;
 
   <ul class="flex flex-col gap-16 mt-16 reset-list">
     {
-      projects.map(project => (
+      apps.map(app => (
         <li>
-          <ProjectCard {...project} />
+          <ProjectCard {...app} />
         </li>
       ))
     }

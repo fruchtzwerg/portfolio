@@ -2,6 +2,8 @@
 import type { Technology } from '../models/technology.model';
 
 import Hover from './Hover.astro';
+import Link from './Link.astro';
+import Selectable from './Selectable.svelte';
 
 import BulbEmpty from '~icons/line-md/lightbulb';
 import BulbFilled from '~icons/line-md/lightbulb-filled';
@@ -13,15 +15,11 @@ interface Props {
 const { tech } = Astro.props as Props;
 ---
 
-<Hover
-  tag="a"
-  class="no-underline flex flex-col gap-2 p-4 h-full w-full"
-  hoverClasses="dark:!bg-base-300"
-  href={tech.href}
-  target="_blank"
-  rel="noreferrer"
->
-  <>
+<Selectable client:load item={tech} className="rounded-box" type="tech">
+  <Hover
+    class="no-underline flex flex-col gap-2 p-4 h-full w-full"
+    hoverClasses="dark:!bg-base-300"
+  >
     <!-- icon -->
     <div
       class="relative flex self-start text-4xl text-black group-hover:text-white dark:text-white transition-transform group-hover:scale-125"
@@ -40,7 +38,7 @@ const { tech } = Astro.props as Props;
     <!-- tags -->
     <ul class="flex reset-list">
       {
-        tech.tags.map(tag => (
+        tech.keywords.map(tag => (
           <li class="badge badge-outline group-hover:badge dark:group-hover:badge-secondary dark:group-hover:!text-secondary-content mr-2">
             {tag}
           </li>
@@ -56,5 +54,8 @@ const { tech } = Astro.props as Props;
       {new Array(tech.skill).fill(null).map(() => <BulbFilled aria-hidden />)}
       {new Array(5 - tech.skill).fill(null).map(() => <BulbEmpty aria-hidden />)}
     </div>
-  </>
-</Hover>
+
+    <!-- Link -->
+    <Link href={tech.href} class="no-underline">{tech.title}</Link>
+  </Hover>
+</Selectable>

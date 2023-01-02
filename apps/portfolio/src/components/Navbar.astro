@@ -2,7 +2,10 @@
 import { socials } from '../constants/socials.const';
 import { getPages } from '../utils/pages.utils';
 
+import Cart from './Cart.svelte';
 import ThemeSelector from './ThemeSelector.astro';
+
+import IconCart from '~icons/carbon/document-download';
 
 interface Props {
   id: string;
@@ -25,8 +28,15 @@ const matches = (pathname: string) =>
     'grid grid-flow-col items-center sm:gap-4 p-2 sm:p-4 w-full backdrop-blur-md',
   ]}
 >
-  <!-- Themes -->
-  <ThemeSelector class="grid-in-[theme] btn-sm sm:btn-md" />
+  <div class="grid-in-[theme] flex">
+    <!-- Cart -->
+    <Cart client:only className="btn btn-ghost btn-circle btn-sm sm:btn-md">
+      <IconCart class="sm:text-2xl" />
+    </Cart>
+
+    <!-- Themes -->
+    <ThemeSelector class="btn btn-ghost btn-circle btn-sm sm:btn-md" />
+  </div>
 
   <!-- Tabs -->
   <ul class="grid-in-[tabs] gap-4 place-self-center hidden sm:flex">
@@ -34,7 +44,7 @@ const matches = (pathname: string) =>
       pages.map(page => (
         <li>
           <a
-            href={`/${page.title.toLowerCase()}`}
+            href={`/${page.title.toLowerCase()}/`}
             class:list={['menu-item', { active: matches(page.title) }]}
           >
             {page.title}

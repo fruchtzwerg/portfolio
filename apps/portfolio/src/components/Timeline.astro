@@ -1,37 +1,38 @@
 ---
-import type { Timeslot } from '../models/timeslot.model';
+import type { MDX } from 'apps/portfolio/types';
 
-import TimelineSection from './TimelineSection.astro';
+import Experience from '../layouts/Experience.astro';
+import type { Frontmatter } from '../models/timeslot.model';
+import { byDate } from '../utils/experience.utils';
+
+import Heading from './experience/Heading.astro';
+import Item from './experience/Item.astro';
+import List from './experience/List.astro';
+import Paragraph from './experience/Paragraph.astro';
+import Link from './Link.astro';
+
+type Section = MDX<Frontmatter>;
 
 interface Props {
-  sections: Timeslot[];
   class?: string;
 }
 
-const { sections, class: className } = Astro.props as Props;
+const { class: className } = Astro.props as Props;
+
+const sections = (await Astro.glob<Frontmatter>('../cv/experience/*.mdx')) as Section[];
 ---
 
 <ol class:list={[className, 'border-l border-base-content/50']}>
   {
-    sections.map(section => {
-      const props = section.link?.href
-        ? { href: section.link?.href, target: '_blank', rel: 'noreferrer' }
-        : {};
-
-      return (
-        <li
-          data-date-raw={section.date.getTime()}
-          class="relative mt-12 sm:hover:mb-36 last:hover:mb-0 transition-[margin] duration-500"
-        >
-          <TimelineSection
-            tag={section.link ? 'a' : 'div'}
-            section={section}
-            class="block"
-            {...props}
+    sections.sort(byDate).map(({ Content, components, frontmatter }) => (
+      <li data-date-raw={new Date(frontmatter.date).getTime()} class="mt-16">
+        <Experience frontmatter={frontmatter}>
+          <Content
+            components={{ ...components, h2: Heading, ul: List, li: Item, a: Link, p: Paragraph }}
           />
-        </li>
-      );
-    })
+        </Experience>
+      </li>
+    ))
   }
 </ol>
 
@@ -48,11 +49,11 @@ const { sections, class: className } = Astro.props as Props;
   });
 </script>
 
-<style lang="scss" is:raw>
+<style lang="scss">
   @screen sm {
     li::before {
       content: attr(data-date);
-      @apply absolute -left-[8.5rem] w-28 pt-3 text-base-content/60 text-sm text-end;
+      @apply absolute left-0 pt-4 w-28 text-base-content/60 text-sm text-end;
     }
   }
 </style>

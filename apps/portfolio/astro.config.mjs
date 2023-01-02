@@ -1,6 +1,7 @@
 import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
 import { importDirectory, runSVGO } from '@iconify/tools';
 import compress from 'astro-compress';
@@ -22,15 +23,17 @@ export default defineConfig({
   site: 'https://montazer.dev',
   outDir: '../../dist/apps/portfolio',
   integrations: [
-    tailwind(),
-    polyfills('@ungap/custom-elements'),
+    svelte(),
     mdx(),
+    tailwind({ config: { applyBaseStyles: false } }),
+    polyfills('@ungap/custom-elements'),
     image({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: '.sharp' }),
     sitemap({ canonicalURL: 'https://montazer.dev' }),
     robotsTxt({ host: true }),
     compress({ css: false }),
   ],
   vite: {
+    ssr: { external: 'window' },
     plugins: [
       visualizer(),
       Icons({
@@ -44,7 +47,11 @@ export default defineConfig({
 
               if (!svg) return;
 
-              runSVGO(svg);
+              runSVGO(svg, {
+                plugins: [
+                  { name: 'preset-default', params: { overrides: { removeViewBox: false } } },
+                ],
+              });
               iconSet.fromSVG(name, svg);
             });
 

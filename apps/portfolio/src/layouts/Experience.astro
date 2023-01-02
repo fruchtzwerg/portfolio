@@ -1,0 +1,30 @@
+---
+import Hover from '../components/Hover.astro';
+import Selectable from '../components/Selectable.svelte';
+import type { Frontmatter } from '../models/timeslot.model';
+
+interface Props {
+  frontmatter: Frontmatter;
+}
+
+const section = Astro.props as Props;
+---
+
+<Selectable
+  client:load
+  item={section.frontmatter}
+  type="project"
+  className="experience reset-list m-4 rounded-box"
+>
+  <Hover tag="div" class="prose p-4 max-w-none" hoverClasses="!bg-base-300">
+    <!-- Caption -->
+    <div class="flex flex-start items-center">
+      <!-- Bulletpoint -->
+      <div class="bg-base-content w-2 h-2 rounded-full ml-[calc(-2.25rem_-_.5px)] mr-6"></div>
+      <!-- Company -->
+      <small class="text-base-content/60 text-sm my-0 ml-1">{section.frontmatter.caption}</small>
+    </div>
+
+    <slot />
+  </Hover>
+</Selectable>

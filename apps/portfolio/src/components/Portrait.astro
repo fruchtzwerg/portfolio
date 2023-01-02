@@ -1,12 +1,15 @@
 ---
 import { Picture } from '@astrojs/image/components';
 
+import Cart from './Cart.svelte';
 import ColorBlend from './ColorBlend.astro';
 
 import IconDownload from '~icons/line-md/download-loop';
 ---
 
-<app-portrait class="grid gap-16 max-w-xl mx-auto mb-16">
+<app-portrait
+  class="grid grid-areas-[avatar,hello] sm:grid-areas-[avatar_hello] sm:grid-cols-[1fr_1fr] gap-16 max-w-xl mx-auto mb-16"
+>
   <!-- Portrait -->
   <ColorBlend
     class="bg-clip-text grid-in-[avatar] justify-self-center rounded-box -rotate-6 hover:rotate-0 transition duration-500 shadow-md shadow-base-content/30 dark:shadow-base-300 hover:shadow-primary/50 dark:hover:shadow-primary/50 hover:shadow-lg"
@@ -29,35 +32,9 @@ import IconDownload from '~icons/line-md/download-loop';
     <p>I'm Ben and I sense you are looking for an excellent frontend engineer.</p>
 
     <!-- CV -->
-    <button id="download-cv" class="btn btn-sm btn-primary btn-block gap-2 normal-case">
+    <Cart client:only className="btn btn-sm btn-primary btn-block gap-2 normal-case">
       <IconDownload />
       Download CV
-    </button>
+    </Cart>
   </div>
 </app-portrait>
-
-<script>
-  class AppPortrait extends HTMLElement {
-    constructor() {
-      super();
-
-      const downloadCVBtn = this.querySelector<HTMLButtonElement>('#download-cv');
-      downloadCVBtn?.addEventListener('click', () => alert('CV'));
-    }
-  }
-
-  customElements.define('app-portrait', AppPortrait);
-</script>
-
-<style lang="scss">
-  .grid {
-    grid-template-areas:
-      'avatar'
-      'hello';
-
-    @screen sm {
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas: 'avatar hello';
-    }
-  }
-</style>

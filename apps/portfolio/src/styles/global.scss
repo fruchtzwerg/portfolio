@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    @apply no-underline hover:text-primary;
+  }
+}
+
+@layer components {
+  .cursor {
+    @apply flex items-center;
+
+    &:after {
+      @apply animate-pulse-full;
+
+      content: '';
+      width: 1.25rem;
+      height: 0.8125em;
+      margin-left: 0.125rem;
+      background-color: currentColor;
+      display: inline-block;
+    }
+  }
+
+  .menu-item {
+    @apply btn btn-circle btn-ghost border-none capitalize font-normal font-[Arvo] text-xs xs:text-sm w-fit px-2 xxs:w-20 xs:w-28 min-h-0 h-10 xs:h-12 flex justify-center items-center transition-all;
+
+    &.active {
+      @apply gradient text-primary-content font-semibold;
+    }
+  }
+
+  .badge {
+    font-family: Quicksand;
+  }
+
+  .keyword {
+    @apply badge badge-outline text-base-content/50 group-hover:text-base-content/80 dark:group-hover:text-base-content/80;
+    @apply pl-2 #{!important};
+  }
+
+  .gradient {
+    @apply bg-gradient-to-br from-primary to-accent dark:from-primary dark:to-indigo-500;
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-b from-base-100/50 to-base-200/30;
+  }
+}

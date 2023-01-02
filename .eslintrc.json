@@ -32,7 +32,6 @@
         "project": ["tsconfig.base.json"],
         "createDefaultProgram": true
       },
-      "plugins": ["rxjs"],
       "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {}
     },

@@ -1,12 +1,12 @@
 ---
 type Props<Tag extends Tagname = Tagname> = {
-  tag: Tag;
+  tag?: Tag;
   'class:list'?: Array<string | undefined>;
   hoverClasses?: string | string[];
 } & astroHTML.JSX.DefinedIntrinsicElements[Tag];
 
 const {
-  tag: Tag,
+  tag: Tag = 'div',
   class: className,
   'class:list': classes = [],
   hoverClasses = [],
@@ -14,15 +14,7 @@ const {
 } = Astro.props as Props;
 ---
 
-<Tag
-  {...props as any}
-  class:list={[
-    className,
-    ...classes,
-    'relative group block isolate',
-    { 'cursor-default': !['a', 'button'].includes(Tag) },
-  ]}
->
+<Tag {...props as any} class:list={[className, ...classes, 'relative group block isolate ']}>
   <!-- content -->
   <slot />
 
@@ -30,7 +22,7 @@ const {
   <div
     class:list={[
       ...(Array.isArray(hoverClasses) ? hoverClasses : [hoverClasses]),
-      'absolute -top-3 -left-3 w-[calc(100%+1.5rem)] h-[calc(100%+1.5rem)] bg-neutral/80 opacity-0 scale-90 -z-10 group-hover:scale-100 group-hover:opacity-100 transition sm:rounded-box',
+      'absolute inset-0 pointer-events-none blur-lg bg-neutral/80 opacity-0 scale-90 -z-10 group-hover:blur-none group-hover:scale-100 group-hover:opacity-100 transition-[scale_opacity_filter] sm:rounded-box',
     ]}
   >
   </div>

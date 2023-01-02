@@ -4,18 +4,24 @@ import IconLink from '~icons/carbon/link';
 interface Props {
   class?: string;
   groupHover?: boolean;
+  href?: string;
 }
 
-const { class: className, groupHover } = Astro.props as Props;
+const { href, class: className, groupHover } = Astro.props as Props;
+
+const Tag = href ? 'a' : 'div';
 ---
 
-<div
+<Tag
+  href={href}
+  target={href ? '_blank' : null}
+  rel={href ? 'noreferrer' : null}
   class:list={[
     className,
     groupHover && 'group-hover:text-primary dark:group-hover:text-accent',
-    'flex gap-2 items-center text-base-content/80 font-[Inconsolata]',
+    'flex gap-2 items-center w-fit text-base-content/80 font-[Inconsolata] no-underline',
   ]}
 >
   <IconLink />
   <slot />
-</div>
+</Tag>

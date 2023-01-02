@@ -1,0 +1,73 @@
+---
+import type { MDX } from 'apps/portfolio/types';
+
+import Title from '../components/cv/Title.astro';
+import Item from '../components/experience/Item.astro';
+import List from '../components/experience/List.astro';
+import Paragraph from '../components/experience/Paragraph.astro';
+import Link from '../components/Link.astro';
+import { Content as Background } from '../cv/about/background.mdx';
+import { Content as Philosophy } from '../cv/about/philosophy.mdx';
+import { Content as Teamwork } from '../cv/about/teamwork.mdx';
+import CV from '../layouts/CV.astro';
+import Layout from '../layouts/Layout.astro';
+import type { Frontmatter } from '../models/timeslot.model';
+import { byDate } from '../utils/experience.utils';
+
+const sections = (await Astro.glob<Frontmatter>('../cv/experience/*.mdx')) as MDX<Frontmatter>[];
+---
+
+<Layout title="CV">
+  <CV>
+    <h1 class="font-[Lato]">Benjamin Montazer</h1>
+
+    <h2 class="text-3xl">Senior Software Engineer</h2>
+
+    <Background components={{ h2: Title }} />
+    <Philosophy components={{ h2: Title }} />
+    <Teamwork components={{ h2: Title }} />
+
+    <h2 class="text-3xl">Selected Projects</h2>
+
+    {
+      sections.sort(byDate).map(({ Content, components, frontmatter }) => (
+        <section id={frontmatter.id} class="section" data-tags={frontmatter.tags}>
+          <Content
+            components={{
+              ...components,
+              h2: Title,
+              ul: List,
+              li: Item,
+              a: Link,
+              p: Paragraph,
+            }}
+          />
+        </section>
+      ))
+    }
+  </CV>
+</Layout>
+
+<script>
+  const urlSearchParams = new URLSearchParams(window.location.search);
+
+  const selectedTags = new Set(urlSearchParams.get('techs')?.split(',') ?? []);
+  const selectedIds = new Set(urlSearchParams.get('projects')?.split(',') ?? []);
+
+  function purge() {
+    const sections = Array.from(document.getElementsByClassName('section')) as HTMLElement[];
+    const blacklist = sections.filter(
+      section =>
+        !(
+          selectedIds.has(section.id) ||
+          section.dataset.tags?.split(',').some(tag => selectedTags.has(tag))
+        )
+    );
+
+    if (blacklist.length === sections.length) return;
+
+    blacklist.forEach(section => section.remove());
+  }
+
+  if (selectedIds.size || selectedTags.size) purge();
+</script>

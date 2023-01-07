@@ -56,6 +56,7 @@ module.exports = {
         sourceType: 'module',
       },
       rules: {
+        'prettier/prettier': 'off',
         'no-unused-vars': 'off',
       },
     },

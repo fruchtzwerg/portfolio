@@ -1,11 +1,11 @@
 ---
 import type { MDX } from 'apps/portfolio/types';
 
+import Link from '../components/buttons/Link.astro';
 import Title from '../components/cv/Title.astro';
-import Item from '../components/experience/Item.astro';
-import List from '../components/experience/List.astro';
-import Paragraph from '../components/experience/Paragraph.astro';
-import Link from '../components/Link.astro';
+import li from '../components/experience/Li.astro';
+import p from '../components/experience/P.astro';
+import ul from '../components/experience/Ul.astro';
 import { Content as Background } from '../cv/about/background.mdx';
 import { Content as Philosophy } from '../cv/about/philosophy.mdx';
 import { Content as Teamwork } from '../cv/about/teamwork.mdx';
@@ -36,10 +36,10 @@ const sections = (await Astro.glob<Frontmatter>('../cv/experience/*.mdx')) as MD
             components={{
               ...components,
               h2: Title,
-              ul: List,
-              li: Item,
+              ul,
+              li,
               a: Link,
-              p: Paragraph,
+              p,
             }}
           />
         </section>

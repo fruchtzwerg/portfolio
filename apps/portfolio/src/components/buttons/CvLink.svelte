@@ -1,8 +1,8 @@
 <script lang="ts">
   export let className = '';
 
-  import { projectStore } from '../store/id.store';
-  import { tagStore } from '../store/tag.store';
+  import { projectStore } from '../../store/id.store';
+  import { tagStore } from '../../store/tag.store';
 
   $: url = () => {
     const url = new URL('/cv', window.location.origin);

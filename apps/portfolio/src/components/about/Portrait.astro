@@ -1,7 +1,8 @@
 ---
 import { Picture } from '@astrojs/image/components';
 
-import Cart from './Cart.svelte';
+import CvLink from '../buttons/CvLink.svelte';
+
 import ColorBlend from './ColorBlend.astro';
 
 import IconDownload from '~icons/line-md/download-loop';
@@ -32,9 +33,9 @@ import IconDownload from '~icons/line-md/download-loop';
     <p>I'm Ben and I sense you are looking for an excellent frontend engineer.</p>
 
     <!-- CV -->
-    <Cart client:only className="btn btn-sm btn-primary btn-block gap-2 normal-case">
+    <CvLink client:only className="btn btn-sm btn-primary btn-block gap-2 normal-case">
       <IconDownload />
       Download CV
-    </Cart>
+    </CvLink>
   </div>
 </app-portrait>

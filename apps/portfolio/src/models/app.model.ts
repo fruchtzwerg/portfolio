@@ -1,4 +1,4 @@
-export interface Project {
+export interface App {
   title: string;
   first: string;
   technologies: string[];

@@ -1,7 +1,7 @@
 ---
-import { getPages } from '../utils/pages.utils';
+import { getPages } from '../../utils/pages.utils';
 
-const pages = getPages(await Astro.glob('../pages/(*|**/index.*)'));
+const pages = getPages(await Astro.glob('../../pages/(*|**/index.*)'));
 
 const url = Astro.url;
 ---

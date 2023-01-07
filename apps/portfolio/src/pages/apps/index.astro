@@ -1,11 +1,11 @@
 ---
-import ProjectCard from '../../components/ProjectCard.astro';
+import AppCard from '../../components/apps/AppCard.astro';
 import Layout from '../../layouts/Layout.astro';
-import type { Project } from '../../models/project.model';
+import type { App } from '../../models/app.model';
 
-const getApps = (projects: Project[]) => projects.sort((a, b) => a.order - b.order);
+const getApps = (projects: App[]) => projects.sort((a, b) => a.order - b.order);
 
-const apps = getApps(await Astro.glob<Project>('./*'));
+const apps = getApps(await Astro.glob<App>('./*'));
 
 export const title = 'apps';
 export const order = 3;
@@ -24,7 +24,7 @@ export const order = 3;
     {
       apps.map(app => (
         <li>
-          <ProjectCard {...app} />
+          <AppCard {...app} />
         </li>
       ))
     }

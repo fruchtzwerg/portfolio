@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Taggable } from '../models/tag.enum';
-  import { techStore, projectStore } from '../store/id.store';
+  import type { Taggable } from '../../models/tag.enum';
+  import { techStore, projectStore } from '../../store/id.store';
 
   export let item: Taggable;
   export let className = '';

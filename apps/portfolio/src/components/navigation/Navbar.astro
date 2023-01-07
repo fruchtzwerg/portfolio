@@ -1,9 +1,8 @@
 ---
-import { socials } from '../constants/socials.const';
-import { getPages } from '../utils/pages.utils';
-
-import Cart from './Cart.svelte';
-import ThemeSelector from './ThemeSelector.astro';
+import { socials } from '../../constants/socials.const';
+import { getPages } from '../../utils/pages.utils';
+import CvLink from '../buttons/CvLink.svelte';
+import ThemeSelector from '../buttons/ThemeSelector.astro';
 
 import IconCart from '~icons/carbon/document-download';
 
@@ -15,7 +14,7 @@ interface Props {
 const { id, class: className } = Astro.props as Props;
 const url = Astro.url;
 
-const pages = getPages(await Astro.glob('../pages/(*|**/index.*)'));
+const pages = getPages(await Astro.glob('../../pages/(*|**/index.*)'));
 
 const matches = (pathname: string) =>
   url.pathname.toLowerCase().startsWith(`/${pathname}`.toLowerCase());
@@ -30,9 +29,9 @@ const matches = (pathname: string) =>
 >
   <div class="grid-in-[theme] flex">
     <!-- Cart -->
-    <Cart client:only className="btn btn-ghost btn-circle btn-sm sm:btn-md">
+    <CvLink client:only className="btn btn-ghost btn-circle btn-sm sm:btn-md">
       <IconCart class="sm:text-2xl" />
-    </Cart>
+    </CvLink>
 
     <!-- Themes -->
     <ThemeSelector class="btn btn-ghost btn-circle btn-sm sm:btn-md" />

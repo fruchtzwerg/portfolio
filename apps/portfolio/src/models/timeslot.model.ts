@@ -5,6 +5,7 @@ export interface Timeslot extends Taggable {
   title: string;
   description: string[];
   date: Date;
+  nda?: true;
   keywords: string[];
   link?: {
     label: string;
@@ -12,4 +13,4 @@ export interface Timeslot extends Taggable {
   };
 }
 
-export type Frontmatter = Pick<Timeslot, 'id' | 'date' | 'caption' | 'tags'>;
+export type Frontmatter = Pick<Timeslot, 'id' | 'date' | 'caption' | 'tags' | 'nda'>;

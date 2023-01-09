@@ -2,10 +2,11 @@
 import type { MDX } from 'apps/portfolio/types';
 
 import Link from '../components/buttons/Link.astro';
-import Title from '../components/cv/Title.astro';
-import li from '../components/experience/Li.astro';
-import p from '../components/experience/P.astro';
-import ul from '../components/experience/Ul.astro';
+import SectionHeading from '../components/cv/H3.astro';
+import SectionHeadingNda from '../components/cv/H3Nda.astro';
+import Item from '../components/experience/Li.astro';
+import Paragraph from '../components/experience/P.astro';
+import List from '../components/experience/Ul.astro';
 import { Content as Background } from '../cv/about/background.mdx';
 import { Content as Philosophy } from '../cv/about/philosophy.mdx';
 import { Content as Teamwork } from '../cv/about/teamwork.mdx';
@@ -23,23 +24,24 @@ const sections = (await Astro.glob<Frontmatter>('../cv/experience/*.mdx')) as MD
 
     <h2 class="text-3xl">Senior Software Engineer</h2>
 
-    <Background components={{ h2: Title }} />
-    <Philosophy components={{ h2: Title }} />
-    <Teamwork components={{ h2: Title }} />
+    <Background components={{ h2: SectionHeading }} />
+    <Philosophy components={{ h2: SectionHeading }} />
+    <Teamwork components={{ h2: SectionHeading }} />
 
     <h2 class="text-3xl">Selected Projects</h2>
 
     {
       sections.sort(byDate).map(({ Content, components, frontmatter }) => (
-        <section id={frontmatter.id} class="section" data-tags={frontmatter.tags}>
+        <section id={frontmatter.id} class="mt-16" data-tags={frontmatter.tags}>
+          <small>{frontmatter.caption}</small>
           <Content
             components={{
               ...components,
-              h2: Title,
-              ul,
-              li,
+              h2: frontmatter.nda ? SectionHeadingNda : SectionHeading,
+              ul: List,
+              li: Item,
               a: Link,
-              p,
+              p: Paragraph,
             }}
           />
         </section>

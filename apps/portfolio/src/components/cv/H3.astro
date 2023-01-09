@@ -1,0 +1,9 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props as Props;
+---
+
+<h3 class:list={['flex gap-2 items-center mt-0', className]}><slot /></h3>

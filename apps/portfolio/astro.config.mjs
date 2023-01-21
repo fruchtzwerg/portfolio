@@ -16,7 +16,8 @@ import { AstroCompiler } from './unplugin/compilers/astro.mjs';
 import polyfills from './unplugin/polyfills.plugin.mjs';
 
 const __filname = fileURLToPath(import.meta.url);
-const iconsDir = join(dirname(__filname), 'icons');
+const __dirname = dirname(__filname);
+const iconsDir = join(__dirname, 'icons');
 
 // https://astro.build/config
 export default defineConfig({

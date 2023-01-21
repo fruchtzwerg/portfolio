@@ -1,10 +1,7 @@
 ---
 import { socials } from '../../constants/socials.const';
 import { getPages } from '../../utils/pages.utils';
-import CvLink from '../buttons/CvLink.svelte';
 import ThemeSelector from '../buttons/ThemeSelector.astro';
-
-import IconCart from '~icons/carbon/document-download';
 
 interface Props {
   id: string;
@@ -28,11 +25,6 @@ const matches = (pathname: string) =>
   ]}
 >
   <div class="grid-in-[theme] flex">
-    <!-- Cart -->
-    <CvLink client:only className="btn btn-ghost btn-circle btn-sm sm:btn-md">
-      <IconCart class="sm:text-2xl" />
-    </CvLink>
-
     <!-- Themes -->
     <ThemeSelector class="btn btn-ghost btn-circle btn-sm sm:btn-md" />
   </div>

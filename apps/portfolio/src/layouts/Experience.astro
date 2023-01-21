@@ -1,5 +1,4 @@
 ---
-import Selectable from '../components/buttons/Selectable.svelte';
 import Hover from '../components/Hover.astro';
 import type { Frontmatter } from '../models/timeslot.model';
 
@@ -10,12 +9,7 @@ interface Props {
 const section = Astro.props as Props;
 ---
 
-<Selectable
-  client:load
-  item={section.frontmatter}
-  type="project"
-  className="experience reset-list m-4 rounded-box"
->
+<div class="experience reset-list m-4 rounded-box">
   <Hover tag="div" class="prose p-4 max-w-none" hoverClasses="!bg-base-300">
     <!-- Caption -->
     <div class="flex flex-start items-center">
@@ -27,4 +21,4 @@ const section = Astro.props as Props;
 
     <slot />
   </Hover>
-</Selectable>
+</div>

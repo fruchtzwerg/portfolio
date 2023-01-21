@@ -1,7 +1,6 @@
 ---
 import type { Technology } from '../../models/technology.model';
 import Link from '../buttons/Link.astro';
-import Selectable from '../buttons/Selectable.svelte';
 import Hover from '../Hover.astro';
 
 import BulbEmpty from '~icons/line-md/lightbulb';
@@ -14,7 +13,7 @@ interface Props {
 const { tech } = Astro.props as Props;
 ---
 
-<Selectable client:load item={tech} className="rounded-box" type="tech">
+<div class="rounded-box">
   <Hover
     class="no-underline flex flex-col gap-2 p-4 h-full w-full"
     hoverClasses="dark:!bg-base-300"
@@ -57,4 +56,4 @@ const { tech } = Astro.props as Props;
     <!-- Link -->
     <Link href={tech.href} class="no-underline">{tech.title}</Link>
   </Hover>
-</Selectable>
+</div>

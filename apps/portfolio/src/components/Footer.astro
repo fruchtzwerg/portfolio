@@ -34,7 +34,9 @@ const { class: className } = Astro.props as Props;
     these third-party websites, as they are beyond our control.<br />Responsibility for the contents
     of the linked pages is always held by the provider or operator of those pages.
   </section>
-  <section class="legal">© 2022 Benjamin Montazer. All rights reserved.</section>
+  <section class="legal">
+    © {new Date().getFullYear()} Benjamin Montazer. All rights reserved.
+  </section>
 </footer>
 
 <style lang="scss">

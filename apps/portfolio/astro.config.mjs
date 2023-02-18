@@ -1,12 +1,13 @@
 import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
+import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
 import { importDirectory, runSVGO } from '@iconify/tools';
+import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
-import { defineConfig } from 'astro/config';
 import { join, dirname } from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import Icons from 'unplugin-icons/vite';
@@ -32,6 +33,7 @@ export default defineConfig({
     sitemap({ canonicalURL: 'https://montazer.dev' }),
     robotsTxt({ host: true }),
     compress({ css: false }),
+    prefetch(),
   ],
   vite: {
     ssr: { external: 'window' },

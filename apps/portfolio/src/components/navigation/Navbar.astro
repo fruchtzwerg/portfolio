@@ -36,6 +36,7 @@ const matches = (pathname: string) =>
         <li>
           <a
             href={`/${page.title.toLowerCase()}/`}
+            rel="prefetch"
             class:list={['menu-item', { active: matches(page.title) }]}
           >
             {page.title}

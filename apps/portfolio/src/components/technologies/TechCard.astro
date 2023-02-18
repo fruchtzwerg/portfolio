@@ -13,47 +13,48 @@ interface Props {
 const { tech } = Astro.props as Props;
 ---
 
-<div class="rounded-box">
-  <Hover
-    class="no-underline flex flex-col gap-2 p-4 h-full w-full"
-    hoverClasses="dark:!bg-base-300"
+<Hover
+  tag="a"
+  href={tech.href}
+  target="_blank"
+  hoverClasses="bg-neutral/80"
+  class="no-underline flex flex-col gap-2 p-4 h-full w-full hover:text-inherit"
+>
+  <!-- icon -->
+  <div
+    class="relative flex self-start text-4xl text-black group-hover:text-white dark:text-white transition-transform group-hover:scale-125"
   >
-    <!-- icon -->
-    <div
-      class="relative flex self-start text-4xl text-black group-hover:text-white dark:text-white transition-transform group-hover:scale-125"
-    >
-      <tech.icon aria-hidden class="z-20" />
-    </div>
+    <tech.icon aria-hidden class="z-20" />
+  </div>
 
-    <!-- title -->
-    <h3 class="my-0 group-hover:text-white">
-      {tech.title}
-    </h3>
+  <!-- title -->
+  <h3 class="my-0 group-hover:text-white">
+    {tech.title}
+  </h3>
 
-    <!-- desc -->
-    <p class="flex-1 font-light winter:group-hover:text-base-100/80">{tech.description}</p>
+  <!-- desc -->
+  <p class="flex-1 font-light winter:group-hover:text-base-100/80">{tech.description}</p>
 
-    <!-- tags -->
-    <ul class="flex reset-list">
-      {
-        tech.keywords.map(tag => (
-          <li class="badge badge-outline group-hover:badge dark:group-hover:badge-secondary dark:group-hover:!text-secondary-content mr-2">
-            {tag}
-          </li>
-        ))
-      }
-    </ul>
+  <!-- tags -->
+  <ul class="flex reset-list">
+    {
+      tech.keywords.map(tag => (
+        <li class="badge badge-outline group-hover:badge dark:group-hover:badge-info dark:group-hover:!text-info-content mr-2">
+          {tag}
+        </li>
+      ))
+    }
+  </ul>
 
-    <!-- rating -->
-    <div
-      class="flex winter:group-hover:text-base-100/80 mt-3"
-      aria-label={`skill level: ${tech.skill} of 10`}
-    >
-      {new Array(tech.skill).fill(null).map(() => <BulbFilled aria-hidden />)}
-      {new Array(5 - tech.skill).fill(null).map(() => <BulbEmpty aria-hidden />)}
-    </div>
+  <!-- rating -->
+  <div
+    class="flex winter:group-hover:text-base-100/80 mt-3"
+    aria-label={`skill level: ${tech.skill} of 10`}
+  >
+    {new Array(tech.skill).fill(null).map(() => <BulbFilled aria-hidden />)}
+    {new Array(5 - tech.skill).fill(null).map(() => <BulbEmpty aria-hidden />)}
+  </div>
 
-    <!-- Link -->
-    <Link href={tech.href} class="no-underline">{tech.title}</Link>
-  </Hover>
-</div>
+  <!-- Link -->
+  <Link groupHover class="no-underline">{tech.title}</Link>
+</Hover>

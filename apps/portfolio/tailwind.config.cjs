@@ -32,12 +32,13 @@ module.exports = {
       sans: ['Hind', ...defaultTheme.fontFamily.sans],
       serif: ['Arvo', ...defaultTheme.fontFamily.serif],
       mono: ['Inconsolata', ...defaultTheme.fontFamily.mono],
+      quicksand: ['Quicksand', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       typography: {
         DEFAULT: {
           css: {
-            h1: { fontFamily: 'Exo', fontWeight: 600, fontSize: '2.75rem' },
+            h1: { fontFamily: 'Exo', fontWeight: 200, fontSize: '2.75rem' },
             h2: { fontFamily: 'Arvo' },
             h3: { fontFamily: 'Quicksand' },
             h4: {

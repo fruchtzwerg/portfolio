@@ -28,7 +28,7 @@
     @apply btn btn-circle btn-ghost border-none capitalize font-normal font-[Arvo] text-xs xs:text-sm w-fit px-2 xxs:w-20 xs:w-28 min-h-0 h-10 xs:h-12 flex justify-center items-center transition-all;
 
     &.active {
-      @apply gradient text-primary-content font-semibold;
+      @apply gradient text-primary-content;
     }
   }
 

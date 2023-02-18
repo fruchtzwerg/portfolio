@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "portfolio": "apps/portfolio",
-    "tailwind": "libs/tailwind"
-  }
-}

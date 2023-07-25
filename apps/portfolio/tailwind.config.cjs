@@ -1,6 +1,4 @@
-const {
-  createGlobPatternsForDependencies,
-} = require('@nrwl/workspace/src/utilities/generate-globs.js');
+const { createGlobPatternsForDependencies } = require('@nx/js/src/utils/generate-globs.js');
 const grid = require('@savvywombat/tailwindcss-grid-areas');
 const typography = require('@tailwindcss/typography');
 const daisyui = require('daisyui');

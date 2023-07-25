@@ -6,7 +6,7 @@ import {
   Tree,
   readRootPackageJson,
   updateJson,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { execSync } from 'child_process';
 import { join } from 'path';
 import { GeneratorOptions } from '../schema';

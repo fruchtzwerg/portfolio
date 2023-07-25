@@ -3,7 +3,7 @@ import {
   readProjectConfiguration,
   joinPathFragments,
   ProjectConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { relative } from 'path';
 import { GeneratorOptions, NormalizedGeneratorOptions } from '../schema';
 

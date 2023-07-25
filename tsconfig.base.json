@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@portfolio/tailwind": ["libs/tailwind/src/index.js"]
+      "@portfolio/tailwind": ["libs/tailwind/src/index.js"],
+      "@portfolio/workspace-plugin": ["tools/workspace-plugin/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

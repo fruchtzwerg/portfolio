@@ -1,4 +1,4 @@
-import { Tree, formatFiles } from '@nrwl/devkit';
+import { Tree, formatFiles } from '@nx/devkit';
 import { GeneratorOptions } from './schema';
 import { addComponentFile } from './utils/file.utils';
 import { normalizeOptions } from './utils/options.utils';

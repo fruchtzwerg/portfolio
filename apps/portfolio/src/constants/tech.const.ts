@@ -79,7 +79,7 @@ export const testRunners: Technology[] = [
     keywords: ['E2E', 'Visual testing', 'Cross-domain'],
     tags: ['playwright'],
     skill: 4,
-    href: 'https://jestjs.io/',
+    href: 'https://playwright.dev/',
   },
 ];
 

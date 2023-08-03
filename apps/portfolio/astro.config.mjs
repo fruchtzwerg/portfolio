@@ -18,7 +18,9 @@ import polyfills from './unplugin/polyfills.plugin.mjs';
 
 const __filname = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filname);
+
 const iconsDir = join(__dirname, 'icons');
+const tailwindConfigPath = fileURLToPath(new URL('./tailwind.config.cjs', import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,7 +29,10 @@ export default defineConfig({
   integrations: [
     svelte(),
     mdx(),
-    tailwind({ config: { applyBaseStyles: false } }),
+    tailwind({
+      applyBaseStyles: false,
+      configFile: tailwindConfigPath,
+    }),
     polyfills('@ungap/custom-elements'),
     image({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: '.sharp' }),
     sitemap({ canonicalURL: 'https://montazer.dev' }),

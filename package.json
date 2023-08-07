@@ -56,7 +56,7 @@
     "@nx/linter": "16.6.0",
     "@nx/plugin": "16.6.0",
     "@nx/workspace": "16.6.0",
-    "@nxtensions/astro": "16.0.0",
+    "@nxtensions/astro": "16.1.0",
     "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
     "@swc-node/register": "~1.4.2",
     "@swc/cli": "~0.1.62",

@@ -1,12 +1,12 @@
 ---
 import Hover from '../components/Hover.astro';
-import type { Frontmatter } from '../models/timeslot.model';
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  frontmatter: Frontmatter;
+  entry: CollectionEntry<'experience'>;
 }
 
-const section = Astro.props as Props;
+const {entry} = Astro.props as Props;
 ---
 
 <div class="experience reset-list m-4 rounded-box">
@@ -16,7 +16,7 @@ const section = Astro.props as Props;
       <!-- Bulletpoint -->
       <div class="bg-base-content w-2 h-2 rounded-full ml-[calc(-2.25rem_-_.5px)] mr-6"></div>
       <!-- Company -->
-      <small class="text-base-content/60 text-sm my-0 ml-1">{section.frontmatter.caption}</small>
+      <small class="text-base-content/60 text-sm my-0 ml-1">{entry.data.caption}</small>
     </div>
 
     <slot />

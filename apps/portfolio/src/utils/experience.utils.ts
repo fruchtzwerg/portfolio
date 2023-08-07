@@ -1,7 +1,7 @@
 export const byDate = (
-  a: { frontmatter: { date: string | Date } },
-  b: { frontmatter: { date: string | Date } }
-) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+  a: { data: { date: string | Date } },
+  b: { data: { date: string | Date } }
+) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
 
 export const formatDate = (date: Date | string) =>
   Intl.DateTimeFormat(['en-US'], {

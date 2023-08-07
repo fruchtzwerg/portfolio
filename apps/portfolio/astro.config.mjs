@@ -13,6 +13,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import Icons from 'unplugin-icons/vite';
 import { fileURLToPath } from 'url';
 
+import { monorepoFix } from './tools/build.plugin.mjs';
 import { AstroCompiler } from './unplugin/compilers/astro.mjs';
 import polyfills from './unplugin/polyfills.plugin.mjs';
 
@@ -43,6 +44,7 @@ export default defineConfig({
   vite: {
     ssr: { external: 'window' },
     plugins: [
+      monorepoFix(),
       visualizer(),
       Icons({
         compiler: AstroCompiler,

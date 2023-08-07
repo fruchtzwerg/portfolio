@@ -1,21 +1,17 @@
 ---
-import type { MDX } from 'apps/portfolio/types';
-
 import Link from '../components/buttons/Link.astro';
 import SectionHeading from '../components/cv/H3.astro';
 import SectionHeadingNda from '../components/cv/H3Nda.astro';
 import Item from '../components/experience/Li.astro';
 import Paragraph from '../components/experience/P.astro';
 import List from '../components/experience/Ul.astro';
-import { Content as Background } from '../cv/about/background.mdx';
-import { Content as Philosophy } from '../cv/about/philosophy.mdx';
-import { Content as Teamwork } from '../cv/about/teamwork.mdx';
 import CV from '../layouts/CV.astro';
 import Layout from '../layouts/Layout.astro';
-import type { Frontmatter } from '../models/timeslot.model';
-import { byDate } from '../utils/experience.utils';
+import { getCollection } from 'astro:content';
+import { byPrio } from "../utils/collection.utils";
 
-const sections = (await Astro.glob<Frontmatter>('../cv/experience/*.mdx')) as MDX<Frontmatter>[];
+const collection = await getCollection('about')
+const sections = await Promise.all(collection.sort(byPrio).map(c => c.render()))
 ---
 
 <Layout title="CV">
@@ -24,20 +20,20 @@ const sections = (await Astro.glob<Frontmatter>('../cv/experience/*.mdx')) as MD
 
     <h2 class="text-3xl">Senior Software Engineer</h2>
 
-    <Background components={{ h2: SectionHeading }} />
+    <!-- <Background components={{ h2: SectionHeading }} />
     <Philosophy components={{ h2: SectionHeading }} />
-    <Teamwork components={{ h2: SectionHeading }} />
+    <Teamwork components={{ h2: SectionHeading }} /> -->
 
     <h2 class="text-3xl">Selected Projects</h2>
 
     {
-      sections.sort(byDate).map(({ Content, components, frontmatter }) => (
-        <section id={frontmatter.id} class="mt-16" data-tags={frontmatter.tags}>
-          <small>{frontmatter.caption}</small>
+      sections.map(({ Content }, i) => (
+        <section id={collection[i].data.id} class="mt-16" data-tags={collection[i].data.tags}>
+          <small>{collection[i].data.caption}</small>
           <Content
             components={{
               ...components,
-              h2: frontmatter.nda ? SectionHeadingNda : SectionHeading,
+              h2: collection[i].data.nda ? SectionHeadingNda : SectionHeading,
               ul: List,
               li: Item,
               a: Link,

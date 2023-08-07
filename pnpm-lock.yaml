@@ -82,6 +82,9 @@ devDependencies:
   '@nxtensions/astro':
     specifier: 16.1.0
     version: 16.1.0(@nx/devkit@16.6.0)(@nx/js@16.6.0)(@nx/linter@16.6.0)(@nx/workspace@16.6.0)(astro@2.9.6)(nx@16.6.0)(typescript@5.1.6)
+  '@otterlord/astro-compress':
+    specifier: ^1.1.48
+    version: 1.1.48
   '@savvywombat/tailwindcss-grid-areas':
     specifier: ^3.1.0
     version: 3.1.0(tailwindcss@3.3.3)
@@ -118,9 +121,6 @@ devDependencies:
   astro:
     specifier: ^2.9.6
     version: 2.9.6(@types/node@18.11.10)(sass@1.64.2)(sharp@0.32.4)
-  astro-compress:
-    specifier: ^1.1.50
-    version: 1.1.50
   astro-robots-txt:
     specifier: ^0.5.0
     version: 0.5.0
@@ -3324,6 +3324,20 @@ packages:
       - encoding
     dev: true
 
+  /@otterlord/astro-compress@1.1.48:
+    resolution: {integrity: sha512-1AUSUMk0WMSMOg/qSmJ7K/0xUsl4hYrAlmcpxzunVFen2r6QmvQDE+51nrPJljzYcXPil+aFrzGe+jfWVChz6A==}
+    dependencies:
+      '@types/csso': 5.0.0
+      '@types/html-minifier-terser': 7.0.0
+      csso: 5.0.5
+      deepmerge-ts: 5.1.0
+      fast-glob: 3.2.12
+      html-minifier-terser: 7.2.0
+      sharp: 0.32.4
+      svgo: 3.0.2
+      terser: 5.19.2
+    dev: true
+
   /@parcel/watcher@2.0.4:
     resolution: {integrity: sha512-cTDi+FUDBIUOBKEtj+nhiJ71AZVlkAsQFuGQTun5tV9mwQBQgZvhCzG+URPQc8myeN32yRVZEfVAPCs1RW+Jvg==}
     engines: {node: '>= 10.0.0'}
@@ -4288,19 +4302,6 @@ packages:
   /astring@1.8.6:
     resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
     hasBin: true
-    dev: true
-
-  /astro-compress@1.1.50:
-    resolution: {integrity: sha512-DsaDLpJT8yizuRfRoyTHGtS+NfPt/y+3z8QkdQFMSigV+apOHKWuTlC0hspMNW/6w+3WOWE8yO19RFoy2/fITQ==}
-    dependencies:
-      '@types/csso': 5.0.0
-      '@types/html-minifier-terser': 7.0.0
-      csso: 5.0.5
-      files-pipe: 0.0.8
-      html-minifier-terser: 7.2.0
-      sharp: 0.32.4
-      svgo: 3.0.2
-      terser: 5.19.2
     dev: true
 
   /astro-eslint-parser@0.9.5:
@@ -6373,13 +6374,6 @@ packages:
       trim-repeated: 2.0.0
     dev: true
 
-  /files-pipe@0.0.8:
-    resolution: {integrity: sha512-c/hf3Kuhrlpn92sbe7HifJ4DOHrOPw7b7nR+4VIzqcuSXgkICwBicw6qDKoEjzEXCi6sjcL0CxBpYyikwf7KvQ==}
-    dependencies:
-      deepmerge-ts: 5.1.0
-      fast-glob: 3.3.1
-    dev: true
-
   /fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -6664,7 +6658,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.1
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0

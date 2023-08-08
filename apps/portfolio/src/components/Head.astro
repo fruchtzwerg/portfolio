@@ -1,5 +1,6 @@
 ---
 import { SEO } from 'astro-seo';
+import { ViewTransitions } from 'astro:transitions';
 
 import '@fontsource/quicksand/latin.css';
 import '@fontsource/arvo/latin.css';
@@ -11,6 +12,7 @@ import '@fontsource/inconsolata/latin.css';
 import { capitalize } from '../utils/string.utils';
 
 import '../styles/global.scss';
+import ThemeFoucFix from './buttons/ThemeFoucFix.astro';
 
 export interface HeadProps {
   title: string;
@@ -64,4 +66,8 @@ const getTitle = (t = title) => `${NAME} | ${capitalize(t)}`;
       ],
     }}
   />
+
+  <ThemeFoucFix />
+
+  <ViewTransitions />
 </head>

@@ -13,8 +13,6 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import Icons from 'unplugin-icons/vite';
 import { fileURLToPath } from 'url';
 
-import { monorepoFix } from './tools/build.plugin.mjs';
-import { AstroCompiler } from './unplugin/compilers/astro.mjs';
 import polyfills from './unplugin/polyfills.plugin.mjs';
 
 const __filname = fileURLToPath(import.meta.url);
@@ -27,6 +25,9 @@ const tailwindConfigPath = fileURLToPath(new URL('./tailwind.config.cjs', import
 export default defineConfig({
   site: 'https://montazer.dev',
   outDir: '../../dist/apps/portfolio',
+  experimental: {
+    viewTransitions: true,
+  },
   integrations: [
     svelte(),
     mdx(),
@@ -44,10 +45,9 @@ export default defineConfig({
   vite: {
     ssr: { external: 'window' },
     plugins: [
-      monorepoFix(),
       visualizer(),
       Icons({
-        compiler: AstroCompiler,
+        compiler: 'svelte',
         customCollections: {
           portfolio: async () => {
             const iconSet = await importDirectory(iconsDir, { prefix: 'my-icons' });

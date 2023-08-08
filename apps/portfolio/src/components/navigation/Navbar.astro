@@ -1,7 +1,8 @@
 ---
 import { socials } from '../../constants/socials.const';
 import { getPages } from '../../utils/pages.utils';
-import ThemeSelector from '../buttons/ThemeSelector.astro';
+import ThemeSelector from '../buttons/ThemeSelector.svelte';
+import ThemeFoucFix from '../buttons/ThemeFoucFix.astro';
 
 interface Props {
   id: string;
@@ -25,8 +26,9 @@ const matches = (pathname: string) =>
   ]}
 >
   <div class="grid-in-[theme] flex">
+
     <!-- Themes -->
-    <ThemeSelector class="btn btn-ghost btn-circle btn-sm sm:btn-md" />
+    <ThemeSelector client:only="svelte" transition:persist className="btn btn-ghost btn-circle btn-sm sm:btn-md" />
   </div>
 
   <!-- Tabs -->

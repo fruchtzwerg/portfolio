@@ -1,0 +1,9 @@
+<!-- Calculate current theme first -->
+<script is:inline>
+  try {
+    const mediaDark = matchMedia('(prefers-color-scheme: dark)');
+    const isDark = localStorage.theme === 'arcane' || (!('theme' in localStorage) && mediaDark.matches);
+
+    localStorage.theme = document.documentElement.dataset.theme = isDark ? 'arcane' : 'winter';
+  } catch(e) {}
+</script>

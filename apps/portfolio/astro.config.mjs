@@ -1,4 +1,5 @@
 import image from '@astrojs/image';
+import markdoc from '@astrojs/markdoc';
 import mdx from '@astrojs/mdx';
 import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
@@ -18,7 +19,7 @@ import polyfills from './unplugin/polyfills.plugin.mjs';
 const __filname = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filname);
 
-const iconsDir = join(__dirname, 'icons');
+const iconsDir = join(__dirname, 'src/assets/icons');
 const tailwindConfigPath = fileURLToPath(new URL('./tailwind.config.cjs', import.meta.url));
 
 // https://astro.build/config
@@ -30,6 +31,7 @@ export default defineConfig({
   },
   integrations: [
     svelte(),
+    markdoc(),
     mdx(),
     tailwind({
       applyBaseStyles: false,

@@ -17,7 +17,12 @@ const experience = defineCollection({
   }),
 });
 
+const blog = defineCollection({
+  type: 'content',
+});
+
 export const collections = {
   about,
   experience,
+  blog,
 };

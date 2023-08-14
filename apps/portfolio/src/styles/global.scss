@@ -6,6 +6,10 @@
   a {
     @apply no-underline hover:text-primary;
   }
+
+  pre {
+    @apply shadow-even shadow-secondary;
+  }
 }
 
 @layer components {
@@ -36,7 +40,7 @@
     font-family: Quicksand;
   }
 
-  .keyword {
+  .keyword-badge {
     @apply badge badge-outline text-base-content/50 group-hover:text-base-content/80 dark:group-hover:text-base-content/80;
     @apply pl-2 #{!important};
   }

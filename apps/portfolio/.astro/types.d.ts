@@ -10,6 +10,15 @@ declare module 'astro:content' {
 
 declare module 'astro:content' {
 	interface Render {
+		'.mdoc': Promise<{
+			Content(props: Record<string, any>): import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
 		'.md': Promise<{
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
@@ -222,6 +231,15 @@ declare module 'astro:content' {
   collection: "about";
   data: InferEntrySchema<"about">
 } & { render(): Render[".mdx"] };
+};
+"blog": {
+"test.mdoc": {
+	id: "test.mdoc";
+  slug: "test";
+  body: string;
+  collection: "blog";
+  data: any
+} & { render(): Render[".mdoc"] };
 };
 "experience": {
 "bmw-charging.mdx": {

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "my-site",
+    "path": "apps/portfolio/src/content",
+    "schema": {
+      "path": "docs/dist/schema.js",
+      "type": "node",
+      "property": "default",
+      "watch": true
+    },
+    "routing": {
+      "frontmatter": "route"
+    }
+  }
+]

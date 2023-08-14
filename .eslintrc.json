@@ -32,7 +32,9 @@
         "createDefaultProgram": true
       },
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/consistent-type-imports": "warn"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

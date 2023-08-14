@@ -1,0 +1,117 @@
+code[class*='language-'],
+pre[class*='language-'] {
+  @apply text-primary font-victor-mono text-left whitespace-pre break-normal leading-normal hyphens-none;
+
+  word-spacing: normal;
+  word-wrap: normal;
+  tab-size: 4;
+}
+
+// pre[class*='language-']::-moz-selection,
+// pre[class*='language-'] ::-moz-selection,
+// code[class*='language-']::-moz-selection,
+// code[class*='language-'] ::-moz-selection {
+//   text-shadow: none;
+//   background: #cee1f0;
+// }
+
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
+  text-shadow: none;
+  @apply bg-primary/20;
+}
+
+@media print {
+  code[class*='language-'],
+  pre[class*='language-'] {
+    text-shadow: none;
+  }
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  @apply p-4 mx-0 my-[.5em] overflow-auto;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  @apply bg-base-300 text-primary;
+}
+
+:not(pre) > code[class*='language-'] {
+  @apply px-[.1em] rounded-sm whitespace-normal;
+}
+
+.token.string {
+  @apply text-[#110000] dark:text-[#aaeeee];
+}
+
+.token.punctuation {
+  @apply text-[#034c7c] dark:text-[#555c77];
+}
+
+.token.comment {
+  @apply text-[#357b42] dark:text-[#555c77] italic;
+}
+
+.token.variable {
+  @apply text-[#a44185] dark:text-[#85b1e0];
+}
+
+.token.constant,
+.token.hexcode,
+.token.boolean,
+.token.number {
+  @apply text-[#174781] dark:text-[#dda2f6];
+}
+
+.token.char,
+.token.symbol,
+.token.regex,
+.token.builtin {
+  @apply text-[#2970c7] dark:text-[#93ddfb];
+}
+
+.token.operator {
+  @apply text-[#7b30d0] dark:text-[#b9bed5] italic;
+}
+
+.token.exports,
+.token.imports {
+  @apply text-[#296d31] dark:text-[#adefb5];
+}
+
+.token.class-name {
+  @apply text-[#1172c7] dark:text-inherit;
+}
+
+.token.function {
+  @apply text-[#b1108e] dark:text-[#f5faff] italic;
+}
+
+.token.tag {
+  @apply text-[#0444ac] dark:text-[#85b1e0];
+}
+
+.token.attr-name {
+  @apply text-[#df8618] dark:text-[#dda2f6] italic;
+}
+
+.token.selector {
+  @apply text-[#df8618] dark:text-[#7e7edd] italic;
+}
+
+.token.property {
+  @apply text-[#3a9685] dark:text-[#7e7edd];
+}
+
+.token.keyword {
+  @apply text-secondary dark:text-[#7e7edd];
+}
+
+.token.important,
+.token.bold {
+  @apply font-bold;
+}

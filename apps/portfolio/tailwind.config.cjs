@@ -31,6 +31,7 @@ module.exports = {
       serif: ['Arvo', ...defaultTheme.fontFamily.serif],
       mono: ['Inconsolata', ...defaultTheme.fontFamily.mono],
       quicksand: ['Quicksand', ...defaultTheme.fontFamily.sans],
+      'victor-mono': ['Victor Mono', ...defaultTheme.fontFamily.mono],
     },
     extend: {
       typography: {

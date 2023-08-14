@@ -39,7 +39,7 @@ const { tech } = Astro.props as Props;
   <ul class="flex reset-list">
     {
       tech.keywords.map(tag => (
-        <li class="badge badge-outline group-hover:badge dark:group-hover:badge-info dark:group-hover:!text-info-content mr-2">
+        <li class="keyword-badge group-hover:badge dark:group-hover:badge-info dark:group-hover:!text-info-content mr-2">
           {tag}
         </li>
       ))

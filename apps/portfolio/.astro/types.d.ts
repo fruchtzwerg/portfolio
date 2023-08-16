@@ -233,6 +233,13 @@ declare module 'astro:content' {
 } & { render(): Render[".mdx"] };
 };
 "blog": {
+"test.mdoc": {
+	id: "test.mdoc";
+  slug: "test";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdoc"] };
 "ts-rest-thymeleaf.mdoc": {
 	id: "ts-rest-thymeleaf.mdoc";
   slug: "ts-rest-thymeleaf";

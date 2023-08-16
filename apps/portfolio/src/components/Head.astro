@@ -2,11 +2,9 @@
 import { SEO } from 'astro-seo';
 import { ViewTransitions } from 'astro:transitions';
 
-import '@fontsource/quicksand/latin.css';
 import '@fontsource/arvo/latin.css';
 import '@fontsource/exo/latin.css';
 import '@fontsource/lato/latin.css';
-import '@fontsource/hind/latin.css';
 import '@fontsource/inconsolata/latin.css';
 
 import { capitalize } from '../utils/string.utils';
@@ -18,7 +16,7 @@ export interface HeadProps {
   title: string;
 }
 
-type Props = HeadProps & Parameters<typeof SEO>[number];
+type Props = HeadProps & Parameters<typeof SEO>[number] & astroHTML.JSX.HTMLAttributes;
 
 const NAME = 'B. Montazer';
 const TITLE = 'Senior Frontend Engineer';

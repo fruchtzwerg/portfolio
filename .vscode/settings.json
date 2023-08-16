@@ -3,5 +3,8 @@
   "svg.preview.background": "dark-transparent",
   "tailwindCSS.classAttributes": ["class", "className", "ngClass", "hoverClasses", "class:list"],
   "cSpell.words": ["Ennex"],
-  "eslint.validate": ["json"]
+  "eslint.validate": [
+    "json"
+  ],
+  "mdx-preview.preview.useVscodeMarkdownStyles": false
 }

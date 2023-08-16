@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import 'victormono';
+import '../../assets/prism/tailwind.scss';
+import readingTime from 'reading-time';
+import { InferGetStaticPropsType } from 'astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const formatTime = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout title={entry.slug} prose class="blog">
+  <section class="flex justify-center space-x-2">
+    <time datetime={entry.data.createdAt.toISOString()}>
+      {formatTime.format(entry.data.createdAt)}
+    </time>
+    <span>•</span>
+    <span>{readingTime(entry.body).text}</span>
+  </section>
+
+  <Content frontmatter={entry.data} />
+</Layout>
+
+<style lang="scss" is:global>
+  .blog {
+    @apply prose-h1;
+  }
+
+  .prose-h1 {
+    @apply prose-h1:text-center prose-h1:mt-4;
+  }
+</style>

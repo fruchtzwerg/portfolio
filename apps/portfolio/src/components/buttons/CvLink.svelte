@@ -10,9 +10,6 @@
     if ($tagStore.size) url.searchParams.set('techs', Array.from($tagStore).join(','));
     if ($projectStore.size) url.searchParams.set('projects', Array.from($projectStore).join(','));
 
-    // test comment
-    console.log('tesst')
-
     return url.toString();
   };
 

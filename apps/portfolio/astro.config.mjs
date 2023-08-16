@@ -31,7 +31,7 @@ export default defineConfig({
   },
   integrations: [
     svelte(),
-    markdoc(),
+    markdoc({ allowHTML: true }),
     mdx(),
     tailwind({
       applyBaseStyles: false,

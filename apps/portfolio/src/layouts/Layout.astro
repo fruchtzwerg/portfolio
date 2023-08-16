@@ -7,13 +7,20 @@ import Head, { HeadProps } from '../components/Head.astro';
 import BottomNav from '../components/navigation/BottomNav.astro';
 import Navbar from '../components/navigation/Navbar.astro';
 
-interface HTMLProps extends HeadProps {
+interface HTMLProps
+  extends HeadProps,
+    Omit<astroHTML.JSX.HTMLAttributes, 'title' | 'slot'>,
+    astroHTML.JSX.IntrinsicAttributes {
   prose?: boolean;
 }
 
 type Props = HTMLProps & Partial<MDXLayoutProps<HTMLProps>> & Parameters<typeof SEO>[number];
 
-const { prose, ...props } = { ...Astro.props, ...Astro.props.frontmatter } as Props;
+const {
+  prose,
+  class: className,
+  ...props
+} = { ...Astro.props, ...Astro.props.frontmatter } as Props;
 ---
 
 <!DOCTYPE html>
@@ -31,7 +38,7 @@ const { prose, ...props } = { ...Astro.props, ...Astro.props.frontmatter } as Pr
         <Navbar id="navbar" class="w-full max-w-5xl transition-shadow" />
       </header>
 
-      <main class:list={[{ prose }, 'relative max-w-5xl sm:px-8 mx-auto mt-8']}>
+      <main class:list={[{ prose }, className, 'relative max-w-5xl sm:px-8 mx-auto mt-8']}>
         <div class="lg:px-8 mb-16">
           <div class="relative px-4 sm:p-8 lg:p-12">
             <!-- Content -->

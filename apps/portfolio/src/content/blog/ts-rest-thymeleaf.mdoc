@@ -1,0 +1,360 @@
+---
+createdAt: 2023-08-14
+title: Migrating a Thymeleaf app to REST using ts‑rest
+tags: ['ts-rest', 'thymeleaf', 'api', 'rpc', 'rest']
+summary: Use ts‑rest to decouple your frontend from your datasources like REST, Thymeleaf or IndexedDB
+image: https://i.imgur.com/7tjW9KS.png
+---
+
+# {% $frontmatter.title %}
+
+{% summary text=$frontmatter.summary /%}
+
+{% leadin %}
+Building shiny frontends with the latest and greatest technologies is great but without content they are just empty shells.
+We need to fetch data from somewhere to display it in our frontend.
+
+The most common datasource is the good old REST API.
+{% /leadin %}
+
+## Start with the REST (API)
+
+For example, we want to display a list of users.
+
+To build this from scratch we need to construct some Typescript interfaces to represent the data we get from the API.
+Then we fetch the data, validate it, and push it into our store or cache.
+
+```ts
+interface User {
+  id: number
+  name: string
+  email: string
+}
+
+const users: User[] = await fetch('/api/users')
+  .then(res => res.json())
+  .then(data => data.map(user => {
+    if(id in user && name in user && email in user)
+      return user as User
+    else
+      throw new Error('Invalid user data')
+  }));
+```
+
+### Improving validation
+
+The first thing we can do to improve this is to use a library like [zod](https://zod.dev/) to validate the data and infer the correct type.
+
+Zod gives us type information at runtime and automates the validation. We can even refine the validators and provide a custom error message.
+
+```ts
+import { z } from 'zod'
+
+const UserSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string().email('Error: Invalid email address'),
+});
+
+type User = z.infer<typeof UserSchema>
+
+const users: User[] = await fetch('/api/users')
+  .then(res => res.json())
+  .then(data => data.map(user => UserSchema.parse(user)));
+```
+
+### Abstracting the API
+
+This is already a big improvement but as our application grows we will have to repeat this process for every API endpoint we want to use.
+The result is often a lot of spaghetti code that is hard to maintain and even more difficult to understand and explore for new developers.
+
+Idealy we would like to hide the fetch behind a simple function that gets the data in a typesafe way and acts as a single source of truth.
+
+ts‑rest to the resque:
+
+First we define the contract our API adheres to.
+
+```ts
+import { initContract } from '@ts-rest/core';
+
+const c = initContract();
+
+export const contract = c.router({
+  getAllUsers: {
+    method: 'GET',
+    path: '/api/users',
+    responses: {
+      200: UserSchema.array(),
+    }
+  },
+});
+```
+
+Now we have our single source of truth and we can use it to init the client.
+
+```ts
+import { initClient } from '@ts-rest/core';
+
+export const client = initClient(contract, {
+  baseUrl: 'http://localhost:3000',
+  baseHeaders: {},
+});
+```
+
+And we are ready to use it to fetch data from the API.
+
+```ts
+import { client } from './client';
+
+const users = await client.getAllUsers();
+```
+
+Through the contract the client now enforces typesafety across the whole application.
+If the API removes an endpoint or changes the response type, we modify the contract and
+the client will throw an error at compile time.<br/>
+This means we just saved ourselves a ton of unit tests to achieve even better robustness.
+
+It also means new developers can explore the API without having to read any documentation, our
+frontend architects have one thing less to worry about maintaining and the seniors don't need to
+sift through a lot of API boilerplate code, when reviewing pull requests.
+
+Even in mid-sized applications this can save a lot of time and money.
+
+<!-- TODO: collapable hint -->
+Here is a complete example for users CRUD:
+
+```ts
+import { initContract, initClient } from '@ts-rest/core';
+import { z } from 'zod'
+
+const UserSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string().email('Error: Invalid email address'),
+});
+
+const PathParamsSchema = z.object({
+  id: z.number().int('ID must be an integer'),
+});
+
+const c = initContract();
+
+export const contract = c.router({
+  createUser: {
+    method: 'POST',
+    path: '/api/users',
+    body: UserSchema.omit({ id: true }),
+    responses: {
+      201: UserSchema,
+      400: null
+    }
+  },
+
+  getAllUsers: {
+    method: 'GET',
+    path: '/api/users',
+    responses: {
+      200: UserSchema.array(),
+    }
+  },
+
+  getUserById: {
+    method: 'GET',
+    path: '/api/users/:id',
+    pathParams: PathParamsSchema,
+    responses: {
+      200: UserSchema,
+      404: null
+    }
+  },
+
+  updateUser: {
+    method: 'PATCH',
+    path: '/api/users/:id',
+    pathParams: PathParamsSchema,
+    body: UserSchema.partial(),
+    responses: {
+      200: UserSchema,
+      400: null,
+      404: null
+    }
+  },
+
+  deleteUser: {
+    method: 'DELETE',
+    path: '/api/users/:id',
+    pathParams: PathParamsSchema,
+    responses: {
+      204: null,
+      404: null
+    }
+  },
+});
+
+const client = initClient(contract, {
+  baseUrl: 'http://localhost:3000',
+  baseHeaders: {},
+});
+
+const { body: newUser } = await client.createUser({
+  body: {
+    name: 'John Doe',
+    email: 'john.doe@gmail.com',
+  },
+});
+const { body: users } = await client.getAllUsers();
+const { body: user } = await client.getUserById({ params: { id: 1 } });
+const { body: updatedUser } = await client.updateUser({
+  params: { id: 1 },
+  body: { name: 'Jane Doe' },
+});
+await client.deleteUser({ params: { id: 1 } });
+```
+
+## Abstracting other datasources
+
+That's great. We have our REST API neatly tucked away behind the client. But what if we have other datasources?
+
+In this case I have a legacy Thymeleaf application that should be migrated to a SPA. There is a lot of data
+stamped in the HTML that needs to be migrated to a more flexible REST API. Doing so in one go would effectively
+stall product development for no immediate value to the users of our app.
+
+Imagine the current user is rendered into the HTML by the server and we want to use it in our frontend.
+
+```html
+<script id="current-user-data" type="application/json" th:inline="javascript">
+  {
+    "name": /*[[${name}]]*/ {},
+    "email": /*[[${email}]]*/ {},
+    "_csrf": /*[[${_csrf?.token}]]*/[],
+  }
+</script>
+```
+
+### Getting the data by hand
+
+To get this data you might get the contents of the script tag and parse it into a JSON object.
+
+```ts
+const script = document.getElementById('current-user-data');
+const data = JSON.parse(script.innerHTML); // TODO: check
+const user = UserSchema.parse(data);
+```
+
+Not to bad but there are a lot of moving parts in those 3 lines of code.
+
+- The script tag might not exist, if the user is not logged in
+- The id of the script tag might change
+- The model of the data is unversioned and might change without notice
+
+### Using ts‑rest
+
+What we discussed above still holds true: We want a single source of truth for **all** of our data.
+
+So let's create a contract for the current user's data.
+
+```ts
+const c = initContract();
+
+export const contract = c.router({
+  // ...user CRUD here
+
+  getCurrentUser: {
+    method: 'GET',
+    path: 'current-user-data', // id of the element
+    metadata: { type: 'thymeleaf' } as const,
+    responses: {
+      200: UserSchema,
+      404: null
+    }
+  },
+});
+```
+
+For this to work, we need to instruct ts‑rest how to handle thymeleaf data.
+
+```ts
+type Metadata = { type: 'thymeleaf' } | undefined;
+
+/** Parse data from thymeleaf. */
+const tsRestThymeleafApi = ({ route }: ApiFetcherArgs) => {
+  const dataElement = document.getElementById(route.path)
+  const Schema = route.responses[200] as z.ZodTypeAny
+
+  if (!dataElement) return { status: 404, body: null, headers: new Headers() }
+
+  const data = JSON.parse(dataElement.innerHTML)
+
+  return { status: 200, body: Schema.parse(data), headers: new Headers() }
+}
+
+const client = initClient(contract, {
+  baseUrl: 'http://localhost:3000',
+  baseHeaders: {},
+  api: async (args) => {
+    const metadata = route.metadata as Metadata;
+
+    if(metadata?.type === 'thymeleaf')
+      return tsRestThymeleafApi(args)
+
+    // This little helper implements ts-rest's default fetch
+    return tsRestFetchApi(args)
+  }
+});
+```
+
+And we can use the client to get the data.
+
+```ts
+const { body: user } = await client.getCurrentUser();
+```
+
+Add any other datasource you want to use to the client and let ts‑rest handle the rest.
+
+```ts
+const client = initClient(contract, {
+  baseUrl: 'http://localhost:3000',
+  baseHeaders: {},
+  api: async (args) => {
+    const metadata = route.metadata as Metadata;
+
+    switch (metadata?.type) {
+      case 'thymeleaf':
+        return tsRestThymeleafApi(args)
+      case 'localstorage':
+        return tsRestStorageApi(args, 'local')
+      case 'sessionstorage':
+        return tsRestStorageApi(args, 'session')
+      case 'indexeddb':
+        return tsRestIndexedDBApi(args)
+      default:
+        return tsRestFetchApi(args)
+    }
+  }
+});
+```
+
+This nicely eliminates friction between sourcing and using data in the frontend.
+Now, instead of working on a big-bang migration of the whole application, we can migrate one endpoint at a time:
+
+1. Implement the new API endpoint
+1. Remove the metadata from the contract
+1. Profit!
+
+That can easily be done over the course of a few weeks or months during slack-time or vacation periods,
+when not a lot of features are being developed.
+
+Because we are typesafe these pull requests can get merged quickly without a lot of testing overhead.
+
+If you want to eliminate some E2E tests as well, you can build your new backend in a Nodejs monorepo
+and use the same contract on the server-side as well.
+Now you're fully end-to-end typesafe and both client and server will yell at you, if you break the contract.
+
+## Conclusion
+
+ts‑rest is a great tool to abstract API sources in a typesafe manner through reduced documentation and
+testing overhead. It improves developer experience and maintainability of your codebase and increases
+confidence, when changes need to be made.
+
+It can be used to abstract REST APIs, but also other datasources like localstorage, sessionstorage,
+indexeddb, thymeleaf, etc.

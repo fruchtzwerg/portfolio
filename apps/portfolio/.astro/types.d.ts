@@ -233,12 +233,12 @@ declare module 'astro:content' {
 } & { render(): Render[".mdx"] };
 };
 "blog": {
-"test.mdoc": {
-	id: "test.mdoc";
-  slug: "test";
+"ts-rest-thymeleaf.mdoc": {
+	id: "ts-rest-thymeleaf.mdoc";
+  slug: "ts-rest-thymeleaf";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdoc"] };
 };
 "experience": {
@@ -296,9 +296,7 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		"blog": {
-};
-
+		
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;

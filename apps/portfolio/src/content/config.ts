@@ -19,6 +19,13 @@ const experience = defineCollection({
 
 const blog = defineCollection({
   type: 'content',
+  schema: z.object({
+    createdAt: z.date(),
+    title: z.string(),
+    tags: z.string().array(),
+    summary: z.string(),
+    image: z.string().url(),
+  }),
 });
 
 export const collections = {

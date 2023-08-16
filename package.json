@@ -32,10 +32,8 @@
   "dependencies": {
     "@fontsource/arvo": "^5.0.8",
     "@fontsource/exo": "^5.0.8",
-    "@fontsource/hind": "^5.0.8",
     "@fontsource/inconsolata": "^5.0.8",
     "@fontsource/lato": "^5.0.8",
-    "@fontsource/quicksand": "^5.0.8",
     "svelte": "^4.2.0",
     "tslib": "^2.3.0",
     "victormono": "^1.5.5"
@@ -88,6 +86,7 @@
     "postcss": "^8.4.27",
     "prettier": "3.0.1",
     "prettier-plugin-astro": "^0.11.0",
+    "reading-time": "^1.5.0",
     "rollup-plugin-visualizer": "^5.9.2",
     "sass": "^1.65.1",
     "sharp": "^0.32.4",

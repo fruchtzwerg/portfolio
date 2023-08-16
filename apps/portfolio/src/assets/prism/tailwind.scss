@@ -1,26 +1,10 @@
 code[class*='language-'],
 pre[class*='language-'] {
-  @apply text-primary font-victor-mono text-left whitespace-pre break-normal leading-normal hyphens-none;
+  @apply text-neutral/80 font-victor-mono text-left whitespace-pre break-normal leading-normal hyphens-none selection:bg-primary/20;
 
   word-spacing: normal;
   word-wrap: normal;
   tab-size: 4;
-}
-
-// pre[class*='language-']::-moz-selection,
-// pre[class*='language-'] ::-moz-selection,
-// code[class*='language-']::-moz-selection,
-// code[class*='language-'] ::-moz-selection {
-//   text-shadow: none;
-//   background: #cee1f0;
-// }
-
-pre[class*='language-']::selection,
-pre[class*='language-'] ::selection,
-code[class*='language-']::selection,
-code[class*='language-'] ::selection {
-  text-shadow: none;
-  @apply bg-primary/20;
 }
 
 @media print {
@@ -45,11 +29,11 @@ pre[class*='language-'] {
 }
 
 .token.string {
-  @apply text-[#110000] dark:text-[#aaeeee];
+  @apply text-accent-focus dark:text-[#aaeeee];
 }
 
 .token.punctuation {
-  @apply text-[#034c7c] dark:text-[#555c77];
+  @apply text-[#034c7c] dark:text-[#85b1e0]/80;
 }
 
 .token.comment {
@@ -60,11 +44,14 @@ pre[class*='language-'] {
   @apply text-[#a44185] dark:text-[#85b1e0];
 }
 
-.token.constant,
 .token.hexcode,
 .token.boolean,
 .token.number {
-  @apply text-[#174781] dark:text-[#dda2f6];
+  @apply text-[#174781] dark:text-[#dda2f6] dark:italic;
+}
+
+.token.constant {
+  @apply text-[#174781] dark:text-[#93ddfb];
 }
 
 .token.char,
@@ -75,7 +62,7 @@ pre[class*='language-'] {
 }
 
 .token.operator {
-  @apply text-[#7b30d0] dark:text-[#b9bed5] italic;
+  @apply text-[#7b30d0] dark:text-[#b9bed5];
 }
 
 .token.exports,
@@ -88,7 +75,7 @@ pre[class*='language-'] {
 }
 
 .token.function {
-  @apply text-[#b1108e] dark:text-[#f5faff] italic;
+  @apply text-primary-focus dark:text-primary;
 }
 
 .token.tag {
@@ -108,7 +95,7 @@ pre[class*='language-'] {
 }
 
 .token.keyword {
-  @apply text-secondary dark:text-[#7e7edd];
+  @apply text-secondary dark:text-[#7e7edd] italic;
 }
 
 .token.important,

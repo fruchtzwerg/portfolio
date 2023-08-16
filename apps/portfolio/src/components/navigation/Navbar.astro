@@ -2,7 +2,6 @@
 import { socials } from '../../constants/socials.const';
 import { getPages } from '../../utils/pages.utils';
 import ThemeSelector from '../buttons/ThemeSelector.svelte';
-import ThemeFoucFix from '../buttons/ThemeFoucFix.astro';
 
 interface Props {
   id: string;
@@ -25,11 +24,12 @@ const matches = (pathname: string) =>
     'grid grid-flow-col items-center sm:gap-4 p-2 sm:p-4 w-full backdrop-blur-md',
   ]}
 >
-  <div class="grid-in-[theme] flex">
-
-    <!-- Themes -->
-    <ThemeSelector client:only="svelte" transition:persist className="btn btn-ghost btn-circle btn-sm sm:btn-md" />
-  </div>
+  <!-- Themes -->
+  <ThemeSelector
+    client:only="svelte"
+    transition:persist
+    className="grid-in-[theme] sm:max-lg:hidden btn btn-ghost btn-circle btn-sm sm:btn-md"
+  />
 
   <!-- Tabs -->
   <ul class="grid-in-[tabs] gap-4 place-self-center hidden sm:flex">
@@ -63,6 +63,12 @@ const matches = (pathname: string) =>
         </li>
       ))
     }
+
+    <ThemeSelector
+      client:only="svelte"
+      transition:persist
+      className="max-sm:hidden lg:hidden btn btn-ghost btn-circle btn-sm sm:btn-md"
+    />
   </ul>
 </nav>
 
@@ -86,7 +92,14 @@ const matches = (pathname: string) =>
 
     @screen sm {
       grid-template-areas:
-        'none tabs theme'
+        'tabs tabs tabs'
+        'none socials empty';
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    @screen md {
+      grid-template-areas:
+        'tabs tabs tabs'
         'none socials empty';
       grid-template-columns: 1fr auto 1fr;
 

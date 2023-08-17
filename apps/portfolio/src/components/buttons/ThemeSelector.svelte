@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { isDark } from '../../store/theme.store';
+
   import IconMoon from '~icons/carbon/moon';
   import IconSun from '~icons/carbon/sun';
-  import { isDark } from '../../store/theme.store';
 
   export let className = '';
 

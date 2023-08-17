@@ -1,4 +1,6 @@
 ---
+import { getCollection } from 'astro:content';
+
 import Link from '../components/buttons/Link.astro';
 import SectionHeading from '../components/cv/H3.astro';
 import SectionHeadingNda from '../components/cv/H3Nda.astro';
@@ -7,11 +9,10 @@ import Paragraph from '../components/experience/P.astro';
 import List from '../components/experience/Ul.astro';
 import CV from '../layouts/CV.astro';
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-import { byPrio } from "../utils/collection.utils";
+import { byPrio } from '../utils/collection.utils';
 
-const collection = await getCollection('about')
-const sections = await Promise.all(collection.sort(byPrio).map(c => c.render()))
+const collection = await getCollection('about');
+const sections = await Promise.all(collection.sort(byPrio).map(c => c.render()));
 ---
 
 <Layout title="CV">
@@ -59,7 +60,7 @@ const sections = await Promise.all(collection.sort(byPrio).map(c => c.render()))
         !(
           selectedIds.has(section.id) ||
           section.dataset.tags?.split(',').some(tag => selectedTags.has(tag))
-        )
+        ),
     );
 
     if (blacklist.length === sections.length) return;

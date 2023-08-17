@@ -4,7 +4,13 @@
   "tailwindCSS.classAttributes": ["class", "className", "ngClass", "hoverClasses", "class:list"],
   "cSpell.words": ["Ennex"],
   "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro",
+    "typescript",
+    "typescriptreact",
     "json"
   ],
-  "mdx-preview.preview.useVscodeMarkdownStyles": false
+  "mdx-preview.preview.useVscodeMarkdownStyles": false,
+
 }

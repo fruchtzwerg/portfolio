@@ -1,10 +1,12 @@
 ---
+import { InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
+import readingTime from 'reading-time';
+
 import Layout from '../../layouts/Layout.astro';
+
 import 'victormono';
 import '../../assets/prism/tailwind.scss';
-import readingTime from 'reading-time';
-import { InferGetStaticPropsType } from 'astro';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');

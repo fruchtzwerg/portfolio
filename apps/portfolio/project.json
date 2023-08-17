@@ -28,7 +28,7 @@
     "lint": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "pnpm run eslint apps/portfolio"
+        "command": "pnpm eslint apps/portfolio"
       }
     }
   },

@@ -14,6 +14,9 @@
 </script>
 
 <div
+  role="checkbox"
+  tabindex="0"
+  aria-checked={selected}
   class:selected
   class="{className} cursor-pointer transition-[box-shadow] duration-300 selected:shadow-even selected:shadow-primary"
   on:click={toggle}

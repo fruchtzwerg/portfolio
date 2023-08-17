@@ -1,11 +1,9 @@
 ---
-import type { MDX } from 'apps/portfolio/types';
+import { getCollection } from 'astro:content';
 
 import Experience from '../../layouts/Experience.astro';
-import type { Frontmatter } from '../../models/timeslot.model';
 import { byDate } from '../../utils/experience.utils';
 import Link from '../buttons/Link.astro';
-import { getCollection } from "astro:content";
 
 import Heading from './H2.astro';
 import Item from './Li.astro';
@@ -19,13 +17,13 @@ interface Props {
 const { class: className } = Astro.props as Props;
 
 const collection = await getCollection('experience');
-const sections = await Promise.all(collection.sort(byDate).map(c => c.render()))
-const components = { h2: Heading, ul: List, li: Item, a: Link, p: Paragraph }
+const sections = await Promise.all(collection.sort(byDate).map(c => c.render()));
+const components = { h2: Heading, ul: List, li: Item, a: Link, p: Paragraph };
 ---
 
 <ol class:list={[className, 'border-l border-base-content/50']}>
   {
-    sections.map(({Content} ,i) => (
+    sections.map(({ Content }, i) => (
       <li data-date-raw={collection[i].data.date.getTime()} class="mt-16">
         <Experience entry={collection[i]}>
           <Content {components} />

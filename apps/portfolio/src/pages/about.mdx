@@ -10,7 +10,6 @@ import Philosophy from '../content/about/philosophy.mdx';
 import Teamwork from '../content/about/teamwork.mdx';
 
 import Portrait from '../components/about/Portrait.astro';
-import h2 from '../components/about/H2.astro';
 
 import IconBackground from '~icons/fluent/video-background-effect-20-regular';
 import IconPhilosophy from '~icons/game-icons/greek-temple';
@@ -18,15 +17,13 @@ import IconTeam from '~icons/fluent/people-team-20-regular';
 import IconBrain from '~icons/fluent/brain-circuit-20-regular';
 import IconWink from '~icons/la/smile-wink';
 
-export const components = { h2 };
-
 <Portrait />
 
-<Background components={components} />
+<Background />
 
-<Philosophy components={components} />
+<Philosophy />
 
-<Teamwork components={components} />
+<Teamwork />
 
 ## <IconBrain /> Services
 

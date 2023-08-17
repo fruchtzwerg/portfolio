@@ -42,12 +42,17 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            h1: { '@apply font-heading text-5xl font-extralight leading-normal': {} },
-            h2: { '@apply font-heading text-4xl font-extrabold': {} },
-            h3: { '@apply font-heading text-3xl font-bold': {} },
-            h4: { '@apply font-heading text-2xl font-bold': {} },
-            h5: { '@apply font-heading text-xl font-bold': {} },
-            h6: { '@apply font-heading text-lg font-bold': {} },
+            h1: {
+              '@apply font-heading text-5xl font-extralight leading-normal inline-flex gap-2 items-center':
+                {},
+            },
+            h2: {
+              '@apply font-heading text-4xl font-extrabold inline-flex gap-2 items-center': {},
+            },
+            h3: { '@apply font-heading text-3xl font-bold inline-flex gap-2 items-center': {} },
+            h4: { '@apply font-heading text-2xl font-bold inline-flex gap-2 items-center': {} },
+            h5: { '@apply font-heading text-xl font-bold inline-flex gap-2 items-center': {} },
+            h6: { '@apply font-heading text-lg font-bold inline-flex gap-2 items-center': {} },
             p: { '@apply font-sans': {} },
             li: { '@apply font-sans': {} },
             'ul.reset-list': {

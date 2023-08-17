@@ -1,0 +1,106 @@
+---
+createdAt: 2023-08-17
+title: To warn or not to warn
+tags: ['eslint', 'coding', 'best-practices']
+summary: Explaining the purpose of lint warnings
+image: /blog-eslint-warning-1.png
+---
+
+# {% $frontmatter.title %}
+
+{% summary text=$frontmatter.summary /%}
+
+{% leadin image=$frontmatter.image slug=$slug %}
+I often see teams not making full use of the concept of lint warnings in their projects.
+Let's discuss!
+{% /leadin %}
+
+## Scenarios
+
+Two scenarios are very common:
+
+1. Warnings are disabled: Everything is an error
+1. Warnings fail CI: Warnings are implicit errors
+
+### Warnings are disabled
+
+This one is the slightly better practice. At least the team is consistent and makes it explicit that
+everything the linter might object to must either be fixed or explicitly ignored.
+
+### Warnings fail CI
+
+This one is a bit more pernicious.
+
+Semantically a warning means exactly that: Be warned, there **might** be something wrong here.<br/>
+It can be translated as: *"Attention! Are you sure this is a good idea?"*,
+whereas an error is a full blown: *"Caution! This **will** break!"*
+
+## Why this is a bad idea
+
+If you treat warnings as errors, you are effectively saying that you are sure that the code is wrong,
+when the linter yells at you.
+
+This is obviously not the case because linting rules are heuristics not laws of nature.
+You then acknoledge that fact by disabling the warning with an `// eslint-disable-next-line`.
+
+Problem solved, right?
+
+In the short term you might think so but code is constantly evolving and changing. A year down the line
+another developer will have to change the ignored line. An ignore comment is easily... well... ignored.
+The line is changed and things go from bad to worse because your colleague was not forced to think about
+the underlying problem.
+
+This is what a warning does. It forces you to think about the code you are writing everytime and make a conscious decision:
+*"This is still fine, I know what I am doing"* or *"Oh, I didn't think about that, let me change it"*.
+
+## Example
+
+One of the most common rules treated this way is `@typescript-eslint/no-explicit-any`. The `any` Type
+is often used during prototyping but should be avoided in production code. There are however a few
+cases where `unknown` will not save you and properly typing the code is not worth the effort.
+
+<!-- TODO: hint component -->
+<!-- TODO: check wording -->
+
+> Of course you'd want to properly type your code but features need to be shipped and efforts must be justified.
+Nothing lasts longer than a provisional solution.
+
+This often happens when dealing with 3rd party libraries that are not typed or do not export all types.
+
+In this example we are importing an untyped library. The underlying data structure is complex and fully typing it
+simply is not feasable. We know however that the function returns an array of complex objects.
+
+We want to at least do some minimal typing to process the array:
+
+<!-- TODO: betetr example -->
+
+```ts
+import someFunction from 'some-awesome-library'; // <- not typed but we know it returns an array
+
+// eslint-disable-next-line
+const items = someFunction() as Record<string, any>[];
+const results = items.filter(byId).map(toResult).sort(byDate);
+```
+
+So far so good. A year later the the feature is updated and `items` is no longer needed.
+
+ESLint however will not yell at the developer to remove the unused-var because the warning was
+disabled to push the change to production and we have introduced technical dept - the exact thing a
+linter is supposed to prevent.
+
+> Couldn't I just use `// eslint-disable-next-line @typescript-eslint/no-explicit-any`?
+
+Sure. And now you need a rule check that all `eslint-disable` comments contain a rule name.
+And what happens if you refine the type a bit but still need the `any` within the refined type?
+
+## Conclusion
+
+It is always useful to rethink code that conscientiously violates best practices when you make changes.
+Removing the warning removes the thing that could have saved you from introducing technical dept or bugs -
+especially when things get hectic.
+
+Fixing the warning and properly typing your code is always the best option but is not always
+immediatly possible. How nice that ESLint let's me generate a list of potential problems that could
+use some attention.
+
+Lint warnings give your developers an easy overview of technical dept in your project.

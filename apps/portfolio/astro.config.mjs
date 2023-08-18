@@ -39,7 +39,7 @@ export default defineConfig({
     image({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: '.sharp' }),
     sitemap({ canonicalURL: 'https://montazer.dev' }),
     robotsTxt({ host: true }),
-    compress({ css: false }),
+    compress({ CSS: false }),
     prefetch(),
   ],
   vite: {

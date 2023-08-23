@@ -41,7 +41,7 @@
   }
 
   .badge {
-    @apply font-exo;
+    @apply font-exo font-light;
   }
 
   .keyword-badge {
@@ -55,5 +55,52 @@
 
   .bg-gradient {
     @apply bg-gradient-to-b from-base-100/50 to-base-200/30;
+  }
+
+  // apply reset-list even if it is defined on a parent of <ul>
+  .prose {
+    @apply max-w-none;
+
+    :where(ul, ol):not(:where([class~='not-prose'] *)) {
+      @apply pl-0 list-none;
+
+      & > li:not(badge) {
+        @apply pl-0;
+      }
+
+      & > .li {
+        @apply my-0;
+      }
+    }
+
+    :where(h1.cursor):not(:where([class~='not-prose'] *)) {
+      @apply gap-0;
+    }
+  }
+}
+
+@layer utilities {
+  .experience-prose {
+    @apply prose-h2:experience-h2 prose-ul:experience-ul prose-p:experience-p;
+  }
+
+  .experience-h2 {
+    @apply text-base-content/80 font-exo font-semibold text-4xl leading-[3rem] group-hover:leading-[3rem] mb-1.5 mt-0 transition-all group-hover:text-[2.75rem];
+  }
+
+  .experience-ul {
+    @apply flex reset-list flex-wrap gap-2 mt-5;
+  }
+
+  .experience-p {
+    @apply last-of-type:mb-0;
+  }
+
+  .text-group-hover {
+    @apply group-hover:text-neutral-content group-hover:dark:text-neutral-content/70;
+
+    :is(h2, h3) {
+      @apply group-hover:font-light group-hover:text-white dark:group-hover:text-neutral-content;
+    }
   }
 }

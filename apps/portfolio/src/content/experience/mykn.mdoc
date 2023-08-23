@@ -15,10 +15,11 @@ tags:
     'kanban',
     'jenkins',
   ]
+href: https://mykn.kuehne-nagel.com/
+target: _blank
 ---
 
-import Link from '../../components/buttons/Link.astro';
-
+{% hover href=$frontmatter.href target=$frontmatter.target %}
 ## myKN
 
 Distribution and sales platform for one of the largest logistics companies in the world.
@@ -27,6 +28,7 @@ Responsible for multiple frontends. Architecting and engineering of the navigati
 
 Migration and re-implementation of various frontend with appropriate technologies.
 
+{% badges %}
 - Vue
 - Stencil
 - SCSS
@@ -34,5 +36,7 @@ Migration and re-implementation of various frontend with appropriate technologie
 - Jest
 - Playwright
 - MPA
+{% /badges %}
 
-[myKN](https://mykn.kuehne-nagel.com/)
+{% link href=$frontmatter.href text="myKN" groupHover=true /%}
+{% /hover %}

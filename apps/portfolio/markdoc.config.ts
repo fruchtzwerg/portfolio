@@ -11,5 +11,26 @@ export default defineMarkdocConfig({
     leadin: {
       render: component('./src/components/markdoc/LeadIn.astro'),
     },
+    badges: {
+      render: component('./src/components/markdoc/Badges.astro'),
+      children: ['list'],
+    },
+    link: {
+      render: component('./src/components/markdoc/Link.astro'),
+      attributes: {
+        href: { type: String, required: true },
+        text: { type: String, required: true },
+        target: { type: String },
+        groupHover: { type: Boolean },
+      },
+    },
+    hover: {
+      render: component('./src/components/markdoc/Hover.astro'),
+      attributes: {
+        href: { type: String },
+        target: { type: String },
+        class: { type: String },
+      },
+    },
   },
 });

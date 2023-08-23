@@ -11,10 +11,10 @@ dependencies:
   '@fontsource/exo':
     specifier: ^5.0.8
     version: 5.0.8
-  '@fontsource/inconsolata':
+  '@fontsource/hind':
     specifier: ^5.0.8
     version: 5.0.8
-  '@fontsource/lato':
+  '@fontsource/inconsolata':
     specifier: ^5.0.8
     version: 5.0.8
   svelte:
@@ -2427,12 +2427,12 @@ packages:
     resolution: {integrity: sha512-TPEj/E3IXsa4DyF7SC7bc3TRPuxLWomFc0NueGCh+ZZC3/ZZN/Y8AzlisrvlZoqLTrWDgFtuaD3NWxu3gDFAMQ==}
     dev: false
 
-  /@fontsource/inconsolata@5.0.8:
-    resolution: {integrity: sha512-KpBU6q1yCovfycaFprVEauh8U5RsWty3konFfUukyRRxZBK4Sf73XmGQc8iJ4CPrOP4dplGfdX2kjbRgdymajA==}
+  /@fontsource/hind@5.0.8:
+    resolution: {integrity: sha512-2p+dX0RsSD9D2PtjUJ8o+VuGvGvigPqMhixFwVtczgdHAFzEh3ZFcSq+5a7KQvYvFq3CXgDWAUO3gWNee/c2YQ==}
     dev: false
 
-  /@fontsource/lato@5.0.8:
-    resolution: {integrity: sha512-a4XnSIbiISLf0UFflBJ4H4HErH2xvQO99hOm9an7ljBY7cUruaEIMHmqOraPPS8alYikkmMEOOksdulDFyLfFg==}
+  /@fontsource/inconsolata@5.0.8:
+    resolution: {integrity: sha512-KpBU6q1yCovfycaFprVEauh8U5RsWty3konFfUukyRRxZBK4Sf73XmGQc8iJ4CPrOP4dplGfdX2kjbRgdymajA==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.10:

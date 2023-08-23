@@ -41,11 +41,15 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
 </Layout>
 
 <style lang="scss" is:global>
-  .blog {
-    @apply prose-h1;
-  }
+  @tailwind utilities;
 
-  .prose-h1 {
-    @apply prose-h1:text-center prose-h1:mt-4;
+  @layer utilities {
+    .blog {
+      @apply prose-h1:h1;
+    }
+
+    .h1 {
+      @apply text-center mt-4;
+    }
   }
 </style>

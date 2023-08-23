@@ -232,6 +232,29 @@ declare module 'astro:content' {
   data: InferEntrySchema<"about">
 } & { render(): Render[".mdx"] };
 };
+"apps": {
+"cv.mdoc": {
+	id: "cv.mdoc";
+  slug: "cv";
+  body: string;
+  collection: "apps";
+  data: InferEntrySchema<"apps">
+} & { render(): Render[".mdoc"] };
+"ffmpeg.mdoc": {
+	id: "ffmpeg.mdoc";
+  slug: "ffmpeg";
+  body: string;
+  collection: "apps";
+  data: InferEntrySchema<"apps">
+} & { render(): Render[".mdoc"] };
+"poker.mdoc": {
+	id: "poker.mdoc";
+  slug: "poker";
+  body: string;
+  collection: "apps";
+  data: InferEntrySchema<"apps">
+} & { render(): Render[".mdoc"] };
+};
 "blog": {
 "test.mdoc": {
 	id: "test.mdoc";
@@ -249,55 +272,55 @@ declare module 'astro:content' {
 } & { render(): Render[".mdoc"] };
 };
 "experience": {
-"bmw-charging.mdx": {
-	id: "bmw-charging.mdx";
+"bmw-charging.mdoc": {
+	id: "bmw-charging.mdoc";
   slug: "bmw-charging";
   body: string;
   collection: "experience";
   data: InferEntrySchema<"experience">
-} & { render(): Render[".mdx"] };
-"bmw-youtube.mdx": {
-	id: "bmw-youtube.mdx";
+} & { render(): Render[".mdoc"] };
+"bmw-youtube.mdoc": {
+	id: "bmw-youtube.mdoc";
   slug: "bmw-youtube";
   body: string;
   collection: "experience";
   data: InferEntrySchema<"experience">
-} & { render(): Render[".mdx"] };
-"ennexos.mdx": {
-	id: "ennexos.mdx";
+} & { render(): Render[".mdoc"] };
+"ennexos.mdoc": {
+	id: "ennexos.mdoc";
   slug: "ennexos";
   body: string;
   collection: "experience";
   data: InferEntrySchema<"experience">
-} & { render(): Render[".mdx"] };
-"hs-teaching.mdx": {
-	id: "hs-teaching.mdx";
+} & { render(): Render[".mdoc"] };
+"hs-teaching.mdoc": {
+	id: "hs-teaching.mdoc";
   slug: "hs-teaching";
   body: string;
   collection: "experience";
   data: InferEntrySchema<"experience">
-} & { render(): Render[".mdx"] };
-"kba.mdx": {
-	id: "kba.mdx";
+} & { render(): Render[".mdoc"] };
+"kba.mdoc": {
+	id: "kba.mdoc";
   slug: "kba";
   body: string;
   collection: "experience";
   data: InferEntrySchema<"experience">
-} & { render(): Render[".mdx"] };
-"mykn.mdx": {
-	id: "mykn.mdx";
+} & { render(): Render[".mdoc"] };
+"mykn.mdoc": {
+	id: "mykn.mdoc";
   slug: "mykn";
   body: string;
   collection: "experience";
   data: InferEntrySchema<"experience">
-} & { render(): Render[".mdx"] };
-"vestas.mdx": {
-	id: "vestas.mdx";
+} & { render(): Render[".mdoc"] };
+"vestas.mdoc": {
+	id: "vestas.mdoc";
   slug: "vestas";
   body: string;
   collection: "experience";
   data: InferEntrySchema<"experience">
-} & { render(): Render[".mdx"] };
+} & { render(): Render[".mdoc"] };
 };
 
 	};

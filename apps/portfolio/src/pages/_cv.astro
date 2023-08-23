@@ -1,12 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 
-import Link from '../components/buttons/Link.astro';
-import SectionHeading from '../components/cv/H3.astro';
-import SectionHeadingNda from '../components/cv/H3Nda.astro';
-import Item from '../components/experience/Li.astro';
-import Paragraph from '../components/experience/P.astro';
-import List from '../components/experience/Ul.astro';
 import CV from '../layouts/CV.astro';
 import Layout from '../layouts/Layout.astro';
 import { byPrio } from '../utils/collection.utils';
@@ -17,7 +11,7 @@ const sections = await Promise.all(collection.sort(byPrio).map(c => c.render()))
 
 <Layout title="CV">
   <CV>
-    <h1 class="font-[Lato]">Benjamin Montazer</h1>
+    <h1>Benjamin Montazer</h1>
 
     <h2 class="text-3xl">Senior Software Engineer</h2>
 
@@ -31,16 +25,7 @@ const sections = await Promise.all(collection.sort(byPrio).map(c => c.render()))
       sections.map(({ Content }, i) => (
         <section id={collection[i].data.id} class="mt-16" data-tags={collection[i].data.tags}>
           <small>{collection[i].data.caption}</small>
-          <Content
-            components={{
-              ...components,
-              h2: collection[i].data.nda ? SectionHeadingNda : SectionHeading,
-              ul: List,
-              li: Item,
-              a: Link,
-              p: Paragraph,
-            }}
-          />
+          <Content />
         </section>
       ))
     }

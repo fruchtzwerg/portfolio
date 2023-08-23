@@ -1,56 +1,76 @@
 ---
 import { getCollection } from 'astro:content';
 
-import Experience from '../../layouts/Experience.astro';
 import { byDate } from '../../utils/experience.utils';
-import Link from '../buttons/Link.astro';
-
-import Heading from './H2.astro';
-import Item from './Li.astro';
-import Paragraph from './P.astro';
-import List from './Ul.astro';
 
 interface Props {
   class?: string;
 }
 
-const { class: className } = Astro.props as Props;
+const { class: className } = Astro.props;
 
 const collection = await getCollection('experience');
 const sections = await Promise.all(collection.sort(byDate).map(c => c.render()));
-const components = { h2: Heading, ul: List, li: Item, a: Link, p: Paragraph };
+
+const dateFormatter = Intl.DateTimeFormat('en-GB', {
+  month: 'short',
+  year: 'numeric',
+});
 ---
 
-<ol class:list={[className, 'border-l border-base-content/50']}>
+<ol class:list={[className, 'timeline border-l border-base-content/50']}>
   {
     sections.map(({ Content }, i) => (
-      <li data-date-raw={collection[i].data.date.getTime()} class="mt-16">
-        <Experience entry={collection[i]}>
-          <Content {components} />
-        </Experience>
+      <li
+        transition:persist
+        data-date={dateFormatter.format(collection[i].data.date)}
+        data-date-raw={collection[i].data.date.getTime()}
+        class="mt-16"
+      >
+        <div class="flex flex-start items-center ml-8">
+          <div class="bullet-point" />
+          <small class="client">{collection[i].data.caption}</small>
+        </div>
+
+        <Content frontmatter={collection[i].data} />
       </li>
     ))
   }
 </ol>
 
 <script>
-  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-date-raw]'));
+  const getLocalizedDate = () => {
+    const items = Array.from(document.querySelectorAll<HTMLElement>('[data-date-raw]'));
 
-  items.forEach(item => {
-    if (!item.dataset.dateRaw) return;
+    items.forEach(item => {
+      if (!item.dataset.dateRaw) return;
 
-    item.dataset.date = Intl.DateTimeFormat(navigator.languages as string[], {
-      month: 'short',
-      year: 'numeric',
-    }).format(new Date(+item.dataset.dateRaw));
-  });
+      item.dataset.date = Intl.DateTimeFormat(navigator.languages as string[], {
+        month: 'short',
+        year: 'numeric',
+      }).format(new Date(+item.dataset.dateRaw));
+    });
+  };
+
+  document.addEventListener('astro:beforeload', getLocalizedDate);
+  getLocalizedDate();
 </script>
 
 <style lang="scss">
   @screen sm {
     li::before {
       content: attr(data-date);
-      @apply absolute left-0 pt-4 w-28 text-base-content/60 text-sm text-end;
+      @apply absolute left-0 w-28 text-base-content/60 text-sm text-end;
     }
+  }
+</style>
+
+<style lang="scss">
+  .bullet-point {
+    @apply bg-base-content w-2 h-2 rounded-full ml-[calc(-2.25rem_-_.5px)] mr-6;
+  }
+
+  .client {
+    @apply text-base-content/60 text-sm my-0 ml-1;
   }
 </style>

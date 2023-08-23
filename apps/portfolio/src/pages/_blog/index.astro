@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import readingTime from 'reading-time';
 
 import Link from '../../components/buttons/Link.astro';
-import Hover from '../../components/Hover.astro';
+import Hover from '../../components/markdoc/Hover.astro';
 import Layout from '../../layouts/Layout.astro';
 
 export const title = 'blog';
@@ -37,12 +37,7 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
         .sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime())
         .map(blog => (
           <li>
-            <Hover
-              tag="a"
-              href={blog.slug}
-              hoverClasses="bg-neutral/80 dark:shadow-even dark:shadow-accent/60"
-              class="flex flex-col gap-2 p-4 h-full w-full no-underline hover:text-inherit "
-            >
+            <Hover href={blog.slug} class="flex flex-col gap-2" inset>
               <div class="not-prose">
                 <Picture
                   src="/avatar.jpg"
@@ -55,13 +50,11 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
                 />
               </div>
 
-              <h2 class="group-hover:text-white text-xl font-bold leading-tight">
-                {blog.data.title}
-              </h2>
+              <h2 class="!text-xl !leading-tight group-hover:!font-semibold">{blog.data.title}</h2>
 
-              <p class="group-hover:text-white">{blog.data.summary}</p>
+              <p>{blog.data.summary}</p>
 
-              <small class="space-x-1 mt-auto text-base-content/75 group-hover:text-white/75">
+              <small class="space-x-1 mt-auto text-base-content/60 group-hover:text-neutral-content/60">
                 <time datetime={blog.data.createdAt.toISOString()}>
                   {formatTime.format(blog.data.createdAt)}
                 </time>

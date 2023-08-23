@@ -1,7 +1,7 @@
 ---
 import type { Technology } from '../../models/technology.model';
 import Link from '../buttons/Link.astro';
-import Hover from '../Hover.astro';
+import Hover from '../markdoc/Hover.astro';
 
 import BulbEmpty from '~icons/line-md/lightbulb';
 import BulbFilled from '~icons/line-md/lightbulb-filled';
@@ -10,40 +10,26 @@ interface Props {
   tech: Technology;
 }
 
-const { tech } = Astro.props as Props;
+const { tech } = Astro.props;
 ---
 
-<Hover
-  tag="a"
-  href={tech.href}
-  target="_blank"
-  hoverClasses="bg-neutral/80"
-  class="no-underline flex flex-col gap-2 p-4 h-full w-full hover:text-inherit"
->
+<Hover href={tech.href} target="_blank" class="no-underline flex flex-col gap-2" inset>
   <!-- icon -->
   <div
-    class="relative flex self-start text-4xl text-black group-hover:text-white dark:text-white transition-transform group-hover:scale-125"
+    class="relative flex self-start mb-4 text-4xl text-black text-group-hover transition-transform group-hover:scale-[1.375]"
   >
     <tech.icon aria-hidden class="z-20" />
   </div>
 
   <!-- title -->
-  <h3 class="my-0 group-hover:text-white">
-    {tech.title}
-  </h3>
+  <h3 class="my-0">{tech.title}</h3>
 
   <!-- desc -->
   <p class="flex-1 font-light winter:group-hover:text-base-100/80">{tech.description}</p>
 
   <!-- tags -->
   <ul class="flex reset-list">
-    {
-      tech.keywords.map(tag => (
-        <li class="keyword-badge group-hover:badge dark:group-hover:badge-info dark:group-hover:!text-info-content mr-2">
-          {tag}
-        </li>
-      ))
-    }
+    {tech.keywords.map(tag => <li class="keyword-badge group-hover:badge ">{tag}</li>)}
   </ul>
 
   <!-- rating -->

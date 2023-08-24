@@ -10,10 +10,6 @@
   a {
     @apply no-underline hover:text-primary;
   }
-
-  pre {
-    @apply dark:outline dark:outline-primary/5;
-  }
 }
 
 @layer components {
@@ -57,11 +53,23 @@
     @apply bg-gradient-to-b from-base-100/50 to-base-200/30;
   }
 
+  .collapse {
+    @apply rounded-md;
+
+    .collapse-content {
+      @apply pb-0;
+
+      & > pre[class*='language-'] {
+        @apply m-0;
+      }
+    }
+  }
+
   // apply reset-list even if it is defined on a parent of <ul>
   .prose {
     @apply max-w-none;
 
-    :where(ul, ol):not(:where([class~='not-prose'] *)) {
+    .badges > :where(ul, ol):not(:where([class~='not-prose'] *)) {
       @apply pl-0 list-none;
 
       & > li:not(badge) {

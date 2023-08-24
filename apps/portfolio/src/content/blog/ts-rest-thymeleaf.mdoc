@@ -17,7 +17,7 @@ We need to fetch data from somewhere to display it in our frontend.
 The most common datasource is the good old REST API.
 {% /leadin %}
 
-## Start with the REST (API)
+## Start with the REST API
 
 For example, we want to display a list of users.
 
@@ -60,7 +60,7 @@ type User = z.infer<typeof UserSchema>
 
 const users: User[] = await fetch('/api/users')
   .then(res => res.json())
-  .then(data => data.map(user => UserSchema.parse(user)));
+  .then(data => data.map(UserSchema.parse));
 ```
 
 ### Abstracting the API
@@ -120,9 +120,7 @@ sift through a lot of API boilerplate code, when reviewing pull requests.
 
 Even in mid-sized applications this can save a lot of time and money.
 
-<!-- TODO: collapable hint -->
-Here is a complete example for users CRUD:
-
+{% collapse title="Full example: Users CRUD" open=false %}
 ```ts
 import { initContract, initClient } from '@ts-rest/core';
 import { z } from 'zod'
@@ -139,6 +137,7 @@ const PathParamsSchema = z.object({
 
 const c = initContract();
 
+/** Contract */
 export const contract = c.router({
   createUser: {
     method: 'POST',
@@ -191,11 +190,13 @@ export const contract = c.router({
   },
 });
 
+/** Client */
 const client = initClient(contract, {
   baseUrl: 'http://localhost:3000',
   baseHeaders: {},
 });
 
+/* Usage */
 const { body: newUser } = await client.createUser({
   body: {
     name: 'John Doe',
@@ -210,6 +211,7 @@ const { body: updatedUser } = await client.updateUser({
 });
 await client.deleteUser({ params: { id: 1 } });
 ```
+{% /collapse %}
 
 ## Abstracting other datasources
 
@@ -237,7 +239,7 @@ To get this data you might get the contents of the script tag and parse it into 
 
 ```ts
 const script = document.getElementById('current-user-data');
-const data = JSON.parse(script.innerHTML); // TODO: check
+const data = JSON.parse(script.innerText);
 const user = UserSchema.parse(data);
 ```
 
@@ -271,9 +273,12 @@ export const contract = c.router({
 });
 ```
 
-For this to work, we need to instruct ts‑rest how to handle thymeleaf data.
+Note the metadata field. ts‑rest does not handle this automatically, but we can use it
+to instruct ts‑rest how to handle thymeleaf data.
 
 ```ts
+import { tsRestFetchApi, initClient } from '@ts-rest/core';
+
 type Metadata = { type: 'thymeleaf' } | undefined;
 
 /** Parse data from thymeleaf. */
@@ -283,11 +288,12 @@ const tsRestThymeleafApi = ({ route }: ApiFetcherArgs) => {
 
   if (!dataElement) return { status: 404, body: null, headers: new Headers() }
 
-  const data = JSON.parse(dataElement.innerHTML)
+  const data = JSON.parse(dataElement.innerText)
 
   return { status: 200, body: Schema.parse(data), headers: new Headers() }
 }
 
+/** Client */
 const client = initClient(contract, {
   baseUrl: 'http://localhost:3000',
   baseHeaders: {},
@@ -303,7 +309,7 @@ const client = initClient(contract, {
 });
 ```
 
-And we can use the client to get the data.
+We can use the client to get the data just like with the REST API.
 
 ```ts
 const { body: user } = await client.getCurrentUser();
@@ -349,6 +355,54 @@ Because we are typesafe these pull requests can get merged quickly without a lot
 If you want to eliminate some E2E tests as well, you can build your new backend in a Nodejs monorepo
 and use the same contract on the server-side as well.
 Now you're fully end-to-end typesafe and both client and server will yell at you, if you break the contract.
+
+## Bonus: Automocked API
+
+Because we used zod to generate our contract, we can use it to generate a mock API as well.
+
+There are several libraries that can do this. I will use [@anatine/zod-mock](https://www.npmjs.com/package/@anatine/zod-mock).
+
+```ts
+// server.ts
+import { generateMock } from '@anatine/zod-mock';
+import express from 'express';
+
+const app = express();
+
+// simulate network latency
+app.use('/api', async (req, res, next) => {
+  await sleep(Math.random() * 3_000)
+  next()
+});
+
+const router = initServer().router(contract, {
+  getCurrentUser: async () => ({
+    status: 200,
+    body: generateMock(UserSchema), // <- generate mock data from zod schema
+  })
+});
+
+createExpressEndpoints(contract, router, app, { logInitialization: true });
+
+// pick one:
+app.listen(3000);          // OPTION 1: start server manually
+export const handler = app // OPTION 2: use it with vite
+```
+
+### Using the mock API with Vite
+
+To launch your minimal express mock backend with vite, you can use the [vite-plugin-serve](https://www.npmjs.com/package/vite-plugin-serve) plugin.
+
+```ts
+// vite.config.ts, astro.config.mjs, etc.
+import mockServer from 'vite-plugin-mix';
+
+// ...
+
+plugins: [
+  mockServer({ handler: './server.ts' }),
+]
+```
 
 ## Conclusion
 

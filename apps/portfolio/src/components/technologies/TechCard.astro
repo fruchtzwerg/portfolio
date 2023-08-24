@@ -1,6 +1,7 @@
 ---
 import type { Technology } from '../../models/technology.model';
 import Link from '../buttons/Link.astro';
+import Badges from '../markdoc/Badges.astro';
 import Hover from '../markdoc/Hover.astro';
 
 import BulbEmpty from '~icons/line-md/lightbulb';
@@ -28,9 +29,11 @@ const { tech } = Astro.props;
   <p class="flex-1 font-light winter:group-hover:text-base-100/80">{tech.description}</p>
 
   <!-- tags -->
-  <ul class="flex reset-list">
-    {tech.keywords.map(tag => <li class="keyword-badge group-hover:badge ">{tag}</li>)}
-  </ul>
+  <Badges>
+    <ul class="!m-0">
+      {tech.keywords.map(tag => <li class="mt-0">{tag}</li>)}
+    </ul>
+  </Badges>
 
   <!-- rating -->
   <div

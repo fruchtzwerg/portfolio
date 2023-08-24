@@ -32,5 +32,12 @@ export default defineMarkdocConfig({
         class: { type: String },
       },
     },
+    collapse: {
+      render: component('./src/components/markdoc/Collapse.astro'),
+      attributes: {
+        title: { type: String, required: true },
+        open: { type: Boolean, default: true },
+      },
+    },
   },
 });

@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  open?: boolean;
+}
+
+const { open = true, title } = Astro.props;
+---
+
+<div class="collapse collapse-plus bg-base-300">
+  <input type="checkbox" checked={open} />
+  <div class="collapse-title font-medium">{title}</div>
+  <div class="collapse-content p-0">
+    <slot />
+  </div>
+</div>

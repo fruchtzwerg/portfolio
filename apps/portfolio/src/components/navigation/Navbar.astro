@@ -128,3 +128,17 @@ const matches = (pathname: string) =>
     }
   }
 </style>
+
+<style lang="scss" is:global>
+  * {
+    scroll-margin-top: 4rem;
+
+    @screen sm {
+      scroll-margin-top: 10rem;
+    }
+
+    @screen lg {
+      scroll-margin-top: 6rem;
+    }
+  }
+</style>

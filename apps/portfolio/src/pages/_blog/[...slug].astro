@@ -28,7 +28,7 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
 });
 ---
 
-<Layout title={entry.slug} prose class="blog">
+<Layout title={entry.data.title} prose class="blog">
   <section class="flex justify-center space-x-2">
     <time datetime={entry.data.createdAt.toISOString()}>
       {formatTime.format(entry.data.createdAt)}
@@ -37,7 +37,7 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
     <span>{readingTime(entry.body).text}</span>
   </section>
 
-  <Content frontmatter={entry.data} />
+  <Content frontmatter={entry.data} slug={entry.slug} />
 </Layout>
 
 <style lang="scss" is:global>

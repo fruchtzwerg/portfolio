@@ -24,10 +24,8 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
     <h1 class="cursor">_{title}</h1>
 
     <p>
-      Officia ut ullamco commodo anim magna minim consectetur ullamco. Exercitation fugiat nulla
-      magna nulla id anim do culpa proident do cillum proident dolor incididunt ipsum. Lorem labore
-      est ex ex consequat dolor dolore. Commodo reprehenderit amet cillum ad non duis aliqua
-      voluptate consectetur duis. Eiusmod velit velit cupidatat mollit esse.
+      I write stuff so I don't forget it. Also things that make the frontend life easier and even
+      more fun.
     </p>
   </div>
 
@@ -38,17 +36,20 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
         .map(blog => (
           <li>
             <Hover href={blog.slug} class="flex flex-col gap-2" inset>
-              <div class="not-prose">
-                <Picture
-                  src="/avatar.jpg"
-                  alt=""
-                  widths={[250, 400]}
-                  sizes="(max-width: 250px) 150px, 400px"
-                  aspectRatio="16:9"
-                  formats={['avif', 'webp', 'jpeg']}
-                  class="w-full rounded"
-                />
-              </div>
+              {blog.data.image && (
+                <div class="not-prose">
+                  <Picture
+                    transition:name={blog.slug}
+                    src={blog.data.image}
+                    alt={blog.data.alt ?? ''}
+                    widths={[250, 400]}
+                    sizes="(max-width: 250px) 150px, 400px"
+                    aspectRatio="16:9"
+                    formats={['avif', 'webp', 'jpeg']}
+                    class="w-full rounded"
+                  />
+                </div>
+              )}
 
               <h2 class="!text-xl !leading-tight group-hover:!font-semibold">{blog.data.title}</h2>
 

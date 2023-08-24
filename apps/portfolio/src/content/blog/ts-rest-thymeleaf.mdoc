@@ -3,21 +3,21 @@ createdAt: 2023-08-14
 title: Migrating a Thymeleaf app to REST using ts‑rest
 tags: ['ts-rest', 'thymeleaf', 'api', 'rpc', 'rest']
 summary: Use ts‑rest to decouple your frontend from your datasources like REST, Thymeleaf or IndexedDB
-image: https://i.imgur.com/7tjW9KS.png
+image: /blog-ts-rest-1.png
 ---
 
 # {% $frontmatter.title %}
 
 {% summary text=$frontmatter.summary /%}
 
-{% leadin %}
+{% leadin image=$frontmatter.image slug=$slug %}
 Building shiny frontends with the latest and greatest technologies is great but without content they are just empty shells.
 We need to fetch data from somewhere to display it in our frontend.
 
 The most common datasource is the good old REST API.
 {% /leadin %}
 
-## Start with the REST API
+## REST API
 
 For example, we want to display a list of users.
 

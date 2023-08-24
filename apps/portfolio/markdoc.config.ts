@@ -6,10 +6,17 @@ export default defineMarkdocConfig({
   tags: {
     summary: {
       render: component('./src/components/markdoc/Summary.astro'),
-      attributes: { text: { type: String } },
+      attributes: {
+        text: { type: String },
+      },
     },
     leadin: {
       render: component('./src/components/markdoc/LeadIn.astro'),
+      attributes: {
+        slug: { type: String },
+        image: { type: String },
+        alt: { type: String },
+      },
     },
     badges: {
       render: component('./src/components/markdoc/Badges.astro'),

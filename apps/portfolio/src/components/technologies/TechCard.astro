@@ -1,8 +1,8 @@
 ---
 import type { Technology } from '../../models/technology.model';
-import Link from '../buttons/Link.astro';
 import Badges from '../markdoc/Badges.astro';
 import Hover from '../markdoc/Hover.astro';
+import Link from '../markdoc/Link.astro';
 
 import BulbEmpty from '~icons/line-md/lightbulb';
 import BulbFilled from '~icons/line-md/lightbulb-filled';
@@ -45,5 +45,5 @@ const { tech } = Astro.props;
   </div>
 
   <!-- Link -->
-  <Link groupHover class="no-underline">{tech.title}</Link>
+  <Link groupHover>{tech.title}</Link>
 </Hover>

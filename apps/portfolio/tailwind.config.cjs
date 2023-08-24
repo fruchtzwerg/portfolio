@@ -55,7 +55,7 @@ module.exports = {
             h6: { '@apply font-heading text-lg font-bold inline-flex gap-2 items-center': {} },
             p: { '@apply font-sans': {} },
             li: { '@apply font-sans': {} },
-            'ul.reset-list': {
+            '.reset-list': {
               paddingLeft: 0,
               marginTop: 0,
               marginBottom: 0,

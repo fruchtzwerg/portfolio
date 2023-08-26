@@ -2,7 +2,7 @@
 createdAt: 2023-08-14
 title: Migrating a Thymeleaf app to REST using ts‑rest
 tags: ['ts-rest', 'thymeleaf', 'api', 'rpc', 'rest']
-summary: Use ts‑rest to decouple your frontend from your datasources like REST, Thymeleaf or IndexedDB
+summary: Use ts‑rest to decouple your frontend from your datasources like REST, Thymeleaf or IndexedDB.
 image: /blog-ts-rest-1.png
 ---
 
@@ -19,9 +19,11 @@ The most common datasource is the good old REST API.
 
 ## REST API
 
-For example, we want to display a list of users.
+REST APIs have been around for a long time and are still the most common way to fetch data from a server.
 
-To build this from scratch we need to construct some Typescript interfaces to represent the data we get from the API.
+Imagine we want to display a list of users.
+
+To build this from scratch we need to construct some TypeScript interfaces to represent the data we get from the API.
 Then we fetch the data, validate it, and push it into our store or cache.
 
 ```ts
@@ -41,11 +43,23 @@ const users: User[] = await fetch('/api/users')
   }));
 ```
 
+Note the ugly validation with typecast. We need to do this because we cannot rely on the API to
+always return the negotiated data. In the future, someone might change the API and forget to update the
+frontend. This is a common source of bugs in applications with backend-for-frontend, where
+API endpoints often are not versioned.
+
+<!-- TODO -->
+Open-closed principle: We're not discussing API design here but generally it would be better to wrap all data - including
+arrays - in an object. This way we can add metadata to the response later like pagination, etc
+without breaking existing clients.
+
 ### Improving validation
 
-The first thing we can do to improve this is to use a library like [zod](https://zod.dev/) to validate the data and infer the correct type.
+The first thing we can do to improve this is to use a library like [zod](https://zod.dev/) to
+validate the data and infer the correct type.
 
-Zod gives us type information at runtime and automates the validation. We can even refine the validators and provide a custom error message.
+Zod maintains some type information at runtime and automates the validation. We can even refine the
+validators and provide a custom error message.
 
 ```ts
 import { z } from 'zod'
@@ -65,12 +79,12 @@ const users: User[] = await fetch('/api/users')
 
 ### Abstracting the API
 
-This is already a big improvement but as our application grows we will have to repeat this process for every API endpoint we want to use.
+This is already a big improvement but as our application grows, we will have to repeat this process for every API endpoint we want to use.
 The result is often a lot of spaghetti code that is hard to maintain and even more difficult to understand and explore for new developers.
 
-Idealy we would like to hide the fetch behind a simple function that gets the data in a typesafe way and acts as a single source of truth.
+Ideally we would like to hide the fetch behind a simple function or object, that gets the data in a typesafe way and acts as a single source of truth.
 
-ts‑rest to the resque:
+ts‑rest to the rescue:
 
 First we define the contract our API adheres to.
 
@@ -106,17 +120,21 @@ And we are ready to use it to fetch data from the API.
 ```ts
 import { client } from './client';
 
-const users = await client.getAllUsers();
+const res = await client.getAllUsers();
 ```
+
+<!-- TODO -->
+Note: The client does not automatically validate the body. But since we already have the `UserSchema`
+from our contract, we can use it to validate the response like above.
 
 Through the contract the client now enforces typesafety across the whole application.
 If the API removes an endpoint or changes the response type, we modify the contract and
 the client will throw an error at compile time.<br/>
 This means we just saved ourselves a ton of unit tests to achieve even better robustness.
 
-It also means new developers can explore the API without having to read any documentation, our
-frontend architects have one thing less to worry about maintaining and the seniors don't need to
-sift through a lot of API boilerplate code, when reviewing pull requests.
+It also means new developers can explore the API through IntelliSense without having to read any
+documentation; our frontend architects have one thing less to worry about maintaining; and the
+seniors don't need to sift through a lot of API boilerplate code, when reviewing pull requests.
 
 Even in mid-sized applications this can save a lot of time and money.
 
@@ -196,19 +214,25 @@ const client = initClient(contract, {
   baseHeaders: {},
 });
 
-/* Usage */
+// Create
 const { body: newUser } = await client.createUser({
   body: {
     name: 'John Doe',
     email: 'john.doe@gmail.com',
   },
 });
+
+// Read
 const { body: users } = await client.getAllUsers();
 const { body: user } = await client.getUserById({ params: { id: 1 } });
+
+// Update
 const { body: updatedUser } = await client.updateUser({
   params: { id: 1 },
   body: { name: 'Jane Doe' },
 });
+
+// Delete
 await client.deleteUser({ params: { id: 1 } });
 ```
 {% /collapse %}
@@ -217,18 +241,18 @@ await client.deleteUser({ params: { id: 1 } });
 
 That's great. We have our REST API neatly tucked away behind the client. But what if we have other datasources?
 
-In this case I have a legacy Thymeleaf application that should be migrated to a SPA. There is a lot of data
-stamped in the HTML that needs to be migrated to a more flexible REST API. Doing so in one go would effectively
-stall product development for no immediate value to the users of our app.
+In my project we have a legacy Thymeleaf application that should be migrated to a SPA. There is a lot of data
+rendered in the HTML by the server that needs to be migrated to a more flexible REST API.
+Doing so in one go would effectively stall product development for no immediate value to the users of our app.
 
 Imagine the current user is rendered into the HTML by the server and we want to use it in our frontend.
 
 ```html
 <script id="current-user-data" type="application/json" th:inline="javascript">
   {
+    "id": /*[[${id}]]*/ {},
     "name": /*[[${name}]]*/ {},
     "email": /*[[${email}]]*/ {},
-    "_csrf": /*[[${_csrf?.token}]]*/[],
   }
 </script>
 ```
@@ -246,8 +270,8 @@ const user = UserSchema.parse(data);
 Not to bad but there are a lot of moving parts in those 3 lines of code.
 
 - The script tag might not exist, if the user is not logged in
-- The id of the script tag might change
-- The model of the data is unversioned and might change without notice
+- The id of the script tag might change unexpectedly
+- The model of the data is un-versioned and might change without notice
 
 ### Using ts‑rest
 
@@ -263,11 +287,12 @@ export const contract = c.router({
 
   getCurrentUser: {
     method: 'GET',
-    path: 'current-user-data', // id of the element
-    metadata: { type: 'thymeleaf' } as const,
+    path: 'current-user-data', // <- id of the element
+    metadata: { type: 'thymeleaf' } as const, // <- metadata to identify the datasource
     responses: {
       200: UserSchema,
-      404: null
+      404: null,
+      500: ZodError,
     }
   },
 });
@@ -276,24 +301,37 @@ export const contract = c.router({
 Note the metadata field. ts‑rest does not handle this automatically, but we can use it
 to instruct ts‑rest how to handle thymeleaf data.
 
-```ts
-import { tsRestFetchApi, initClient } from '@ts-rest/core';
+First we implement a custom API handler for thymeleaf data.
 
-type Metadata = { type: 'thymeleaf' } | undefined;
+```ts
+import type { ApiFetcherArgs } from '@ts-rest/core';
+
 
 /** Parse data from thymeleaf. */
 const tsRestThymeleafApi = ({ route }: ApiFetcherArgs) => {
-  const dataElement = document.getElementById(route.path)
   const Schema = route.responses[200] as z.ZodTypeAny
+  const dataElement = document.getElementById(route.path)
 
+  // return 404 if element does not exist
   if (!dataElement) return { status: 404, body: null, headers: new Headers() }
 
   const data = JSON.parse(dataElement.innerText)
+  const validation = Schema.safeParse(data)
 
-  return { status: 200, body: Schema.parse(data), headers: new Headers() }
+  // return 500 if data is invalid (something went wrong on the server while rendering)
+  if (!validation.success) return { status: 500, body: validation.error, headers: new Headers() }
+
+  return { status: 200, body: validation.data, headers: new Headers() }
 }
+```
 
-/** Client */
+Then we use it to init the client.
+
+```ts
+import { initClient, tsRestFetchApi } from '@ts-rest/core';
+
+type Metadata = { type: 'thymeleaf' } | undefined;
+
 const client = initClient(contract, {
   baseUrl: 'http://localhost:3000',
   baseHeaders: {},
@@ -312,7 +350,7 @@ const client = initClient(contract, {
 We can use the client to get the data just like with the REST API.
 
 ```ts
-const { body: user } = await client.getCurrentUser();
+const { body: currentUser } = await client.getCurrentUser();
 ```
 
 Add any other datasource you want to use to the client and let ts‑rest handle the rest.
@@ -321,7 +359,7 @@ Add any other datasource you want to use to the client and let ts‑rest handle 
 const client = initClient(contract, {
   baseUrl: 'http://localhost:3000',
   baseHeaders: {},
-  api: async (args) => {
+  api: async (args: ApiFetcherArgs) => {
     const metadata = route.metadata as Metadata;
 
     switch (metadata?.type) {
@@ -333,6 +371,7 @@ const client = initClient(contract, {
         return tsRestStorageApi(args, 'session')
       case 'indexeddb':
         return tsRestIndexedDBApi(args)
+
       default:
         return tsRestFetchApi(args)
     }
@@ -343,24 +382,24 @@ const client = initClient(contract, {
 This nicely eliminates friction between sourcing and using data in the frontend.
 Now, instead of working on a big-bang migration of the whole application, we can migrate one endpoint at a time:
 
-1. Implement the new API endpoint
-1. Remove the metadata from the contract
+1. Implement the new API endpoint.
+1. Remove the metadata from the contract.
 1. Profit!
 
-That can easily be done over the course of a few weeks or months during slack-time or vacation periods,
+The migration can easily be done over the course of a few weeks or months during slack-time or vacation periods,
 when not a lot of features are being developed.
 
-Because we are typesafe these pull requests can get merged quickly without a lot of testing overhead.
+Because we are typesafe, these pull requests can get merged quickly without a lot of testing overhead.
 
-If you want to eliminate some E2E tests as well, you can build your new backend in a Nodejs monorepo
-and use the same contract on the server-side as well.
+If you want to eliminate some E2E tests as well, you can build your new backend in a monorepo with Nodejs
+and use the same contract on the server as well.
 Now you're fully end-to-end typesafe and both client and server will yell at you, if you break the contract.
 
 ## Bonus: Automocked API
 
-Because we used zod to generate our contract, we can use it to generate a mock API as well.
+Since we used zod to generate our contract, we can use it to autogenerate a mock API as well.
 
-There are several libraries that can do this. I will use [@anatine/zod-mock](https://www.npmjs.com/package/@anatine/zod-mock).
+There are several libraries that can do this. I will use [@anatine/zod-mock](https://www.npmjs.com/package/@anatine/zod-mock) here.
 
 ```ts
 // server.ts
@@ -391,7 +430,7 @@ export const handler = app // OPTION 2: use it with vite
 
 ### Using the mock API with Vite
 
-To launch your minimal express mock backend with vite, you can use the [vite-plugin-serve](https://www.npmjs.com/package/vite-plugin-serve) plugin.
+To launch your minimal express mock backend with vite, you can use the [vite-plugin-mix](https://github.com/egoist/vite-plugin-mix) plugin.
 
 ```ts
 // vite.config.ts, astro.config.mjs, etc.
@@ -406,9 +445,10 @@ plugins: [
 
 ## Conclusion
 
-ts‑rest is a great tool to abstract API sources in a typesafe manner through reduced documentation and
-testing overhead. It improves developer experience and maintainability of your codebase and increases
+ts‑rest is a great tool to abstract datasources in a typesafe manner.
+It saves time and money through reduced documentation and testing overhead.
+It improves developer experience and maintainability of your codebase and increases
 confidence, when changes need to be made.
 
-It can be used to abstract REST APIs, but also other datasources like localstorage, sessionstorage,
-indexeddb, thymeleaf, etc.
+It can be used to abstract REST APIs, but also other datasources like LocalStorage, SessionStorage,
+IndexedDB, Thymeleaf, etc.

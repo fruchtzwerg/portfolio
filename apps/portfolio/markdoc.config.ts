@@ -3,6 +3,15 @@ import prism from '@astrojs/markdoc/prism';
 
 export default defineMarkdocConfig({
   extends: [prism()],
+  nodes: {
+    link: {
+      render: component('./src/components/markdoc/Anchor.astro'),
+      attributes: {
+        href: { type: String, required: true },
+        target: { type: String },
+      },
+    },
+  },
   tags: {
     summary: {
       render: component('./src/components/markdoc/Summary.astro'),

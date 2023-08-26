@@ -12,5 +12,9 @@
     "json"
   ],
   "mdx-preview.preview.useVscodeMarkdownStyles": false,
+  "cSpell.enableFiletypes": [
+    "!typescript",
+    "markdoc"
+  ],
 
 }

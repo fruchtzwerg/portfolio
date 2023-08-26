@@ -253,13 +253,6 @@ declare module 'astro:content' {
 } & { render(): Render[".mdoc"] };
 };
 "blog": {
-"eslint-warnings.mdoc": {
-	id: "eslint-warnings.mdoc";
-  slug: "eslint-warnings";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdoc"] };
 "ts-rest-thymeleaf.mdoc": {
 	id: "ts-rest-thymeleaf.mdoc";
   slug: "ts-rest-thymeleaf";

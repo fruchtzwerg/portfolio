@@ -1,0 +1,24 @@
+---
+import Layout, { type Props } from './Layout.astro';
+
+const props = Astro.props;
+---
+
+<Layout {...props} class="prose-ul:reset-list prose-li:check prose-ul:space-y-6">
+  <slot />
+</Layout>
+
+<style is:global>
+  @tailwind base;
+
+  @layer base {
+    .check {
+      @apply !pl-6 -indent-2 text-lg;
+    }
+
+    .check::before {
+      content: '✓';
+      @apply -ml-4 mr-2;
+    }
+  }
+</style>

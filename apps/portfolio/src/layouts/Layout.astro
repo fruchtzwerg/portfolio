@@ -14,7 +14,7 @@ interface HTMLProps
   prose?: boolean;
 }
 
-type Props = HTMLProps & Partial<MDXLayoutProps<HTMLProps>> & Parameters<typeof SEO>[number];
+export type Props = HTMLProps & Partial<MDXLayoutProps<HTMLProps>> & Parameters<typeof SEO>[number];
 
 const {
   prose,

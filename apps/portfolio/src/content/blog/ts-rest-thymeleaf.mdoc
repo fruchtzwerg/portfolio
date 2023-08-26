@@ -48,10 +48,11 @@ always return the negotiated data. In the future, someone might change the API a
 frontend. This is a common source of bugs in applications with backend-for-frontend, where
 API endpoints often are not versioned.
 
-<!-- TODO -->
+{% info type="info" %}
 Open-closed principle: We're not discussing API design here but generally it would be better to wrap all data - including
 arrays - in an object. This way we can add metadata to the response later like pagination, etc
 without breaking existing clients.
+{% /info %}
 
 ### Improving validation
 
@@ -123,9 +124,10 @@ import { client } from './client';
 const res = await client.getAllUsers();
 ```
 
-<!-- TODO -->
+{% info type="warning" %}
 Note: The client does not automatically validate the body. But since we already have the `UserSchema`
 from our contract, we can use it to validate the response like above.
+{% /info %}
 
 Through the contract the client now enforces typesafety across the whole application.
 If the API removes an endpoint or changes the response type, we modify the contract and

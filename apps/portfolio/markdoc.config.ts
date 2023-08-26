@@ -55,5 +55,11 @@ export default defineMarkdocConfig({
         open: { type: Boolean, default: true },
       },
     },
+    info: {
+      render: component('./src/components/markdoc/Info.astro'),
+      attributes: {
+        type: { type: String, matches: ['info', 'warning', 'danger', 'success'] },
+      },
+    },
   },
 });

@@ -36,9 +36,9 @@ module.exports.ARCANE = {
     'base-100': 'hsl(240, 24%, 20%)',
     'base-200': 'hsl(235, 29%, 15%)',
     'base-300': 'hsl(230, 34%, 10%)',
-    info: 'hsl(212, 96%, 78%)',
+    info: 'hsl(220, 100%, 60%)',
     success: 'hsl(142, 77%, 73%)',
-    warning: 'hsl(46, 97%, 65%)',
+    warning: 'hsl(37, 85%, 70%)',
     error: 'hsl(351, 95%, 71%)',
   },
 };

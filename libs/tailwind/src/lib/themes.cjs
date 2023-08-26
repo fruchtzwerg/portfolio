@@ -28,20 +28,18 @@ module.exports.BUBBLEGUM = {
 
 module.exports.ARCANE = {
   arcane: {
-    primary: '#A58CFF',
-    // primary: '#3B3355',
-    secondary: '#5D5D81',
-    accent: '#8968EB',
-    'accent-100': '#987BFF',
-    'accent-200': '#9172F5',
-    neutral: '#FEFCFD',
-    'base-100': '#26263E',
-    'base-200': '#1C1F33',
-    'base-300': '#111827',
-    info: '#93c5fd',
-    success: '#86efac',
-    warning: '#fcd34d',
-    error: '#fca5a5',
+    primary: 'hsl(253, 100%, 70%)',
+    // primary: 'hsl(254, 25%, 27%)',
+    secondary: 'hsl(240, 16%, 44%)',
+    accent: 'hsl(208, 100%, 65%)',
+    neutral: 'hsl(253, 50%, 99%)',
+    'base-100': 'hsl(240, 24%, 20%)',
+    'base-200': 'hsl(235, 29%, 15%)',
+    'base-300': 'hsl(230, 34%, 10%)',
+    info: 'hsl(212, 96%, 78%)',
+    success: 'hsl(142, 77%, 73%)',
+    warning: 'hsl(46, 97%, 65%)',
+    error: 'hsl(351, 95%, 71%)',
   },
 };
 

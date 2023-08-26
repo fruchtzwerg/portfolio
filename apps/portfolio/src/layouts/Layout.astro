@@ -23,47 +23,45 @@ const {
 } = { ...Astro.props, ...Astro.props.frontmatter } as Props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="bg-base-300">
   <Head {...props} />
 
   <body class="flex flex-col min-h-screen m-0 bg-base-300">
-    <div>
-      <!-- backdrop -->
-      <div class="fixed inset-0 z-0 flex justify-center sm:px-8">
-        <div class="flex w-full max-w-5xl bg-gradient ring-1 ring-secondary/20"></div>
-      </div>
-
-      <header class="sticky top-0 z-50 flex justify-center sm:px-8">
-        <Navbar id="navbar" class="w-full max-w-5xl transition-shadow" />
-      </header>
-
-      <main class:list={[{ prose }, className, 'relative max-w-5xl sm:px-8 mx-auto mt-8']}>
-        <div class="lg:px-8 mb-16">
-          <div class="relative px-4 sm:p-8 lg:p-12">
-            <!-- Content -->
-            <slot />
-          </div>
-        </div>
-      </main>
-
-      <div class="relative z-10 mt-auto flex justify-center sm:px-8">
-        <Footer class="w-full max-w-5xl" />
-      </div>
-
-      <div class="sticky bottom-0 z-10 sm:hidden">
-        <BottomNav />
-      </div>
-
-      <script>
-        window.addEventListener('scroll', () => {
-          const navbar = document.querySelector('#navbar');
-          const shadow = ['shadow-md', 'shadow-base-300', 'dark:shadow-base-300/50'];
-
-          if (window.scrollY > 0) navbar?.classList.add(...shadow);
-          else if (window.scrollY === 0) navbar?.classList.remove(...shadow);
-        });
-      </script>
+    <!-- backdrop -->
+    <div class="fixed inset-0 z-0 flex justify-center sm:px-8">
+      <div class="flex w-full max-w-5xl bg-gradient ring-1 ring-secondary/20"></div>
     </div>
+
+    <header class="sticky top-0 z-50 flex justify-center sm:px-8">
+      <Navbar id="navbar" class="w-full max-w-5xl transition-shadow" />
+    </header>
+
+    <main
+      class:list={[{ prose }, className, 'relative max-w-5xl sm:px-8 lg:px-16 mx-auto mt-8 mb-16']}
+    >
+      <div class="relative px-4 sm:p-8 lg:p-12">
+        <!-- Content -->
+        <slot />
+      </div>
+    </main>
+
+    <div class="relative z-10 mt-auto flex justify-center sm:px-8">
+      <Footer class="w-full max-w-5xl" />
+    </div>
+
+    <div class="sticky bottom-0 z-10 sm:hidden">
+      <BottomNav />
+    </div>
+
+    <script>
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('#navbar');
+        const shadow = ['shadow-md', 'shadow-base-300', 'dark:shadow-base-300/50'];
+
+        if (window.scrollY > 0) navbar?.classList.add(...shadow);
+        else if (window.scrollY === 0) navbar?.classList.remove(...shadow);
+      });
+    </script>
   </body>
 </html>

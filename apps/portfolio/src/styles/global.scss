@@ -28,11 +28,15 @@
     }
   }
 
+  .btn-ghost:hover {
+    @apply dark:bg-primary-focus/10 dark:text-primary;
+  }
+
   .menu-item {
     @apply btn btn-circle btn-ghost border-none capitalize font-normal font-serif text-xs xs:text-sm w-fit px-2 xs:w-20 sm:w-24 md:w-28 min-h-0 h-10 xs:h-12 flex justify-center items-center transition-all;
 
     &.active {
-      @apply gradient text-primary-content;
+      @apply gradient text-white dark:text-black shadow-2xl shadow-accent;
     }
   }
 
@@ -46,7 +50,7 @@
   }
 
   .gradient {
-    @apply bg-gradient-to-br from-primary to-accent dark:from-primary dark:to-indigo-500;
+    @apply bg-gradient-to-br from-primary to-accent dark:from-primary dark:to-accent;
   }
 
   .bg-gradient {

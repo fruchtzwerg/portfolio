@@ -17,7 +17,7 @@ const { tech } = Astro.props;
 <Hover href={tech.href} target="_blank" class="no-underline flex flex-col gap-2" inset>
   <!-- icon -->
   <div
-    class="relative flex self-start mb-4 text-4xl text-black text-group-hover transition-transform group-hover:scale-[1.375]"
+    class="relative flex self-start mb-4 text-4xl bg-slate-100 rounded-full p-4 shadow text-black text-group-hover transition-all group-hover:scale-[1.375] group-hover:shadow-none group-hover:bg-transparent"
   >
     <tech.icon aria-hidden class="z-20" />
   </div>

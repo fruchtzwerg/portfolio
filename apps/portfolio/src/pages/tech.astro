@@ -32,11 +32,11 @@ export const order = 1;
     {
       sections.map(section => (
         <section>
-          <div class="divider mb-8">
+          <div class="divider mb-16">
             <h2 class="m-0">{section.title}</h2>
           </div>
 
-          <ul class="reset-list grid gap-12 grid-cols-1 md:grid-cols-2">
+          <ul class="reset-list grid gap-20 grid-cols-1 md:grid-cols-2">
             {section.technologies.map(tech => (
               <li>
                 <TechCard {tech} />

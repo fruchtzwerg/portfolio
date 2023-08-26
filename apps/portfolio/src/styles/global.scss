@@ -20,9 +20,9 @@
       @apply animate-pulse-full;
 
       content: '';
-      width: 1.25rem;
-      height: 0.8125em;
-      margin-left: 0.125rem;
+      width: 0.5em;
+      height: 1em;
+      margin-left: 0.025em;
       background-color: currentColor;
       display: inline-block;
     }
@@ -110,5 +110,14 @@
     :is(h2, h3) {
       @apply group-hover:font-light group-hover:text-white dark:group-hover:text-neutral-content;
     }
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
   }
 }

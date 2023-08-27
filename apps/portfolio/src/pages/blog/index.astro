@@ -36,14 +36,14 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
         .sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime())
         .map(blog => (
           <li>
-            <Hover href={blog.slug} class="flex flex-col gap-2" inset>
+            <Hover href={`/blog/${blog.slug}`} class="flex flex-col gap-2" inset>
               {blog.data.image && (
                 <div class="not-prose">
                   <Picture
                     transition:name={blog.slug}
                     src={blog.data.image}
                     alt={blog.data.alt ?? ''}
-                    widths={[250, 400]}
+                    widths={[250, 400, 800]}
                     sizes="(max-width: 250px) 150px, 400px"
                     aspectRatio="16:9"
                     formats={['avif', 'webp', 'jpeg']}

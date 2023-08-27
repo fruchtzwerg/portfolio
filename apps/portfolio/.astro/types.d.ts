@@ -253,6 +253,13 @@ declare module 'astro:content' {
 } & { render(): Render[".mdoc"] };
 };
 "blog": {
+"tanstack-query.mdoc": {
+	id: "tanstack-query.mdoc";
+  slug: "tanstack-query";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdoc"] };
 "ts-rest-thymeleaf.mdoc": {
 	id: "ts-rest-thymeleaf.mdoc";
   slug: "ts-rest-thymeleaf";

@@ -1,8 +1,11 @@
-module.exports = {
+
+
+/** @type {import("prettier").Config} */
+export default {
   singleQuote: true,
   arrowParens: 'avoid',
   printWidth: 100,
-  plugins: [require.resolve('prettier-plugin-astro')],
+  plugins: ['prettier-plugin-astro'],
   overrides: [
     {
       files: '*.astro',

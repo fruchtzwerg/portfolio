@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import readingTime from 'reading-time';
+
+import Picture from '../../components/common/Picture.astro';
+import Hover from '../../components/markdoc/Hover.astro';
+import Link from '../../components/markdoc/Link.astro';
+import Layout from '../../layouts/Layout.astro';
+
+export const title = 'blog';
+export const order = 4;
+
+const blogEntries = await getCollection('blog');
+
+const formatTime = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout title="blog">
+  <div class="prose max-w-none mb-24">
+    <h1 class="cursor">_{title}</h1>
+
+    <p class="text-xl">
+      I write about things that make frontend life easier, more scalable and allaround more
+      convenient.
+    </p>
+    <p class="text-lg">Also so I don't forget ¯\_(ツ)_/¯</p>
+  </div>
+
+  <ol class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      blogEntries
+        .sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime())
+        .map(blog => (
+          <li>
+            <Hover href={`/blog/${blog.slug}`} class="flex flex-col gap-2" inset>
+              {blog.data.image && (
+                <div class="not-prose">
+                  <Picture
+                    transition:name={blog.slug}
+                    src={blog.data.image}
+                    alt={blog.data.alt ?? ''}
+                    widths={[250, 400, 800]}
+                    sizes="(max-width: 250px) 150px, 400px"
+                    aspectRatio="16:9"
+                    formats={['avif', 'webp', 'jpeg']}
+                    class="w-full rounded"
+                  />
+                </div>
+              )}
+
+              <h2 class="!text-xl !leading-tight group-hover:!font-semibold">{blog.data.title}</h2>
+
+              <p>{blog.data.summary}</p>
+
+              <small class="space-x-1 mt-auto text-base-content/60 group-hover:text-neutral-content/60">
+                <time datetime={blog.data.createdAt.toISOString()}>
+                  {formatTime.format(blog.data.createdAt)}
+                </time>
+                <span>•</span>
+                <span>{readingTime(blog.body).text}</span>
+              </small>
+
+              <Link groupHover>Read More</Link>
+            </Hover>
+          </li>
+        ))
+    }
+  </ol>
+</Layout>

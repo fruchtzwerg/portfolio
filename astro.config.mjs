@@ -1,4 +1,3 @@
-// import image from '@astrojs/image';
 import markdoc from '@astrojs/markdoc';
 import mdx from '@astrojs/mdx';
 import prefetch from '@astrojs/prefetch';
@@ -7,8 +6,8 @@ import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
 import { importDirectory, runSVGO } from '@iconify/tools';
 import { defineConfig } from 'astro/config';
-// import compress from 'astro-compress';
-// import robotsTxt from 'astro-robots-txt';
+import compress from 'astro-compress';
+import robotsTxt from 'astro-robots-txt';
 import { join, dirname } from 'path';
 // import { visualizer } from 'rollup-plugin-visualizer';
 import Icons from 'unplugin-icons/vite';
@@ -34,10 +33,15 @@ export default defineConfig({
       configFile: tailwindConfigPath,
     }),
     polyfills('@ungap/custom-elements'),
-    // image({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: '.sharp' }),
-    sitemap({ canonicalURL: 'https://montazer.dev' }),
-    // robotsTxt({ host: true }),
-    // compress({ CSS: false }),
+    sitemap({
+      canonicalURL: 'https://montazer.dev',
+      serialize(item) {
+        item.lastmod = new Date();
+        return item;
+      },
+    }),
+    robotsTxt({ host: true }),
+    compress(),
     prefetch(),
   ],
   vite: {

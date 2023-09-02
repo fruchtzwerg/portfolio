@@ -1,9 +1,0 @@
-{
-  "generators": {
-    "markdown-astro": {
-      "implementation": "./src/generators/markdown-astro",
-      "schema": "./src/generators/markdown-astro/schema.json",
-      "description": "Generates an Markdown component."
-    }
-  }
-}

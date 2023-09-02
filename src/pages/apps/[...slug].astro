@@ -1,0 +1,19 @@
+---
+import { type InferGetStaticPropsType } from 'astro';
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('apps');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+---
+
+<head>
+  <meta http-equiv="refresh" content={`0; url=${entry.data.href}`} />
+</head>

@@ -1,0 +1,9 @@
+---
+import Layout, { type Props } from './Layout.astro';
+
+const props = Astro.props;
+---
+
+<Layout {...props} class="prose-ul:reset-list prose-li:check prose-ul:space-y-6">
+  <slot />
+</Layout>

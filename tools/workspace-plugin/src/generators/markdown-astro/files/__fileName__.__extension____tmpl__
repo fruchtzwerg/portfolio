@@ -1,8 +1,0 @@
----
-layout: '<%= layout %>'
-title: '<%= fileName %>'
----
-
-# <%= fileName %>
-
-Add your content here.

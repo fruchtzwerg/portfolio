@@ -1,0 +1,11 @@
+---
+type Props = { blendClasses?: string } & Partial<astroHTML.JSX.HTMLAttributes>;
+
+const { class: className, blendClasses, ...props } = Astro.props as Props;
+---
+
+<div {...props} class:list={[className, 'group relative w-fit h-fit overflow-hidden']}>
+  <slot />
+
+  <div class:list={[blendClasses, 'absolute inset-0 mix-blend-color pointer-events-none']}></div>
+</div>

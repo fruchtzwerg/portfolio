@@ -1,0 +1,49 @@
+---
+import type { Technology } from '../../models/technology.model';
+import Badges from '../markdoc/Badges.astro';
+import Hover from '../markdoc/Hover.astro';
+import Link from '../markdoc/Link.astro';
+
+import BulbEmpty from '~icons/line-md/lightbulb';
+import BulbFilled from '~icons/line-md/lightbulb-filled';
+
+interface Props {
+  tech: Technology;
+}
+
+const { tech } = Astro.props;
+---
+
+<Hover href={tech.href} target="_blank" class="no-underline flex flex-col gap-2" inset>
+  <!-- icon -->
+  <div
+    class="relative flex self-start mb-4 text-4xl bg-slate-100 rounded-full p-4 shadow text-black text-group-hover transition-all group-hover:scale-[1.375] group-hover:shadow-none group-hover:bg-transparent"
+  >
+    <tech.icon aria-hidden class="z-20" />
+  </div>
+
+  <!-- title -->
+  <h3 class="my-0">{tech.title}</h3>
+
+  <!-- desc -->
+  <p class="flex-1 font-light winter:group-hover:text-base-100/80">{tech.description}</p>
+
+  <!-- tags -->
+  <Badges>
+    <ul class="!m-0">
+      {tech.keywords.map(tag => <li class="mt-0">{tag}</li>)}
+    </ul>
+  </Badges>
+
+  <!-- rating -->
+  <div
+    class="flex winter:group-hover:text-base-100/80 mt-3"
+    aria-label={`skill level: ${tech.skill} of 10`}
+  >
+    {new Array(tech.skill).fill(null).map(() => <BulbFilled aria-hidden />)}
+    {new Array(5 - tech.skill).fill(null).map(() => <BulbEmpty aria-hidden />)}
+  </div>
+
+  <!-- Link -->
+  <Link groupHover>{tech.title}</Link>
+</Hover>

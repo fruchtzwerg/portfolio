@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :not(pre *)::selection {
+    @apply bg-primary text-primary-content;
+  }
+
+  a {
+    @apply no-underline hover:text-primary;
+  }
+
+  // checkmark list marker
+  .check {
+    @apply -indent-2 text-lg;
+    @apply pl-6 #{!important};
+
+    &::before{
+    content: '✓';
+    @apply -ml-4 mr-2;
+    }
+  }
+}
+
+@layer components {
+  .cursor {
+    @apply flex items-center;
+
+    &:after {
+      @apply animate-pulse-full;
+
+      content: '';
+      width: 0.5em;
+      height: 1em;
+      margin-left: 0.025em;
+      background-color: currentColor;
+      display: inline-block;
+    }
+  }
+
+  .btn-ghost:hover {
+    @apply dark:bg-primary-focus/10 dark:text-primary;
+  }
+
+  .menu-item {
+    @apply btn btn-circle btn-ghost border-none capitalize text-xs xs:text-sm w-fit px-2 xs:w-20 sm:w-24 md:w-28 min-h-0 h-10 xs:h-12 flex justify-center items-center transition-all;
+
+    &.active {
+      @apply gradient text-white dark:text-black shadow-2xl shadow-accent;
+    }
+  }
+
+  .badge {
+    @apply font-exo font-light;
+  }
+
+  .keyword-badge {
+    @apply badge badge-outline text-base-content/50 group-hover:text-base-content/80 dark:group-hover:text-base-content/80;
+    @apply pl-2 #{!important};
+  }
+
+  .gradient {
+    @apply bg-gradient-to-br from-primary to-accent dark:from-primary dark:to-accent;
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-b from-base-100/50 to-base-200/30;
+  }
+
+  .collapse {
+    @apply rounded-md;
+
+    .collapse-content {
+      @apply pb-0 overflow-auto;
+
+      & > pre[class*='language-'] {
+        @apply m-0;
+      }
+    }
+  }
+
+  // apply reset-list even if it is defined on a parent of <ul>
+  .prose {
+    @apply max-w-none;
+
+    .badges > :where(ul, ol):not(:where([class~='not-prose'] *)) {
+      @apply pl-0 list-none;
+
+      & > li:not(badge) {
+        @apply pl-0;
+      }
+
+      & > .li {
+        @apply my-0;
+      }
+    }
+
+    :where(h1.cursor):not(:where([class~='not-prose'] *)) {
+      @apply gap-0;
+    }
+  }
+}
+
+@layer utilities {
+  .experience-prose {
+    @apply prose-h2:experience-h2 prose-ul:experience-ul prose-p:experience-p;
+  }
+
+  .experience-h2 {
+    @apply text-base-content/80 font-exo font-semibold text-4xl leading-[3rem] group-hover:leading-[3rem] mb-1.5 mt-0 transition-all group-hover:text-[2.75rem];
+  }
+
+  .experience-ul {
+    @apply flex reset-list flex-wrap gap-2 mt-5;
+  }
+
+  .experience-p {
+    @apply last-of-type:mb-0;
+  }
+
+  .blog-prose {
+    @apply prose-h1:blog-h1;
+  }
+
+  .blog-h1 {
+    @apply flex justify-center text-center mt-4;
+  }
+
+  .text-group-hover {
+    @apply group-hover:text-neutral-content group-hover:dark:text-neutral-content/70;
+
+    :is(h2, h3) {
+      @apply group-hover:font-light group-hover:text-white dark:group-hover:text-neutral-content;
+    }
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}

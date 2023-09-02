@@ -1,0 +1,36 @@
+---
+import IconSuccess from '~icons/carbon/checkmark-outline';
+import IconInfo from '~icons/carbon/information';
+import IconWarning from '~icons/carbon/warning';
+import IconError from '~icons/carbon/warning-alt';
+
+interface Props {
+  type: 'info' | 'warning' | 'danger' | 'success';
+}
+
+const { type } = Astro.props;
+
+const icons = {
+  info: {
+    icon: IconInfo,
+    color: 'bg-info text-info-content',
+  },
+  warning: { icon: IconWarning, color: 'bg-warning text-warning-content' },
+  danger: { icon: IconError, color: 'bg-error text-error-content' },
+  success: { icon: IconSuccess, color: 'bg-success text-success-content' },
+};
+
+const Icon = icons[type];
+---
+
+<div
+  class:list={[
+    Icon.color,
+    'flex items-center px-4 py-6 mt-4 mb-12 space-x-2 rounded-md prose-code:bg-base-100/75',
+  ]}
+>
+  <Icon.icon class="place-self-start w-14 min-w-[3.5rem] h-full opacity-75" />
+  <div class="self-center prose-p:m-0">
+    <slot />
+  </div>
+</div>

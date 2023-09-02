@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+
+import AppCard from '../../components/apps/AppCard.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const collection = await getCollection('apps');
+
+const apps = collection.sort((a, b) => a.data.order - b.data.order);
+
+export const title = 'apps';
+export const order = 3;
+---
+
+<Layout title={title} prose>
+  <h1 class="cursor">_{title}</h1>
+
+  <p class="text-xl mb-24">
+    Books can be great but in order to learn a technology and truly understand it, you need to build
+    something with it. Only then do you encounter all those painfull edge-cases - and learn how to
+    overcome them.
+  </p>
+
+  <ul class="flex flex-col gap-24 sm:gap-32 reset-list">
+    {
+      apps.map(app => (
+        <li>
+          <AppCard {app} />
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

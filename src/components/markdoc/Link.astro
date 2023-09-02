@@ -1,0 +1,30 @@
+---
+import IconLink from '~icons/carbon/link';
+
+interface Props {
+  class?: string;
+  href?: string;
+  text?: string;
+  target?: string;
+  groupHover?: boolean;
+}
+
+const { class: className, href, text, target, groupHover } = Astro.props;
+
+const Tag = href ? 'a' : 'span';
+---
+
+<Tag
+  {href}
+  {target}
+  rel={href ? 'noreferrer' : null}
+  class:list={[
+    className,
+    { 'ml-3 pb-3': href },
+    { 'group-hover:text-primary dark:group-hover:text-accent': groupHover },
+    'flex gap-2 items-center w-fit text-base-content/80 font-mono no-underline',
+  ]}
+>
+  <IconLink />
+  {text ?? <slot />}
+</Tag>

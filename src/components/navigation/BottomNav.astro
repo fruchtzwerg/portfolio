@@ -1,0 +1,29 @@
+---
+import { getPages } from '../../utils/pages.utils';
+
+const pages = getPages(await Astro.glob('../../pages/(*|**/index.*)'));
+
+const url = Astro.url;
+---
+
+<nav>
+  <ul
+    class="flex justify-center gap-2 bg-base-100/20 backdrop-blur-lg border-t border-slate-300 dark:border-secondary/20"
+  >
+    {
+      pages.map(page => (
+        <li class="my-2">
+          <a
+            href={`/${page.title.toLowerCase()}`}
+            class:list={[
+              'menu-item',
+              { active: url?.pathname.toLowerCase().includes(page.title.toLowerCase()) },
+            ]}
+          >
+            {page.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

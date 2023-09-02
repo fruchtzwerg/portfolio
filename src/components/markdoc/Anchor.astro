@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+
+if (!Astro.site?.href) throw new Error('Please specify a site href in your Astro config file');
+
+const target = [Astro.site.href, '/'].some(origin => href.startsWith(origin)) ? null : '_blank';
+const rel = target ? 'noreferrer' : null;
+
+const props = { href, target, rel };
+---
+
+<a {...props} rel=""><slot /></a>

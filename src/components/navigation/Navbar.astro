@@ -1,0 +1,144 @@
+---
+import { socials } from '../../constants/socials.const';
+import { getPages } from '../../utils/pages.utils';
+import ThemeSelector from '../buttons/ThemeSelector.svelte';
+
+interface Props {
+  id: string;
+  class: string;
+}
+
+const { id, class: className } = Astro.props as Props;
+const url = Astro.url;
+
+const pages = getPages(await Astro.glob('../../pages/(*|**/index.*)'));
+
+const matches = (pathname: string) =>
+  url.pathname.toLowerCase().startsWith(`/${pathname}`.toLowerCase());
+---
+
+<nav
+  id={id}
+  class:list={[
+    className,
+    'grid grid-flow-col items-center sm:gap-4 p-2 sm:p-4 w-full backdrop-blur-md',
+  ]}
+>
+  <!-- Themes -->
+  <ThemeSelector
+    client:only="svelte"
+    transition:persist
+    className="grid-in-[theme] sm:max-lg:hidden btn btn-ghost btn-circle btn-sm sm:btn-md"
+  />
+
+  <!-- Tabs -->
+  <ul class="grid-in-[tabs] gap-4 place-self-center hidden sm:flex">
+    {
+      pages.map(page => (
+        <li>
+          <a
+            href={`/${page.title.toLowerCase()}/`}
+            rel="prefetch prerender"
+            class:list={['menu-item', { active: matches(page.title) }]}
+          >
+            {page.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <!-- Socials -->
+  <ul class="grid-in-[socials] flex gap-2 sm:gap-0">
+    {
+      socials.map(({ Icon, props }) => (
+        <li>
+          <a
+            {...props}
+            rel="noreferrer"
+            class="btn btn-sm btn-circle btn-ghost text-lg sm:btn sm:btn-md sm:btn-ghost sm:btn-circle sm:!text-2xl"
+          >
+            <Icon />
+          </a>
+        </li>
+      ))
+    }
+
+    <ThemeSelector
+      client:only="svelte"
+      transition:persist
+      className="max-sm:hidden lg:hidden btn btn-ghost btn-circle btn-sm sm:btn-md"
+    />
+  </ul>
+</nav>
+
+<style lang="scss">
+  .grid {
+    grid-template-areas:
+      'socials theme'
+      'tabs tabs';
+
+    .grid-in {
+      &-\[socials\] {
+        @apply justify-self-start;
+      }
+      &-\[tabs\] {
+        @apply justify-center w-full;
+      }
+      &-\[theme\] {
+        @apply justify-self-end;
+      }
+    }
+
+    @screen sm {
+      grid-template-areas:
+        'tabs tabs tabs'
+        'none socials empty';
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    @screen md {
+      grid-template-areas:
+        'tabs tabs tabs'
+        'none socials empty';
+      grid-template-columns: 1fr auto 1fr;
+
+      .grid-in {
+        &-\[socials\] {
+          @apply justify-self-center;
+        }
+      }
+    }
+
+    @screen lg {
+      grid-template-areas: 'socials tabs theme';
+      grid-template-columns: 1fr auto 1fr;
+
+      .grid-in {
+        &-\[tabs\] {
+          @apply justify-center;
+        }
+        &-\[socials\] {
+          @apply justify-self-start;
+        }
+        &-\[theme\] {
+          @apply justify-self-end;
+        }
+      }
+    }
+  }
+</style>
+
+<style lang="scss" is:global>
+  * {
+    scroll-margin-top: 4rem;
+
+    @screen sm {
+      scroll-margin-top: 10rem;
+    }
+
+    @screen lg {
+      scroll-margin-top: 6rem;
+    }
+  }
+</style>

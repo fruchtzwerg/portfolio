@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+
+import CV from '../layouts/CV.astro';
+import Layout from '../layouts/Layout.astro';
+import { byPrio } from '../utils/collection.utils';
+
+const collection = await getCollection('about');
+const sections = await Promise.all(collection.sort(byPrio).map(c => c.render()));
+---
+
+<Layout title="CV">
+  <CV>
+    <h1>Benjamin Montazer</h1>
+
+    <h2 class="text-3xl">Senior Software Engineer</h2>
+
+    <!-- <Background components={{ h2: SectionHeading }} />
+    <Philosophy components={{ h2: SectionHeading }} />
+    <Teamwork components={{ h2: SectionHeading }} /> -->
+
+    <h2 class="text-3xl">Selected Projects</h2>
+
+    {
+      sections.map(({ Content }, i) => (
+        <section id={collection[i].data.id} class="mt-16" data-tags={collection[i].data.tags}>
+          <small>{collection[i].data.caption}</small>
+          <Content />
+        </section>
+      ))
+    }
+  </CV>
+</Layout>
+
+<script>
+  const urlSearchParams = new URLSearchParams(window.location.search);
+
+  const selectedTags = new Set(urlSearchParams.get('techs')?.split(',') ?? []);
+  const selectedIds = new Set(urlSearchParams.get('projects')?.split(',') ?? []);
+
+  function purge() {
+    const sections = Array.from(document.getElementsByClassName('section')) as HTMLElement[];
+    const blacklist = sections.filter(
+      section =>
+        !(
+          selectedIds.has(section.id) ||
+          section.dataset.tags?.split(',').some(tag => selectedTags.has(tag))
+        ),
+    );
+
+    if (blacklist.length === sections.length) return;
+
+    blacklist.forEach(section => section.remove());
+  }
+
+  if (selectedIds.size || selectedTags.size) purge();
+</script>

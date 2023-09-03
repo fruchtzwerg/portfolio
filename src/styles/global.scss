@@ -13,12 +13,14 @@
 
   // checkmark list marker
   .check {
-    @apply -indent-2 text-lg;
-    @apply pl-6 #{!important};
+    @apply pl-4;
 
-    &::before{
-    content: '✓';
-    @apply -ml-4 mr-2;
+    li {
+      @apply text-lg list-['✓'] pl-[1ch];
+
+      &::marker {
+        @apply text-primary text-xl;
+      }
     }
   }
 }

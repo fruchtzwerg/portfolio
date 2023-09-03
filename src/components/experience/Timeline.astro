@@ -18,14 +18,20 @@ const dateFormatter = Intl.DateTimeFormat('en-GB', {
 });
 ---
 
-<ol class:list={[className, 'reset-list border-l border-base-content/50 space-y-32']}>
+<ol
+  class:list={[
+    className,
+    'reset-list border-l border-base-content/50 space-y-32 animate-scale-y origin-top animate-duration-500 animate-ease-[cubic-bezier(1,0,1,1)] animate-stagger-[500ms_+_300ms]',
+  ]}
+>
   {
     sections.map(({ Content }, i) => (
       <li
         transition:persist
         data-date={dateFormatter.format(collection[i].data.date)}
         data-date-raw={collection[i].data.date.getTime()}
-        class="mt-16"
+        style={`--outer-index: ${i}`}
+        class:list={[`index-[${i}]`, 'mt-16 animate-fade-down animate-duration-300']}
       >
         <div class="flex flex-start items-center ml-8">
           <div class="bullet-point" />
@@ -60,7 +66,7 @@ const dateFormatter = Intl.DateTimeFormat('en-GB', {
   @screen sm {
     li::before {
       content: attr(data-date);
-      @apply absolute left-0 w-28 text-base-content/60 text-sm text-end;
+      @apply absolute -left-32 w-28 text-base-content/60 text-sm text-end;
     }
   }
 </style>

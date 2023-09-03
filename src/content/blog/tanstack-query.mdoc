@@ -168,11 +168,13 @@ mention any documentation.
 
 It is also not immediately obvious how to scale this architecturally:
 
+{% withClass class="prose-ul:marker-[?] prose-li:marker:text-primary" %}
 - One store for every endpoint? One store
   for every REST resource collection? One store for the whole API? What if my API does not strictly
   adhere to REST?
 - Do we implement actions in the store directly or do we use a service layer?
 - Do we place the store close to the module it is used in or do we have a common `/src/store` module?
+{% /withClass %}
 
 ## What is the actual use case?
 
@@ -248,12 +250,14 @@ const User = () => {
 
 But thats not all! We get some nice features for free:
 
+{% withClass class="prose-ul:marker-[✓] prose-li:marker:text-success" %}
 - **Reactivity** - The query will automatically refetch when the query key changes.
 - **Caching** - The query will automatically cache the data and return it from the cache when
   executed with the same query key.
 - **Retries** - The query will automatically retry a few times when the `queryFn` errored.
 - **State** - Loading, error and success states are automatically tracked.
 - And loads more…
+{% /withClass %}
 
 ```tsx
 const User = (id: string) => {

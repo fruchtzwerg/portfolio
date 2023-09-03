@@ -21,10 +21,13 @@ export const order = 3;
     overcome them.
   </p>
 
-  <ul class="flex flex-col gap-24 sm:gap-32 reset-list">
+  <ul class="flex flex-col gap-24 sm:gap-32 reset-list animate-stagger-[500ms_+_300ms]">
     {
-      apps.map(app => (
-        <li>
+      apps.map((app, i) => (
+        <li
+          style={`--outer-index: ${i}`}
+          class:list={[`index-[${i}]`, 'animate-fade-up animate-duration-300']}
+        >
           <AppCard {app} />
         </li>
       ))

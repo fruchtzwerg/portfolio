@@ -9,13 +9,16 @@ const plugin = require('tailwindcss/plugin.js');
 const { ARCANE } = require('./tools/tailwind/themes.cjs');
 const themes = require('./tools/tailwind/themes.plugin.cjs');
 
+const staggerClasses = new Array(12).fill(0).map((_, i) => `index-[${i}]`);
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    join(__dirname, 'src/**/!(*.stories|*.spec).{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'),
+    join(__dirname, 'src/**/!(*.stories|*.spec).{astro,html,js,jsx,md,mdx,mdoc,svelte,ts,tsx,vue}'),
     // ...createGlobPatternsForDependencies(__dirname),
   ],
   darkMode: ['class', '[data-theme=arcane]'],
+  safelist: [...staggerClasses],
   theme: {
     screens: {
       xxs: '320px',
@@ -99,9 +102,31 @@ module.exports = {
       },
       keyframes: {
         'pulse-full': { '50%': { opacity: 0 } },
+        'fade-grow': {
+          '0%': { opacity: 0, transform: 'scale(.66)' },
+          '100%': { opacity: 1, transform: 'scale(1)' },
+        },
+        'fade-pulse': {
+          '0%': { opacity: 0, transform: 'scale(.66)' },
+          '50%': { opacity: 1, transform: 'scale(1.1)' },
+          '70%': { opacity: 1, transform: 'scale(.95)' },
+          '100%': { transform: 'scale(1)' },
+        },
+        'scale-x': {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
+        'scale-y': {
+          '0%': { transform: 'scaleY(0)' },
+          '100%': { transform: 'scaleY(1)' },
+        },
       },
       animation: {
         'pulse-full': defaultTheme.animation.pulse.replace('pulse', 'pulse-full'),
+        'fade-grow': 'fade-grow 1s both',
+        'fade-pulse': 'fade-pulse 1s both',
+        'scale-x': 'scale-x 1s both',
+        'scale-y': 'scale-y 1s both',
       },
     },
   },
@@ -109,9 +134,30 @@ module.exports = {
     typography,
     grid,
     daisyui,
+    require('tailwindcss-animated'),
     themes({ themes: ['arcane', 'winter'] }),
-    plugin(({ addVariant }) => {
-      addVariant('selected', '&.selected');
+    plugin(({ addVariant, matchUtilities }) => {
+      matchUtilities({
+        marker: value => ({
+          '@apply pl-4': {},
+          '& > li': {
+            [`@apply text-lg list-['${value}'] pl-[1ch]`]: {},
+          },
+        }),
+        'animate-ease': value => ({ animationTimingFunction: value }),
+        index: value => ({ '--index': value }),
+        'transition-stagger': value => ({
+          '& > *': {
+            transitionDelay: `calc(${value} * var(--index))`,
+          },
+        }),
+        'animate-stagger': value => ({
+          '& > *': {
+            animationDelay: `calc(${value} * var(--index)) !important`,
+          },
+        }),
+      }),
+        addVariant('selected', '&.selected');
     }),
   ],
   daisyui: {

@@ -271,9 +271,11 @@ const user = UserSchema.parse(data);
 
 Not to bad but there are a lot of moving parts in those 3 lines of code.
 
-- The script tag might not exist, if the user is not logged in
-- The id of the script tag might change unexpectedly
-- The model of the data is un-versioned and might change without notice
+{% withClass class="prose-ul:marker-[⚠︎] prose-li:marker:text-warning" %}
+- The script tag might not exist, if the user is not logged in.
+- The id of the script tag might change unexpectedly.
+- The model of the data is un-versioned and might change without notice.
+{% /withClass %}
 
 ### Using ts‑rest
 

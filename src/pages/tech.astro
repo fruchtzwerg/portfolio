@@ -32,13 +32,13 @@ export const order = 1;
     {
       sections.map(section => (
         <section>
-          <div class="divider mb-16">
+          <div class="divider mb-16 animate-fade-pulse animate-duration-300 before:origin-right before:transition-transform before:animate-scale-x before:animate-delay-[250ms] before:animate-duration-500 after:origin-left after:transition-transform after:animate-scale-x after:animate-delay-[250ms] after:animate-duration-500">
             <h2 class="m-0">{section.title}</h2>
           </div>
 
-          <ul class="reset-list grid gap-20 grid-cols-1 md:grid-cols-2">
-            {section.technologies.map(tech => (
-              <li>
+          <ul class="reset-list grid gap-20 grid-cols-1 md:grid-cols-2 animate-stagger-[500ms_+_300ms] animate-duration-300">
+            {section.technologies.map((tech, i) => (
+              <li class:list={[`index-[${i}]`, 'animate-fade-up']}>
                 <TechCard {tech} />
               </li>
             ))}

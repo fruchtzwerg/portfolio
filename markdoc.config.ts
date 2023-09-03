@@ -1,9 +1,40 @@
 import { component, defineMarkdocConfig } from '@astrojs/markdoc/config';
 import prism from '@astrojs/markdoc/prism';
+import Markdoc from '@markdoc/markdoc';
+import { z } from 'astro/zod';
 
 export default defineMarkdocConfig({
   extends: [prism()],
   nodes: {
+    list: {
+      transform: (node, config) => {
+        // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+        const { marker, ...attributes } = node.transformAttributes(config);
+        const children = node.transformChildren(config);
+
+        return new Markdoc.Tag(
+          attributes.ordered ? 'ol' : 'ul',
+          attributes,
+          children.map((child, i) =>
+            typeof child === 'object' && !Array.isArray(child) && child != null
+              ? {
+                  ...child,
+                  attributes: {
+                    ...(child.attributes as any),
+                    class: `${
+                      z.object({ class: z.string().optional() }).parse(child.attributes).class ?? ''
+                    } index-[${i}]`.trim(),
+                  },
+                }
+              : child,
+          ),
+        );
+      },
+      attributes: {
+        ordered: { type: Boolean },
+        marker: { type: String },
+      },
+    },
     link: {
       render: component('./src/components/markdoc/Anchor.astro'),
       attributes: {
@@ -12,7 +43,14 @@ export default defineMarkdocConfig({
       },
     },
   },
+
   tags: {
+    withClass: {
+      render: component('./src/components/markdoc/WithClass.astro'),
+      attributes: {
+        class: { type: String, required: true },
+      },
+    },
     summary: {
       render: component('./src/components/markdoc/Summary.astro'),
       attributes: {
@@ -30,6 +68,9 @@ export default defineMarkdocConfig({
     badges: {
       render: component('./src/components/markdoc/Badges.astro'),
       children: ['list'],
+      attributes: {
+        class: { type: String },
+      },
     },
     link: {
       render: component('./src/components/markdoc/Link.astro'),

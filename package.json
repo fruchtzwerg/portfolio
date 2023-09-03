@@ -33,6 +33,7 @@
     "@iconify/json": "^2.2.110",
     "@iconify/tools": "^3.0.5",
     "@iconify/types": "^2.0.0",
+    "@markdoc/markdoc": "^0.3.2",
     "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/mime": "^3.0.1",
@@ -56,6 +57,7 @@
     "sass": "^1.66.1",
     "sharp": "^0.32.5",
     "tailwindcss": "^3.3.3",
+    "tailwindcss-animated": "^1.0.1",
     "typescript": "^5.2.2",
     "typescript-eslint-parser-for-extra-files": "^0.5.0",
     "unplugin-icons": "^0.16.6"

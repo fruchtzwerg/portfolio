@@ -1,10 +1,61 @@
+// https://github.com/withastro/astro/blob/2-legacy/packages/integrations/image/src/lib/get-picture.ts
 /// <reference types="astro/astro-jsx" />
 
-// import type { ImageMetadata } from 'astro';
-import type { OutputFormat, TransformOptions } from '@astrojs/image/dist/loaders/index.js';
-import type { ImageMetadata } from '@astrojs/image/dist/vite-plugin-astro-image.js';
+import type { ImageMetadata, ImageOutputFormat, ImageTransform } from 'astro';
 import { getImage } from 'astro:assets';
 import mime from 'mime';
+
+export type ColorDefinition =
+  | `#${string}`
+  | `rgb(${number}, ${number}, ${number})`
+  | `rgb(${number},${number},${number})`
+  | `rgba(${number}, ${number}, ${number}, ${number})`
+  | `rgba(${number},${number},${number},${number})`
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  | ({} & string);
+export type CropFit = 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
+export type CropPosition =
+  | 'top'
+  | 'right top'
+  | 'right'
+  | 'right bottom'
+  | 'bottom'
+  | 'left bottom'
+  | 'left'
+  | 'left top'
+  | 'north'
+  | 'northeast'
+  | 'east'
+  | 'southeast'
+  | 'south'
+  | 'southwest'
+  | 'west'
+  | 'northwest'
+  | 'center'
+  | 'centre'
+  | 'cover'
+  | 'entropy'
+  | 'attention';
+
+export interface TransformOptions extends ImageTransform {
+  alt?: string;
+  aspectRatio?: number | `${number}:${number}` | undefined;
+  background?: ColorDefinition | undefined;
+  fit?: CropFit | undefined;
+  position?: CropPosition | undefined;
+}
+
+interface AstroGetImage {
+  src: string;
+  attributes: {
+    alt: string;
+    aspectRatio: number;
+    width: number;
+    height: number;
+    loading: 'lazy' | 'eager';
+    decoding: 'async' | 'sync' | 'auto';
+  };
+}
 
 function parseAspectRatio(aspectRatio: TransformOptions['aspectRatio']) {
   if (!aspectRatio) {
@@ -14,10 +65,9 @@ function parseAspectRatio(aspectRatio: TransformOptions['aspectRatio']) {
   // parse aspect ratio strings, if required (ex: "16:9")
   if (typeof aspectRatio === 'number') {
     return aspectRatio;
-  } else {
-    const [width, height] = aspectRatio.split(':');
-    return parseInt(width) / parseInt(height);
   }
+  const [width, height] = aspectRatio.split(':');
+  return parseInt(width, 10) / parseInt(height, 10);
 }
 
 // ----
@@ -28,6 +78,7 @@ function removeQueryString(src: string) {
 }
 
 function basename(src: string) {
+  // eslint-disable-next-line no-useless-escape
   return removeQueryString(src.replace(/^.*[\\\/]/, ''));
 }
 
@@ -48,7 +99,7 @@ export interface GetPictureParams {
   src: string | ImageMetadata | Promise<{ default: ImageMetadata }>;
   alt: string;
   widths: number[];
-  formats: OutputFormat[];
+  formats: ImageOutputFormat[];
   aspectRatio?: TransformOptions['aspectRatio'];
   fit?: TransformOptions['fit'];
   background?: TransformOptions['background'];
@@ -63,20 +114,19 @@ export interface GetPictureResult {
 async function resolveAspectRatio({ src, aspectRatio }: GetPictureParams) {
   if (typeof src === 'string') {
     return parseAspectRatio(aspectRatio);
-  } else {
-    const metadata = 'then' in src ? (await src).default : src;
-    return parseAspectRatio(aspectRatio) || metadata.width / metadata.height;
   }
+  const metadata = 'then' in src ? (await src).default : src;
+  return parseAspectRatio(aspectRatio) || metadata.width / metadata.height;
 }
 
 async function resolveFormats({ src, formats }: GetPictureParams) {
   const unique = new Set(formats);
 
   if (typeof src === 'string') {
-    unique.add(extname(src).replace('.', '') as OutputFormat);
+    unique.add(extname(src).replace('.', '') as ImageOutputFormat);
   } else {
     const metadata = 'then' in src ? (await src).default : src;
-    unique.add(extname(metadata.src).replace('.', '') as OutputFormat);
+    unique.add(extname(metadata.src).replace('.', '') as ImageOutputFormat);
   }
 
   return Array.from(unique).filter(Boolean);
@@ -86,11 +136,11 @@ export async function getPicture(params: GetPictureParams): Promise<GetPictureRe
   const { src, alt, widths, fit, position, background } = params;
 
   if (!src) {
-    throw new Error('[@astrojs/image] `src` is required');
+    throw new Error('[astro:assets] `src` is required');
   }
 
   if (!widths || !Array.isArray(widths)) {
-    throw new Error('[@astrojs/image] at least one `width` is required. ex: `widths={[100]}`');
+    throw new Error('[astro:assets] at least one `width` is required. ex: `widths={[100]}`');
   }
 
   const aspectRatio = await resolveAspectRatio(params);
@@ -107,11 +157,11 @@ export async function getPicture(params: GetPictureParams): Promise<GetPictureRe
 
   let image: astroHTML.JSX.ImgHTMLAttributes;
 
-  async function getSource(format: OutputFormat) {
+  async function getSource(format: ImageOutputFormat) {
     const imgs = await Promise.all(
       widths.map(async width => {
-        const img = await getImage({
-          src,
+        const img: AstroGetImage = await getImage({
+          src: src as any,
           alt,
           format,
           width,
@@ -123,7 +173,8 @@ export async function getPicture(params: GetPictureParams): Promise<GetPictureRe
         });
 
         if (format === lastFormat && width === maxWidth) {
-          image = img;
+          const { src, attributes } = img;
+          image = { src, ...attributes };
         }
 
         return `${img.src?.replaceAll(' ', encodeURI)} ${width}w`;

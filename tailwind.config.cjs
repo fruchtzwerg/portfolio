@@ -1,4 +1,3 @@
-// const { createGlobPatternsForDependencies } = require('@nx/js/src/utils/generate-globs.js');
 const grid = require('@savvywombat/tailwindcss-grid-areas');
 const typography = require('@tailwindcss/typography');
 const daisyui = require('daisyui');
@@ -9,21 +8,27 @@ const plugin = require('tailwindcss/plugin.js');
 const { ARCANE } = require('./tools/tailwind/themes.cjs');
 const themes = require('./tools/tailwind/themes.plugin.cjs');
 
-const staggerClasses = new Array(12).fill(0).map((_, i) => `index-[${i}]`);
+const staggerClasses = new Array(25).fill(0).map((_, i) => `index-[${i}]`);
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     join(__dirname, 'src/**/!(*.stories|*.spec).{astro,html,js,jsx,md,mdx,mdoc,svelte,ts,tsx,vue}'),
-    // ...createGlobPatternsForDependencies(__dirname),
   ],
   darkMode: ['class', '[data-theme=arcane]'],
-  safelist: [...staggerClasses],
+  safelist: [
+    ...staggerClasses,
+    'max-xxs:flex',
+    'xxs:max-sm:flex',
+    'sm:max-md:flex',
+    'md:max-lg:flex',
+    'lg:flex',
+  ],
   theme: {
     screens: {
       xxs: '320px',
       xs: '490px',
-      sm: '720px',
+      // sm: '720px',
       ...defaultTheme.screens,
       '3xl': '1800px',
     },
@@ -153,11 +158,13 @@ module.exports = {
         }),
         'animate-stagger': value => ({
           '& > *': {
-            animationDelay: `calc(${value} * var(--index)) !important`,
+            animationDelay: `calc(${value} * var(--index))`,
           },
         }),
-      }),
-        addVariant('selected', '&.selected');
+      });
+      addVariant('selected', '&.selected');
+      // .tooltip-parent has no hovered (open) tooltip child
+      addVariant('no-tooltip', '.tooltip-list:not(:has(.tooltip:hover)) > &');
     }),
   ],
   daisyui: {

@@ -10,6 +10,7 @@ import Philosophy from '../content/about/philosophy.mdx';
 import Teamwork from '../content/about/teamwork.mdx';
 
 import Portrait from '../components/about/Portrait.astro';
+import Availability from '../components/about/Availability.svelte';
 
 import IconBackground from '~icons/fluent/video-background-effect-20-regular';
 import IconPhilosophy from '~icons/game-icons/greek-temple';
@@ -20,19 +21,23 @@ import IconWink from '~icons/la/smile-wink';
 <Portrait />
 
 <div class="animate-delay-[600ms] animate-stagger-[1.5s_+_500ms]">
-<div class="index-[0] animate-fade-up ">
+<div class="index-[0] animate-fade">
+  <Availability client:only="svelte" />
+</div>
+
+<div class="index-[1] animate-fade-up">
   <Background />
 </div>
 
-<div class="index-[1] animate-fade-up ">
+<div class="index-[2] animate-fade-up">
   <Philosophy />
 </div>
 
-<div class="index-[2] animate-fade-up ">
+<div class="index-[3] animate-fade-up">
   <Teamwork />
 </div>
 
-<div class="index-[3] animate-fade-up ">
+<div class="index-[4] animate-fade-up">
 ## <IconBrain /> Services
 
 'Sounds good but how can you help me', you ask?<br />

@@ -4,7 +4,7 @@
   import IconMoon from '~icons/carbon/moon';
   import IconSun from '~icons/carbon/sun';
 
-  // Diable <ThemeSelector> loaded with unknown props warning
+  // Disable <ThemeSelector> loaded with unknown props warning
   $$restProps;
 
   export let className = '';

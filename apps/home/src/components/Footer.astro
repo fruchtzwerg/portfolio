@@ -15,8 +15,11 @@ const { class: className } = Astro.props as Props;
     'flex flex-col gap-4 items-center p-8 border-t border-slate-300 dark:border-secondary/20',
   ]}
 >
-  <p class="flex justify-center items-center font-mono">
-    Built with <LogoAstro class="mt-1 w-5" /> and <LogoTailwind class="w-6" />
+  <p class="flex justify-center items-center font-mono space-x-2">
+    <span>Built with</span>
+    <span data-tip="Astro" class="tooltip"><LogoAstro /></span>
+    <span>and</span>
+    <span data-tip="Tailwind" class="tooltip"><LogoTailwind /></span>
   </p>
 
   <!-- Contact -->

@@ -42,7 +42,7 @@
   }
 
   .btn-ghost:hover {
-    @apply dark:bg-primary-focus/10 dark:text-primary;
+    @apply bg-primary/10 text-primary dark:bg-primary/10 dark:text-primary;
   }
 
   .menu-item {

@@ -29,7 +29,7 @@ pre[class*='language-'] {
 }
 
 .token.string {
-  @apply text-accent-focus dark:text-emerald-200;
+  @apply text-accent dark:text-emerald-200;
 }
 
 .token.punctuation {
@@ -75,7 +75,7 @@ pre[class*='language-'] {
 }
 
 .token.function {
-  @apply text-primary-focus dark:text-violet-400;
+  @apply text-primary dark:text-violet-400;
 }
 
 .token.tag {

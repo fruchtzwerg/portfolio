@@ -44,7 +44,7 @@
   const bookedIntervals: Interval[] = [
     { start: new Date('2022-03-14'), end: new Date('2022-07-31') },
     { start: new Date('2022-09-01'), end: new Date('2023-10-05') },
-    { start: new Date('2023-12-31'), end: new Date('2025-06-01') },
+    { start: new Date('2024-01-09'), end: new Date('2024-02-15') },
   ];
 
   const weeks: Week[] = eachWeekOfInterval(

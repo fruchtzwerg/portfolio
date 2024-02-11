@@ -7,7 +7,7 @@
     "build:home": "pnpm --filter home build",
     "start:slides": "pnpm --filter slides start",
     "build:slides": "pnpm --filter slides build",
-    "start": "pnpm --parallel start:home start:slides",
+    "start": "pnpm --parallel start",
     "build": "pnpm --parallel build"
   }
 }

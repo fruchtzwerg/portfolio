@@ -5,8 +5,8 @@ const { join } = require('path');
 const defaultTheme = require('tailwindcss/defaultTheme.js');
 const plugin = require('tailwindcss/plugin.js');
 
-const { ARCANE } = require('./tools/tailwind/themes.cjs');
-const themes = require('./tools/tailwind/themes.plugin.cjs');
+const { ARCANE } = require('../../tools/tailwind/themes.cjs');
+const themes = require('../../tools/tailwind/themes.plugin.cjs');
 
 const staggerClasses = new Array(25).fill(0).map((_, i) => `index-[${i}]`);
 

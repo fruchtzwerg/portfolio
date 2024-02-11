@@ -6,9 +6,17 @@
   ],
   "settings": {
     "typescript.tsdk": "node_modules/typescript/lib",
-    "svg.preview.background": "dark-transparent",
-    "tailwindCSS.classAttributes": ["class", "className", "ngClass", "hoverClasses", "class:list"],
-    "cSpell.words": ["Ennex"],
+    "svg.preview.background": "transparent",
+    "tailwindCSS.classAttributes": [
+      "class",
+      "className",
+      "ngClass",
+      "hoverClasses",
+      "class:list"
+    ],
+    "cSpell.words": [
+      "Ennex"
+    ],
     "eslint.validate": [
       "javascript",
       "javascriptreact",
@@ -18,6 +26,9 @@
       "json"
     ],
     "mdx-preview.preview.useVscodeMarkdownStyles": false,
-    "cSpell.enableFiletypes": ["!typescript", "markdoc"]
+    "cSpell.enableFiletypes": [
+      "!typescript",
+      "markdoc"
+    ]
   }
 }

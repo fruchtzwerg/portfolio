@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 531 354">
+  <g>
+    <path d="M160 185H95v-60H36.37" fill="none" stroke="currentColor" stroke-miterlimit="10" pointer-events="stroke" />
+    <path d="m31.12 125 7-3.5-1.75 3.5 1.75 3.5Z" stroke="currentColor" stroke-miterlimit="10" pointer-events="all" />
+    <path d="M160 185H95v60H36.37" fill="none" stroke="currentColor" stroke-miterlimit="10" pointer-events="stroke" />
+    <path d="m31.12 245 7-3.5-1.75 3.5 1.75 3.5Z" stroke="currentColor" stroke-miterlimit="10" pointer-events="all" />
+    <path d="M280 185h87" fill="none" stroke="currentColor" stroke-miterlimit="10" pointer-events="stroke" />
+    <circle cx="370" cy="185" fill="none" stroke="currentColor" pointer-events="all" r="3" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:165px;margin-left:370px">
+            <div style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:11px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:nowrap">
+                Rest API
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="M280 185h50.03v120H367" fill="none" stroke="currentColor" stroke-miterlimit="10" pointer-events="stroke" />
+    <circle cx="370" cy="305" fill="none" stroke="currentColor" pointer-events="all" r="3" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:285px;margin-left:370px">
+            <div data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"
+              style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:11px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:nowrap">
+                GraphQL API
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="m220 125 .03-20-.02-12" fill="none" stroke="currentColor" stroke-miterlimit="10" pointer-events="stroke" />
+    <path d="M228 84.99q.01 8-7.99 8.01-8 .01-8.01-7.99" fill="none" stroke="currentColor" stroke-miterlimit="10"
+      pointer-events="all" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:105px;margin-left:220px">
+            <div data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"
+              style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:8px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:nowrap">
+                REST/WebSockets
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path fill="none" stroke="currentColor" pointer-events="all" d="M160 125h120v120H160z" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:185px;margin-left:161px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                My System
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <circle cx="15" cy="102.5" fill="none" stroke="currentColor" pointer-events="all" r="7.5" />
+    <path d="M15 110v25m0-20H0m15 0h15m-15 20L0 155m15-20 15 20" fill="none" stroke="currentColor"
+      stroke-miterlimit="10" pointer-events="all" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe flex-start;justify-content:unsafe center;width:1px;height:1px;padding-top:162px;margin-left:15px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:nowrap">
+                Actor
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <circle cx="15" cy="222.5" fill="none" stroke="currentColor" pointer-events="all" r="7.5" />
+    <path d="M15 230v25m0-20H0m15 0h15m-15 20L0 275m15-20 15 20" fill="none" stroke="currentColor"
+      stroke-miterlimit="10" pointer-events="all" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe flex-start;justify-content:unsafe center;width:1px;height:1px;padding-top:282px;margin-left:15px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:nowrap">
+                Actor
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="M220 60v22" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-dasharray="3 3"
+      pointer-events="stroke" />
+    <circle cx="220" cy="85" fill="none" stroke="currentColor" pointer-events="all" r="3" />
+    <path fill="none" stroke="currentColor" stroke-dasharray="3 3" pointer-events="all" d="M160 0h120v60H160z" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:30px;margin-left:161px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Neighbor System
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="M410 185h-32" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-dasharray="3 3"
+      pointer-events="stroke" />
+    <path d="M370 177q8 0 8 8t-8 8" fill="none" stroke="currentColor" stroke-miterlimit="10" pointer-events="all" />
+    <path fill="none" stroke="currentColor" stroke-dasharray="3 3" pointer-events="all" d="M410 155h120v60H410z" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:185px;margin-left:411px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Neighbor System
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="M418.4 305H378" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-dasharray="3 3"
+      pointer-events="stroke" />
+    <path d="M370 297q8 0 8 8t-8 8" fill="none" stroke="currentColor" stroke-miterlimit="10" pointer-events="all" />
+    <path
+      d="M440 293c-24 0-30 20-10.8 24-19.2 8.8 2.4 28 18 20 10.8 16 46.8 16 58.8 0 24 0 24-16 9-24 15-16-9-32-30-24-15-12-39-12-45 4Z"
+      fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="all" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:313px;margin-left:411px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Neighbor
+                <br />
+                System
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+  </g>
+</svg>

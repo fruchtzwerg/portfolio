@@ -1,0 +1,29 @@
+{
+  "name": "slides",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "start": "slidev",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.47.1",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.1.28",
+    "@iconify-json/ph": "^1.1.11",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.5.9",
+    "@types/sanitize-html": "^2.11.0",
+    "playwright-chromium": "^1.41.2",
+    "sanitize-html": "^2.11.0",
+    "unplugin-icons": "^0.16.6",
+    "vite": "^5.0.12",
+    "vite-plugin-vue-server-ref": "^0.4.1",
+    "vue": "^3.4.15"
+  }
+}

@@ -16,7 +16,8 @@ const Tag = href ? 'a' : 'div';
   <Tag
     {href}
     {target}
-    rel={target ? 'noreferrer' : 'prefetch prerender'}
+    rel={target ? 'noreferrer' : ''}
+    data-astro-prefetch={target ? false : 'viewport'}
     class:list={[
       className,
       { 'p-4': !inset },

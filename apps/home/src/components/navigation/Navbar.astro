@@ -38,7 +38,7 @@ const matches = (pathname: string) =>
         <li>
           <a
             href={`/${page.title.toLowerCase()}/`}
-            rel="prefetch prerender"
+            data-astro-prefetch="viewport"
             class:list={['menu-item', { active: matches(page.title) }]}
           >
             {page.title}

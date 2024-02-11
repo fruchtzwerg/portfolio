@@ -26,7 +26,6 @@
   "devDependencies": {
     "@astrojs/markdoc": "^0.8.3",
     "@astrojs/mdx": "^2.1.1",
-    "@astrojs/prefetch": "^0.4.1",
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/svelte": "^5.0.3",
     "@astrojs/tailwind": "^5.1.0",

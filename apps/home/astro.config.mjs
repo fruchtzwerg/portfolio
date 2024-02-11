@@ -1,6 +1,5 @@
 import markdoc from '@astrojs/markdoc';
 import mdx from '@astrojs/mdx';
-import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
@@ -24,6 +23,7 @@ const tailwindConfigPath = fileURLToPath(new URL('./tailwind.config.cjs', import
 // https://astro.build/config
 export default defineConfig({
   site: 'https://montazer.dev',
+
   integrations: [
     svelte(),
     markdoc({ allowHTML: true }),
@@ -42,8 +42,10 @@ export default defineConfig({
     }),
     robotsTxt({ host: true }),
     compress(),
-    prefetch(),
   ],
+
+  prefetch: true,
+
   vite: {
     ssr: { external: 'window' },
     plugins: [

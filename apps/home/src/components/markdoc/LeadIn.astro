@@ -1,10 +1,10 @@
 ---
-import Picture from 'astro/components/Picture.astro';
+import { Picture, type LocalImageProps } from 'astro:assets';
 
 interface Props {
   slug?: string;
-  image?: string;
-  alt?: string;
+  image?: LocalImageProps['src'];
+  alt?: LocalImageProps['alt'];
 }
 
 const { image, alt = '', slug = '' } = Astro.props;
@@ -19,7 +19,6 @@ const { image, alt = '', slug = '' } = Astro.props;
       src={image}
       {alt}
       widths={[250, 400, 800, 1200]}
-      aspectRatio="16:9"
       formats={['avif', 'webp', 'jpeg']}
       class="w-full rounded"
     />

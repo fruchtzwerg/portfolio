@@ -1,10 +1,12 @@
 # Building Block View
 
+"Bausteinsicht"
+
 Zoom in on a black box and show its internal components (white box).
 
-<ul grid="~ cols-2" mb-4 v-click>
-  <li>Internal components</li>
-  <li>Interfaces/dependencies between components</li>
+<ul grid="~ cols-2" mb-4>
+  <li v-click>Internal components</li>
+  <li v-click>Interfaces/dependencies between components</li>
 </ul>
 
 <v-click>
@@ -16,10 +18,10 @@ Zoom in on a black box and show its internal components (white box).
 <div mt-4>
   <LightOrDark>
     <template #light>
-      <InlineSvg src="/building-block.svg" class="w-1/2 mx-auto" />
+      <InlineSvg src="/slides/4-backend-nest/building-block.svg" class="w-1/2 mx-auto" />
     </template>
     <template #dark>
-      <InlineSvg src="/building-block.svg" class="w-1/2 mx-auto text-white" />
+      <InlineSvg src="/slides/4-backend-nest/building-block.svg" class="w-1/2 mx-auto text-white" />
     </template>
   </LightOrDark>
 </div>

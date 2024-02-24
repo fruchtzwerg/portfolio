@@ -8,7 +8,7 @@
     "start:slides": "pnpm --filter slides start",
     "build:slides": "pnpm --filter slides build",
     "start": "pnpm --parallel start",
-    "build": "pnpm --parallel build"
+    "build": "pnpm build:slides && pnpm build:home"
   },
   "devDependencies": {
     "prettier": "^3.2.5"

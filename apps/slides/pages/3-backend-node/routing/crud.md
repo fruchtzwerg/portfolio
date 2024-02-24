@@ -1,7 +1,7 @@
 ---
-level: 2
+layout: center
 ---
-# Basic Routing
+# CRUD Routing
 
 Define routes to handle HTTP requests for user CRUD.
 

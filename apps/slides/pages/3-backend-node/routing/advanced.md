@@ -1,5 +1,5 @@
 ---
-level: 2
+layout: three-cols-header
 ---
 # Advanced Routing
 

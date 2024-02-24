@@ -1,3 +1,7 @@
+---
+layout: center
+---
+
 # A simple Node.js server
 
 ```ts {all|1|6-10|3-4,12-14|all} twoslash

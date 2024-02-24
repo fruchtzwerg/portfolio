@@ -1,3 +1,7 @@
+---
+layout: center
+---
+
 # Express.js
 
 ```sh twoslash
@@ -22,3 +26,9 @@ app.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}/`)
 });
 ```
+
+---
+layout: padded
+---
+
+<StackBlitz project="stackblitz-starters-wylkpz" file="index.js" />

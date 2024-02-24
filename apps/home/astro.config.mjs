@@ -1,3 +1,4 @@
+// @ts-check
 import markdoc from '@astrojs/markdoc';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -11,6 +12,7 @@ import { join, dirname } from 'path';
 // import { visualizer } from 'rollup-plugin-visualizer';
 import Icons from 'unplugin-icons/vite';
 import { fileURLToPath } from 'url';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import polyfills from './unplugin/polyfills.plugin.mjs';
 
@@ -23,6 +25,10 @@ const tailwindConfigPath = fileURLToPath(new URL('./tailwind.config.cjs', import
 // https://astro.build/config
 export default defineConfig({
   site: 'https://montazer.dev',
+
+  // redirects: {
+  //   '/slides/[...slug]/**': '/slides/[...slug]/',
+  // },
 
   integrations: [
     svelte(),
@@ -47,9 +53,15 @@ export default defineConfig({
   prefetch: true,
 
   vite: {
-    ssr: { external: 'window' },
+    ssr: { external: ['window'] },
+
     plugins: [
+      viteStaticCopy({
+        targets: [{ src: '../slides/dist/*', dest: 'slides' }],
+      }),
+
       // visualizer(),
+
       Icons({
         compiler: 'svelte',
         customCollections: {

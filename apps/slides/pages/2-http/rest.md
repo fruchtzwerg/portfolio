@@ -1,5 +1,6 @@
 ---
 level: 2
+layout: two-cols-header
 ---
 
 # REST

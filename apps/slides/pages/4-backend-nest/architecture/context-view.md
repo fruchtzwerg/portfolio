@@ -1,5 +1,7 @@
 # Scope & Context
 
+"Contextabgrenzungssicht"
+
 A high-level view of the system and its surroundings.
 
 <ul grid="~ cols-2" mb-4>
@@ -11,9 +13,9 @@ A high-level view of the system and its surroundings.
 
 <LightOrDark>
   <template #light>
-    <InlineSvg src="/context.svg" class="w-1/2 mx-auto" />
+    <InlineSvg src="/slides/4-backend-nest/context.svg" class="w-1/2 mx-auto" />
   </template>
   <template #dark>
-    <InlineSvg src="/context.svg" class="w-1/2 mx-auto text-white" />
+    <InlineSvg src="/slides/4-backend-nest/context.svg" class="w-1/2 mx-auto text-white" />
   </template>
 </LightOrDark>

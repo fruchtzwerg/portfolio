@@ -1,5 +1,5 @@
 ---
-level: 2
+layout: center
 ---
 # Basic Routing
 

@@ -1,0 +1,68 @@
+---
+theme: default
+layout: cover
+background: /laptop-3.webp
+class: text-center
+highlighter: shiki
+lineNumbers: true
+author: Benjamin Montazer
+title: Introduction
+info: Overview of the course.
+drawings:
+  persist: false
+defaults:
+  transition: slide-left
+transition: fade-out
+mdc: true
+download: true
+hideInToc: true
+---
+
+# Web Engineering II
+
+SS 2024
+
+<style scoped>
+  h1 {
+    text-shadow: #000 1px 0 10px !important;
+  }
+</style>
+
+
+---
+src: ../shared/toc.md
+image: /server.webp
+---
+
+
+---
+src: ./lecturer.md
+transition: slide-up
+---
+
+
+---
+src: ./exam.md
+---
+
+
+---
+src: ./concepts.md
+---
+
+
+---
+src: ./technologies.md
+transition: slide-up
+---
+
+
+---
+src: ./homework.md
+transition: slide-up
+---
+
+
+---
+src: ../shared/questions.md
+---

@@ -1,5 +1,7 @@
 ---
 level: 2
+layout: image-right
+image: /server_7.webp
 ---
 # CRUD
 

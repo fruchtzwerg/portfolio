@@ -1,5 +1,6 @@
 ---
 level: 2
+layout: two-cols-header
 ---
 # RESTful API
 
@@ -42,3 +43,15 @@ If you want a different *view* on the same resource, use an HTTP header.
 - **GET** `/users/:id`
 - **PATCH** `/users/:id`
 - **DELETE** `/users/:id`
+
+---
+layout: full
+---
+
+# Documentation
+
+Give an overview of the API and its capabilities.
+
+**Swagger**: OpenAPI Specification
+
+<iframe src="https://editor-next.swagger.io/" width="100%" height="100%" />

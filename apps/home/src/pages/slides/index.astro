@@ -1,0 +1,71 @@
+---
+import { Picture } from 'astro:assets';
+import { glob } from 'glob';
+
+import IconLink from '~icons/carbon/presentation-file';
+
+import Hover from '../../components/markdoc/Hover.astro';
+import Link from '../../components/markdoc/Link.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getSlides } from '../../utils/slides.utils';
+
+export const title = 'slides';
+export const order = 5;
+
+const files = await glob('../slides/pages/**/[0-9]-*.md');
+const slides = getSlides(files);
+---
+
+<Layout {title}>
+  <div class="prose max-w-none mb-24">
+    <h1 class="cursor">_{title}</h1>
+
+    <p class="text-xl">
+      Slides for my course <span class="text-accent">Web Engineering II</span> at the University of Applied
+      Sciences in Stralsund.
+    </p>
+  </div>
+
+  <ol class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      slides.map(slide => (
+        <ul>
+          <Hover href={`/slides/${slide.slug}`} class="flex flex-col gap-2" inset prefetch="tap">
+            {slide.background && (
+              <div class="not-prose">
+                <Picture
+                  transition:name={slide.slug}
+                  src={
+                    import.meta.env.DEV
+                      ? '/blog-eslint-warning-1.png'
+                      : `/slides/${slide.slug}${slide.background}`
+                  }
+                  width={800}
+                  height={400}
+                  alt=""
+                  widths={[250, 400, 800]}
+                  sizes="(max-width: 250px) 150px, 400px"
+                  formats={['avif', 'webp', 'jpeg']}
+                  class="w-full rounded"
+                />
+              </div>
+            )}
+
+            <h2 class="!text-xl !leading-tight group-hover:!font-semibold">{slide.title}</h2>
+
+            <p>{slide.info}</p>
+
+            <small class="space-x-1 mt-auto text-base-content/60 group-hover:text-neutral-content/60">
+              {slide.order}
+            </small>
+
+            <Link groupHover>
+              Open
+              <IconLink slot="icon" />
+            </Link>
+          </Hover>
+        </ul>
+      ))
+    }
+  </ol>
+</Layout>

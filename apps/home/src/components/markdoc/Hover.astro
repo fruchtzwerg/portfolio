@@ -4,11 +4,14 @@ type Props = {
   target?: string;
   class?: string;
   inset?: boolean;
+  prefetch: 'viewport' | 'tap' | 'load' | 'hover' | false;
 };
 
 const { href, target, class: className, inset } = Astro.props;
 
 const Tag = href ? 'a' : 'div';
+const prefetch =
+  Astro.props.prefetch === false || target ? false : Astro.props.prefetch ?? 'viewport';
 ---
 
 <div class:list={[{ 'mx-4 mb-4': !inset }, 'relative group isolate h-full']}>
@@ -17,7 +20,7 @@ const Tag = href ? 'a' : 'div';
     {href}
     {target}
     rel={target ? 'noreferrer' : ''}
-    data-astro-prefetch={target ? false : 'viewport'}
+    data-astro-prefetch={prefetch}
     class:list={[
       className,
       { 'p-4': !inset },

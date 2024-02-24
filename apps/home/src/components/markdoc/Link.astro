@@ -25,6 +25,9 @@ const Tag = href ? 'a' : 'span';
     'flex gap-2 items-center w-fit text-base-content/80 font-mono no-underline',
   ]}
 >
-  <IconLink />
+  <slot name="icon">
+    <IconLink />
+  </slot>
+
   {text ?? <slot />}
 </Tag>

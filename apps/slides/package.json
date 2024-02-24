@@ -3,27 +3,33 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "build": "node build.mjs",
     "dev": "slidev --open",
     "start": "slidev",
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.47.1",
-    "@slidev/theme-default": "latest",
-    "@slidev/theme-seriph": "latest"
+    "@slidev/cli": "^0.48.0-beta.20",
+    "@slidev/theme-default": "^0.25.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "@stackblitz/sdk": "^1.9.0",
+    "@vueuse/core": "^10.9.0",
+    "swagger-ui-dist": "^5.11.8"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.1.28",
+    "@iconify-json/carbon": "^1.1.30",
     "@iconify-json/ph": "^1.1.11",
     "@types/express": "^4.17.21",
     "@types/node": "^20.5.9",
     "@types/sanitize-html": "^2.11.0",
+    "@types/swagger-ui-dist": "^3.30.4",
+    "execa": "^8.0.1",
+    "glob": "^10.3.10",
     "playwright-chromium": "^1.41.2",
-    "sanitize-html": "^2.11.0",
+    "sanitize-html": "^2.12.1",
     "unplugin-icons": "^0.16.6",
-    "vite": "^5.0.12",
-    "vite-plugin-vue-server-ref": "^0.4.1",
-    "vue": "^3.4.15"
+    "vite": "^5.1.4",
+    "vite-plugin-vue-server-ref": "^0.4.2",
+    "vue": "^3.4.21"
   }
 }

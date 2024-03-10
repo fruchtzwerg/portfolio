@@ -17,11 +17,11 @@ Representational State Transfer
 
 ## Lists of objects
 
-- **users**
-- **articles**
-- **products**
-- **comments**
-- **documents**
+- users
+- articles
+- products
+- comments
+- documents
 
 ::right::
 
@@ -29,11 +29,11 @@ Representational State Transfer
 
 ## Ephemeral concepts
 
-- **login**
-- **shutdown**
-- **reset**
-- **ping**
-- **notify**
+- login
+- shutdown
+- reset
+- ping
+- notify
 
 <small v-click>Some of these could be refactored into objects.</small>
 

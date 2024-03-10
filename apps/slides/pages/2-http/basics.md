@@ -1,6 +1,6 @@
 ---
 layout: image-right
-image: /server_6.webp
+image: ../public/server_6.webp
 ---
 
 # HTTP

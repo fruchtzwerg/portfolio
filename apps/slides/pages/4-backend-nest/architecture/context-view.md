@@ -13,9 +13,9 @@ A high-level view of the system and its surroundings.
 
 <LightOrDark>
   <template #light>
-    <InlineSvg src="/slides/4-backend-nest/context.svg" class="w-1/2 mx-auto" />
+    <InlineSvg src="../public/context.svg" class="w-1/2 mx-auto" />
   </template>
   <template #dark>
-    <InlineSvg src="/slides/4-backend-nest/context.svg" class="w-1/2 mx-auto text-white" />
+    <InlineSvg src="../public/context.svg" class="w-1/2 mx-auto text-white" />
   </template>
 </LightOrDark>

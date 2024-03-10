@@ -1,11 +1,11 @@
 ---
 layout: cover
-background: /brain-1.webp
+background: ../public/brain-1.webp
 ---
 
 <style scoped>
   .slidev-layout {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.667), rgba(0, 0, 0, 0.533)), url("/brain-1.webp") !important;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.667), rgba(0, 0, 0, 0.533)), url("../../public/brain-1.webp") !important;
   }
 </style>
 

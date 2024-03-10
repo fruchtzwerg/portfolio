@@ -1,6 +1,6 @@
 ---
 layout: image-right
-image: /avatar.webp
+image: ../public/avatar.webp
 hideInToc: true
 ---
 

@@ -3,12 +3,17 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "start:home": "pnpm --filter home start",
+    "build": "pnpm build:slides && pnpm build:home",
     "build:home": "pnpm --filter home build",
-    "start:slides": "pnpm --filter slides start",
     "build:slides": "pnpm --filter slides build",
+    "----------------  START": "----------------",
     "start": "pnpm --parallel start",
-    "build": "pnpm build:slides && pnpm build:home"
+    "start:home": "pnpm --filter home start",
+    "start:slides": "pnpm --filter slides start",
+    "----------------  PREVIEW": "----------------",
+    "preview": "pnpm --parallel preview",
+    "preview:home": "pnpm --filter home preview",
+    "preview:slides": "pnpm --filter slides preview"
   },
   "devDependencies": {
     "prettier": "^3.2.5"

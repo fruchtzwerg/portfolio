@@ -1,7 +1,7 @@
 ---
 theme: default
 layout: cover
-background: /server_6.webp
+background: ../public/server_6.webp
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -29,37 +29,37 @@ Hypertext Transfer Protocol
 
 ---
 src: ../shared/toc.md
-image: /server.webp
+image: ../public/server.webp
 ---
 
 
 ---
-src: ./basics.md
+src: basics.md
 ---
 
 
 ---
-src: ./cookies.md
+src: methods/index.md
 ---
 
 
 ---
-src: ./crud.md
+src: rest/index.md
 ---
 
 
 ---
-src: ./rest.md
+src: cookies.md
 ---
 
 
 ---
-src: ./restful-api.md
+src: rest/swagger.md
 ---
 
 
 ---
-src: ./homework.md
+src: homework.md
 ---
 
 

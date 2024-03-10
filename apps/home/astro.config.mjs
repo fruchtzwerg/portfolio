@@ -47,7 +47,7 @@ export default defineConfig({
       },
     }),
     robotsTxt({ host: true }),
-    compress(),
+    // compress(),
   ],
 
   prefetch: true,
@@ -57,7 +57,10 @@ export default defineConfig({
 
     plugins: [
       viteStaticCopy({
-        targets: [{ src: '../slides/dist/*', dest: 'slides' }],
+        targets:
+          process.env.NODE_ENV !== 'development'
+            ? [{ src: '../slides/dist', dest: '.', rename: 'slides' }]
+            : [{ src: '../slides/dist', dest: '.' }],
       }),
 
       // visualizer(),

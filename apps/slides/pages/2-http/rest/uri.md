@@ -1,10 +1,7 @@
 ---
-level: 2
 layout: two-cols-header
 ---
-# RESTful API
 
-APIs should be predictable and consistent.
 
 ## URI - Unique Resource Identifier
 
@@ -26,7 +23,7 @@ If you want a different *view* on the same resource, use an HTTP header.
 
 <v-click>
 
-"A comment written by a user: `/users/:id/comments/:commentId`"
+A comment written by a user: `/users/:id/comments/:commentId`
 
 </v-click>
 
@@ -41,17 +38,5 @@ If you want a different *view* on the same resource, use an HTTP header.
 ### Individual user
 
 - **GET** `/users/:id`
-- **PATCH** `/users/:id`
+- **PUT/PATCH** `/users/:id`
 - **DELETE** `/users/:id`
-
----
-layout: full
----
-
-# Documentation
-
-Give an overview of the API and its capabilities.
-
-**Swagger**: OpenAPI Specification
-
-<iframe src="https://editor-next.swagger.io/" width="100%" height="100%" />

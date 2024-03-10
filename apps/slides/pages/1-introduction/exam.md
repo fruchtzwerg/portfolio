@@ -1,6 +1,6 @@
 ---
 layout: cover
-background: /idea-2.webp
+background: ../public/idea-2.webp
 ---
 
 <div class="mt-64" />

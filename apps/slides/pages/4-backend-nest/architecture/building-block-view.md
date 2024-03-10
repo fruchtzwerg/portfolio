@@ -18,10 +18,10 @@ Zoom in on a black box and show its internal components (white box).
 <div mt-4>
   <LightOrDark>
     <template #light>
-      <InlineSvg src="/slides/4-backend-nest/building-block.svg" class="w-1/2 mx-auto" />
+      <InlineSvg src="../public/building-block.svg" class="w-1/2 mx-auto" />
     </template>
     <template #dark>
-      <InlineSvg src="/slides/4-backend-nest/building-block.svg" class="w-1/2 mx-auto text-white" />
+      <InlineSvg src="../public/building-block.svg" class="w-1/2 mx-auto text-white" />
     </template>
   </LightOrDark>
 </div>

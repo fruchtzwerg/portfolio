@@ -1,10 +1,10 @@
 ---
 layout: image-right
-image: /cookie_3.webp
+image: ../public/cookie_3.webp
 ---
 # Cookies
 
-What is a cookie?
+Maintain state in a stateless protocol
 
 A cookie is a piece of data, <span class="text-purple-400">set by the server</span>, which is <span class="text-cyan-400">stored on the client</span>.
 
@@ -22,7 +22,8 @@ Cookies can be used by the server to identify the client.
 
 ---
 layout: image-left
-image: /cookie_2.webp
+image: ../public/cookie_2.webp
+hideInToc: true
 ---
 
 # Set a cookie
@@ -57,7 +58,8 @@ app.get('/', (req, res) => {
 
 ---
 layout: image-right
-image: /cookie_4.webp
+image: ../public/cookie_4.webp
+hideInToc: true
 ---
 
 # Read a cookie

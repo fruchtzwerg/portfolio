@@ -12,7 +12,7 @@ import { getSlides } from '../../utils/slides.utils';
 export const title = 'slides';
 export const order = 5;
 
-const files = await glob('../slides/pages/**/[0-9]-*.md');
+const files = await glob('../slides/pages/[0-9]-*/index.md');
 const slides = getSlides(files);
 ---
 
@@ -38,7 +38,7 @@ const slides = getSlides(files);
                   src={
                     import.meta.env.DEV
                       ? '/blog-eslint-warning-1.png'
-                      : `/slides/${slide.slug}${slide.background}`
+                      : `/slides/public/${slide.background}`
                   }
                   width={800}
                   height={400}

@@ -1,7 +1,7 @@
 ---
 theme: default
 layout: cover
-background: /laptop-3.webp
+background: ../public/laptop-3.webp
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -31,7 +31,7 @@ SS 2024
 
 ---
 src: ../shared/toc.md
-image: /server.webp
+image: ../public/server.webp
 ---
 
 

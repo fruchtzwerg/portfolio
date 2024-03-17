@@ -47,7 +47,7 @@ export default defineConfig({
       },
     }),
     robotsTxt({ host: true }),
-    // compress(),
+    compress(),
   ],
 
   prefetch: true,

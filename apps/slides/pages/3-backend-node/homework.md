@@ -10,6 +10,6 @@ Build a RESTful CRUD API for user management.
 2. Mutate the array, when creating/updating/deleting users.
 3. Return useful error objects when something goes wrong.
 
-<SwaggerUI url="../public/swagger/3-backend-node.json" class="mt-4" >
+<SwaggerUI url="../public/swagger/3-backend-node.json" dialog class="mt-4" >
   Show API specification
 </SwaggerUI>

@@ -1,6 +1,8 @@
 ---
 layout: three-cols-header
+level: 2
 ---
+
 # RESTfulness
 
 APIs should be predictable and consistent.

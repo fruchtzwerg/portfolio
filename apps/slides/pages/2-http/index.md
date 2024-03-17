@@ -1,7 +1,7 @@
 ---
 theme: default
 layout: cover
-background: ../public/server_6.webp
+background: ../public/server-6.webp
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -11,7 +11,7 @@ info: Communication via HTTP.
 drawings:
   persist: false
 defaults:
-  transition: slide-up
+  transition: slide-left
 transition: fade-out
 mdc: true
 download: true
@@ -29,17 +29,12 @@ Hypertext Transfer Protocol
 
 ---
 src: ../shared/toc.md
-image: ../public/server.webp
+image: ../public/server-6.webp
 ---
 
 
 ---
-src: basics.md
----
-
-
----
-src: methods/index.md
+src: http/index.md
 ---
 
 
@@ -49,17 +44,19 @@ src: rest/index.md
 
 
 ---
-src: cookies.md
+src: cookies/index.md
 ---
 
 
 ---
 src: rest/swagger.md
+transition: slide-left
 ---
 
 
 ---
 src: homework.md
+transition: slide-left
 ---
 
 

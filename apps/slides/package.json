@@ -9,12 +9,12 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "0.48.1",
+    "@slidev/cli": "0.48.3",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",
     "@stackblitz/sdk": "^1.9.0",
     "@vueuse/core": "^10.9.0",
-    "swagger-ui-dist": "^5.11.10"
+    "swagger-ui-dist": "^5.12.0"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.31",
@@ -28,7 +28,7 @@
     "playwright-chromium": "^1.42.1",
     "sanitize-html": "^2.12.1",
     "unplugin-icons": "^0.16.6",
-    "vite": "^5.1.5",
+    "vite": "^5.1.6",
     "vite-plugin-vue-server-ref": "^0.4.2",
     "vue": "^3.4.21"
   }

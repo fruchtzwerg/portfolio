@@ -5,7 +5,7 @@ import { onClickOutside } from '@vueuse/core';
 import { SwaggerUIBundle, SwaggerUIStandalonePreset } from 'swagger-ui-dist';
 import 'swagger-ui-dist/swagger-ui.css';
 
-const props = defineProps<{ url: string }>();
+const props = defineProps<{ url: string; dialog: boolean }>();
 
 const dialog = ref<HTMLDialogElement | null>(null);
 
@@ -22,27 +22,29 @@ onMounted(initSwaggerUI);
 </script>
 
 <template>
-  <dialog ref="dialog">
-    <div id="swagger-ui" />
-  </dialog>
+  <template v-if="props.dialog">
+    <dialog ref="dialog">
+      <div id="swagger-ui" />
+    </dialog>
 
-  <button
-    @click="dialog?.show()"
+    <button
+      v-if="props.dialog"
+      @click="dialog?.show()"
+      v-bind="$attrs"
+      class="flex gap-2 justify-center items-center rounded p-2 w-full hover:text-indigo-400 font-semibold hover:bg-indigo-400/10"
+    >
+      <slot />
+
+      <fluent:open-20-filled />
+    </button>
+  </template>
+
+  <div
+    v-else
+    id="swagger-ui"
+    class="scale-75 size-[133%]! pb-40 -translate-x-36 -translate-y-16"
     v-bind="$attrs"
-    class="flex gap-2 justify-center items-center rounded p-2 w-full hover:text-indigo-400 font-semibold hover:bg-indigo-400/10"
-  >
-    <slot />
-    <svg class="inline-block" height="1em" viewBox="0 0 512 512">
-      <path
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="32"
-        d="M384 224v184a40 40 0 0 1-40 40H104a40 40 0 0 1-40-40V168a40 40 0 0 1 40-40h167.48M336 64h112v112M224 288L440 72"
-      />
-    </svg>
-  </button>
+  />
 </template>
 
 <style scoped>

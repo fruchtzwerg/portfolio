@@ -1,5 +1,8 @@
 ---
-layout: center
+layout: image-dimable
+image: ../public/laptop-6.webp
+dim: 'dark'
+center: true
 ---
 
 # Homework

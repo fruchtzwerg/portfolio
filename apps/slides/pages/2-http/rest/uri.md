@@ -1,9 +1,10 @@
 ---
 layout: two-cols-header
+level: 2
 ---
 
 
-## URI - Unique Resource Identifier
+# URI - Unique Resource Identifier
 
 Any resource should be <span class="text-teal-400">uniquely</span> identifiable through its path.
 

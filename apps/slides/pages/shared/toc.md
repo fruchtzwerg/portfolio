@@ -1,5 +1,5 @@
 ---
-layout: image-right
+layout: image-large
 transition: fade
 hideInToc: true
 ---

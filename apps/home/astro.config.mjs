@@ -47,7 +47,7 @@ export default defineConfig({
       },
     }),
     robotsTxt({ host: true }),
-    compress(),
+    ...[process.env.VERCEL_ENV === 'production' ? [compress()] : []],
   ],
 
   prefetch: true,

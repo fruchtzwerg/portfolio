@@ -14,7 +14,6 @@ defaults:
   transition: slide-left
 transition: fade-out
 mdc: true
-download: true
 hideInToc: true
 ---
 

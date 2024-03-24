@@ -1,11 +1,13 @@
 ---
 layout: center
+level: 2
 ---
+
 # Basic Routing
 
 Define a route to handle HTTP GET requests to the root URL.
 
-```ts {all} twoslash
+```ts twoslash
 import express from 'express';
 const app = express();
 
@@ -38,7 +40,7 @@ app.get('/users', (req, res) => {
 
 app.get('/articles', (req, res) => {
   const articles = articlesService.getArticlesFromDatabase();
-  res.json(`Hello`);
+  res.json(articles);
 });
 ```
 

@@ -1,5 +1,6 @@
 ---
 layout: center
+level: 2
 ---
 
 # A simple Node.js server
@@ -18,7 +19,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.info(`Server running at http://${hostname}:${port}/`);
 });
 ```
 
@@ -31,3 +32,12 @@ $ node ./main.js
 ```
 
 </v-click>
+
+
+
+---
+layout: padded
+level: 2
+---
+
+<StackBlitz project="stackblitz-starters-t88cxm" file="index.js" />

@@ -5,7 +5,6 @@ class: text-center
 highlighter: shiki
 lineNumbers: true
 author: Benjamin Montazer
-title: Node.js
 info: Building a webserver with Node.js.
 drawings:
   persist: false
@@ -13,7 +12,6 @@ defaults:
   transition: slide-left
 transition: fade-out
 mdc: true
-download: true
 hideInToc: true
 ---
 
@@ -37,36 +35,18 @@ image: ../public/server.webp
 
 
 ---
-src: ./what-is-node.md
+src: node/index.md
 ---
 
 
 ---
-src: ./node.md
----
-
-
----
-src: ./express.md
+src: express/index.md
 transition: slide-up
 ---
 
 
 ---
-src: ./routing/basic.md
-layout: center
----
-
-
----
-src: ./routing/crud.md
-transition: slide-up
----
-
-
----
-src: ./routing/advanced.md
-transition: slide-up
+src: testing/index.md
 ---
 
 

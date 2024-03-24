@@ -79,7 +79,7 @@ dialog {
   thead *,
   .servers-title,
   .opblock-summary-path,
-  svg.arrow {
+  svg {
     color: #d4d4d4;
     fill: #d4d4d4;
   }

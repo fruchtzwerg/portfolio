@@ -1,5 +1,6 @@
 ---
 layout: three-cols-header
+level: 2
 ---
 # Advanced Routing
 
@@ -14,8 +15,8 @@ export interface User {
   name: string;
 }
 
-export class UserService {
-  private users: User[] = [
+class UserService {
+  private users = [
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Jane Doe' },
   ];
@@ -28,15 +29,15 @@ export class UserService {
     return this.users.find(user => user.id === id);
   }
 
-  createUser(user: Pick<User, 'name'>) {
+  createUser(user: { name: string }) {
     this.users.push({ id: this.users.length + 1, name: user.name });
-    return this.users;
+    return this.users[users.length - 1];
   }
 
-  updateUser(id: number, user: User) {
+  updateUser(id: number, user: this['users'][number]) {
     const index = this.users.findIndex(user => user.id === id);
     this.users[index] = { id, name: user.name };
-    return this.users;
+    return this.users[index];
   }
 
   deleteUser(id: number) {
@@ -48,6 +49,7 @@ export class UserService {
 export const userService = new UserService();
 
 // ---cut---
+// @noErrors
 // @filename: main.ts
 import express from 'express';
 import { router as users } from './user.controller';
@@ -62,6 +64,7 @@ app.listen(3000);
 ::center::
 
 ```ts twoslash
+// @noErrors
 // @filename: user.controller.ts
 import { Router } from 'express';
 import { userService } from "./user.service";
@@ -75,8 +78,8 @@ router
     return res.json(users);
   })
   .post((req, res) => {
-    userService.createUser(req.body);
-    return res.sendStatus(201);
+    const user = userService.createUser(req.body);
+    return res.status(201).json(user);
   });
 ```
 
@@ -92,18 +95,18 @@ export const router = Router();
 router
   .route('/:id')
   .get((req, res) => {
-    const users = userService.getUser(+req.params.id);
-    return res.json(users);
+    const user = userService.getUser(+req.params.id);
+    return res.json(user);
   })
   .patch((req, res) => {
-    const users = userService.updateUser(
+    const user = userService.updateUser(
       +req.params.id,
       req.body
     );
-    return res.json(users);
+    return res.json(user);
   })
   .delete((req, res) => {
-    const users = userService.deleteUser(+req.params.id);
-    return res.status(204).json(users);
+    userService.deleteUser(+req.params.id);
+    return res.sendStatus(204);
   });
 ```

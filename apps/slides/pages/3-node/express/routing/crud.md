@@ -1,11 +1,11 @@
 ---
 layout: center
+level: 2
 ---
+
 # CRUD Routing
 
-Define routes to handle HTTP requests for user CRUD.
-
-```ts {all} twoslash
+```ts twoslash
 import express from 'express';
 const app = express();
 
@@ -25,13 +25,13 @@ class UserService {
 
   createUser(user: { name: string }) {
     this.users.push({ id: this.users.length + 1, name: user.name });
-    return this.users;
+    return this.users[users.length - 1];
   }
 
   updateUser(id: number, user: this['users'][number]) {
     const index = this.users.findIndex(user => user.id === id);
     this.users[index] = { id, name: user.name };
-    return this.users;
+    return this.users[index];
   }
 
   deleteUser(id: number) {
@@ -49,22 +49,22 @@ app.get('/users', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  userService.createUser(req.body);
-  res.sendStatus(201);
+  const user = userService.createUser(req.body);
+  res.status(201).json({ id: user.id });
 });
 
 app.get('/users/:id', (req, res) => {
-  const users = userService.getUser(+req.params.id);
-  res.json(users);
+  const user = userService.getUser(+req.params.id);
+  res.json(user);
 });
 
 app.patch('/users/:id', (req, res) => {
-  const users = userService.updateUser(+req.params.id, req.body);
-  res.json(users);
+  const user = userService.updateUser(+req.params.id, req.body);
+  res.json(user);
 });
 
 app.delete('/users/:id', (req, res) => {
-  const users = userService.deleteUser(+req.params.id);
-  res.status(204).json(users);
+  userService.deleteUser(+req.params.id);
+  res.sendStatus(204);
 });
 ```

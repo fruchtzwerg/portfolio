@@ -1,8 +1,9 @@
 ---
 layout: center
+level: 2
 ---
 
-# Express.js
+# express.js
 
 ```sh twoslash
 $ npm install express
@@ -10,7 +11,7 @@ $ npm install express
 
 Read the [documentation](https://expressjs.com/)
 
-```ts {all|8} twoslash include main
+```ts {all|8|all} twoslash include main
 import express from 'express';
 
 const hostname = 'localhost';
@@ -23,9 +24,11 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://${hostname}:${port}/`)
+  console.info(`Server running at http://${hostname}:${port}/`)
 });
 ```
+
+
 
 ---
 layout: padded

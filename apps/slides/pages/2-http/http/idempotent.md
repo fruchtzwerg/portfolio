@@ -8,7 +8,7 @@ level: 2
 <br>
 
 <Quote>
-  Consequitive <span class="text-sky-400">idempotent</span> operations on a resource have the same effect as a single operation.
+  Consecutive <span class="text-sky-400">idempotent</span> operations on a resource have the same effect as a single operation.
 </Quote>
 
 <br>

@@ -21,7 +21,9 @@ entrypoints.reduce(
       stdio: 'inherit',
     })`slidev build ${entrypoint} --out=dist/${base} --base=/slides/${base}/`;
 
-    await cp('public', 'dist/public', { recursive: true });
+    await $({
+      stdio: 'inherit',
+    })`slidev export ${base} --dark --with-toc --output dist/${base}/${base}.pdf`;
   },
-  Promise.resolve(),
+  cp('public', 'dist/public', { recursive: true }),
 );

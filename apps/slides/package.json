@@ -10,12 +10,12 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "0.48.7",
+    "@slidev/cli": "0.48.8",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",
     "@stackblitz/sdk": "^1.9.0",
     "@vueuse/core": "^10.9.0",
-    "swagger-ui-dist": "^5.12.0",
+    "swagger-ui-dist": "^5.13.0",
     "vue-inline-svg": "^3.1.2"
   },
   "devDependencies": {
@@ -26,12 +26,12 @@
     "@types/sanitize-html": "^2.11.0",
     "@types/swagger-ui-dist": "^3.30.4",
     "execa": "^8.0.1",
-    "glob": "^10.3.10",
+    "glob": "^10.3.12",
     "playwright-chromium": "1.42.1",
     "rimraf": "^5.0.5",
-    "sanitize-html": "^2.12.1",
+    "sanitize-html": "^2.13.0",
     "unplugin-icons": "^0.16.6",
-    "vite": "^5.1.6",
+    "vite": "^5.2.8",
     "vite-plugin-vue-server-ref": "^0.4.2",
     "vue": "^3.4.21"
   }

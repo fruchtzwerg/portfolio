@@ -1,0 +1,2 @@
+pnpm nx build slides
+git add apps/slides/dist

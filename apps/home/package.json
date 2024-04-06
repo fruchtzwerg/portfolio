@@ -11,6 +11,11 @@
     "lint": "eslint .",
     "ts:check": "tsc --noEmit"
   },
+  "nx": {
+    "implicitDependencies": [
+      "slides"
+    ]
+  },
   "dependencies": {
     "@fontsource/arvo": "^5.0.18",
     "@fontsource/exo": "^5.0.16",

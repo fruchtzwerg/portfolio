@@ -22,6 +22,8 @@ const __dirname = dirname(__filname);
 const iconsDir = join(__dirname, 'src/assets/icons');
 const tailwindConfigPath = fileURLToPath(new URL('./tailwind.config.cjs', import.meta.url));
 
+console.info(`🔧 Building for ${process.env.NODE_ENV} environment`);
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://montazer.dev',

@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 531 355">
+  <g>
+    <path d="m120 206.25-50 .07V155H36.37" fill="none" stroke="currentColor" stroke-miterlimit="10"
+      stroke-dasharray="3 3" pointer-events="stroke" />
+    <path d="m31.12 155 7-3.5-1.75 3.5 1.75 3.5Z" stroke="currentColor" stroke-miterlimit="10" pointer-events="all" />
+    <circle cx="15" cy="132.5" fill="none" stroke="currentColor" stroke-opacity=".5" pointer-events="all" r="7.5" />
+    <path d="M15 140v25m0-20H0m15 0h15m-15 20L0 185m15-20 15 20" fill="none" stroke="currentColor" stroke-opacity=".5"
+      stroke-miterlimit="10" pointer-events="all" />
+    <g transform="translate(-.5 -.5)" opacity=".5">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe flex-start;justify-content:unsafe center;width:1px;height:1px;padding-top:192px;margin-left:15px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:nowrap">
+                Actor
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <circle cx="15" cy="252.5" fill="none" stroke="currentColor" stroke-opacity=".5" pointer-events="all" r="7.5" />
+    <path d="M15 260v25m0-20H0m15 0h15m-15 20L0 305m15-20 15 20" fill="none" stroke="currentColor" stroke-opacity=".5"
+      stroke-miterlimit="10" pointer-events="all" />
+    <g transform="translate(-.5 -.5)" opacity=".5">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe flex-start;justify-content:unsafe center;width:1px;height:1px;padding-top:312px;margin-left:15px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:nowrap">
+                Actor
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="M207 60v27" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-miterlimit="10"
+      stroke-dasharray="3 3" pointer-events="stroke" />
+    <circle cx="207" cy="90" fill="none" stroke="currentColor" stroke-opacity=".5" pointer-events="all" r="3" />
+    <path fill="none" stroke="currentColor" stroke-opacity=".5" stroke-dasharray="3 3" pointer-events="all"
+      d="M147 0h120v60H147z" />
+    <g transform="translate(-.5 -.5)" opacity=".5">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:30px;margin-left:148px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Neighbor System
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="M410 170h-32" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-miterlimit="10"
+      stroke-dasharray="3 3" pointer-events="stroke" />
+    <path d="M370 162q8 0 8 8t-8 8" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-miterlimit="10"
+      pointer-events="all" />
+    <path fill="none" stroke="currentColor" stroke-opacity=".5" stroke-dasharray="3 3" pointer-events="all"
+      d="M410 140h120v60H410z" />
+    <g transform="translate(-.5 -.5)" opacity=".5">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:170px;margin-left:411px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Neighbor System
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="m429.2 275.25-39.2.07V258" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-miterlimit="10"
+      stroke-dasharray="3 3" pointer-events="stroke" />
+    <path d="M398 250q0 8-8 8t-8-8" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-miterlimit="10"
+      pointer-events="all" />
+    <path
+      d="M440 251.25c-24 0-30 20-10.8 24-19.2 8.8 2.4 28 18 20 10.8 16 46.8 16 58.8 0 24 0 24-16 9-24 15-16-9-32-30-24-15-12-39-12-45 4Z"
+      fill="none" stroke="currentColor" stroke-opacity=".5" stroke-miterlimit="10" stroke-dasharray="3 3"
+      pointer-events="all" />
+    <g transform="translate(-.5 -.5)" opacity=".5">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:271px;margin-left:411px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Neighbor
+                <br />
+                System
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path fill="currentColor" stroke="#000" pointer-events="all" opacity=".125" d="M114.5 128h215v225h-215z" />
+    <path fill="none" stroke="currentColor" pointer-events="all" d="M112.5 125h215v225h-215z" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe flex-start;justify-content:unsafe flex-start;width:213px;height:1px;padding-top:132px;margin-left:115px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:left">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                My System
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path fill="none" stroke="currentColor" pointer-events="all" d="M195 181.25h50v50h-50z" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:48px;height:1px;padding-top:206px;margin-left:196px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Core
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="M253.63 157.5H232.5v23.75" fill="none" stroke="currentColor" stroke-miterlimit="10"
+      pointer-events="stroke" />
+    <path d="m258.88 157.5-7 3.5 1.75-3.5-1.75-3.5Z" stroke="currentColor" stroke-miterlimit="10"
+      pointer-events="all" />
+    <path fill="none" stroke="currentColor" pointer-events="all" d="M260 145h50v50h-50z" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:48px;height:1px;padding-top:170px;margin-left:261px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Service A
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="M253.63 252.5H220v-21.25" fill="none" stroke="currentColor" stroke-miterlimit="10"
+      pointer-events="stroke" />
+    <path d="m258.88 252.5-7 3.5 1.75-3.5-1.75-3.5Z" stroke="currentColor" stroke-miterlimit="10"
+      pointer-events="all" />
+    <path fill="none" stroke="currentColor" pointer-events="all" d="M260 215h50v50h-50z" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:48px;height:1px;padding-top:240px;margin-left:261px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Service B
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="M170 206.25h18.63" fill="none" stroke="currentColor" stroke-miterlimit="10" pointer-events="stroke" />
+    <path d="m193.88 206.25-7 3.5 1.75-3.5-1.75-3.5Z" stroke="currentColor" stroke-miterlimit="10"
+      pointer-events="all" />
+    <path fill="none" stroke="currentColor" pointer-events="all" d="M120 181.25h50v50h-50z" />
+    <g transform="translate(-.5 -.5)">
+      <switch>
+        <foreignObject pointer-events="none" width="100%" height="100%"
+          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:48px;height:1px;padding-top:206px;margin-left:121px">
+            <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+              <div
+                style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                Adapter
+              </div>
+            </div>
+          </div>
+        </foreignObject>
+      </switch>
+    </g>
+    <path d="m120 206.25-50 .07V275H36.37" fill="none" stroke="currentColor" stroke-miterlimit="10"
+      stroke-dasharray="3 3" pointer-events="stroke" />
+    <path d="m31.12 275 7-3.5-1.75 3.5 1.75 3.5Z" stroke="currentColor" stroke-miterlimit="10" pointer-events="all" />
+    <path d="M310 170h57" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-dasharray="3 3"
+      pointer-events="stroke" />
+    <circle cx="370" cy="170" fill="none" stroke="currentColor" pointer-events="all" r="3" />
+    <path d="M310 240h80v7" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-dasharray="3 3"
+      pointer-events="stroke" />
+    <circle cx="390" cy="250" fill="none" stroke="currentColor" pointer-events="all" r="3" />
+    <path d="M207.5 181.25V120l-.37-22" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-dasharray="3 3"
+      pointer-events="stroke" />
+    <path d="M215 89.87q.13 8-7.87 8.13-8 .13-8.13-7.87" fill="none" stroke="currentColor" stroke-miterlimit="10"
+      pointer-events="all" />
+    <path
+      d="M267.5 305c0-8.28 7.84-15 17.5-15 4.64 0 9.09 1.58 12.37 4.39 3.29 2.82 5.13 6.63 5.13 10.61v20c0 8.28-7.84 15-17.5 15s-17.5-6.72-17.5-15Z"
+      fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="all" />
+    <path d="M302.5 305c0 8.28-7.84 15-17.5 15s-17.5-6.72-17.5-15" fill="none" stroke="currentColor"
+      stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="all" />
+    <path d="M285 265v18.63" fill="none" stroke="currentColor" stroke-miterlimit="10" pointer-events="stroke" />
+    <path d="m285 288.88-3.5-7 3.5 1.75 3.5-1.75Z" stroke="currentColor" stroke-miterlimit="10" pointer-events="all" />
+  </g>
+</svg>

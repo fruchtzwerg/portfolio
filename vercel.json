@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/slides/:lesson/(.*)", "destination": "/slides/:lesson/index.html" }]
+}

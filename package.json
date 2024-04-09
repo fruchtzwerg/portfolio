@@ -5,7 +5,7 @@
   "scripts": {
     "build": "pnpm nx build home",
     "build:home": "pnpm --filter home build",
-    "build:slides": "pnpm --filter slides build",
+    "build:slides": "pnpm nx build slides",
     "----------------  START": "----------------",
     "start": "pnpm --parallel start",
     "start:home": "pnpm --filter home start",

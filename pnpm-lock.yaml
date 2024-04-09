@@ -190,8 +190,8 @@ importers:
         specifier: ^10.9.0
         version: 10.9.0(vue@3.4.21)
       swagger-ui-dist:
-        specifier: ^5.13.0
-        version: 5.13.0
+        specifier: ^5.14.0
+        version: 5.14.0
       vue-inline-svg:
         specifier: ^3.1.2
         version: 3.1.2(vue@3.4.21)
@@ -200,8 +200,8 @@ importers:
         specifier: ^1.1.31
         version: 1.1.31
       '@iconify-json/ph':
-        specifier: ^1.1.11
-        version: 1.1.11
+        specifier: ^1.1.12
+        version: 1.1.12
       '@types/express':
         specifier: ^4.17.21
         version: 4.17.21
@@ -1425,8 +1425,8 @@ packages:
     dependencies:
       '@iconify/types': 2.0.0
 
-  /@iconify-json/ph@1.1.11:
-    resolution: {integrity: sha512-izLvLZrU7WM03zNwNWNrAySv3i45hM3D3K6USjCGBSQMUG0HB8zxwrMf4O0leDrganmuQBH7Z0DWTgyH1ET/fg==}
+  /@iconify-json/ph@1.1.12:
+    resolution: {integrity: sha512-m+rXTW084YaQQHT+F8TxdkCoAh+i/5MWRoSuPmxCWPlxwMAaLT/QfyVsbEiV95HM5806U/jKpBV6F1b7Pmr3Vg==}
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -2234,7 +2234,7 @@ packages:
       '@antfu/ni': 0.21.12
       '@antfu/utils': 0.7.7
       '@iconify-json/carbon': 1.1.31
-      '@iconify-json/ph': 1.1.11
+      '@iconify-json/ph': 1.1.12
       '@iconify-json/svg-spinners': 1.1.2
       '@lillallol/outline-pdf': 4.0.0
       '@shikijs/markdown-it': 1.2.4
@@ -2329,7 +2329,7 @@ packages:
     dependencies:
       '@antfu/utils': 0.7.7
       '@iconify-json/carbon': 1.1.31
-      '@iconify-json/ph': 1.1.11
+      '@iconify-json/ph': 1.1.12
       '@iconify-json/svg-spinners': 1.1.2
       '@shikijs/monaco': 1.2.4
       '@shikijs/vitepress-twoslash': 1.2.4(typescript@5.4.3)
@@ -10035,8 +10035,8 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /swagger-ui-dist@5.13.0:
-    resolution: {integrity: sha512-uaWhh6j18IIs5tOX0arvIBnVINAzpTXaQXkr7qAk8zoupegJVg0UU/5+S/FgsgVCnzVsJ9d7QLjIxkswEeTg0Q==}
+  /swagger-ui-dist@5.14.0:
+    resolution: {integrity: sha512-7qsKvc3gs5dnEIOclY4xkzacY85Pu9a/Gzkf+eezKLQ4BpErlI8BxYWADhnCx6PmFyU4fxH4AMKH+/d3Kml0Gg==}
     dev: false
 
   /synckit@0.8.8:

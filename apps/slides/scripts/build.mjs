@@ -1,17 +1,18 @@
 // @ts-check
 
-import { globSync as glob } from 'glob';
-import { basename } from 'path';
 import { $ } from 'execa';
 import { cp } from 'fs/promises';
+import { globSync as glob } from 'glob';
+import { basename } from 'path';
 import { rimraf } from 'rimraf';
 
-const entrypoints = glob('[0-9]-*.md');
+const args = process.argv.slice(2);
+const entrypoints = args.length ? args : glob('[0-9]-*.md');
 
 const clean = async () => {
   console.info('🧹 Cleaning up...');
 
-  await rimraf('dist');
+  await rimraf(`dist/${entrypoints.join('|')}|public`);
   await rimraf('index.html');
 
   await cp('public', 'dist/public', { recursive: true });

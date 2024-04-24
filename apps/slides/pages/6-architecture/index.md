@@ -5,8 +5,8 @@ class: text-center
 highlighter: shiki
 lineNumbers: true
 author: Benjamin Montazer
-title: Nest.js
-info: Building a webserver with Nest.js.
+title: Architecture
+info: Software Architecture Fundamentals
 drawings:
   persist: false
 defaults:

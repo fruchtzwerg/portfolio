@@ -1,6 +1,6 @@
 ---
 theme: default
-background: ../public/server.webp
+background: ../public/architecture-5.webp
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -17,43 +17,28 @@ download: true
 hideInToc: true
 ---
 
-# Backend
-
-with
-
-<div>
-  <devicon-plain:nestjs-wordmark class="w-100 h-100 -my-32" />
-</div>
+# Software Architecture
 
 
 ---
 src: ../shared/toc.md
-image: ../public/server.webp
+image: ../public/architecture-5.webp
 ---
 
 
 ---
-layout: cover
-background: ../public/architecture-1.webp
----
-
-# Architecture
-
-
----
-src: ./architecture/context-view.md
-level: 2
+src: ./views/index.md
 ---
 
 
 ---
-src: ./architecture/building-block-view.md
-level: 2
+src: ./requirements/index.md
 ---
 
 
 ---
-src: ./nest.md
+src: ./homework.md
+transition: slide-up
 ---
 
 

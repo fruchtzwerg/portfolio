@@ -90,7 +90,7 @@
             <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
               <div
                 style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:nowrap">
-                Actor
+                Admin
               </div>
             </div>
           </div>
@@ -109,7 +109,7 @@
             <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
               <div
                 style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:nowrap">
-                Actor
+                User
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
             <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
               <div
                 style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
-                Neighbor System
+                Geo Tracking
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@
             <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
               <div
                 style="display:inline-block;font-size:12px;font-family:Helvetica;color:currentColor;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
-                Neighbor System
+                Payment Provider
               </div>
             </div>
           </div>

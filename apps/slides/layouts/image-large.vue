@@ -16,10 +16,31 @@ const style = computed(() => handleBackground(props.image, props.dim, props.back
 </script>
 
 <template>
-  <div class="grid grid-cols-[3fr_5fr] w-full h-full auto-rows-fr">
-    <div class="slidev-layout px-8">
+  <div
+    class="grid grid-cols-[3fr_5fr] container w-full h-full auto-rows-fr"
+    :class="{ 'image-left': props.imagePosition === 'left' }"
+  >
+    <div class="slidev-layout px-8 content">
       <slot />
     </div>
-    <div class="w-full h-full" :style="style" />
+    <div class="w-full h-full image" :style="style" />
   </div>
 </template>
+
+<style scoped>
+.container {
+  grid-template-areas: 'content image';
+
+  &.image-left {
+    grid-template-areas: 'image content';
+  }
+}
+
+.content {
+  grid-area: content;
+}
+
+.image {
+  grid-area: image;
+}
+</style>

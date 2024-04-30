@@ -41,11 +41,6 @@ transition: slide-up
 
 
 ---
-src: ./exam.md
----
-
-
----
 src: ./concepts.md
 ---
 
@@ -53,6 +48,11 @@ src: ./concepts.md
 ---
 src: ./technologies.md
 transition: slide-up
+---
+
+
+---
+src: ./exam.md
 ---
 
 

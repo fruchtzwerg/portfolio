@@ -1,2 +1,2 @@
-pnpm nx build slides
-git add apps/slides/dist
+# pnpm nx build slides
+# git add apps/slides/dist

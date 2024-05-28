@@ -2,12 +2,12 @@
 import { Picture } from 'astro:assets';
 import { glob } from 'glob';
 
-import IconLink from '~icons/carbon/presentation-file';
-
 import Hover from '../../components/markdoc/Hover.astro';
 import Link from '../../components/markdoc/Link.astro';
 import Layout from '../../layouts/Layout.astro';
 import { getSlides } from '../../utils/slides.utils';
+
+import IconLink from '~icons/carbon/presentation-file';
 
 export const title = 'slides';
 export const order = 5;
@@ -23,6 +23,22 @@ const slides = getSlides(files);
     <p class="text-xl">
       Slides for my course <span class="text-accent">Web Engineering II</span> at the University of Applied
       Sciences in Stralsund.
+    </p>
+    <p>
+      Schedule your team&#39;s presentation
+      <!-- Calendly link widget begin -->
+      <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+      <script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        type="text/javascript"
+        async></script>
+      <a
+        href=""
+        onclick="Calendly.initPopupWidget({url: 'https://calendly.com/benjamin-hp9d/verteidigung-2024?background_color=111422&text_color=d5ced0&primary_color=8766ff'});return false;"
+      >
+        here
+      </a>
+      <!-- Calendly link widget end -->
     </p>
   </div>
 

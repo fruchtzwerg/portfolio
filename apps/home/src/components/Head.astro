@@ -72,4 +72,46 @@ const getTitle = (t = title) => `${NAME} | ${capitalize(t)}`;
   <ThemeFoucFix />
 
   <ViewTransitions />
+
+  <!-- Calendly badge widget begin -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+
+  <script
+    src="https://assets.calendly.com/assets/external/widget.js"
+    type="text/javascript"
+    async
+    data-astro-rerun></script>
+  <script type="text/javascript" is:inline>
+    const load = function () {
+      Calendly.initBadgeWidget({
+        url: 'https://calendly.com/benjamin-hp9d/call?background_color=1b1d31&text_color=d5ced0&primary_color=8766ff',
+        text: '🗓️   Schedule a call',
+        color: '#27273f',
+        textColor: '#d5ced0',
+        branding: undefined,
+      });
+    };
+
+    document.addEventListener('astro:page-load', load);
+  </script>
+
+  <style is:inline>
+    @media (max-width: 768px) {
+      .calendly-badge-widget.calendly-badge-widget {
+        bottom: 5rem;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .calendly-badge-widget .calendly-badge-content.calendly-badge-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  </style>
+  <!-- Calendly badge widget end -->
 </head>

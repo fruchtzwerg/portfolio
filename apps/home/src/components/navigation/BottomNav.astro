@@ -1,7 +1,11 @@
 ---
-import { getPages } from '../../utils/pages.utils';
+import { getPages, type MaybePage } from '../../utils/pages.utils';
 
-const pages = getPages(await Astro.glob('../../pages/(*|**/index.*)'));
+const pageFiles = Object.values(
+  import.meta.glob('../../pages/(*|**/index.*)', { eager: true }),
+) as MaybePage[];
+
+const pages = getPages(pageFiles);
 
 const url = Astro.url;
 ---

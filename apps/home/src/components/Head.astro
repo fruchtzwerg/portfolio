@@ -2,7 +2,7 @@
 import '../styles/global.scss';
 
 import { SEO } from 'astro-seo';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 import '@fontsource/arvo/latin.css';
 import '@fontsource/exo/latin.css';
@@ -71,7 +71,7 @@ const getTitle = (t = title) => `${NAME} | ${capitalize(t)}`;
 
   <ThemeFoucFix />
 
-  <ViewTransitions />
+  <ClientRouter />
 
   <!-- Calendly badge widget begin -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />

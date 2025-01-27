@@ -133,7 +133,7 @@
             { '!animate-delay-[calc(25ms_*_var(--index))]': staggerTimeout },
           ])}
         >
-          <time datetime={week.date.toISOString()} />
+          <time datetime={week.date.toISOString()}></time>
         </li>
       {/each}
     </ol>

@@ -1,6 +1,6 @@
 ---
 import { type InferGetStaticPropsType } from 'astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import readingTime from 'reading-time';
 
 import Layout from '../../layouts/Layout.astro';
@@ -11,7 +11,7 @@ import '../../assets/prism/tailwind.scss';
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
   return blogEntries.map(entry => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const formatTime = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -34,8 +34,8 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
       {formatTime.format(entry.data.createdAt)}
     </time>
     <span>•</span>
-    <span>{readingTime(entry.body).text}</span>
+    {entry.body && <span>{readingTime(entry.body).text}</span>}
   </section>
 
-  <Content frontmatter={entry.data} slug={entry.slug} />
+  <Content frontmatter={entry.data} slug={entry.id} />
 </Layout>

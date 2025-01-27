@@ -45,6 +45,7 @@
     { start: new Date('2022-03-14'), end: new Date('2022-07-31') },
     { start: new Date('2022-09-01'), end: new Date('2023-10-05') },
     { start: new Date('2024-01-09'), end: new Date('2024-02-15') },
+    { start: new Date('2025-01-01'), end: new Date('2025-12-31') },
   ];
 
   const weeks: Week[] = eachWeekOfInterval(

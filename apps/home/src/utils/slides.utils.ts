@@ -1,4 +1,3 @@
-import { basename } from 'path';
 import Matter from 'gray-matter';
 
 interface Slide {

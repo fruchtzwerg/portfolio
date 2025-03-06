@@ -1,6 +1,5 @@
 <template>
   <div grid="~ gap-4 cols-3" class="areas slidev-layout">
-
     <div grid="area-[title]">
       <slot></slot>
     </div>
@@ -22,11 +21,10 @@
 <style lang="scss" scoped>
 .areas {
   grid-template-areas:
-    "title title title"
-    "left center right";
+    'title title title'
+    'left center right';
 
   --slidev-code-font-size: 8px;
-  --slidev-code-lint-height: 8px;
-
+  --slidev-code-line-height: 8px;
 }
 </style>

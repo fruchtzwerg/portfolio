@@ -33,6 +33,6 @@
     'outer-left left center right outer-right';
 
   --slidev-code-font-size: 8px;
-  --slidev-code-lint-height: 8px;
+  --slidev-code-line-height: 8px;
 }
 </style>

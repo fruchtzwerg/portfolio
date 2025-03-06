@@ -19,7 +19,7 @@ hideInToc: true
 
 # Web Engineering II
 
-SS 2024
+SS 2025
 
 <style scoped>
   h1 {

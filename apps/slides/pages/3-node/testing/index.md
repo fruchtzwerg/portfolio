@@ -45,3 +45,16 @@ layout: section
   <img src="/public/thunder-client-v14.png" />
 </a>
 
+
+---
+layout: section
+---
+
+<h1 class="flex gap-4 items-center justify-center text-[3rem]">
+  <inline-svg src="../public/hoppscotch.svg" class="size-16 text-fuchsia-700" />
+  Hoppscotch
+</h1>
+
+<a href="https://hoppscotch.io/" target="_blank">
+  <img src="/public/hoppscotch.png" />
+</a>

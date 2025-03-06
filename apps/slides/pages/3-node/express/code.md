@@ -5,7 +5,7 @@ level: 2
 
 # express.js
 
-```sh twoslash
+```sh
 $ npm install express
 ```
 

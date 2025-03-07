@@ -14,10 +14,10 @@ interface Props {
 const { tech } = Astro.props;
 ---
 
-<Hover href={tech.href} target="_blank" class="no-underline flex flex-col gap-2" inset>
+<Hover href={tech.href} target="_blank" class="flex flex-col gap-2 no-underline" inset>
   <!-- icon -->
   <div
-    class="relative flex self-start mb-4 text-4xl bg-slate-100 rounded-full p-4 shadow text-black text-group-hover transition-all group-hover:scale-[1.375] group-hover:shadow-none group-hover:bg-transparent"
+    class="relative flex self-start mb-4 text-4xl bg-slate-100/70 dark:bg-slate-600/50 rounded-full p-4 shadow text-black text-group-hover transition-all group-hover:scale-[1.375] group-hover:shadow-none group-hover:bg-transparent"
   >
     <tech.icon aria-hidden class="z-20 size-10" />
   </div>
@@ -37,7 +37,7 @@ const { tech } = Astro.props;
 
   <!-- rating -->
   <div
-    class="flex winter:group-hover:text-base-100/80 mt-3"
+    class="flex mt-3 winter:group-hover:text-base-100/80"
     aria-label={`skill level: ${tech.skill} of 10`}
   >
     {new Array(tech.skill).fill(null).map(() => <BulbFilled aria-hidden />)}

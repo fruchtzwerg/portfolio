@@ -1,6 +1,6 @@
 ---
 import TechCard from '../components/technologies/TechCard.astro';
-import { frameworks, bundlers, testRunners, tools } from '../constants/tech.const';
+import { frontend, bundlers, testRunners, tools, backend } from '../constants/tech.const';
 import Layout from '../layouts/Layout.astro';
 import type { Technology } from '../models/technology.model';
 
@@ -10,7 +10,8 @@ interface Section {
 }
 
 const sections: Section[] = [
-  { title: 'Frameworks', technologies: frameworks },
+  { title: 'Frontend', technologies: frontend },
+  { title: 'Backend', technologies: backend },
   { title: 'Testing', technologies: testRunners },
   { title: 'Bundling', technologies: bundlers },
   { title: 'Tools', technologies: tools },
@@ -23,7 +24,7 @@ export const order = 1;
 <Layout {title} prose>
   <h1 class="cursor">_technologies</h1>
 
-  <p class="text-xl mb-24">
+  <p class="mb-24 text-xl">
     Here are some of my favorite technologies to build web-applications, micro-frontends,
     WebComponents and anything in between.
   </p>

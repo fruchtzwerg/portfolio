@@ -163,8 +163,8 @@ importers:
         specifier: ^0.7.0
         version: 0.7.0(@typescript-eslint/parser@8.22.0(eslint@8.57.1)(typescript@5.7.3))(astrojs-compiler-sync@1.0.1(@astrojs/compiler@2.10.3))(svelte2tsx@0.7.34(svelte@5.19.3)(typescript@5.7.3))(typescript@5.7.3)(vue@2.7.16)
       unplugin-icons:
-        specifier: ^22.0.0
-        version: 22.0.0(@vue/compiler-sfc@3.5.13)(svelte@5.19.3)
+        specifier: ^22.1.0
+        version: 22.1.0(@vue/compiler-sfc@3.5.13)(svelte@5.19.3)
       vite-plugin-static-copy:
         specifier: ^2.2.0
         version: 2.2.0(vite@6.2.0(@types/node@18.19.74)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0))
@@ -254,9 +254,6 @@ packages:
 
   '@antfu/install-pkg@0.4.1':
     resolution: {integrity: sha512-T7yB5QNG29afhWVkVq7XeIMBa5U/vs9mX69YqayXypPRmYzUmzwnYltplHmPtZ4HPCn+sQKeXW8I47wCbuBOjw==}
-
-  '@antfu/install-pkg@0.5.0':
-    resolution: {integrity: sha512-dKnk2xlAyC7rvTkpkHmu+Qy/2Zc3Vm/l8PtNyIOGDBtXPY3kThfU4ORNEp3V7SXw5XSOb+tOJaUYpfquPzL/Tg==}
 
   '@antfu/install-pkg@1.0.0':
     resolution: {integrity: sha512-xvX6P/lo1B3ej0OsaErAjqgFYzYVcJpamjLAFLYh9vRJngBrMoUG7aVnrGTeqM7yxbyTD5p3F2+0/QUEh8Vzhw==}
@@ -2208,6 +2205,11 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  acorn@8.14.1:
+    resolution: {integrity: sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
 
@@ -2634,6 +2636,9 @@ packages:
 
   confbox@0.1.8:
     resolution: {integrity: sha512-RMtmw0iFkeR4YV+fUOSucriAQNb9g8zFR52MWCtl+cCZOFRNL6zeB395vPzFhEjjn4fMxXudmELnl/KF/WrK6w==}
+
+  confbox@0.2.1:
+    resolution: {integrity: sha512-hkT3yDPFbs95mNCy1+7qNKC6Pro+/ibzYxtM2iqEigpf0sVw+bg4Zh9/snjsBcf990vfIsg5+1U7VyiyBb3etg==}
 
   connect@3.7.0:
     resolution: {integrity: sha512-ZqRXc+tZukToSNmh5C2iWMSoV3X1YUcPbqEM4DkEG5tNQXrQUZCNVGGv3IuicnkMtPfGf3Xtp8WCXs295iQ1pQ==}
@@ -3409,6 +3414,9 @@ packages:
     resolution: {integrity: sha512-VyhnebXciFV2DESc+p6B+y0LjSm0krU4OgJN44qFAhBY0TJ+1V61tYD2+wHusZ6F9n5K+vl8k0sTy7PEfV4qpg==}
     engines: {node: '>=16.17'}
 
+  exsolve@1.0.2:
+    resolution: {integrity: sha512-ZEcIMbthn2zeX4/wD/DLxDUjuCltHXT8Htvm/JFlTkdYgWh2+HGppgwwNUnIVxzxP7yJOPtuBAec0dLx6lVY8w==}
+
   extend-shallow@2.0.1:
     resolution: {integrity: sha512-zCnTtlxNoAiDc3gqY2aYAWFx7XWWiasuF2K8Me5WbN8otHKTUKBwjPtNpRs/rbUZm7KxWAaNj7P1a/p52GbVug==}
     engines: {node: '>=0.10.0'}
@@ -3666,6 +3674,10 @@ packages:
 
   globals@15.14.0:
     resolution: {integrity: sha512-OkToC372DtlQeje9/zHIo5CT8lRP/FUgEOKBEhU4e0abL7J7CD24fD9ohiLN5hagG/kWCYj4K5oaxxtj2Z0Dig==}
+    engines: {node: '>=18'}
+
+  globals@15.15.0:
+    resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -4326,6 +4338,10 @@ packages:
     resolution: {integrity: sha512-bbgPw/wmroJsil/GgL4qjDzs5YLTBMQ99weRsok1XCDccQeehbHA/I1oRvk2NPtr7KGZgT/Y5tPRnAtMqeG2Kg==}
     engines: {node: '>=14'}
 
+  local-pkg@1.1.1:
+    resolution: {integrity: sha512-WunYko2W1NcdfAFpuLUoucsgULmgDBRkdxHxWQ7mK0cQqwPiy8E1enjuRBrhLtZkB5iScJ1XIPdhVEFK8aOLSg==}
+    engines: {node: '>=14'}
+
   locate-character@3.0.0:
     resolution: {integrity: sha512-SW13ws7BjaeJ6p7Q6CO2nchbYEc3X3J6WrmTTDto7yMPqVSZTUyY5Tjbid+Ab8gLnATtygYtiDIJGQRRn2ZOiA==}
 
@@ -4890,6 +4906,9 @@ packages:
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
 
+  package-manager-detector@0.2.11:
+    resolution: {integrity: sha512-BEnLolu+yuz22S56CU1SUKq3XC3PkwD5wv4ikR4MfGvnRVcmzXR9DwSlW2fEamyTPyXHomBJRzgapeuBvRNzJQ==}
+
   package-manager-detector@0.2.8:
     resolution: {integrity: sha512-ts9KSdroZisdvKMWVAVCXiKqnqNfXz4+IbrBG8/BWx/TR5le+jfenvoBuIZ6UWM9nz47W7AbD9qYfAwfWMIwzA==}
 
@@ -5015,6 +5034,9 @@ packages:
 
   pkg-types@1.3.1:
     resolution: {integrity: sha512-/Jm5M4RvtBFVkKWRu2BLUTNP8/M2a+UwuAX+ae4770q1qVGtfjG+WTCupoZixokjmHiry8uI+dlY8KXYV5HVVQ==}
+
+  pkg-types@2.1.0:
+    resolution: {integrity: sha512-wmJwA+8ihJixSoHKxZJRBQG1oY8Yr9pGLzRmSsNms0iNWyHHAlZCa7mmKiFR10YPZuz/2k169JiS/inOjBCZ2A==}
 
   plantuml-encoder@1.4.0:
     resolution: {integrity: sha512-sxMwpDw/ySY1WB2CE3+IdMuEcWibJ72DDOsXLkSmEaSzwEUaYBT6DWgOfBiHGCux4q433X6+OEFWjlVqp7gL6g==}
@@ -5208,6 +5230,9 @@ packages:
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
+
+  quansync@0.2.8:
+    resolution: {integrity: sha512-4+saucphJMazjt7iOM27mbFCk+D9dd/zmgMDCzRZ8MEoBfYp7lAvoN38et/phRQF6wOPMy/OROBGgoWeSKyluA==}
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -6054,8 +6079,8 @@ packages:
       vue-template-es2015-compiler:
         optional: true
 
-  unplugin-icons@22.0.0:
-    resolution: {integrity: sha512-+1jIt2wynxL+GISehNok8MIb9RaCufIZCHJs0HKbxOljJL9m4NtOhva+dZhNtSKtfQ62Hwd/RRbniSVuuD4Xow==}
+  unplugin-icons@22.1.0:
+    resolution: {integrity: sha512-ect2ZNtk1Zgwb0NVHd0C1IDW/MV+Jk/xaq4t8o6rYdVS3+L660ZdD5kTSQZvsgdwCvquRw+/wYn75hsweRjoIA==}
     peerDependencies:
       '@svgr/core': '>=7.0.0'
       '@svgx/core': ^1.0.1
@@ -6102,10 +6127,6 @@ packages:
   unplugin@1.16.1:
     resolution: {integrity: sha512-4/u/j4FrCKdi17jaxuJA0jClGxB1AvU2hw/IuayPc4ay1XGaJs/rbb4v5WKwAjNifjmXK9PIFyuPiaK8azyR9w==}
     engines: {node: '>=14.0.0'}
-
-  unplugin@2.1.2:
-    resolution: {integrity: sha512-Q3LU0e4zxKfRko1wMV2HmP8lB9KWislY7hxXpxd+lGx0PRInE4vhMBVEZwpdVYHvtqzhSrzuIfErsob6bQfCzw==}
-    engines: {node: '>=18.12.0'}
 
   unplugin@2.2.0:
     resolution: {integrity: sha512-m1ekpSwuOT5hxkJeZGRxO7gXbXT3gF26NjQ7GdVHoLoF8/nopLcd/QfPigpCy7i51oFHiRJg/CyHhj4vs2+KGw==}
@@ -6717,14 +6738,9 @@ snapshots:
       package-manager-detector: 0.2.8
       tinyexec: 0.3.2
 
-  '@antfu/install-pkg@0.5.0':
-    dependencies:
-      package-manager-detector: 0.2.8
-      tinyexec: 0.3.2
-
   '@antfu/install-pkg@1.0.0':
     dependencies:
-      package-manager-detector: 0.2.8
+      package-manager-detector: 0.2.11
       tinyexec: 0.3.2
 
   '@antfu/ni@23.3.1': {}
@@ -7457,9 +7473,9 @@ snapshots:
       '@antfu/utils': 8.1.1
       '@iconify/types': 2.0.0
       debug: 4.4.0
-      globals: 15.14.0
+      globals: 15.15.0
       kolorist: 1.8.0
-      local-pkg: 1.0.0
+      local-pkg: 1.1.1
       mlly: 1.7.4
     transitivePeerDependencies:
       - supports-color
@@ -7667,7 +7683,7 @@ snapshots:
       knitwork: 1.2.0
       mlly: 1.7.4
       ohash: 1.1.4
-      pathe: 2.0.2
+      pathe: 2.0.3
       pkg-types: 1.3.1
       scule: 1.3.0
       semver: 7.7.1
@@ -7686,7 +7702,7 @@ snapshots:
     dependencies:
       consola: 3.4.0
       defu: 6.1.4
-      pathe: 2.0.2
+      pathe: 2.0.3
       std-env: 3.8.0
     optional: true
 
@@ -8048,7 +8064,7 @@ snapshots:
       source-map-js: 1.2.1
       typescript: 5.7.3
       unocss: 65.5.0(postcss@8.5.3)(vite@6.1.0(@types/node@20.17.16)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
-      unplugin-icons: 22.0.0(@vue/compiler-sfc@3.5.13)(svelte@5.19.3)
+      unplugin-icons: 22.1.0(@vue/compiler-sfc@3.5.13)(svelte@5.19.3)
       unplugin-vue-components: 28.1.0(@babel/parser@7.26.7)(@nuxt/kit@3.15.3(magicast@0.3.5)(rollup@4.32.0))(vue@3.5.13(typescript@5.7.3))
       unplugin-vue-markdown: 28.3.0(rollup@4.32.0)(vite@6.1.0(@types/node@20.17.16)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0))
       untun: 0.1.3
@@ -8199,7 +8215,7 @@ snapshots:
       monaco-editor: 0.51.0
       shiki: 2.3.2
       unocss: 65.5.0(postcss@8.5.3)(vite@6.1.0(@types/node@20.17.16)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
-      unplugin-icons: 22.0.0(@vue/compiler-sfc@3.5.13)(svelte@5.19.3)
+      unplugin-icons: 22.1.0(@vue/compiler-sfc@3.5.13)(svelte@5.19.3)
       unplugin-vue-markdown: 28.3.0(rollup@4.32.0)(vite@6.1.0(@types/node@20.17.16)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0))
       vite-plugin-inspect: 10.2.1(@nuxt/kit@3.15.3(magicast@0.3.5)(rollup@4.32.0))(vite@6.1.0(@types/node@20.17.16)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0))
       vite-plugin-remote-assets: 0.6.0(vite@6.1.0(@types/node@20.17.16)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0))
@@ -9083,6 +9099,8 @@ snapshots:
 
   acorn@8.14.0: {}
 
+  acorn@8.14.1: {}
+
   ajv@6.12.6:
     dependencies:
       fast-deep-equal: 3.1.3
@@ -9695,6 +9713,8 @@ snapshots:
   concat-map@0.0.1: {}
 
   confbox@0.1.8: {}
+
+  confbox@0.2.1: {}
 
   connect@3.7.0:
     dependencies:
@@ -10662,6 +10682,8 @@ snapshots:
       signal-exit: 4.1.0
       strip-final-newline: 3.0.0
 
+  exsolve@1.0.2: {}
+
   extend-shallow@2.0.1:
     dependencies:
       is-extendable: 0.1.1
@@ -10888,7 +10910,7 @@ snapshots:
       node-fetch-native: 1.6.6
       nypm: 0.5.1
       ohash: 1.1.4
-      pathe: 2.0.2
+      pathe: 2.0.3
       tar: 6.2.1
     optional: true
 
@@ -10931,6 +10953,8 @@ snapshots:
       type-fest: 0.20.2
 
   globals@15.14.0: {}
+
+  globals@15.15.0: {}
 
   globalthis@1.0.4:
     dependencies:
@@ -11634,6 +11658,12 @@ snapshots:
       mlly: 1.7.4
       pkg-types: 1.3.1
 
+  local-pkg@1.1.1:
+    dependencies:
+      mlly: 1.7.4
+      pkg-types: 2.1.0
+      quansync: 0.2.8
+
   locate-character@3.0.0: {}
 
   locate-path@5.0.0:
@@ -11904,7 +11934,7 @@ snapshots:
   mermaid@11.4.1:
     dependencies:
       '@braintree/sanitize-url': 7.1.1
-      '@iconify/utils': 2.2.1
+      '@iconify/utils': 2.3.0
       '@mermaid-js/parser': 0.3.0
       '@types/d3': 7.4.3
       cytoscape: 3.31.0
@@ -12371,7 +12401,7 @@ snapshots:
     dependencies:
       citty: 0.1.6
       consola: 3.4.0
-      pathe: 2.0.2
+      pathe: 2.0.3
       pkg-types: 1.3.1
       tinyexec: 0.3.2
       ufo: 1.5.4
@@ -12522,6 +12552,10 @@ snapshots:
 
   package-json-from-dist@1.0.1: {}
 
+  package-manager-detector@0.2.11:
+    dependencies:
+      quansync: 0.2.8
+
   package-manager-detector@0.2.8: {}
 
   packrup@0.1.2: {}
@@ -12640,6 +12674,12 @@ snapshots:
       confbox: 0.1.8
       mlly: 1.7.4
       pathe: 2.0.2
+
+  pkg-types@2.1.0:
+    dependencies:
+      confbox: 0.2.1
+      exsolve: 1.0.2
+      pathe: 2.0.3
 
   plantuml-encoder@1.4.0: {}
 
@@ -12813,6 +12853,8 @@ snapshots:
   punycode.js@2.3.1: {}
 
   punycode@2.3.1: {}
+
+  quansync@0.2.8: {}
 
   queue-microtask@1.2.3: {}
 
@@ -13766,10 +13808,10 @@ snapshots:
 
   unctx@2.4.1:
     dependencies:
-      acorn: 8.14.0
+      acorn: 8.14.1
       estree-walker: 3.0.3
       magic-string: 0.30.17
-      unplugin: 2.1.2
+      unplugin: 2.2.0
     optional: true
 
   undici-types@5.26.5: {}
@@ -13803,19 +13845,19 @@ snapshots:
   unimport@4.0.0(rollup@4.32.0):
     dependencies:
       '@rollup/pluginutils': 5.1.4(rollup@4.32.0)
-      acorn: 8.14.0
+      acorn: 8.14.1
       escape-string-regexp: 5.0.0
       estree-walker: 3.0.3
       fast-glob: 3.3.3
       local-pkg: 1.0.0
       magic-string: 0.30.17
       mlly: 1.7.4
-      pathe: 2.0.2
+      pathe: 2.0.3
       picomatch: 4.0.2
       pkg-types: 1.3.1
       scule: 1.3.0
       strip-literal: 3.0.0
-      unplugin: 2.1.2
+      unplugin: 2.2.0
     transitivePeerDependencies:
       - rollup
     optional: true
@@ -13910,15 +13952,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  unplugin-icons@22.0.0(@vue/compiler-sfc@3.5.13)(svelte@5.19.3):
+  unplugin-icons@22.1.0(@vue/compiler-sfc@3.5.13)(svelte@5.19.3):
     dependencies:
-      '@antfu/install-pkg': 0.5.0
-      '@antfu/utils': 0.7.10
-      '@iconify/utils': 2.2.1
+      '@antfu/install-pkg': 1.0.0
+      '@iconify/utils': 2.3.0
       debug: 4.4.0
-      kolorist: 1.8.0
-      local-pkg: 0.5.1
-      unplugin: 2.1.2
+      local-pkg: 1.1.1
+      unplugin: 2.2.0
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.13
       svelte: 5.19.3
@@ -13956,7 +13996,7 @@ snapshots:
       '@types/markdown-it': 14.1.2
       markdown-it: 14.1.0
       markdown-it-async: 2.0.0
-      unplugin: 2.1.2
+      unplugin: 2.2.0
       vite: 6.1.0(@types/node@20.17.16)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0)
     transitivePeerDependencies:
       - rollup
@@ -13966,14 +14006,9 @@ snapshots:
       acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
 
-  unplugin@2.1.2:
-    dependencies:
-      acorn: 8.14.0
-      webpack-virtual-modules: 0.6.2
-
   unplugin@2.2.0:
     dependencies:
-      acorn: 8.14.0
+      acorn: 8.14.1
       webpack-virtual-modules: 0.6.2
 
   unstorage@1.15.0:

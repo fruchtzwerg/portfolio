@@ -1,6 +1,6 @@
 ---
+import LogoAstro from '~icons/devicon/astro';
 import LogoTailwind from '~icons/logos/tailwindcss-icon';
-import LogoAstro from '~icons/portfolio/astro';
 
 interface Props {
   class: string;
@@ -15,7 +15,7 @@ const { class: className } = Astro.props as Props;
     'flex flex-col gap-4 items-center p-8 border-t border-slate-300 dark:border-secondary/20',
   ]}
 >
-  <p class="flex justify-center items-center font-mono space-x-2">
+  <p class="flex items-center justify-center space-x-2 font-mono">
     <span>Built with</span>
     <span data-tip="Astro" class="tooltip"><LogoAstro /></span>
     <span>and</span>
@@ -23,13 +23,13 @@ const { class: className } = Astro.props as Props;
   </p>
 
   <!-- Contact -->
-  <section class="text-sm font-extralight text-center font-default">
-    <div class="text-xs mb-1">Benjamin Montazer | Kirchstraße 27 | 86637 Wertingen</div>
+  <section class="text-sm text-center font-extralight font-default">
+    <div class="mb-1 text-xs">Benjamin Montazer | Kirchstraße 27 | 86637 Wertingen</div>
     <a href="tel:+4914156177881" class="link link-hover">+49 (0) 151 56177881</a> |
     <a href="mailto:benjamin@montazer.dev" class="link link-hover">benjamin@montazer.dev</a>
   </section>
 
-  <div class="divider max-lg:my-0 text-base-content/30 font-mono text-2xl">§</div>
+  <div class="font-mono text-2xl divider max-lg:my-0 text-base-content/30">§</div>
 
   <!-- Legal -->
   <section class="legal">

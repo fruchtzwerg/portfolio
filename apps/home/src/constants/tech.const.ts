@@ -1,21 +1,27 @@
 import type { Technology } from '../models/technology.model';
 
-import LogoAngular from '~icons/logos/angular-icon';
+import LogoAngular from '~icons/devicon/angular';
+import LogoAstro from '~icons/devicon/astro';
+import LogoExpress from '~icons/devicon/express';
+import LogoGit from '~icons/devicon/git';
+import LogoGitlab from '~icons/devicon/gitlab';
+import LogoJenkins from '~icons/devicon/jenkins';
+import LogoPlaywright from '~icons/devicon/playwright';
+import LogoReact from '~icons/devicon/react';
+import LogoRollup from '~icons/devicon/rollup';
+import LogoSocketIO from '~icons/devicon/socketio';
+import LogoStencil from '~icons/devicon/stenciljs';
+import LogoTailwind from '~icons/devicon/tailwindcss';
+import LogoTrpc from '~icons/devicon/trpc';
+import LogoVite from '~icons/devicon/vitejs';
+import LogoVue from '~icons/devicon/vuejs';
+import LogoWebpack from '~icons/devicon/webpack';
 import LogoAtlassian from '~icons/logos/atlassian';
-import LogoGit from '~icons/logos/git-icon';
-import LogoGitlab from '~icons/logos/gitlab';
 import LogoJest from '~icons/logos/jest';
+import LogoNest from '~icons/logos/nestjs';
 import LogoNx from '~icons/logos/nx';
-import LogoPlaywright from '~icons/logos/playwright';
-import LogoRollup from '~icons/logos/rollupjs';
-import LogoTailwind from '~icons/logos/tailwindcss-icon';
-import LogoVite from '~icons/logos/vitejs';
-import LogoVue from '~icons/logos/vue';
-import LogoWebpack from '~icons/logos/webpack';
-import LogoAstro from '~icons/portfolio/astro';
-import LogoJenkins from '~icons/vscode-icons/file-type-jenkins';
 
-export const frameworks: Technology[] = [
+export const frontend: Technology[] = [
   {
     id: 'e85e',
     title: 'Angular',
@@ -31,10 +37,20 @@ export const frameworks: Technology[] = [
     title: 'Vue',
     icon: LogoVue,
     description: 'Lightweight and flexible frontend framework. Excels at data visualization.',
-    keywords: ['v2', 'v3', 'Pinia', 'Vuex', 'Vite'],
+    keywords: ['v2', 'v3', 'Pinia', 'Vuex', 'Vite', 'Vitest'],
     tags: ['vue'],
     skill: 5,
     href: 'https://vuejs.org/',
+  },
+  {
+    id: '0b66',
+    title: 'React',
+    icon: LogoReact,
+    description: 'Vercatile and widely supported frontend framework with large community.',
+    keywords: ['v18', 'TanStack', 'React Router'],
+    tags: ['react'],
+    skill: 4,
+    href: '',
   },
   {
     id: '68ba',
@@ -48,15 +64,80 @@ export const frameworks: Technology[] = [
     href: 'https://astro.build/',
   },
   {
+    id: 'e2bb',
+    title: 'Stencil',
+    icon: LogoStencil,
+    description:
+      'A compiler that generates highly optimized, framework-agnostic web components for Design Systems.',
+    keywords: ['WebComponents', 'Angular', 'Vue', 'React', 'Design Systems'],
+    tags: ['stencil', 'designsystem'],
+    skill: 5,
+    href: 'https://stenciljs.com/',
+  },
+  {
     id: 'f385',
     title: 'Tailwind',
     icon: LogoTailwind,
     description:
       'Class-based CSS framework. Equally useful for quick prototyping as well as building production apps. Makes theming and responsiveness a breaze.',
-    keywords: ['Daisy UI', 'Themes', 'Plugins'],
+    keywords: ['Shadcn', 'Daisy UI', 'Themes', 'Plugins'],
     tags: ['tailwind'],
-    skill: 4,
+    skill: 5,
     href: 'https://tailwindcss.com/',
+  },
+];
+
+export const backend: Technology[] = [
+  {
+    id: '8a04',
+    title: 'Express',
+    icon: LogoExpress,
+    description: 'Minimal and flexible Node.js web application framework.',
+    keywords: ['Clean Architecture', 'Auth', 'Middlewares'],
+    tags: ['express'],
+    skill: 5,
+    href: 'https://expressjs.com/',
+  },
+  {
+    id: '5b36',
+    title: 'NestJS',
+    icon: LogoNest,
+    description:
+      'A progressive, TypeScript-based Node.js framework. Built-in support for dependency injection and microservices.',
+    keywords: [
+      'Microservices',
+      'Magestic Monolyth',
+      'Plugins',
+      'E2E Typesafety',
+      'Prisma',
+      'Drizzle',
+      'vendorless',
+    ],
+    tags: ['express', 'nest'],
+    skill: 5,
+    href: 'https://nestjs.com/',
+  },
+  {
+    id: '9dc9',
+    title: 'tRPC',
+    icon: LogoTrpc,
+    description:
+      'Type-safe library for building APIs in TypeScript for seamless communication between frontend and backend with end-to-end type safety.',
+    keywords: ['E2E Type-Safety', 'Client', 'Server'],
+    tags: ['trpc'],
+    skill: 4,
+    href: 'https://trpc.io/',
+  },
+  {
+    id: '4ead',
+    title: 'Socket.IO',
+    icon: LogoSocketIO,
+    description:
+      'Real-time, bidirectional communication client and server, using WebSockets with fallback options for older browsers.',
+    keywords: ['WebSockets', 'CQRS', 'Express', 'NestJS'],
+    tags: ['socketio', 'express', 'nest'],
+    skill: 4,
+    href: 'https://socket.io/',
   },
 ];
 
@@ -111,7 +192,7 @@ export const bundlers: Technology[] = [
     description: 'Modern JavaScript bundler optimized for performance.',
     keywords: ['Vue', 'Astro', 'Iconify'],
     tags: ['vite'],
-    skill: 4,
+    skill: 5,
     href: 'https://vitejs.dev/',
   },
   {

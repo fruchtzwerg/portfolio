@@ -5,7 +5,7 @@ level: 2
 
 # CRUD Routing
 
-```ts twoslash
+```ts {*} twoslash
 import express from 'express';
 const app = express();
 

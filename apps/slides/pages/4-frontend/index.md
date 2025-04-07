@@ -1,6 +1,6 @@
 ---
 theme: default
-background: ../public/vue-1.webp
+background: ../public/vue-1.avif
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -26,7 +26,7 @@ with
 
 ---
 src: ../shared/toc.md
-image: ../public/vue-1.webp
+image: ../public/vue-1.avif
 ---
 
 
@@ -37,7 +37,7 @@ src: rendering/index.md
 
 ---
 layout: cover
-background: ../public/vue-1.webp
+background: ../public/vue-1.avif
 ---
 
 # Vue.js

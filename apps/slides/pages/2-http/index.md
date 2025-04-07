@@ -1,7 +1,7 @@
 ---
 theme: default
 layout: cover
-background: ../public/server-6.webp
+background: ../public/server-6.avif
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -28,7 +28,7 @@ Hypertext Transfer Protocol
 
 ---
 src: ../shared/toc.md
-image: ../public/server-6.webp
+image: ../public/server-6.avif
 ---
 
 
@@ -48,7 +48,7 @@ src: cookies/index.md
 
 
 ---
-src: rest/swagger.md
+src: docs/index.md
 transition: slide-left
 ---
 

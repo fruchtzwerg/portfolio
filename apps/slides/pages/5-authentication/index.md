@@ -1,6 +1,6 @@
 ---
 theme: default
-background: ../public/police-2.webp
+background: ../public/police-2.avif
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -20,7 +20,7 @@ hideInToc: true
 
 ---
 src: ../shared/toc.md
-image: ../public/police-2.webp
+image: ../public/police-2.avif
 ---
 
 

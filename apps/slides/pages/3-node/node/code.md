@@ -27,7 +27,7 @@ server.listen(port, hostname, () => {
 
 Execute with:
 
-```sh twoslash
+```sh
 $ node ./main.js
 ```
 

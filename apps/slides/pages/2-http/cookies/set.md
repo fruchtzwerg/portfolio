@@ -1,6 +1,6 @@
 ---
 layout: image-right
-image: ../public/cookie_2.webp
+image: ../public/cookie_2.avif
 level: 2
 ---
 
@@ -12,13 +12,13 @@ A cookie is a string of key-value pairs separated by semicolons.
 
 Set a cookie in the response header on the <span class="text-purple-400">server</span>:
 
-```http {}
+```http
 Set-Cookie: name=value; Path=/; Secure; HttpOnly
 ```
 
 In Express:
 
-```ts {} twoslash
+```ts {*} twoslash
 import express from 'express';
 
 const app = express();

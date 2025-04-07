@@ -2,7 +2,7 @@
 title: Authentication & Authorization
 transition: fade
 layout: image-large
-image: ../public/police-1.webp
+image: ../public/police-1.avif
 ---
 
 # Crossing the Border
@@ -28,7 +28,7 @@ sequenceDiagram
 level: 2
 title: Authentication & Authorization
 layout: image-large
-image: ../public/police-1.webp
+image: ../public/police-1.avif
 ---
 
 # Authentication/Authorization

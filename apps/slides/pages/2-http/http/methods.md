@@ -1,6 +1,6 @@
 ---
 layout: image-right
-image: ../public/server-7.webp
+image: ../public/server-7.avif
 level: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: cover
-background: ../public/vue-1.webp
+background: ../public/vue-1.avif
 title: Frontend Types
 ---
 

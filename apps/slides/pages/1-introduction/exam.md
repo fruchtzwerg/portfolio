@@ -1,6 +1,6 @@
 ---
 layout: cover
-background: ../public/idea-2.webp
+background: ../public/idea-2.avif
 ---
 
 <div class="mt-64" />
@@ -9,8 +9,8 @@ background: ../public/idea-2.webp
 
 - Type: Coding Project
 - Team: 1-3 students
-- Final submission: 30.06.2024 23:59
-- ~~Optional~~: *"Presentation"* (01. - 26. Juli)
+- Final submission: 06.07.2025 23:59
+- *"Presentation"*: 07. - 31. July
 
 
 ---
@@ -215,7 +215,7 @@ Artifact: Code
 
 The project should be submitted as a Git repository. Teams submit only a single repository.
 
-- Link to the repository via Guilded or email (benjamin@montazer.dev) until 30.06.2024 23:59 is sufficient.
+- Link to the repository via Discord or email (benjamin@montazer.dev) until 06.07.2025 23:59 is sufficient.
 - Ensure that the repository is public or that I have access to it.
 - The repository should contain a README.md file with instructions on how to install dependencies and how to run the application.
 - The README.md file must contain a list of all team members.
@@ -230,5 +230,5 @@ Artifact: Presentation
 - Required for all teams!
 - Teams present their project via screensharing and answer some questions I might have.
 - Contact me via Guilded in July to schedule a presentation date - preferably on the weekends.
-- Latest presentation date: 31.07.2024
+- Latest presentation date: 31.07.2025
 - I will need about 1 week advance notice to review your code.

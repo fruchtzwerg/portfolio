@@ -288,7 +288,7 @@ networks:
 
 ---
 layout: image-right
-image: ../public/server.webp
+image: ../public/server-1.avif
 ---
 
 # Deployment

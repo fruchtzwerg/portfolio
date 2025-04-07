@@ -1,6 +1,6 @@
 ---
 theme: default
-background: ../public/server.webp
+background: ../public/server-1.avif
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -30,7 +30,7 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 src: ../shared/toc.md
-image: ../public/server.webp
+image: ../public/server-1.avif
 ---
 
 

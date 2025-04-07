@@ -1,6 +1,6 @@
 ---
 layout: image-large
-image: ../public/architecture-1.webp
+image: ../public/architecture-1.avif
 level: 2
 ---
 

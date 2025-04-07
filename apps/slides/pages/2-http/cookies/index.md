@@ -1,6 +1,6 @@
 ---
 layout: section-image
-image: ../public/cookie_3.webp
+image: ../public/cookie_3.avif
 dim: 'dark'
 transition: fade-out
 ---

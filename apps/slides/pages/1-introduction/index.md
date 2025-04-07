@@ -1,7 +1,7 @@
 ---
 theme: default
 layout: cover
-background: ../public/laptop-3.webp
+background: ../public/laptop-3.avif
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -30,7 +30,7 @@ SS 2025
 
 ---
 src: ../shared/toc.md
-image: ../public/server.webp
+image: ../public/server-1.avif
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 level: 2
 layout: cover
-background: ../public/vue-1.webp
+background: ../public/vue-1.avif
 ---
 
 # Reactivity and Composables

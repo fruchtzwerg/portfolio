@@ -1,6 +1,6 @@
 ---
 layout: image-large
-image: ../public/server-6.webp
+image: ../public/server-6.avif
 ---
 
 # HTTP

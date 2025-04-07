@@ -1,6 +1,6 @@
 ---
 layout: cover
-background: ../public/architecture-1.webp
+background: ../public/architecture-1.avif
 ---
 
 # Views

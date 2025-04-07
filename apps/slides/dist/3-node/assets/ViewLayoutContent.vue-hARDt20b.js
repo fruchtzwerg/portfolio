@@ -1,0 +1,1 @@
+import{o,b as e,f as l}from"./modules/vue-DqyYkKqv.js";import{D as t}from"./md-BLW5X4md.js";const s={},c={class:"*:border-t-1/2 xl:*:border-l-1/2 custom-scroll flex flex-col pr-0 first:*:border-t-0 xl:flex-row xl:*:border-t-0 xl:first:*:border-l-0"};function f(r,n){return o(),e("div",c,[l(r.$slots,"default")])}const a=t(s,[["render",f]]);export{a as x};

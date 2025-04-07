@@ -1,6 +1,6 @@
 ---
 layout: image-right
-image: ../public/architecture-1.webp
+image: ../public/architecture-1.avif
 ---
 
 # Composables

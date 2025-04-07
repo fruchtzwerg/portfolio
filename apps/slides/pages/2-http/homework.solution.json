@@ -1,0 +1,378 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Stralsund Libarary API",
+    "description": "Simple API to manage books.",
+    "version": "1.0.0"
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  },
+  "servers": [
+    {
+      "url": "http://localhost/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "books",
+      "description": "Book collection"
+    }
+  ],
+  "paths": {
+    "/books": {
+      "get": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Get all books",
+        "description": "Get all entries in books collection.",
+        "operationId": "getAllbooks",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BookArray"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Create book",
+        "description": "Create a new resource in the books collection.",
+        "operationId": "createbook",
+        "requestBody": {
+          "description": "Created book",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Invalid"
+          }
+        }
+      }
+    },
+    "/books/{id}": {
+      "get": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Get book by ID",
+        "description": "",
+        "operationId": "getbookById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the book.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Invalid"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Replace book",
+        "description": "Override a book.",
+        "operationId": "replacebook",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID that need to be replaced",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Replace an existent book in the database. Ensure ID is not overriden. Ignore invalid fields.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Invalid"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Update book",
+        "description": "Partially update a book.",
+        "operationId": "updatebook",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID that need to be updated",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update an existent book in the database. Ensure ID is not overriden. Ensure only provided fields are overriden. Ignore invalid fields.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Invalid"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Delete book",
+        "description": "Delete book of ID in the database.",
+        "operationId": "deletebook",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID that needs to be deleted",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Book was deleted successfully"
+          },
+          "400": {
+            "$ref": "#/components/responses/Invalid"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Book": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "examples": [
+              10
+            ]
+          },
+          "title": {
+            "type": "string",
+            "examples": [
+              "Lord of the Rings"
+            ]
+          },
+          "author": {
+            "type": "string",
+            "examples": [
+              "J.R.R. Tolkien"
+            ]
+          },
+          "year": {
+            "type": "integer",
+            "examples": [
+              1954
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "author",
+          "year"
+        ]
+      },
+      "CreateBookDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "examples": [
+              "Lord of the Rings"
+            ]
+          },
+          "author": {
+            "type": "string",
+            "examples": [
+              "J.R.R. Tolkien"
+            ]
+          },
+          "year": {
+            "type": "integer",
+            "examples": [
+              1954
+            ]
+          }
+        },
+        "required": [
+          "title",
+          "author",
+          "year"
+        ]
+      },
+      "UpdateBookDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "examples": [
+              "Lord of the Rings"
+            ]
+          },
+          "author": {
+            "type": "string",
+            "examples": [
+              "J.R.R. Tolkien"
+            ]
+          },
+          "year": {
+            "type": "integer",
+            "examples": [
+              1954
+            ]
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "examples": [
+              "E001"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "examples": [
+              "book not found"
+            ]
+          }
+        }
+      }
+    },
+    "responses": {
+      "BookArray": {
+        "description": "List of books",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Book"
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Book not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      },
+      "Invalid": {
+        "description": "Invalid ID supplied (i.e. not parsable as integer)",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  }
+}

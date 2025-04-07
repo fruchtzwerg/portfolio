@@ -1,6 +1,6 @@
 ---
 layout: image-right
-image: ../public/cookie_3.webp
+image: ../public/cookie_3.avif
 level: 2
 ---
 

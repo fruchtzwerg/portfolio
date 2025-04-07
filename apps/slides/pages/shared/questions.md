@@ -1,5 +1,6 @@
 ---
 layout: end
+hideInToc: true
 ---
 
 # Questions?!

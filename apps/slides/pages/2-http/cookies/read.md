@@ -1,6 +1,6 @@
 ---
 layout: image-right
-image: ../public/cookie_4.webp
+image: ../public/cookie_4.avif
 level: 2
 ---
 
@@ -12,7 +12,7 @@ Cookies are sent by the <span class="text-cyan-400">client</span> in the `Cookie
 
 In Express:
 
-```ts {} twoslash
+```ts {*} twoslash
 import express from 'express';
 
 const app = express();
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 In the browser:
 
-```ts {} twoslash
+```ts {*} twoslash
 const str = document.cookie;
 const ary = str.split('; ');
 const tuples = ary.map(

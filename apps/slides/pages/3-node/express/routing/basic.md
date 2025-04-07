@@ -7,7 +7,7 @@ level: 2
 
 Define a route to handle HTTP GET requests to the root URL.
 
-```ts twoslash
+```ts {*} twoslash
 import express from 'express';
 const app = express();
 

@@ -15,7 +15,7 @@ layout: section
 </h1>
 
 <a href="https://www.postman.com/" target="_blank">
-  <img src="/public/postman.png" />
+  <img src="/public/postman.avif" />
 </a>
 
 ---
@@ -28,7 +28,7 @@ layout: section
 </h1>
 
 <a href="https://insomnia.rest/" target="_blank">
-  <img src="/public/insomnia.png" />
+  <img src="/public/insomnia.avif" />
 </a>
 
 
@@ -42,7 +42,7 @@ layout: section
 </h1>
 
 <a href="https://www.thunderclient.com/" target="_blank">
-  <img src="/public/thunder-client-v14.png" />
+  <img src="/public/thunder-client-v14.avif" />
 </a>
 
 
@@ -56,5 +56,5 @@ layout: section
 </h1>
 
 <a href="https://hoppscotch.io/" target="_blank">
-  <img src="/public/hoppscotch.png" />
+  <img src="/public/hoppscotch.avif" />
 </a>

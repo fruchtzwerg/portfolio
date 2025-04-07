@@ -34,7 +34,7 @@ entrypoints.reduce(
 
     await $({
       stdio: 'inherit',
-    })`slidev export ${base} --dark --timeout=90000 --output dist/${base}/${base}.pdf`;
+    })`slidev export ${base} --dark --timeout=90000 --wait 5000 --wait-until load --output dist/${base}/${base}.pdf`;
   },
   clean(),
 );

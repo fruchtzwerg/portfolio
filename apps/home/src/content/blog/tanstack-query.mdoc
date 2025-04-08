@@ -3,14 +3,14 @@ createdAt: 2023-08-27
 title: Eliminating stores with TanStack Query
 tags: ['tanstack', 'ts-rest', 'api', 'rest']
 summary: Remove the need for stores in your frontend with TanStack Query. Combine with ts–rest to maintain typesafety.
-image: ../../assets/image/blog-tanstack-query-1.webp
+img: /src/assets/image/blog-tanstack-query-1.webp
 ---
 
 # {% $frontmatter.title %}
 
 {% summary text=$frontmatter.summary /%}
 
-{% leadin image=$frontmatter.image slug=$slug %}
+{% leadin image=$frontmatter.img slug=$slug %}
 One of the most common patterns in frontends is to fetch data from an API once, then use it across
 our application. We also want to react to changes of the stored state. Redux, Pinia, NgRx and many
 other state management libraries solve this problem.

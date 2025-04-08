@@ -3,4 +3,5 @@ packages:
   - libs/*
 onlyBuiltDependencies:
   - playwright-chromium
+  - sharp
   - vue-demi

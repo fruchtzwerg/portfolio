@@ -19,8 +19,11 @@ const { image, alt = '', slug = '' } = Astro.props;
       src={image}
       {alt}
       widths={[250, 400, 800, 1200]}
-      formats={['avif', 'webp', 'jpeg']}
+      formats={['avif', 'webp']}
+      fallbackFormat="webp"
       class="w-full rounded"
+      loading="eager"
+      decoding="sync"
     />
   )
 }

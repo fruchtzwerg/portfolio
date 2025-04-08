@@ -35,6 +35,7 @@ export default defineMarkdocConfig({
         marker: { type: String },
       },
     },
+
     link: {
       render: component('./src/components/markdoc/Anchor.astro'),
       attributes: {

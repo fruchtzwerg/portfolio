@@ -42,7 +42,12 @@ export default defineConfig({
       },
     }),
     robotsTxt({ host: true }),
-    ...[process.env.VERCEL_ENV === 'production' ? [compress()] : []],
+    // TODO: fix image compression
+    ...[
+      process.env.VERCEL_ENV === 'production'
+        ? [compress({ Image: false, JavaScript: false })]
+        : [],
+    ],
   ],
 
   prefetch: true,

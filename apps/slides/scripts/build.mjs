@@ -1,6 +1,7 @@
 // @ts-check
 
 import { $ } from 'execa';
+import { rmSync } from 'fs';
 import { cp } from 'fs/promises';
 import { globSync as glob } from 'glob';
 import { basename } from 'path';
@@ -31,6 +32,11 @@ entrypoints.reduce(
     await $({
       stdio: 'inherit',
     })`slidev build ${entrypoint} --out=dist/${base} --base=/slides/${base}/`;
+
+    // remove unused favicon png to prevent astro compress from processing it
+    glob(`dist/${base}/**/logo-*.png`).forEach(logo => {
+      rmSync(logo);
+    });
 
     await $({
       stdio: 'inherit',

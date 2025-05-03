@@ -17,7 +17,7 @@ const slides = getSlides(files);
 ---
 
 <Layout {title}>
-  <div class="prose max-w-none mb-24">
+  <div class="mb-24 prose max-w-none">
     <h1 class="cursor">_{title}</h1>
 
     <p class="text-xl">
@@ -42,10 +42,15 @@ const slides = getSlides(files);
     </p>
   </div>
 
-  <ol class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+  <ol class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 animate-stagger-[200ms_+_100ms]">
     {
-      slides.map(slide => (
-        <ul>
+      slides.map((slide, i) => (
+        <li
+          class:list={[
+            `index-[${i}]`,
+            'animate-fade-grow animate-ease-fn-[--overshoot-fn] animate-duration-300',
+          ]}
+        >
           <Hover href={`/slides/${slide.slug}`} class="flex flex-col gap-2" inset prefetch="tap">
             {slide.background && (
               <div class="not-prose">
@@ -71,7 +76,7 @@ const slides = getSlides(files);
 
             <p>{slide.info}</p>
 
-            <small class="space-x-1 mt-auto text-base-content/60 group-hover:text-neutral-content/60">
+            <small class="mt-auto space-x-1 text-base-content/60 group-hover:text-neutral-content/60">
               {slide.order}
             </small>
 
@@ -80,7 +85,7 @@ const slides = getSlides(files);
               <IconLink slot="icon" />
             </Link>
           </Hover>
-        </ul>
+        </li>
       ))
     }
   </ol>

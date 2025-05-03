@@ -21,7 +21,7 @@ const dateFormatter = Intl.DateTimeFormat('en-GB', {
 <ol
   class:list={[
     className,
-    'reset-list border-l border-base-content/50 space-y-32 animate-scale-y origin-top animate-duration-500 animate-ease-[cubic-bezier(1,0,1,1)] animate-stagger-[500ms_+_300ms]',
+    'reset-list border-l border-base-content/50 space-y-32 animate-scale-y origin-top animate-duration-500 animate-stagger-[500ms_+_300ms]',
   ]}
 >
   {
@@ -31,9 +31,12 @@ const dateFormatter = Intl.DateTimeFormat('en-GB', {
         data-date={dateFormatter.format(collection[i].data.date)}
         data-date-raw={collection[i].data.date.getTime()}
         style={`--outer-index: ${i}`}
-        class:list={[`index-[${i}]`, 'mt-16 animate-fade-down animate-duration-300']}
+        class:list={[
+          `index-[${i}]`,
+          'mt-16 animate-fade-down animate-ease-fn-[--overshoot-fn] animate-duration-300',
+        ]}
       >
-        <div class="flex flex-start items-center ml-8">
+        <div class="flex items-center ml-8 flex-start">
           <div class="bullet-point" />
           <small class="client">{collection[i].data.caption}</small>
         </div>

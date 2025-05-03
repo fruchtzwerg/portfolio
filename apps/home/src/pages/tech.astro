@@ -39,7 +39,7 @@ export const order = 1;
 
           <ul class="reset-list grid gap-20 grid-cols-1 md:grid-cols-2 animate-stagger-[500ms_+_300ms] animate-duration-300">
             {section.technologies.map((tech, i) => (
-              <li class:list={[`index-[${i}]`, 'animate-fade-up']}>
+              <li class:list={[`index-[${i}]`, 'animate-fade-up animate-ease-fn-[--overshoot-fn]']}>
                 <TechCard {tech} />
               </li>
             ))}

@@ -15,11 +15,10 @@ import IconDownload from '~icons/line-md/download-loop';
   <ColorBlend
     class:list={[
       'grid-in-[avatar] not-prose max-w-md w-full aspect-square bg-clip-text place-self-center rounded-full',
-      'shadow-md shadow-base-content/30 dark:shadow-base-300 hover:shadow-primary/50 dark:hover:shadow-primary/50 hover:shadow-lg',
-
-      'animate-fade-grow animate-once animate-ease-in-out animate-duration-300',
+      'transition-shadow shadow-md shadow-base-content/30 dark:shadow-base-300 hover:shadow-primary/50 dark:hover:shadow-primary/50 hover:shadow-lg',
+      'animate-fade-grow animate-once animate-duration-500 animate-ease-fn-[--elastic-fn] ease-[--elastic-fn] duration-500',
     ]}
-    blendClasses="transition-colors duration-500 bg-neutral/90 group-hover:bg-transparent dark:bg-secondary/90"
+    blendClasses="transition-colors transition-ease-[--elastic-fn] duration-500 bg-neutral/90 group-hover:bg-transparent dark:bg-secondary/90"
   >
     <Picture
       src={avatar}
@@ -30,7 +29,7 @@ import IconDownload from '~icons/line-md/download-loop';
       loading="eager"
       decoding="sync"
       class:list={[
-        '-rotate-6 hover:rotate-0 transition duration-500',
+        '-rotate-6 hover:rotate-0 ease-[--elastic-fn]',
         'my-0 w-full contrast-125 brightness-110 group-hover:contrast-100 group-hover:brightness-100 transition-all duration-500 scale-[1.15] supports-safari:transition-transform supports-safari-not:group-hover:scale-100',
       ]}
     />

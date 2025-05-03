@@ -25,7 +25,9 @@ const { class: className, app } = Astro.props;
     <ul class="animate-stagger-[1s_+_300ms_*_var(--outer-index)_+_300ms]">
       {
         app.data.technologies.map((tech, i) => (
-          <li class:list={[`index-[${i}]`, 'animate-fade-up']}>{tech}</li>
+          <li class:list={[`index-[${i}]`, 'animate-fade-up animate-ease-fn-[--overshoot-fn]']}>
+            {tech}
+          </li>
         ))
       }
     </ul>

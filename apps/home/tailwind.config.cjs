@@ -149,7 +149,7 @@ module.exports = {
             [`@apply text-lg list-['${value}'] pl-[1ch]`]: {},
           },
         }),
-        'animate-ease': value => ({ animationTimingFunction: value }),
+        'animate-ease-fn': value => ({ animationTimingFunction: value }),
         index: value => ({ '--index': value }),
         'transition-stagger': value => ({
           '& > *': {

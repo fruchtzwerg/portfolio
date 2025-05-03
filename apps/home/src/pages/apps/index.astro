@@ -15,7 +15,7 @@ export const order = 3;
 <Layout {title} prose>
   <h1 class="cursor">_{title}</h1>
 
-  <p class="text-xl mb-24">
+  <p class="mb-24 text-xl">
     Books can be great but in order to learn a technology and truly understand it, you need to build
     something with it. Only then do you encounter all those painfull edge-cases - and learn how to
     overcome them.
@@ -26,7 +26,10 @@ export const order = 3;
       apps.map((app, i) => (
         <li
           style={`--outer-index: ${i}`}
-          class:list={[`index-[${i}]`, 'animate-fade-up animate-duration-300']}
+          class:list={[
+            `index-[${i}]`,
+            'animate-fade-up animate-ease-fn-[--overshoot-fn] animate-duration-300',
+          ]}
         >
           <AppCard {app} />
         </li>

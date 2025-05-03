@@ -20,7 +20,7 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
 ---
 
 <Layout {title}>
-  <div class="prose max-w-none mb-24">
+  <div class="mb-24 prose max-w-none">
     <h1 class="cursor">_{title}</h1>
 
     <p class="text-xl">
@@ -30,12 +30,17 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
     <p class="text-lg">Also so I don't forget ¯\_(ツ)_/¯</p>
   </div>
 
-  <ol class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+  <ol class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 animate-stagger-[200ms_+_100ms]">
     {
       blogEntries
         .sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime())
-        .map(blog => (
-          <li>
+        .map((blog, i) => (
+          <li
+            class:list={[
+              `index-[${i}]`,
+              'animate-fade-grow animate-ease-fn-[--overshoot-fn] animate-duration-300',
+            ]}
+          >
             <Hover href={`/blog/${blog.id}`} class="flex flex-col gap-2" inset>
               {blog.data.image && (
                 <div class="not-prose">
@@ -55,7 +60,7 @@ const formatTime = new Intl.DateTimeFormat('en-US', {
 
               <p>{blog.data.summary}</p>
 
-              <small class="space-x-1 mt-auto text-base-content/60 group-hover:text-neutral-content/60">
+              <small class="mt-auto space-x-1 text-base-content/60 group-hover:text-neutral-content/60">
                 <time datetime={blog.data.createdAt.toISOString()}>
                   {formatTime.format(blog.data.createdAt)}
                 </time>

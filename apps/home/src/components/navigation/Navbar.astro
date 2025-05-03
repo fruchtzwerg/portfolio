@@ -2,6 +2,7 @@
 import { socials } from '../../constants/socials.const';
 import { getPages, type MaybePage } from '../../utils/pages.utils';
 import ThemeSelector from '../buttons/ThemeSelector.svelte';
+import Search from '../search/Search.astro';
 
 interface Props {
   id: string;
@@ -27,18 +28,23 @@ const matches = (pathname: string) =>
     'grid grid-flow-col items-center sm:gap-4 p-2 sm:p-4 w-full backdrop-blur-md',
   ]}
 >
+  <!-- Search -->
+  <Search class="grid-in-[search]" inputClass="grid-in-[input]" />
+
   <!-- Themes -->
-  <ThemeSelector
-    client:only="svelte"
-    transition:persist
-    className="grid-in-[theme] place-self-end sm:max-lg:hidden btn btn-ghost btn-circle btn-sm sm:btn-md"
-  />
+  <div class="grid-in-[theme]">
+    <ThemeSelector
+      client:only="svelte"
+      transition:persist
+      className="btn btn-ghost btn-circle btn-sm sm:btn-md"
+    />
+  </div>
 
   <!-- Tabs -->
-  <ul class="grid-in-[tabs] gap-4 place-self-center hidden sm:flex">
+  <ul class="grid-in-[tabs] gap-4 place-self-center hidden sm:flex w-full lg:w-auto">
     {
       pages.map(page => (
-        <li>
+        <li class="grow">
           <a
             href={`/${page.title.toLowerCase()}/`}
             data-astro-prefetch="viewport"
@@ -66,68 +72,31 @@ const matches = (pathname: string) =>
         </li>
       ))
     }
-
-    <ThemeSelector
-      client:only="svelte"
-      transition:persist
-      className="max-sm:hidden lg:hidden btn btn-ghost btn-circle btn-sm sm:btn-md"
-    />
   </ul>
 </nav>
 
 <style lang="scss">
   .grid {
     grid-template-areas:
-      'socials theme'
-      'tabs tabs';
-
-    .grid-in {
-      &-\[socials\] {
-        @apply justify-self-start;
-      }
-      &-\[tabs\] {
-        @apply justify-center w-full;
-      }
-      &-\[theme\] {
-        @apply justify-self-end;
-      }
-    }
+      'socials search theme'
+      'input input input';
+    grid-template-columns: 1fr auto auto;
+    row-gap: 1.25rem;
 
     @screen sm {
       grid-template-areas:
-        'tabs tabs tabs'
-        'none socials empty';
-      grid-template-columns: 1fr auto 1fr;
-    }
-
-    @screen md {
-      grid-template-areas:
-        'tabs tabs tabs'
-        'none socials empty';
-      grid-template-columns: 1fr auto 1fr;
-
-      .grid-in {
-        &-\[socials\] {
-          @apply justify-self-center;
-        }
-      }
+        'tabs tabs tabs tabs'
+        'socials empty search theme'
+        'input input input input';
+      grid-template-columns: auto 1fr auto auto;
+      column-gap: 0;
     }
 
     @screen lg {
-      grid-template-areas: 'socials tabs theme';
-      grid-template-columns: 1fr auto 1fr;
-
-      .grid-in {
-        &-\[tabs\] {
-          @apply justify-center;
-        }
-        &-\[socials\] {
-          @apply justify-self-start;
-        }
-        &-\[theme\] {
-          @apply justify-self-end;
-        }
-      }
+      grid-template-areas:
+        'socials tabs search theme'
+        'input input input input';
+      grid-template-columns: auto 1fr auto auto;
     }
   }
 </style>

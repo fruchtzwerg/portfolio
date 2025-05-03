@@ -1,0 +1,112 @@
+---
+export interface Props {
+  readonly id?: string;
+  readonly className?: string;
+  readonly query?: string;
+  readonly uiOptions?: Record<string, any>;
+}
+
+const { id, className, query, uiOptions = {} } = Astro.props;
+const bundlePath = `${import.meta.env.BASE_URL}pagefind/`;
+---
+
+<div
+  id={id}
+  class:list={[className, 'pagefind-init']}
+  data-pagefind-ui
+  data-bundle-path={bundlePath}
+  data-query={query}
+  data-ui-options={JSON.stringify(uiOptions)}
+>
+</div>
+<script>
+  // @ts-expect-error ts(7016)
+  import { PagefindUI } from '@pagefind/default-ui';
+
+  function initPageFind() {
+    const allSelector = '[data-pagefind-ui]';
+
+    for (const el of document.querySelectorAll(`${allSelector}.pagefind-init`)) {
+      const elSelector = [
+        ...(el.id ? [`#${el.id}`] : []),
+        ...[...el.classList.values()].map(c => `.${c}`),
+        allSelector,
+      ].join('');
+
+      const bundlePath = el.getAttribute('data-bundle-path');
+      const opts = JSON.parse(el.getAttribute('data-ui-options') ?? '{}');
+
+      new PagefindUI({ ...opts, element: elSelector, bundlePath });
+
+      el.classList.remove('pagefind-init');
+
+      const query = el.getAttribute('data-query');
+
+      if (query) {
+        const input = el.querySelector<HTMLInputElement>(`input[type="text"]`);
+
+        if (input) {
+          input.value = query;
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }
+
+      const input = el.querySelector('input');
+      if (!input) return;
+
+      const clearBtn = input.nextElementSibling;
+      if (clearBtn) {
+        clearBtn.classList.add('btn', 'btn-ghost', 'btn-circle', 'btn-sm');
+        clearBtn.innerHTML = `<svg class="size-6" viewBox="0 0 32 32"><path fill="currentColor" d="M26 20h-6v-2h6zm4 8h-6v-2h6zm-2-4h-6v-2h6z"/><path fill="currentColor" d="M17.003 20a4.9 4.9 0 0 0-2.404-4.173L22 3l-1.73-1l-7.577 13.126a5.7 5.7 0 0 0-5.243 1.503C3.706 20.24 3.996 28.682 4.01 29.04a1 1 0 0 0 1 .96h14.991a1 1 0 0 0 .6-1.8c-3.54-2.656-3.598-8.146-3.598-8.2m-5.073-3.003A3.11 3.11 0 0 1 15.004 20c0 .038.002.208.017.469l-5.9-2.624a3.8 3.8 0 0 1 2.809-.848M15.45 28A5.2 5.2 0 0 1 14 25h-2a6.5 6.5 0 0 0 .968 3h-2.223A16.6 16.6 0 0 1 10 24H8a17.3 17.3 0 0 0 .665 4H6c.031-1.836.29-5.892 1.803-8.553l7.533 3.35A13 13 0 0 0 17.596 28Z"/></svg>`;
+      }
+    }
+  }
+
+  document.addEventListener('astro:page-load', initPageFind);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPageFind);
+  } else {
+    initPageFind();
+  }
+</script>
+
+<style lang="scss" is:global>
+  .pagefind-ui__form {
+    @apply relative flex flex-col gap-4;
+  }
+  .pagefind-ui__search-input {
+    @apply input grow border-primary/50 focus-within:border-primary;
+  }
+
+  .pagefind-ui__search-clear {
+    @apply absolute top-2 right-4;
+  }
+
+  .pagefind-ui__drawer {
+    @apply absolute top-16;
+  }
+
+  .pagefind-ui__results-area {
+    @apply max-h-[80vh] overflow-auto bg-base-100 rounded-box p-6 shadow-xl border border-primary/50 flex flex-col gap-4;
+
+    .pagefind-ui__message {
+      @apply text-secondary;
+    }
+
+    .pagefind-ui__results {
+      @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12;
+    }
+
+    .pagefind-ui__result-title {
+      @apply text-3xl font-light font-inconsolata text-primary pb-3;
+
+      .pagefind-ui__result-link {
+        @apply hover:underline;
+      }
+    }
+
+    .pagefind-ui__result-excerpt {
+      @apply text-justify font-inconsolata;
+    }
+  }
+</style>

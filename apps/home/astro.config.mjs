@@ -6,6 +6,7 @@ import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
+import pagefind from 'astro-pagefind';
 import robotsTxt from 'astro-robots-txt';
 // import { visualizer } from 'rollup-plugin-visualizer';
 import Icons from 'unplugin-icons/vite';
@@ -41,6 +42,7 @@ export default defineConfig({
         return item;
       },
     }),
+    pagefind(),
     robotsTxt({ host: true }),
     // TODO: fix image compression
     ...[

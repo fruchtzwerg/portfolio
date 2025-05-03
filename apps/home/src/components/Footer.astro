@@ -25,8 +25,12 @@ const { class: className } = Astro.props as Props;
   <!-- Contact -->
   <section class="text-sm text-center font-extralight font-default">
     <div class="mb-1 text-xs">Benjamin Montazer | Kirchstraße 27 | 86637 Wertingen</div>
-    <a href="tel:+4914156177881" class="link link-hover">+49 (0) 151 56177881</a> |
-    <a href="mailto:benjamin@montazer.dev" class="link link-hover">benjamin@montazer.dev</a>
+    <a href="tel:+4914156177881" title="phone number" class="link link-hover"
+      >+49 (0) 151 56177881</a
+    > |
+    <a href="mailto:benjamin@montazer.dev" title="email address" class="link link-hover">
+      benjamin@montazer.dev
+    </a>
   </section>
 
   <div class="font-mono text-2xl divider max-lg:my-0 text-base-content/30">§</div>

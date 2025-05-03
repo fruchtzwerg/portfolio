@@ -1,0 +1,85 @@
+---
+// import Pagefind from 'astro-pagefind/components/Search';
+import Pagefind from './Pagefind.astro';
+
+import IconData from '~icons/carbon/data-analytics';
+import IconSearch from '~icons/carbon/search';
+
+interface Props {
+  class?: string;
+  inputClass?: string;
+}
+
+const { class: className, inputClass: inputClassName } = Astro.props;
+
+const HIDDEN_CLASS = 'scale-y-0';
+// const EASING =
+//   'ease-[linear(0,_0.234_11.8%,_0.403_18.4%,_0.624_24.7%,_0.999_33.3%,_0.76_39.9%,_0.705_42.6%,_0.687_45.2%,_0.703_47.7%,_0.753_50.3%,_0.999_57.7%,_0.89_61.8%,_0.865_63.6%,_0.857_65.3%,_0.865_67%,_0.887_68.8%,_0.999_74.5%,_0.957_77.5%,_0.944_80.2%,_0.954_82.7%,_1_88.2%,_0.988_91.9%,_1)]';
+---
+
+<button
+  id="show-search"
+  class:list={[className, 'swap btn btn-ghost btn-circle btn-sm sm:btn-md']}
+  aria-label="Switch theme"
+>
+  <IconData class="swap-on fill-current text-lg sm:text-2xl" />
+  <IconSearch class="swap-off fill-current text-lg sm:text-2xl" />
+</button>
+
+<pagefind-wrapper data-hidden-class={HIDDEN_CLASS} class:list={[inputClassName, 'w-full']}>
+  <Pagefind
+    id="search"
+    className={`transition-transform origin-top glide ${HIDDEN_CLASS}`}
+    uiOptions={{ showImages: false, showSubResults: false }}
+  />
+</pagefind-wrapper>
+
+<style is:global>
+  .glide {
+    transition-duration: 0.4s;
+    transition-timing-function: linear(
+      0,
+      0.012 0.9%,
+      0.049 2%,
+      0.409 9.3%,
+      0.513 11.9%,
+      0.606 14.7%,
+      0.691 17.9%,
+      0.762 21.3%,
+      0.82 25%,
+      0.868 29.1%,
+      0.907 33.6%,
+      0.937 38.7%,
+      0.976 51.3%,
+      0.994 68.8%,
+      1
+    );
+  }
+</style>
+
+<script>
+  class PagefindWrapper extends HTMLElement {
+    connectedCallback() {
+      const HIDDEN_CLASS = this.dataset.hiddenClass ?? 'hidden';
+
+      const btn = document.getElementById('show-search');
+      const root = document.getElementById('search');
+      const input = root?.querySelector('input');
+
+      btn?.addEventListener('click', () => {
+        let isHidden = root?.classList.contains(HIDDEN_CLASS);
+
+        if (isHidden) {
+          btn.classList.add('swap-active');
+          root?.classList.remove(HIDDEN_CLASS);
+          input?.focus();
+        } else {
+          btn.classList.remove('swap-active');
+          root?.classList.add(HIDDEN_CLASS);
+        }
+      });
+    }
+  }
+
+  customElements.define('pagefind-wrapper', PagefindWrapper);
+</script>

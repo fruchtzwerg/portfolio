@@ -30,18 +30,18 @@ const {
   <body class="flex flex-col min-h-screen m-0 bg-base-300">
     <!-- backdrop -->
     <div class="fixed inset-0 z-0 flex justify-center sm:px-8">
-      <div class="flex w-full max-w-5xl bg-gradient ring-1 ring-secondary/20"></div>
+      <div class="flex w-full max-w-6xl bg-gradient ring-1 ring-secondary/20"></div>
     </div>
 
     <header class="sticky top-0 z-50 flex justify-center sm:px-8">
-      <Navbar id="navbar" class="w-full max-w-5xl transition-shadow" />
+      <Navbar id="navbar" class="w-full max-w-6xl transition-shadow" />
     </header>
 
     <main
       class:list={[
         { prose },
         className,
-        'relative max-w-[100vw] lg:max-w-5xl sm:px-8 lg:px-16 mx-auto mt-8 mb-16',
+        'relative max-w-[100vw] lg:max-w-6xl sm:px-8 lg:px-16 mx-auto mt-8 mb-16',
       ]}
     >
       <div class="relative px-4 sm:p-8 lg:p-12">
@@ -51,7 +51,7 @@ const {
     </main>
 
     <div class="relative z-10 mt-auto flex justify-center sm:px-8">
-      <Footer class="w-full max-w-5xl" />
+      <Footer class="w-full max-w-6xl" />
     </div>
 
     <div class="sticky bottom-0 z-10 sm:hidden">

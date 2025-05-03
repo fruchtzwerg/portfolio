@@ -5,6 +5,7 @@ class: text-center
 highlighter: shiki
 lineNumbers: true
 author: Benjamin Montazer
+title: Auth
 info: Authentication and Authorization.
 drawings:
   persist: false

@@ -5,6 +5,7 @@ class: text-center
 highlighter: shiki
 lineNumbers: true
 author: Benjamin Montazer
+title: Frontend
 info: Frontend with Vue.
 drawings:
   persist: false

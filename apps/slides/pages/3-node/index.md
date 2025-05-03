@@ -5,6 +5,7 @@ class: text-center
 highlighter: shiki
 lineNumbers: true
 author: Benjamin Montazer
+title: Backend
 info: Building a webserver with Node.js.
 drawings:
   persist: false

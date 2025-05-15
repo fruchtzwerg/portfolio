@@ -29,7 +29,7 @@ level: 2
   
 ## API Spec
 
-https://realworld-docs.netlify.app/docs/specs/frontend-specs/swagger/
+https://github.com/gothinkster/realworld/blob/6dc657a136a00b4f6441a5b4506b7e5712c79ebd/api/openapi.yml
 
 ---
 level: 2

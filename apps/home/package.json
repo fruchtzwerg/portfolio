@@ -16,6 +16,7 @@
       "slides"
     ]
   },
+  "packageManager": "pnpm@10.34.1",
   "dependencies": {
     "@fontsource/arvo": "^5.2.7",
     "@fontsource/exo": "^5.2.8",

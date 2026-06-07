@@ -1,6 +1,7 @@
 ---
 layout: cover
 background: ../public/idea-2.avif
+class: cover-large
 ---
 
 <div class="mt-64" />
@@ -9,9 +10,66 @@ background: ../public/idea-2.avif
 
 - Type: Coding Project
 - Team: 1-3 students
-- Final submission: 06.07.2025 23:59
-- *"Presentation"*: 07. - 31. July
+- Final submission: 05.07.2026 23:59
+- _"Presentation"_: 06. - 31. July
 
+Early submission/presentation is possible! Get it over with so you can focus on other courses.
+
+---
+layout: cover
+background: ../public/idea-2.avif
+level: 2
+---
+
+# Submission
+
+Artifact: Code
+
+The project should be submitted as a Git repository. Teams submit only a single repository.
+
+- Link to the repository via Discord or email (benjamin@montazer.dev) until 05.07.2026 23:59 is sufficient.
+- Ensure that the repository is public or that I have read access to it.
+- The repository should contain a README.md file with instructions on how to install dependencies and how to run the application.
+- The README.md file must contain a list of all team members (Full Name + Matrikel-Nr).
+- Docker-Compose ensures that the application can be started with a single command.
+- **Required: Must** include a [Building Block View](https://www.montazer.dev/slides/6-architecture/5) of your application (image, PDF, SVG, anything a browser can display).
+
+---
+layout: cover
+background: ../public/idea-2.avif
+level: 2
+---
+
+# Submission
+
+Artifact: Presentation
+
+- Required for all teams!
+- Teams present their project via screensharing and answer some questions I might have.
+- Provide at least one preferred date and time to schedule a presentation - weekends are also possible.
+  - First come, first serve. I will try to accommodate your preferences as best as I can.
+  - Multiple date options or ranges increase the chances of getting a date that works for everyone.
+- Presentation should be about 10 - 20 minutes long, followed by a Q&A session.
+- Latest presentation date: 31.07.2025
+- I will need about 1 week advance notice to review your code.
+
+
+---
+layout: cover
+background: ../public/idea-2.avif
+level: 3
+---
+
+# Submission
+
+Artifact: Presentation
+
+The presentation should cover the following topics:
+- Architecture of the application (Building Block View)
+- Technologies used and why
+- Challenges faced and how they were overcome
+
+When arguing your case think of the [quality criteria](https://www.montazer.dev/slides/6-architecture/12?clicks=1) and how your design decisions impact those.
 
 ---
 level: 2
@@ -25,8 +83,8 @@ level: 2
 - The application should be responsive and work on mobile devices.
   - At least reading articles should work on mobile devices without horizontal scrolling.
   - Bonus: Responsive authoring of articles, comments, etc.
-- The application shall be called *"Conduit"*.
-  
+- The application shall be called _"Conduit"_.
+
 ## API Spec
 
 https://github.com/gothinkster/realworld/blob/6dc657a136a00b4f6441a5b4506b7e5712c79ebd/api/openapi.yml
@@ -89,7 +147,6 @@ As a reader I want to comment on articles, so that I can share my thoughts with 
 - The reader should be able to see all comments on an article.
   - Comments should be sorted by date of publication (newest first).
 - The reader should be able to delete their own comments.
-
 
 ---
 level: 2
@@ -169,7 +226,6 @@ As a user I want to log in, so that I can access my articles, comments, likes an
 - The user should be able to log out.
 - The user should be able to change their password.
 
-
 ---
 layout: two-cols-header-small
 level: 2
@@ -205,30 +261,3 @@ level: 2
   - Use middleware for authorization
 - Deployment shall be done using Docker and Docker Compose
   - `docker-compose up` should start the application with **all** its dependencies (DB, …)
-
-
----
-
-# Submission
-
-Artifact: Code
-
-The project should be submitted as a Git repository. Teams submit only a single repository.
-
-- Link to the repository via Discord or email (benjamin@montazer.dev) until 06.07.2025 23:59 is sufficient.
-- Ensure that the repository is public or that I have access to it.
-- The repository should contain a README.md file with instructions on how to install dependencies and how to run the application.
-- The README.md file must contain a list of all team members.
-- Docker-Compose ensures that the application can be started with a single command.
-
----
-
-# Submission
-
-Artifact: Presentation
-
-- Required for all teams!
-- Teams present their project via screensharing and answer some questions I might have.
-- Contact me via Guilded in July to schedule a presentation date - preferably on the weekends.
-- Latest presentation date: 31.07.2025
-- I will need about 1 week advance notice to review your code.

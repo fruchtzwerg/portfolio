@@ -1,5 +1,6 @@
 import { glob } from 'astro/loaders';
-import { z, defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
+import { defineCollection } from 'astro:content';
 
 const about = defineCollection({
   loader: glob({ base: './src/content/about', pattern: '**/[^_]*.{md,mdx,mdoc}' }),
@@ -15,7 +16,7 @@ const experience = defineCollection({
     caption: z.string(),
     tags: z.string().array(),
     nda: z.boolean().optional(),
-    href: z.string().url().optional(),
+    href: z.url().optional(),
     target: z.string().optional(),
   }),
 });

@@ -72,5 +72,8 @@
     "typescript-eslint": "^8.60.1",
     "unplugin-icons": "^22.5.0",
     "vite-plugin-static-copy": "^4.1.1"
+  },
+  "overrides": {
+    "vite": "^7.3.5"
   }
 }

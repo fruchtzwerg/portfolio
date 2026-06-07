@@ -1,0 +1,1 @@
+import{B as e,T as t,U as n,x as r,yt as i}from"../modules/shiki-0P62PTlc.js";import{h as a}from"../index-RZMgYA1x.js";var o=t({__name:`LightOrDark`,setup(t){return(t,o)=>(e(),r(`div`,null,[i(a)?n(t.$slots,`dark`,{key:0}):n(t.$slots,`light`,{key:1})]))}});export{o as t};

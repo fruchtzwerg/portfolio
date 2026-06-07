@@ -1,1 +1,0 @@
-import{f as s,z as o,i as e}from"../modules/vue-Dyc4g0IM.js";import{i as t}from"../index-BH5x73e7.js";const p=s({__name:"LightOrDark",setup(a){return(r,n)=>o(t)?e(r.$slots,"dark",{key:0}):e(r.$slots,"light",{key:1})}});export{p as _};

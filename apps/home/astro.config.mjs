@@ -59,10 +59,13 @@ export default defineConfig({
 
     plugins: [
       viteStaticCopy({
-        targets:
-          process.env.NODE_ENV !== 'development'
-            ? [{ src: '../slides/dist', dest: '.', rename: 'slides' }]
-            : [{ src: '../slides/dist', dest: '.' }],
+        targets: [
+          {
+            src: '../slides/dist',
+            dest: 'slides',
+            rename: { stripBase: 2 },
+          },
+        ],
       }),
 
       // visualizer(),
